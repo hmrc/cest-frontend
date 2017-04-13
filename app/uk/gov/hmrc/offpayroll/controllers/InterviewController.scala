@@ -28,10 +28,11 @@ import play.api.i18n.Messages.Implicits._
 import play.api.libs.json.{Format, Json}
 import play.api.mvc._
 import play.twirl.api.Html
+import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Event}
 import uk.gov.hmrc.offpayroll.filters.SessionIdFilter._
 import uk.gov.hmrc.offpayroll.models.{Decision, Element, GROUP, Webflow}
 import uk.gov.hmrc.offpayroll.services.{FlowService, IR35FlowService}
-import uk.gov.hmrc.offpayroll.util.{ElementProvider, InterviewSessionStack}
+import uk.gov.hmrc.offpayroll.util.{AnalyticsHelper, CompressedInterview, ElementProvider, InterviewSessionStack}
 import uk.gov.hmrc.offpayroll.util.InterviewSessionStack.{asMap, asRawList, push}
 
 import scala.concurrent.Future
@@ -173,6 +174,11 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
       val decision = maybeDecision.map(_.decision).getOrElse("decision is not known").toString
       val responseBody = Json.toJson(DecisionResponse(compressedInterview, esiOrIr35Route, version, correlationId, decision))
       Logger.info(s"DECISION: ${responseBody.toString.replaceAll("\"", "")}")
+
+      //fixme PlatformAnalyticsConnector needs to be wired in
+      //fixme use AnalyticsHelper to build request and post using the PlatformAnalyticsConnector
+//      AnalyticsHelper.buildAnalyticsRequest(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
+
       compressedInterview
     }
 }
