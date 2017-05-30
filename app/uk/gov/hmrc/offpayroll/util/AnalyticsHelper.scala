@@ -27,7 +27,8 @@ object AnalyticsHelper {
   private val CATEGORY = "off_payroll_data"
   private val ACTION = "end_of_interview"
   private val LABEL = "interview"
-  private val GA_CLIENT_ID = "GA1.4.423065377.1488473283" // fixme move to conf ???
+//  private val GA_CLIENT_ID = "GA1.4.423065377.1488473283" // fixme move to conf ???
+  private val GA_CLIENT_ID = "UA-43414424-24" // fixme move to conf ???
 
   def buildAnalyticsRequest(route: String, version: String, decision: String, interview: List[(String, List[String])]): AnalyticsRequest = {
     var index = 0
