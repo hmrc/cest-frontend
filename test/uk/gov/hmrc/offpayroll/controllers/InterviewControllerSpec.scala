@@ -22,11 +22,13 @@ import play.api.http.Status
 import play.api.mvc.{Request, Session}
 import play.api.test.FakeRequest
 import play.api.test.Helpers.{contentAsString, _}
+import uk.gov.hmrc.offpayroll.connectors.PlatformAnalyticsConnector
 import uk.gov.hmrc.offpayroll.models._
 import uk.gov.hmrc.offpayroll.resources.{partialInterview_hasContractStarted_Yes, _}
 import uk.gov.hmrc.offpayroll.services.{FlowService, IR35FlowService, InterviewEvaluation}
 import uk.gov.hmrc.offpayroll.util.{ElementProvider, InterviewSessionStack, InterviewStack}
-import uk.gov.hmrc.offpayroll.{FrontendDecisionConnector, WithTestFakeApplication}
+import uk.gov.hmrc.offpayroll.{FrontendDecisionConnector, FrontendPlatformAnalyticsConnector, WithTestFakeApplication}
+import uk.gov.hmrc.play.http.HttpPost
 import uk.gov.hmrc.play.test.{UnitSpec, WithFakeApplication}
 
 import scala.concurrent.Future
@@ -43,7 +45,7 @@ class InterviewControllerSpec extends UnitSpec with WithFakeApplication with Sca
   class TestSessionHelper extends SessionHelper {
     override def createCorrelationId(request: Request[_]): String = TEST_SESSION_ID
   }
-
+  
   class InstrumentedIR35FlowService extends IR35FlowService(new FrontendDecisionConnector) {
     var passedCorrelationId = ""
     override def evaluateInterview(interview: Map[String, String], currentQnA: (String, String), correlationId: String): Future[InterviewEvaluation] = {
@@ -81,7 +83,7 @@ class InterviewControllerSpec extends UnitSpec with WithFakeApplication with Sca
   "GET /cluster/ with Session Interview" should {
     "return 200" in {
 
-      val interviewController = new InterviewController(new TestFlowService, new TestSessionHelper)
+      val interviewController = new InterviewController(new TestFlowService, new TestSessionHelper, new FrontendPlatformAnalyticsConnector)
 
       val request = FakeRequest("GET", "/cluster/")
       val result = await(interviewController.begin.apply(request))
@@ -95,7 +97,7 @@ class InterviewControllerSpec extends UnitSpec with WithFakeApplication with Sca
       .withFormUrlEncodedBody(
         setup_endUserRolePersonDoingWork
       )
-      val result = new InterviewController(IR35FlowService(), new TestSessionHelper()).processElement(0, 0)(request).futureValue
+      val result = new InterviewController(IR35FlowService(), new TestSessionHelper(), new FrontendPlatformAnalyticsConnector).processElement(0, 0)(request).futureValue
       status(result) shouldBe Status.OK
       contentAsString(result) should include(setup_hasContractStarted)
     }
@@ -118,7 +120,7 @@ class InterviewControllerSpec extends UnitSpec with WithFakeApplication with Sca
         setup_endUserRolePersonDoingWork
       )
       val flowService = new InstrumentedIR35FlowService
-      val result = new InterviewController(flowService, new TestSessionHelper()).processElement(0, 0)(request).futureValue
+      val result = new InterviewController(flowService, new TestSessionHelper(), new FrontendPlatformAnalyticsConnector).processElement(0, 0)(request).futureValue
       status(result) shouldBe Status.OK
       contentAsString(result) should include(setup_hasContractStarted)
       flowService.passedCorrelationId shouldBe TEST_SESSION_ID

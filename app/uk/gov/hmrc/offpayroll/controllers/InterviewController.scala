@@ -28,7 +28,8 @@ import play.api.i18n.Messages.Implicits._
 import play.api.libs.json.{Format, Json}
 import play.api.mvc._
 import play.twirl.api.Html
-import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Event}
+import uk.gov.hmrc.offpayroll.FrontendPlatformAnalyticsConnector
+import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Event, PlatformAnalyticsConnector}
 import uk.gov.hmrc.offpayroll.filters.SessionIdFilter._
 import uk.gov.hmrc.offpayroll.models._
 import uk.gov.hmrc.offpayroll.services.{FlowService, FragmentService, IR35FlowService}
@@ -38,7 +39,8 @@ import uk.gov.hmrc.offpayroll.models.{Decision, Element, GROUP}
 import uk.gov.hmrc.offpayroll.services.{FlowService, IR35FlowService}
 import uk.gov.hmrc.offpayroll.util.{AnalyticsHelper, CompressedInterview, ElementProvider, InterviewSessionStack}
 import uk.gov.hmrc.offpayroll.util.InterviewSessionStack.{asMap, asRawList, push}
-
+import uk.gov.hmrc.offpayroll.util.AnalyticsHelper._
+import uk.gov.hmrc.play.http.HeaderCarrier
 
 import scala.concurrent.Future
 
@@ -81,11 +83,11 @@ class SessionHelper {
 
 object InterviewController {
   def apply() = {
-    new InterviewController(IR35FlowService(), new SessionHelper)
+    new InterviewController(IR35FlowService(), new SessionHelper, new FrontendPlatformAnalyticsConnector)
   }
 }
 
-class InterviewController @Inject()(val flowService: FlowService, val sessionHelper: SessionHelper) extends OffpayrollController {
+class InterviewController @Inject()(val flowService: FlowService, val sessionHelper: SessionHelper, val platformAnalyticsConnector: PlatformAnalyticsConnector) extends OffpayrollController {
 
   val flow: OffPayrollWebflow = flowService.flow
 
@@ -187,7 +189,7 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
         formWithErrors, element, fragmentService.getFragmentByName(element.questionTag))))
   }
 
-  private def evaluateInteview(element: Element, fieldName: String, formValue: String, form: Form[_])(implicit request : play.api.mvc.Request[_]) = {
+  private def evaluateInteview(element: Element, fieldName: String, formValue: String, form: Form[_])(implicit request : play.api.mvc.Request[_], hc:HeaderCarrier) = {
     Logger.debug("****************** " + fieldName + " " + form.data.toString() + " " + formValue)
     val correlationId = sessionHelper.createCorrelationId(request)
     val session = push(request.session, formValue, element)
@@ -219,7 +221,7 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
       }
   }
 
-  private def logResponse(maybeDecision: Option[Decision], session: Session, correlationId: String): String =
+  private def logResponse(maybeDecision: Option[Decision], session: Session, correlationId: String)(implicit hc:HeaderCarrier): String =
     session.get("interview").fold{Logger.error("interview is empty")
       ""} { compressedInterview =>
       val esiOrIr35Route = if (esi(asMap(session))) "ESI" else "IR35"
@@ -230,7 +232,9 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
 
       //fixme PlatformAnalyticsConnector needs to be wired in
       //fixme use AnalyticsHelper to build request and post using the PlatformAnalyticsConnector
-//      AnalyticsHelper.buildAnalyticsRequest(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
+      val analyticsRequest = buildAnalyticsRequest(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
+
+      platformAnalyticsConnector.sendEvent(analyticsRequest)
 
       compressedInterview
     }

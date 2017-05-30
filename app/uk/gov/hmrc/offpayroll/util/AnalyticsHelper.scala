@@ -23,11 +23,11 @@ import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Even
   */
 object AnalyticsHelper {
 
-  //FIXME these values are to be decided
-  private val CATEGORY = "opf_logging"
-  private val ACTION = "logging_begin"
-  private val LABEL = "begin"
-  private val GA_CLIENT_ID = "GA1.1.283183975.1456746121"
+  //FIXME move to application.conf ???
+  private val CATEGORY = "off_payroll_data"
+  private val ACTION = "end_of_interview"
+  private val LABEL = "interview"
+  private val GA_CLIENT_ID = "GA1.4.423065377.1488473283" // fixme move to conf ???
 
   def buildAnalyticsRequest(route: String, version: String, decision: String, interview: List[(String, List[String])]): AnalyticsRequest = {
     var index = 0
