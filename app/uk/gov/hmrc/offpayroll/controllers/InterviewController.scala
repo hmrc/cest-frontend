@@ -28,8 +28,12 @@ import play.api.i18n.Messages.Implicits._
 import play.api.libs.json.{Format, Json}
 import play.api.mvc._
 import play.twirl.api.Html
+<<<<<<< HEAD
 import uk.gov.hmrc.offpayroll.FrontendPlatformAnalyticsConnector
 import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Event, PlatformAnalyticsConnector}
+=======
+import uk.gov.hmrc.offpayroll.connectors.{AnalyticsRequest, DimensionValue, Event}
+>>>>>>> 03ac2d12f3b863af37d3781a05b0c5959a9cd05d
 import uk.gov.hmrc.offpayroll.filters.SessionIdFilter._
 import uk.gov.hmrc.offpayroll.models._
 import uk.gov.hmrc.offpayroll.services.{FlowService, FragmentService, IR35FlowService}

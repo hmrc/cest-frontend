@@ -45,7 +45,7 @@ class InterviewControllerSpec extends UnitSpec with WithFakeApplication with Sca
   class TestSessionHelper extends SessionHelper {
     override def createCorrelationId(request: Request[_]): String = TEST_SESSION_ID
   }
-  
+
   class InstrumentedIR35FlowService extends IR35FlowService(new FrontendDecisionConnector) {
     var passedCorrelationId = ""
     override def evaluateInterview(interview: Map[String, String], currentQnA: (String, String), correlationId: String): Future[InterviewEvaluation] = {
