@@ -21,25 +21,19 @@ import uk.gov.hmrc.offpayroll.connectors.DimensionValue
 
 class AnalyticsHelperSpec extends FlatSpec with Matchers {
 
-  "AnalyticsHelpe" should "build an AnalyticsRequest" in {
+  "AnalyticsHelper" should "build an AnalyticsRequest" in {
     val decision = "OUT"
     val version = "1.3.7-final"
     val route = "esi"
-    val analyticsRequest = AnalyticsHelper.buildAnalyticsRequest(route, version, decision, setUpInterview)
 
-    analyticsRequest.gaClientId.isEmpty shouldBe false
-    analyticsRequest.events.size shouldBe 1
-    val event = analyticsRequest.events.head
-    event.action.isEmpty shouldBe false
-    event.label.isEmpty  shouldBe false
-    event.category.isEmpty shouldBe false
+    val dimensionValues = AnalyticsHelper.buildDimensionValues(route, version, decision, setUpInterview)
 
-    event.dimensions.size shouldBe 23
-    event.dimensions(0).value shouldBe "version: "+version
-    event.dimensions(1).value shouldBe "route: "+route
-    event.dimensions(2).value shouldBe "decision: "+decision
-    event.dimensions.mkString.contains("personalService.workerPayActualSubstitute: No") shouldBe true
-    event.dimensions.mkString.contains("setup.endUserRole: setup.endUserRole.personDoingWork") shouldBe true
+    dimensionValues.size shouldBe 23
+    dimensionValues(0).value shouldBe "version: "+version
+    dimensionValues(1).value shouldBe "route: "+route
+    dimensionValues(2).value shouldBe "decision: "+decision
+    dimensionValues.mkString.contains("personalService.workerPayActualSubstitute: No") shouldBe true
+    dimensionValues.mkString.contains("setup.endUserRole: setup.endUserRole.personDoingWork") shouldBe true
 
   }
 

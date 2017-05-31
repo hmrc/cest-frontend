@@ -19,9 +19,11 @@ package uk.gov.hmrc.offpayroll.connectors
 import com.google.inject.ImplementedBy
 import play.api.Logger
 import play.api.libs.json.Json
+import play.api.mvc.Request
 import uk.gov.hmrc.offpayroll.FrontendPlatformAnalyticsConnector
 import uk.gov.hmrc.play.http.{HeaderCarrier, HttpPost}
 import uk.gov.hmrc.offpayroll.modelsFormat._
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 @ImplementedBy(classOf[FrontendPlatformAnalyticsConnector])

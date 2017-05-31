@@ -25,7 +25,7 @@ import play.api.data.Forms._
 import play.api.data._
 import play.api.data.validation.Constraint
 import play.api.i18n.Messages.Implicits._
-import play.api.libs.json.{Format, Json}
+import play.api.libs.json.{Format, Json, Writes}
 import play.api.mvc._
 import play.twirl.api.Html
 import uk.gov.hmrc.offpayroll.FrontendPlatformAnalyticsConnector
@@ -41,6 +41,7 @@ import uk.gov.hmrc.offpayroll.util.{AnalyticsHelper, CompressedInterview, Elemen
 import uk.gov.hmrc.offpayroll.util.InterviewSessionStack.{asMap, asRawList, push}
 import uk.gov.hmrc.offpayroll.util.AnalyticsHelper._
 import uk.gov.hmrc.play.http.HeaderCarrier
+import uk.gov.hmrc.offpayroll.modelsFormat._
 
 import scala.concurrent.Future
 
@@ -202,7 +203,7 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
           form, interviewEvaluation.element.head, fragmentService.getFragmentByName(interviewEvaluation.element.head.questionTag)))
             .withSession(InterviewSessionStack.addCurrentIndex(session, interviewEvaluation.element.head))
         } else {
-	        val compressedInterview= logResponse(interviewEvaluation.decision, session, correlationId)
+	        val compressedInterview= logResponse(interviewEvaluation.decision, session, correlationId, request)
           val fragments = fragmentService.getAllFragmentsForInterview(asMap(session)) ++ fragmentService.getFragmentsByFilenamePrefix("result")
           val isEsi = esi(asMap(session))
           val resultPageHelper = ResultPageHelper(asRawList(session), interviewEvaluation.decision.map(_.decision).getOrElse(UNKNOWN),
@@ -221,7 +222,16 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
       }
   }
 
-  private def logResponse(maybeDecision: Option[Decision], session: Session, correlationId: String)(implicit hc:HeaderCarrier): String =
+
+  private val CATEGORY = "off_payroll_data"
+  private val ACTION = "end_of_interview"
+  private val LABEL = "interview"
+
+
+  //    val event = Event(CATEGORY, ACTION, LABEL, dimensionValues)
+  //    AnalyticsRequest(gaClientId, List(event))
+
+  private def logResponse(maybeDecision: Option[Decision], session: Session, correlationId: String, request : play.api.mvc.Request[_])(implicit hc:HeaderCarrier): String =
     session.get("interview").fold{Logger.error("interview is empty")
       ""} { compressedInterview =>
       val esiOrIr35Route = if (esi(asMap(session))) "ESI" else "IR35"
@@ -232,12 +242,19 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
 
       //fixme PlatformAnalyticsConnector needs to be wired in
       //fixme use AnalyticsHelper to build request and post using the PlatformAnalyticsConnector
-      val analyticsRequest = buildAnalyticsRequest(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
+      val dimensionValues = buildDimensionValues(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
 
-      platformAnalyticsConnector.sendEvent(analyticsRequest)
+//      platformAnalyticsConnector.sendEvent(analyticsRequest)
+
+      clientId(request).fold(Logger.warn(s"Couldn't get _ga cookie from request $request")) {
+        clientId => platformAnalyticsConnector.sendEvent(AnalyticsRequest(clientId, Seq(Event(CATEGORY, ACTION, LABEL, dimensionValues))))
+      }
 
       compressedInterview
     }
+
+  private def clientId(request: Request[Any]) = request.cookies.get("_ga").map(_.value)
+
 }
 
 case class DecisionResponse(interview:String, esiOrIr35Route: String,version:String, correlationID:String, decision: String)
@@ -245,3 +262,4 @@ case class DecisionResponse(interview:String, esiOrIr35Route: String,version:Str
 object DecisionResponse {
   implicit val decisionResponseFormat: Format[DecisionResponse] = Json.format[DecisionResponse]
 }
+
