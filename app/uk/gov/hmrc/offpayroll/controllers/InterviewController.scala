@@ -244,10 +244,9 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
       //fixme use AnalyticsHelper to build request and post using the PlatformAnalyticsConnector
       val dimensionValues = buildDimensionValues(esiOrIr35Route, version, decision, CompressedInterview(compressedInterview).asRawList)
 
-//      platformAnalyticsConnector.sendEvent(analyticsRequest)
-
       clientId(request).fold(Logger.warn(s"Couldn't get _ga cookie from request $request")) {
         clientId => platformAnalyticsConnector.sendEvent(AnalyticsRequest(clientId, Seq(Event(CATEGORY, ACTION, LABEL, dimensionValues))))
+          Logger.info(s"successfully sent platform analytics request $request")
       }
 
       compressedInterview
