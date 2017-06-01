@@ -15,7 +15,7 @@ This is a placeholder README.md for a new repository.
 
 
 ## Running the application
-To run the application with PDF Generation off:
+To run the application with PDF Generation off: ß
 
 ```
 sbt "run 9843"
