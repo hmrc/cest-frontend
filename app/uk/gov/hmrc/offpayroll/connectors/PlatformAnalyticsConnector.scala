@@ -37,8 +37,8 @@ trait PlatformAnalyticsConnector {
   val http: HttpPost
 
   def sendEvent(request: AnalyticsRequest)(implicit hc:HeaderCarrier): Unit =  {
-    http.POST(serviceURL, request).recover {
-      case t : Throwable => Logger.error(s"Couldn't send analytics event $request")
+    http.POST(serviceURL, request).map(_ => ()).recover {
+      case e: Exception => Logger.error(s"Couldn't send analytics event $request", e)
     }
   }
 

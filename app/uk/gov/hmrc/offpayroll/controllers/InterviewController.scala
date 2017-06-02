@@ -227,10 +227,6 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
   private val ACTION = "end_of_interview"
   private val LABEL = "interview"
 
-
-  //    val event = Event(CATEGORY, ACTION, LABEL, dimensionValues)
-  //    AnalyticsRequest(gaClientId, List(event))
-
   private def logResponse(maybeDecision: Option[Decision], session: Session, correlationId: String, request : play.api.mvc.Request[_])(implicit hc:HeaderCarrier): String =
     session.get("interview").fold{Logger.error("interview is empty")
       ""} { compressedInterview =>
@@ -248,7 +244,7 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
         clientId =>
           val analyticsRequest = AnalyticsRequest(clientId, Seq(Event(CATEGORY, ACTION, LABEL, dimensionValues)))
           platformAnalyticsConnector.sendEvent(analyticsRequest)
-          Logger.info(s"successfully sent platform analytics request $analyticsRequest")
+          Logger.info(s"successfully sent platform analytics request [$analyticsRequest]")
       }
 
       compressedInterview
