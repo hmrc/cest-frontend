@@ -125,6 +125,10 @@ class InterviewController @Inject()(val flowService: FlowService, val sessionHel
   def checkElementIndex(message: String, maybeElement: Option[Element])(f: Element => Future[Result])(implicit request: Request[_]): Future[Result] = {
     val indexElement = InterviewSessionStack.currentIndex(request.session)
     def start: Future[Result] = {
+      Logger.debug(s"user agent: ${request.headers.toMap.get("User-Agent")}")
+      Logger.debug(s"interview: ${asRawList(request.session)}")
+      Logger.debug(s"current element: ${maybeElement.getOrElse("no element").toString}")
+
       Future.successful(Redirect(routes.InterviewController.begin))
     }
     maybeElement.fold {
