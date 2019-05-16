@@ -922,3 +922,14 @@ result.substitutesAndHelpers.summary=Rydym yn gofyn y cwestiynau hyn er mwyn cae
 result.workArrangements.summary=Rydym yn gofyn y cwestiynau hyn er mwyn cael gwybod faint o hawl sydd gan y cleient terfynol i reoli’r hyn y mae’r gweithiwr yn ei wneud yn ystod y swydd hon. Os oes gan y cleient terfynol yr hawl i reoli, byddai hynny’n awgrymu bod yr arferion gwaith yn debyg i’r rheiny a ddilynir gan gyflogai.
 result.financialRisk.summary=Rydym yn gofyn y cwestiynau hyn er mwyn canfod lefel y risg ariannol sy’n rhaid i’r gweithiwr fentro iddi yn ystod y swydd hon. Mae gweithwyr nad ydynt yn mentro’u harian eu hunain drwy, er enghraifft, brynu asedion neu dalu am orbenion a deunyddiau, yn fwy tebygol o fod yn gyflogedig at ddibenion treth.
 result.partParcel.summary=Rydym yn gofyn y cwestiynau hyn er mwyn cael gwybod i ba raddau y mae’r gweithiwr wedi’i integreiddio i mewn i sefydliad y cleient terfynol. Mae gweithwyr sy’n cael buddiannau, sy’n gyfrifol am fod yn rheolwr llinell ar bobl eraill, ac sy’n rhoi’r argraff eu bod yn gweithio i’r cleient terfynol, yn fwy tebygol o fod yn gyflogedig at ddibenion treth.
+
+
+
+
+########## OPTIMISED FLOW MESSAGES START ############
+# --------------------------------------------------#
+
+##### TODO NEED WELSH FOR ####
+aboutYourResult.heading = About your result
+aboutYourResult.p1 = HMRC will stand by the result given, unless a compliance check finds the information you’ve provided isn’t accurate.
+aboutYourResult.p2 = HMRC won’t stand by results achieved through contrived arrangements, designed to get a particular outcome from the service. This would be treated as evidence of deliberate non-compliance with associated higher penalties.
