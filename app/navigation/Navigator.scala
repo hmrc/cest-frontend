@@ -150,19 +150,14 @@ class Navigator @Inject()(implicit appConfig: FrontendAppConfig) extends Feature
     LineManagerDutiesPage -> (_ => partParcelRoutes.InteractWithStakeholdersController.onPageLoad(NormalMode)),
     InteractWithStakeholdersPage -> { answer =>
       answer.get(InteractWithStakeholdersPage) match {
-        case Some(ans) if ans.answer => println("a")
-          partParcelRoutes.IdentifyToStakeholdersController.onPageLoad(NormalMode)
-        case Some(ans) if !ans.answer && isEnabled(OptimisedFlow) => println("b")
-          routes.CheckYourAnswersController.onPageLoad()
-        case _ => println("c")
-          routes.ResultController.onPageLoad()
+        case Some(ans) if ans.answer => partParcelRoutes.IdentifyToStakeholdersController.onPageLoad(NormalMode)
+        case Some(ans) if !ans.answer && isEnabled(OptimisedFlow) => routes.CheckYourAnswersController.onPageLoad()
+        case _ => routes.ResultController.onPageLoad()
       }},
     IdentifyToStakeholdersPage -> (_ =>
       if (isEnabled(OptimisedFlow)) {
-        println("1")
         routes.CheckYourAnswersController.onPageLoad()
       } else {
-        println("2")
         routes.ResultController.onPageLoad()
     }),
 
