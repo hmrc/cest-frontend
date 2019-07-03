@@ -25,3 +25,4 @@ To check the latest dependency versions:
 sbt dependencyUpdates
 
 ```
+
