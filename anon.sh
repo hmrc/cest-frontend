@@ -4,6 +4,9 @@
 rm repository.yaml
 mv public_repo_yaml repository.yaml
 
+# Delete this script
+rm anon.sh
+
 # Commit the change
 git add .
 git commit -m "Private yaml to public"
