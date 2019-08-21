@@ -90,7 +90,10 @@ contractStarted.title = Has the worker already started this particular engagemen
 contractStarted.heading = Has the worker already started this particular engagement for the end client?
 contractStarted.subheading = About the people involved
 contractStarted.checkYourAnswersLabel = Has the worker already started this particular engagement for the end client?
+
 contractStarted.error.required = You need to select an answer
+hirer.contractStarted.error.required = Select yes if the worker has already started working for your organisation
+worker.contractStarted.error.required = Select yes if you have already started working for this client
 
 worker.contractStarted.title = Have you already started this particular engagement for the end client?
 worker.contractStarted.heading = Have you already started this particular engagement for the end client?
@@ -157,6 +160,8 @@ officeHolder.bullet3 = the role exists even if someone is not engaged to fill it
 officeHolder.exclamation =  If you are not sure if these things apply, please ask the end client’s management about their organisational structure.
 officeHolder.checkYourAnswersLabel = Will the worker (or their business) perform office holder duties for the end client as part of this engagement?
 officeHolder.error.required = You need to select an answer
+worker.officeHolder.error.required = Select yes if you will be an Office Holder
+hirer.officeHolder.error.required = Select yes if the worker will be an Office Holder
 
 worker.officeHolder.title = Will you perform office holder duties for the end client as part of this engagement?
 worker.officeHolder.heading = Will you perform office holder duties for the end client as part of this engagement?
@@ -1184,7 +1189,8 @@ whichDescribesYou.worker.ir35 = If a contract you’re working on, or could be w
 whichDescribesYou.client.ir35 = If a contract your organisation is offering is within the off-payroll working rules (IR35)
 whichDescribesYou.agency = If a contract your agency is recruiting for is within the off-payroll working rules (IR35)
 whichDescribesYou.error.required = You need to select an answer
-whichDescribesYou.error.invalid = You need to select an answer
+worker.whichDescribesYou.error.required = Select what you want to find out
+hirer.whichDescribesYou.error.required = Select what you want to find out
 
 agencyAdvisory.title = You don’t need to determine if the off-payroll rules (IR35) apply to this work
 agencyAdvisory.heading = You don’t need to determine if the off-payroll rules (IR35) apply to this work
@@ -1205,7 +1211,9 @@ leave.heading = You have now left the tool
 
 
 workerUsingIntermediary.error.required = You need to select an answer
-workerUsingIntermediary.error.invalid = You need to select an answer
+worker.workerUsingIntermediary.error.required = Select yes if you are trading through a limited company, partnership or unincorporated body
+hirer.workerUsingIntermediary.error.required = Select yes if the worker is trading through a limited company, partnership or unincorporated body
+
 worker.workerUsingIntermediary.title = Are you trading through a limited company, partnership or unincorporated body?
 worker.workerUsingIntermediary.heading = Are you trading through a limited company, partnership or unincorporated body?
 worker.workerUsingIntermediary.checkYourAnswersLabel = Are you trading through a limited company, partnership or unincorporated body?

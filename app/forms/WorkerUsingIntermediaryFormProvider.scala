@@ -16,16 +16,17 @@
 
 package forms
 
+import config.FrontendAppConfig
 import javax.inject.Inject
-
 import forms.mappings.Mappings
 import play.api.data.Form
-import models.WorkerType
+import play.api.mvc.Request
+import forms.FormUtil._
 
-class WorkerUsingIntermediaryFormProvider @Inject() extends Mappings {
+class WorkerUsingIntermediaryFormProvider @Inject()(implicit appConfig: FrontendAppConfig) extends Mappings {
 
-  def apply(): Form[Boolean] =
+  def apply()(implicit request: Request[_]): Form[Boolean] =
     Form(
-      "value" -> boolean("workerUsingIntermediary.error.required")
+      "value" -> boolean(tailorErrorMessage("workerUsingIntermediary.error.required"))
     )
 }

@@ -16,15 +16,18 @@
 
 package forms
 
+import config.FrontendAppConfig
 import forms.mappings.Mappings
 import javax.inject.Inject
 import models.WhichDescribesYouAnswer
 import play.api.data.Form
+import play.api.mvc.Request
+import forms.FormUtil._
 
-class WhichDescribesYouFormProvider @Inject() extends Mappings {
+class WhichDescribesYouFormProvider @Inject()(implicit appConfig: FrontendAppConfig) extends Mappings {
 
-  def apply(): Form[WhichDescribesYouAnswer] =
+  def apply()(implicit request: Request[_]): Form[WhichDescribesYouAnswer] =
     Form(
-      "value" -> enumerable[WhichDescribesYouAnswer]("whichDescribesYou.error.required", "whichDescribesYou.error.invalid")
+      "value" -> enumerable[WhichDescribesYouAnswer](tailorErrorMessage("whichDescribesYou.error.required"))
     )
 }

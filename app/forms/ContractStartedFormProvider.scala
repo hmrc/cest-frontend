@@ -16,15 +16,19 @@
 
 package forms
 
-import javax.inject.Inject
 
+import javax.inject.Inject
 import forms.mappings.Mappings
 import play.api.data.Form
 
-class ContractStartedFormProvider @Inject() extends Mappings {
+import forms.FormUtil._
+import play.api.mvc.Request
+import config.FrontendAppConfig
 
-  def apply(): Form[Boolean] =
+class ContractStartedFormProvider @Inject()(implicit appConfig: FrontendAppConfig) extends Mappings {
+
+  def apply()(implicit request: Request[_]): Form[Boolean] =
     Form(
-      "value" -> boolean("contractStarted.error.required")
+      "value" -> boolean(tailorErrorMessage("contractStarted.error.required"))
     )
 }

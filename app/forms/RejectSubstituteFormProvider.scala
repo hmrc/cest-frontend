@@ -21,11 +21,14 @@ import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
 import javax.inject.Inject
 import forms.mappings.Mappings
 import play.api.data.Form
+import forms.FormUtil._
+import play.api.mvc.Request
+import config.FrontendAppConfig
 
 class RejectSubstituteFormProvider @Inject()(implicit val appConfig: FrontendAppConfig) extends Mappings with FeatureSwitching {
 
-  def apply(): Form[Boolean] =
+  def apply()(implicit request: Request[_]): Form[Boolean] =
     Form(
-      "value" -> boolean("rejectSubstitute.error.required")
+      "value" -> boolean(tailorErrorMessage("rejectSubstitute.error.required"))
     )
 }

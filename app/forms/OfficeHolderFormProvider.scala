@@ -21,10 +21,18 @@ import javax.inject.Inject
 import forms.mappings.Mappings
 import play.api.data.Form
 
-class OfficeHolderFormProvider @Inject() extends Mappings {
+import forms.FormUtil._
+import play.api.mvc.Request
+import config.FrontendAppConfig
 
-  def apply(): Form[Boolean] =
+
+
+
+
+class OfficeHolderFormProvider @Inject()(implicit appConfig: FrontendAppConfig) extends Mappings {
+
+  def apply()(implicit request: Request[_]): Form[Boolean] =
     Form(
-      "value" -> boolean("officeHolder.error.required")
+      "value" -> boolean(tailorErrorMessage("officeHolder.error.required"))
     )
 }
