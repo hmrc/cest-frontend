@@ -34,11 +34,6 @@ trait MockDecisionConnector extends MockFactory {
       .returns(Future.successful(response))
   }
 
-  def mockDecideNew(decisionRequest: Interview, writes: Writes[Interview] = NewInterview.writes)(response: Either[ErrorResponse, DecisionResponse]): Unit = {
-    (mockDecisionConnector.decideNew(_: Interview, _: Writes[Interview])(_: HeaderCarrier, _: ExecutionContext))
-      .expects(decisionRequest, *,  *, *)
-      .returns(Future.successful(response))
-  }
 
   def mockLog(decisionRequest: Interview, decisionResponse: DecisionResponse)(response: Either[ErrorResponse, Boolean]): Unit ={
     (mockDecisionConnector.log(_: Interview, _: DecisionResponse)(_: HeaderCarrier, _: ExecutionContext))

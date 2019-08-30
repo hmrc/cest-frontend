@@ -25,7 +25,7 @@ import play.api.i18n.{Messages, MessagesApi}
 import play.api.inject.bind
 import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.mvc.MessagesControllerComponents
-import repositories.FakeParallelRunningRepository
+
 
 import scala.concurrent.ExecutionContext
 import scala.language.implicitConversions

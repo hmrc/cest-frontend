@@ -34,7 +34,7 @@ package services
 
 import base.{GuiceAppSpecBase, SpecBase}
 import config.SessionKeys
-import config.featureSwitch.{CallNewDecisionService, FeatureSwitching}
+import config.featureSwitch.{FeatureSwitching}
 import connectors.mocks.{MockDataCacheConnector, MockDecisionConnector}
 import forms.{DeclarationFormProvider, DownloadPDFCopyFormProvider}
 import handlers.mocks.MockErrorHandler
@@ -133,24 +133,9 @@ class OptimisedDecisionServiceSpec extends GuiceAppSpecBase with MockDecisionCon
 
     "give a valid result" when {
 
-      "every decision call is successful for the new decision service" in {
-
-        enable(CallNewDecisionService)
-
-        implicit val dataRequest: DataRequest[AnyContent] = DataRequest(fakeRequest, "", userAnswers)
-
-        mockDecideNew(Interview(userAnswers))(Right(DecisionResponse("", "", Score(), ResultEnum.INSIDE_IR35)))
-        mockLog(Interview(userAnswers), DecisionResponse("", "", Score(), ResultEnum.INSIDE_IR35))(Right(true))
-
-
-        whenReady(service.collateDecisions) { res =>
-          res.right.get.result mustBe ResultEnum.INSIDE_IR35
-        }
-      }
 
       "every decision call is successful" in {
 
-        disable(CallNewDecisionService)
 
         implicit val dataRequest: DataRequest[AnyContent] = DataRequest(fakeRequest, "", userAnswers)
 
@@ -184,22 +169,9 @@ class OptimisedDecisionServiceSpec extends GuiceAppSpecBase with MockDecisionCon
 
     "return an error" when {
 
-      "an error is returned" in {
-
-        enable(CallNewDecisionService)
-
-        implicit val dataRequest: DataRequest[AnyContent] = DataRequest(fakeRequest, "", userAnswers)
-
-        mockDecideNew(Interview(userAnswers))(Left(ErrorResponse(INTERNAL_SERVER_ERROR, s"HTTP exception returned from decision API")))
-
-        whenReady(service.collateDecisions) { res =>
-          res.left.get mustBe an[ErrorResponse]
-        }
-      }
 
       "personal service decision call returns a Left" in {
 
-        disable(CallNewDecisionService)
 
         implicit val dataRequest: DataRequest[AnyContent] = DataRequest(fakeRequest, "", userAnswers)
 

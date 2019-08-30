@@ -25,7 +25,7 @@ import play.api.mvc._
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.api.{Application, Configuration}
-import repositories.{FakeParallelRunningRepository, ParallelRunningRepository}
+
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -40,7 +40,6 @@ class WhitelistFilterSpec extends GuiceAppSpecBase {
   override implicit lazy val app: Application =
     new GuiceApplicationBuilder()
       .overrides(bind[DataCacheConnector].to[FakeDataCacheConnector])
-      .overrides(bind[ParallelRunningRepository].to[FakeParallelRunningRepository])
       .configure(Configuration(
         "whitelist.enabled" -> true
       ))

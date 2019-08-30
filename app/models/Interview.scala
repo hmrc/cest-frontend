@@ -204,6 +204,13 @@ object Interview extends JsonObjectSugar with FeatureSwitching {
           "workerAsLineManager" -> model.workerAsLineManager,
           "contactWithEngagerCustomer" -> model.contactWithEngagerCustomer,
           "workerRepresentsEngagerBusiness" -> model.workerRepresentsEngagerBusiness
+        ),
+        "businessOnOwnAccount" -> jsonObjNoNulls(
+          "exclusiveContract" -> model.exclusiveContract,
+          "transferRights" -> model.transferRights,
+          "multipleEngagements" -> model.multipleEngagements,
+          "significantWorkingTime" -> model.significantWorkingTime,
+          "seriesOfContracts" -> model.seriesOfContracts
         )
       )
     )

@@ -36,7 +36,7 @@ import models._
 import models.logging.LogInterview
 import play.api.libs.json.Json
 import play.mvc.Http.Status
-import repositories.FakeParallelRunningRepository
+
 
 import scala.concurrent.Future
 
@@ -52,7 +52,7 @@ class DecisionConnectorSpec extends GuiceAppSpecBase with MockHttp with MockServ
     override def timestamp(time: Option[String]): String = s"01 January 2019, 00:00:00"
   }
 
-  object TestDecisionConnector extends DecisionConnector(mockHttp, servicesConfig, frontendAppConfig, MockDateTimeUtil, new FakeParallelRunningRepository, FakeTimestamp)
+  object TestDecisionConnector extends DecisionConnector(mockHttp, servicesConfig, frontendAppConfig, MockDateTimeUtil, FakeTimestamp)
 
   val emptyInterviewModel: Interview = Interview(
     "12345"
@@ -205,17 +205,6 @@ class DecisionConnectorSpec extends GuiceAppSpecBase with MockHttp with MockServ
       clientResponse mustBe response
     }
 
-    "return a decision based on the populated interview and the new decision service" in {
-      val response = Right(DecisionResponse("1.5.0-final", "12345",
-        Score(Some(SetupEnum.CONTINUE), Some(ExitEnum.CONTINUE), Some(HIGH),Some(LOW),Some(LOW),Some(LOW)),
-        SELF_EMPLOYED
-      ))
-
-      setupMockHttpPost(TestDecisionConnector.decideUrl + "/new", interviewModel)(Future.successful(response))
-
-      val clientResponse = await(TestDecisionConnector.decideNew(interviewModel))
-      clientResponse mustBe response
-    }
 
     "return a decision based on the personal service section (writesPersonalService)" in {
       val response = Right(DecisionResponse("1.0.0-beta", "12345",
