@@ -72,7 +72,7 @@ class OptimisedDecisionService @Inject()(decisionConnector: DecisionConnector,
                           additionalPdfDetails: Option[AdditionalPdfDetails] = None,
                           timestamp: Option[String] = None,
                           decisionVersion: Option[String] = None)
-                         (implicit request: DataRequest[_], hc: HeaderCarrier, messages: Messages): Future[Either[Html, Html]] = {
+                         (implicit request: DataRequest[_], hc: HeaderCarrier, messages: Messages): Future[Either[Html, (Html,ResultEnum.Value)]] = {
 
     val form = formWithErrors.getOrElse(defaultForm)
 
@@ -105,9 +105,11 @@ class OptimisedDecisionService @Inject()(decisionConnector: DecisionConnector,
         )
 
         decision.result match {
-          case ResultEnum.INSIDE_IR35 | ResultEnum.EMPLOYED => Right(routeInside)
-          case ResultEnum.OUTSIDE_IR35 | ResultEnum.SELF_EMPLOYED => Right(routeOutside)
-          case ResultEnum.UNKNOWN => Right(routeUndetermined)
+          case ResultEnum.INSIDE_IR35 => Right(routeInside,ResultEnum.INSIDE_IR35)
+          case ResultEnum.EMPLOYED => Right(routeInside,ResultEnum.EMPLOYED)
+          case ResultEnum.OUTSIDE_IR35 => Right(routeOutside,ResultEnum.OUTSIDE_IR35)
+          case ResultEnum.SELF_EMPLOYED => Right(routeOutside,ResultEnum.SELF_EMPLOYED)
+          case ResultEnum.UNKNOWN => Right(routeUndetermined,ResultEnum.UNKNOWN)
           case ResultEnum.NOT_MATCHED => Logger.error("[OptimisedDecisionService][determineResultView]: NOT MATCHED final decision")
             Left(errorHandler.internalServerErrorTemplate)
         }

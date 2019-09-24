@@ -16,12 +16,13 @@
 
 package controllers
 
-import config.FrontendAppConfig
+import config.{FrontendAppConfig, SessionKeys}
 import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
 import connectors.DataCacheConnector
 import controllers.actions._
 import forms.{DeclarationFormProvider, DownloadPDFCopyFormProvider}
 import javax.inject.Inject
+
 import models.requests.DataRequest
 import models.{NormalMode, Timestamp, UserAnswers}
 import navigation.CYANavigator
@@ -65,7 +66,7 @@ class ResultController @Inject()(identify: IdentifierAction,
     dataCacheConnector.save(timestamp.cacheMap).flatMap { _ =>
       if(isEnabled(OptimisedFlow)){
         optimisedDecisionService.determineResultView().map {
-          case Right(result) => Ok(result)
+          case Right(result) => Ok(result._1).addingToSession((SessionKeys.result,result._2.toString))
           case Left(err) => InternalServerError(err)
         }
       } else {
