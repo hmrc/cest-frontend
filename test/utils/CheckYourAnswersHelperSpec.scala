@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -482,64 +483,6 @@ class CheckYourAnswersHelperSpec extends GuiceAppSpecBase with Enumerable.Implic
               answerIsMessageKey = true,
               changeUrl = Some(controlRoutes.HowWorkIsDoneController.onPageLoad(CheckMode).url),
               changeContextMsgKey = Some(s"optimised.$HowWorkIsDonePage.changeLinkContext")
-            ))
-        }
-      }
-    }
-  }
-
-  ".interactWithStakeholders" when {
-
-    "there is no answer in the cacheMap" should {
-
-      "Return None" in {
-        new CheckYourAnswersHelper(UserAnswers("id")).interactWithStakeholders mustBe None
-      }
-    }
-
-    "there is an answer in the cacheMap" should {
-
-      "the user is of type worker" should {
-
-        "Return correctly formatted answer row" in {
-          val cacheMap = UserAnswers("id").set(InteractWithStakeholdersPage, 1, true)
-          new CheckYourAnswersHelper(cacheMap).interactWithStakeholders(messages, workerRequest, frontendAppConfig) mustBe
-            Some(AnswerRow(
-              label = s"$Worker.optimised.$InteractWithStakeholdersPage.checkYourAnswersLabel",
-              answer = "site.yes",
-              answerIsMessageKey = true,
-              changeUrl = Some(partParcelRoutes.InteractWithStakeholdersController.onPageLoad(CheckMode).url),
-              changeContextMsgKey = Some(s"$Worker.optimised.$InteractWithStakeholdersPage.changeLinkContext")
-            ))
-        }
-      }
-
-      "the user is of type hirer" should {
-
-        "Return correctly formatted answer row" in {
-          val cacheMap = UserAnswers("id").set(InteractWithStakeholdersPage, 1, true)
-          new CheckYourAnswersHelper(cacheMap).interactWithStakeholders(messages, hirerRequest, frontendAppConfig) mustBe
-            Some(AnswerRow(
-              label = s"$Hirer.optimised.$InteractWithStakeholdersPage.checkYourAnswersLabel",
-              answer = "site.yes",
-              answerIsMessageKey = true,
-              changeUrl = Some(partParcelRoutes.InteractWithStakeholdersController.onPageLoad(CheckMode).url),
-              changeContextMsgKey = Some(s"$Hirer.optimised.$InteractWithStakeholdersPage.changeLinkContext")
-            ))
-        }
-      }
-
-      "the user is of type is not set" should {
-
-        "Return correctly formatted answer row" in {
-          val cacheMap = UserAnswers("id").set(InteractWithStakeholdersPage, 1, true)
-          new CheckYourAnswersHelper(cacheMap).interactWithStakeholders(messages, fakeRequest, frontendAppConfig) mustBe
-            Some(AnswerRow(
-              label = s"optimised.$InteractWithStakeholdersPage.checkYourAnswersLabel",
-              answer = "site.yes",
-              answerIsMessageKey = true,
-              changeUrl = Some(partParcelRoutes.InteractWithStakeholdersController.onPageLoad(CheckMode).url),
-              changeContextMsgKey = Some(s"optimised.$InteractWithStakeholdersPage.changeLinkContext")
             ))
         }
       }

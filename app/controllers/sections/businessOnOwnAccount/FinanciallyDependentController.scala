@@ -25,9 +25,8 @@ import javax.inject.Inject
 import models.Mode
 import navigation.BusinessOnOwnAccountNavigator
 import pages.sections.businessOnOwnAccount.FinanciallyDependentPage
-import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CompareAnswerService, DecisionService}
+import services.CompareAnswerService
 import views.html.sections.businessOnOwnAccount.FinanciallyDependentView
 
 import scala.concurrent.Future
@@ -40,10 +39,10 @@ class FinanciallyDependentController @Inject()(dataCacheConnector: DataCacheConn
                                                formProvider: FinanciallyDependentFormProvider,
                                                controllerComponents: MessagesControllerComponents,
                                                compareAnswerService: CompareAnswerService,
-                                               decisionService: DecisionService,
+
                                                view: FinanciallyDependentView,
                                                implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) {
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(fillForm(FinanciallyDependentPage, formProvider()), mode))

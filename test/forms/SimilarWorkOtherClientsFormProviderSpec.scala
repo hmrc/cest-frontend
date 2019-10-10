@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.businessOnOwnAccount.SimilarWorkOtherClientsFormProvider
 import play.api.data.FormError
@@ -41,7 +41,7 @@ class SimilarWorkOtherClientsFormProviderSpec extends BooleanFieldBehaviours wit
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new SimilarWorkOtherClientsFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class SimilarWorkOtherClientsFormProviderSpec extends BooleanFieldBehaviours wit
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new SimilarWorkOtherClientsFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class SimilarWorkOtherClientsFormProviderSpec extends BooleanFieldBehaviours wit
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new SimilarWorkOtherClientsFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

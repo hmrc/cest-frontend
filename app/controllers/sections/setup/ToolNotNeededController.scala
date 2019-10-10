@@ -27,7 +27,7 @@ import models.sections.setup.WhichDescribesYouAnswer.ClientPAYE
 import navigation.SetupNavigator
 import pages.sections.setup.WhichDescribesYouPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CompareAnswerService}
 import views.html.sections.setup.ToolNotNeededView
 
 class ToolNotNeededController @Inject()(identify: IdentifierAction,
@@ -38,10 +38,9 @@ class ToolNotNeededController @Inject()(identify: IdentifierAction,
                                         checkYourAnswersService: CheckYourAnswersService,
                                         compareAnswerService: CompareAnswerService,
                                         dataCacheConnector: DataCacheConnector,
-                                        decisionService: DecisionService,
                                         navigator: SetupNavigator,
                                         implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) with FeatureSwitching {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching {
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(request.userAnswers.get(WhichDescribesYouPage).fold[WhichDescribesYouAnswer](ClientPAYE){ answerModel =>

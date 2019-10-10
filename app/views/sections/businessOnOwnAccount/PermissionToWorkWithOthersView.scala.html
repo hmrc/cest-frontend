@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("permissionToWorkWithOthers.title"), Some(tailorMsg("permissionToWorkWithOthers.subheading"))),
+    title = title(form, tailorMsgOptimised("permissionToWorkWithOthers.title"), Some(tailorMsgOptimised("permissionToWorkWithOthers.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -38,8 +38,8 @@
         @components.input_yes_no(
             field = form("value"),
             legend = components.heading(
-                tailorMsg("permissionToWorkWithOthers.heading"),
-                Some(tailorMsg("permissionToWorkWithOthers.subheading")),
+                tailorMsgOptimised("permissionToWorkWithOthers.heading"),
+                Some(tailorMsgOptimised("permissionToWorkWithOthers.subheading")),
                 asLegend = true
             ),
             labelClass = Some("visually-hidden")

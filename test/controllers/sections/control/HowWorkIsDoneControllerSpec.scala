@@ -16,7 +16,7 @@
 
 package controllers.sections.control
 
-import config.featureSwitch.OptimisedFlow
+
 import connectors.mocks.MockDataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions._
@@ -32,7 +32,6 @@ import play.api.libs.json.Json
 import play.api.test.Helpers._
 import uk.gov.hmrc.http.cache.client.CacheMap
 import views.html.sections.control.HowWorkIsDoneView
-import views.html.subOptimised.sections.control.{HowWorkIsDoneView => SubOptimisedHowWorkIsDoneView}
 
 class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheConnector {
 
@@ -40,7 +39,6 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
   val form = formProvider()(fakeDataRequest, frontendAppConfig)
 
   val optimisedView = injector.instanceOf[HowWorkIsDoneView]
-  val subOptimisedView = injector.instanceOf[SubOptimisedHowWorkIsDoneView]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction) = new HowWorkIsDoneController(
     FakeIdentifierAction,
@@ -50,15 +48,13 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
     controllerComponents = messagesControllerComponents,
     appConfig = frontendAppConfig,
     optimisedView = optimisedView,
-    subOptimisedView = subOptimisedView,
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeControlNavigator
   )
 
-  def viewAsString(form: Form[_] = form) = subOptimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
   def optimisedViewAsString(form: Form[_] = form) = optimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   val validData = Map(HowWorkIsDonePage.toString -> Json.toJson(Answers(HowWorkIsDone.values().head,0)))
@@ -69,12 +65,12 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
 
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "return OK and the correct view for a GET for optimised view" in {
 
-      enable(OptimisedFlow)
+
 
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
       status(result) mustBe OK
@@ -86,12 +82,12 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(HowWorkIsDone.values().head))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(HowWorkIsDone.values().head))
     }
 
     "populate the view correctly on a GET when the question has previously been answered for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
@@ -105,7 +101,7 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
       val answers = userAnswers.set(HowWorkIsDonePage,0,HowWorkIsDone.NoWorkerInputAllowed)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers),HowWorkIsDone)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),HowWorkIsDone)(answers)
 
       val result = controller().onSubmit(NormalMode)(postRequest)
 
@@ -115,7 +111,7 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
 
     "redirect to the next page when valid data is submitted for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", HowWorkIsDone.options().head.value))
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
@@ -136,12 +132,12 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "return a Bad Request and errors when invalid data is submitted for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "invalid value"))
       val boundForm = form.bind(Map("value" -> "invalid value"))
 

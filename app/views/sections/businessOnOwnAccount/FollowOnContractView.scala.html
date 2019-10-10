@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("followOnContract.title"), Some(tailorMsg("followOnContract.subheading"))),
+    title = title(form, tailorMsgOptimised("followOnContract.title"), Some(tailorMsgOptimised("followOnContract.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("followOnContract.heading"), Some(tailorMsg("followOnContract.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("followOnContract.heading"), Some(tailorMsgOptimised("followOnContract.subheading")), asLegend = true),
             labelClass = Some("visually-hidden"),
             otherContent = Some(p1)
         )
@@ -47,5 +47,5 @@
 }
 
 @p1 = {
-    <p>@messages(tailorMsg("followOnContract.p1"))</p>
+    <p>@messages(tailorMsgOptimised("followOnContract.p1"))</p>
 }

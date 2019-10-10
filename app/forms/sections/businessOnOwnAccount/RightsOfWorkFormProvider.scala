@@ -26,6 +26,6 @@ class RightsOfWorkFormProvider @Inject() extends Mappings with OptimisedErrorHan
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("rightsOfWork.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("rightsOfWork.error.required"))
     )
 }

@@ -17,7 +17,7 @@
 package controllers
 
 import akka.util.ByteString
-import config.featureSwitch.{OptimisedFlow, PrintPDF}
+import config.featureSwitch.PrintPDF
 import connectors.httpParsers.PDFGeneratorHttpParser
 import connectors.httpParsers.PDFGeneratorHttpParser.{BadRequest, SuccessfulPDF}
 import controllers.actions._
@@ -30,7 +30,6 @@ import play.api.data.Form
 import play.api.libs.json.{JsString, Json}
 import play.api.test.Helpers._
 import play.twirl.api.Html
-import services.DecisionService
 import uk.gov.hmrc.http.cache.client.CacheMap
 import utils.FakeTimestamp
 import views.html.{AddDetailsView, CustomisePDFView}
@@ -42,11 +41,11 @@ class PDFControllerSpec extends ControllerSpecBase {
     enable(PrintPDF)
   }
 
-  enable(OptimisedFlow)
+
   val optFormProvider = new CustomisePDFFormProvider()
   val optForm = optFormProvider()
 
-  disable(OptimisedFlow)
+
   val formProvider = new CustomisePDFFormProvider()
   val form = formProvider()
 
@@ -63,7 +62,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     controllerComponents = messagesControllerComponents,
     customisePdfView,
     addDetailsView,
-    injector.instanceOf[DecisionService],
+
     mockOptimisedDecisionService,
     mockPDFService,
     errorHandler,
@@ -84,7 +83,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     controllerComponents = messagesControllerComponents,
     customisePdfView,
     addDetailsView,
-    injector.instanceOf[DecisionService],
+
     mockOptimisedDecisionService,
     mockPDFService,
     errorHandler,
@@ -95,15 +94,15 @@ class PDFControllerSpec extends ControllerSpecBase {
     frontendAppConfig
   )
 
-  def viewAsString(form: Form[_] = form) = customisePdfView(frontendAppConfig, form, NormalMode)(fakeRequest, messages).toString
-  def optViewAsString(form: Form[_] = form) = addDetailsView(frontendAppConfig, form, NormalMode)(fakeRequest, messages).toString
+  def optimisedViewAsString(form: Form[_] = form) = customisePdfView(frontendAppConfig, form, NormalMode)(fakeRequest, messages).toString
+  def optoptimisedViewAsString(form: Form[_] = form) = addDetailsView(frontendAppConfig, form, NormalMode)(fakeRequest, messages).toString
 
   val testAnswer = "answer"
 
   "CustomisePDF Controller" must {
 
     "download the pdf" in {
-      enable(OptimisedFlow)
+
 
       mockDetermineResultView()(Right(Html("Html")))
 
@@ -129,7 +128,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     }
 
     "download the pdf and default the filename if it's not ascii" in {
-      enable(OptimisedFlow)
+
 
       mockDetermineResultView()(Right(Html("Html")))
 
@@ -155,7 +154,7 @@ class PDFControllerSpec extends ControllerSpecBase {
 
     }
     "handle errors from the pdf" in {
-      enable(OptimisedFlow)
+
 
       mockDetermineResultView()(Left(Html("Html")))
 
@@ -182,7 +181,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     }
 
     "download the pdf when no data is entered" in {
-      enable(OptimisedFlow)
+
 
       mockDetermineResultView()(Right(Html("Html")))
 
@@ -207,17 +206,17 @@ class PDFControllerSpec extends ControllerSpecBase {
     "If the OptimisedFlow is enabled" should {
 
       "return OK and the correct view for a GET" in {
-        enable(OptimisedFlow)
+
 
         val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
         status(result) mustBe OK
 
-        contentAsString(result) mustBe optViewAsString(form.fill(AdditionalPdfDetails()))
+        contentAsString(result) mustBe optoptimisedViewAsString(form.fill(AdditionalPdfDetails()))
       }
 
       "populate the view correctly on a GET when the question has previously been answered" in {
-        enable(OptimisedFlow)
+
 
         val validData = Map(CustomisePDFPage.toString -> Json.toJson(Answers(AdditionalPdfDetails(Some("answer")), 0)))
         val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
@@ -226,11 +225,11 @@ class PDFControllerSpec extends ControllerSpecBase {
 
         val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-        contentAsString(result) mustBe optViewAsString(form.fill(AdditionalPdfDetails(Some(testAnswer))))
+        contentAsString(result) mustBe optoptimisedViewAsString(form.fill(AdditionalPdfDetails(Some(testAnswer))))
       }
 
       "show the PDF view" in {
-        enable(OptimisedFlow)
+
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
 
@@ -250,7 +249,7 @@ class PDFControllerSpec extends ControllerSpecBase {
       }
 
       "show the PDF view with a default timestamp" in {
-        enable(OptimisedFlow)
+
 
         val validData = Map(CustomisePDFPage.toString -> Json.toJson(Answers(AdditionalPdfDetails(Some("answer")), 0)))
 
@@ -271,7 +270,7 @@ class PDFControllerSpec extends ControllerSpecBase {
       }
 
       "show the PDF view when the feature is disabled" in {
-        enable(OptimisedFlow)
+
         disable(PrintPDF)
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
@@ -290,7 +289,7 @@ class PDFControllerSpec extends ControllerSpecBase {
       }
 
       "return a Bad Request and errors when invalid data is submitted" in {
-        enable(OptimisedFlow)
+
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", "a" * (CustomisePDFFormProvider.maxFieldLength + 1)))
         val boundForm = optForm.bind(Map("completedBy" -> "a" * (CustomisePDFFormProvider.maxFieldLength + 1)))
@@ -301,11 +300,11 @@ class PDFControllerSpec extends ControllerSpecBase {
         val result = optController(getRelevantData).onSubmit(NormalMode)(postRequest)
 
         status(result) mustBe BAD_REQUEST
-        contentAsString(result) mustBe optViewAsString(boundForm)
+        contentAsString(result) mustBe optoptimisedViewAsString(boundForm)
       }
 
       "redirect to Index Controller for a GET if no existing data is found" in {
-        enable(OptimisedFlow)
+
 
         val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(NormalMode)(fakeRequest)
 
@@ -314,7 +313,7 @@ class PDFControllerSpec extends ControllerSpecBase {
       }
 
       "redirect to Index Controller for a POST if no existing data is found" in {
-        enable(OptimisedFlow)
+
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("value", testAnswer))
         val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(NormalMode)(postRequest)
@@ -330,7 +329,7 @@ class PDFControllerSpec extends ControllerSpecBase {
         val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
         status(result) mustBe OK
-        contentAsString(result) mustBe viewAsString()
+        contentAsString(result) mustBe optimisedViewAsString()
       }
 
       "populate the view correctly on a GET when the question has previously been answered" in {
@@ -341,7 +340,7 @@ class PDFControllerSpec extends ControllerSpecBase {
 
         val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-        contentAsString(result) mustBe viewAsString(form.fill(AdditionalPdfDetails(Some(testAnswer))))
+        contentAsString(result) mustBe optimisedViewAsString(form.fill(AdditionalPdfDetails(Some(testAnswer))))
       }
 
       "show the PDF view" in {
@@ -413,7 +412,7 @@ class PDFControllerSpec extends ControllerSpecBase {
         val result = controller(getRelevantData).onSubmit(NormalMode)(postRequest)
 
         status(result) mustBe BAD_REQUEST
-        contentAsString(result) mustBe viewAsString(boundForm)
+        contentAsString(result) mustBe optimisedViewAsString(boundForm)
       }
 
       "redirect to Index Controller for a GET if no existing data is found" in {

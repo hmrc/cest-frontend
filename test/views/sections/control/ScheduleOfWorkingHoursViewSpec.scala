@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views.sections.control
 
 import assets.messages.{ScheduleOfWorkingHoursMessages, SubHeadingMessages}
-import config.featureSwitch.OptimisedFlow
+
 import forms.sections.control.ScheduleOfWorkingHoursFormProvider
 import models.NormalMode
 import models.sections.control.ScheduleOfWorkingHours
@@ -30,7 +31,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

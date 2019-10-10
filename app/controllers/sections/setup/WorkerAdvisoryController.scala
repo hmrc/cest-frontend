@@ -26,7 +26,7 @@ import models.NormalMode
 import navigation.SetupNavigator
 import pages.sections.setup.WorkerAdvisoryPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CompareAnswerService}
 import views.html.sections.setup.WorkerAdvisoryView
 
 class WorkerAdvisoryController @Inject()(navigator: SetupNavigator,
@@ -38,9 +38,8 @@ class WorkerAdvisoryController @Inject()(navigator: SetupNavigator,
                                          checkYourAnswersService: CheckYourAnswersService,
                                          compareAnswerService: CompareAnswerService,
                                          dataCacheConnector: DataCacheConnector,
-                                         decisionService: DecisionService,
                                          implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) with FeatureSwitching {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching {
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(

@@ -16,7 +16,7 @@
 
 package controllers.sections.setup
 
-import config.featureSwitch.OptimisedFlow
+
 import controllers.ControllerSpecBase
 import controllers.actions._
 import forms.sections.setup.ContractStartedFormProvider
@@ -28,13 +28,11 @@ import play.api.data.Form
 import play.api.libs.json.Json
 import play.api.test.Helpers._
 import uk.gov.hmrc.http.cache.client.CacheMap
-import views.html.subOptimised.sections.setup.ContractStartedView
 class ContractStartedControllerSpec extends ControllerSpecBase {
 
   val formProvider = new ContractStartedFormProvider()
   val form = formProvider()(fakeDataRequest, frontendAppConfig)
 
-  val view = injector.instanceOf[ContractStartedView]
   val optimisedView = injector.instanceOf[views.html.sections.setup.ContractStartedView]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction) = new ContractStartedController(
@@ -44,17 +42,15 @@ class ContractStartedControllerSpec extends ControllerSpecBase {
     requireData = new DataRequiredActionImpl(messagesControllerComponents),
     formProvider = formProvider,
     controllerComponents = messagesControllerComponents,
-    view = view,
     optimisedView = optimisedView,
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
-  def viewAsStringOptimised(form: Form[_] = form) = optimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(form: Form[_] = form) = optimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   val validData = Map(ContractStartedPage.toString -> Json.toJson(Answers(true,0)))
 
@@ -64,15 +60,15 @@ class ContractStartedControllerSpec extends ControllerSpecBase {
 
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "return OK and the correct view for a GET for the optimised flow" in {
-      enable(OptimisedFlow)
+
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsStringOptimised()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "populate the view correctly on a GET when the question has previously been answered" in {
@@ -80,24 +76,24 @@ class ContractStartedControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(true))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(true))
     }
 
     "populate the view correctly on a GET when the question has previously been answered for optimised flow" in {
-      enable(OptimisedFlow)
+
       val validData = Map(ContractStartedPage.toString -> Json.toJson(Answers(true,0)))
       val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsStringOptimised(form.fill(true))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(true))
     }
 
     "redirect to the next page when valid data is submitted" in {
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "true"))
 
       val answers = userAnswers.set(ContractStartedPage,0,true)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers),Boolean)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),Boolean)(answers)
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
@@ -113,7 +109,7 @@ class ContractStartedControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index Controller for a GET if no existing data is found" in {

@@ -45,14 +45,14 @@ class PersonalServiceSectionChangeWarningControllerSpec extends ControllerSpecBa
 
   val submitAction = routes.PersonalServiceSectionChangeWarningController.onSubmit(ArrangedSubstitutePage)
 
-  def viewAsString = view(submitAction)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString = view(submitAction)(fakeRequest, messages, frontendAppConfig).toString
 
   "AgencyAdvisory Controller" must {
 
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(ArrangedSubstitutePage)(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString
+      contentAsString(result) mustBe optimisedViewAsString
     }
 
     "redirect to the ArrangedSubstitute page if that was the selected page to change" in {

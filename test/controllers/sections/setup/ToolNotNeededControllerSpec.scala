@@ -40,18 +40,18 @@ class ToolNotNeededControllerSpec extends ControllerSpecBase {
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString(clientType: WhichDescribesYouAnswer = ClientPAYE) = view(clientType)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(clientType: WhichDescribesYouAnswer = ClientPAYE) = view(clientType)(fakeRequest, messages, frontendAppConfig).toString
 
   "AboutYou Controller" must {
 
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "return OK and the correct view for a GET with ClientTypeStored" in {
@@ -60,7 +60,7 @@ class ToolNotNeededControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString(WorkerIR35)
+      contentAsString(result) mustBe optimisedViewAsString(WorkerIR35)
     }
 
     "redirect to the next page when valid data is submitted" in {

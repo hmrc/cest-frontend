@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("majorityOfWorkingTime.title"), Some(tailorMsg("majorityOfWorkingTime.subheading"))),
+    title = title(form, tailorMsgOptimised("majorityOfWorkingTime.title"), Some(tailorMsgOptimised("majorityOfWorkingTime.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("majorityOfWorkingTime.heading"), Some(tailorMsg("majorityOfWorkingTime.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("majorityOfWorkingTime.heading"), Some(tailorMsgOptimised("majorityOfWorkingTime.subheading")), asLegend = true),
             labelClass = Some("visually-hidden"),
             otherContent = Some(p1)
         )
@@ -47,5 +47,5 @@
 }
 
 @p1 = {
-    <p>@messages(tailorMsg("majorityOfWorkingTime.p1"))</p>
+    <p>@messages(tailorMsgOptimised("majorityOfWorkingTime.p1"))</p>
 }

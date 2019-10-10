@@ -17,7 +17,7 @@
 package models
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import models.requests.DataRequest
 import models.sections.businessOnOwnAccount.ExclusiveContract.{AbleToProvideServices, UnableToProvideServices, _}
 import models.sections.businessOnOwnAccount.MultipleEngagements.{NoKnowledgeOfExternalActivity, OnlyContractForPeriod, ProvidedServicesToOtherEngagers}
@@ -385,7 +385,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
         "all values are supplied" in {
 
-          enable(OptimisedFlow)
+
 
           val userAnswers = UserAnswers("id")
             .set(AboutYouPage, 0, Worker)
@@ -447,7 +447,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
         "all expenses pages are answered no" in {
 
-          enable(OptimisedFlow)
+
 
           val userAnswers = UserAnswers("id")
             .set(AboutYouPage, 0, Worker)
@@ -515,7 +515,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be UnableToProvideServices" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MultipleContractsPage, 23, true)
@@ -535,7 +535,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be AbleToProvideServicesWithPermission" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MultipleContractsPage, 23, false)
@@ -556,7 +556,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be AbleToProvideServices" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MultipleContractsPage, 1, false)
@@ -580,7 +580,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be NoRightsArise" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(OwnershipRightsPage, 1, false)
@@ -600,7 +600,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be RightsTransferredToClient" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(OwnershipRightsPage, 1, true)
@@ -621,7 +621,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be RetainOwnershipRights" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(OwnershipRightsPage, 1, true)
@@ -643,7 +643,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be RetainOwnershipRights" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(OwnershipRightsPage, 1, true)
@@ -668,7 +668,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ProvidedServicesToOtherEngagers" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(SimilarWorkOtherClientsPage, 1, true)
@@ -688,7 +688,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be OnlyContractForPeriod" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(SimilarWorkOtherClientsPage, 1, false)
@@ -711,7 +711,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ConsumesSignificantAmount" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MajorityOfWorkingTimePage, 1, true)
@@ -732,7 +732,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be NoSignificantAmount" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MajorityOfWorkingTimePage, 1, false)
@@ -753,7 +753,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be TimeButNotMoney" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MajorityOfWorkingTimePage, 1, true)
@@ -774,7 +774,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be MoneyButNotTime" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(MajorityOfWorkingTimePage, 1, false)
@@ -798,7 +798,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ContractIsPartOfASeries" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, true)
@@ -819,7 +819,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ContractIsPartOfASeries" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, true)
@@ -841,7 +841,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be StandAloneContract" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, true)
@@ -864,7 +864,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ContractCouldBeExtended" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, true)
@@ -887,7 +887,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be ContractIsPartOfASeries" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, false)
@@ -908,7 +908,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be StandaloneContract" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, false)
@@ -930,7 +930,7 @@ class InterviewSpec extends GuiceAppSpecBase {
 
               "be StandaloneContract" in {
 
-                enable(OptimisedFlow)
+
 
                 val userAnswers = UserAnswers("id")
                   .set(PreviousContractPage, 1, false)

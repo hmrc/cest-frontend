@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views
 
 import assets.messages.{AddReferenceDetailsMessages,BaseMessages}
-import config.featureSwitch.OptimisedFlow
+
 import forms.AddReferenceDetailsFormProvider
 import play.api.data.Form
 import play.api.mvc.Request
@@ -28,7 +29,7 @@ class AddReferenceDetailsViewSpec extends YesNoViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors{

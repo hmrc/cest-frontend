@@ -26,6 +26,6 @@ class FinanciallyDependentFormProvider @Inject() extends Mappings with Optimised
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("financiallyDependent.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("financiallyDependent.error.required"))
     )
 }

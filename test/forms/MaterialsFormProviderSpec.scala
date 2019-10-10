@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.financialRisk.MaterialsFormProvider
 import play.api.data.FormError
@@ -41,7 +41,7 @@ class MaterialsFormProviderSpec extends BooleanFieldBehaviours with GuiceAppSpec
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new MaterialsFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class MaterialsFormProviderSpec extends BooleanFieldBehaviours with GuiceAppSpec
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new MaterialsFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class MaterialsFormProviderSpec extends BooleanFieldBehaviours with GuiceAppSpec
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new MaterialsFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

@@ -16,19 +16,20 @@
 
 package controllers
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
 import config.featureSwitch.FeatureSwitching
 import connectors.DataCacheConnector
 import controllers.actions._
-import javax.inject.Inject
-import models.CheckMode
-import pages.{Page, PersonalServiceSectionChangeWarningPage}
-import pages.sections.personalService._
-import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
-import views.html.PersonalServiceSectionChangeWarningView
 import controllers.sections.personalService.{routes => personalServiceRoutes}
 import handlers.ErrorHandler
+import models.CheckMode
+import pages.sections.personalService._
+import pages.{Page, PersonalServiceSectionChangeWarningPage}
+import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
+import services.{CheckYourAnswersService, CompareAnswerService}
+import views.html.PersonalServiceSectionChangeWarningView
 
 class PersonalServiceSectionChangeWarningController @Inject()(identify: IdentifierAction,
                                                               getData: DataRetrievalAction,

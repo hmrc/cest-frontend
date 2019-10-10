@@ -31,9 +31,9 @@
 
 @defining(
     if(pdfResultDetails.printMode) {
-        printTemplate(title(form, "agent.optimised.result.outside.title"), appConfig = appConfig)(_)
+        printTemplate(title(form, "agent.result.outside.title"), appConfig = appConfig)(_)
     } else {
-        mainTemplate(title(form, "agent.optimised.result.outside.title"), appConfig = appConfig)(_)
+        mainTemplate(title(form, "agent.result.outside.title"), appConfig = appConfig)(_)
     }
 ){ template =>
 
@@ -46,7 +46,7 @@
         }
 
         @components.teal_result(
-            Html(messages("agent.optimised.result.outside.heading")),
+            Html(messages("agent.result.outside.heading")),
             "result.outside"
         )
 
@@ -75,17 +75,17 @@
     @if(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim, isBoOA).length == 1){
         <p>@messages(singleOutReason(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim, isBoOA))</p>
     } else {
-        <p>@messages("agent.optimised.result.outside.whyResult.p1")</p>
+        <p>@messages("agent.result.outside.whyResult.p1")</p>
         @components.bulleted_list(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim, isBoOA))
     }
 
-    <p>@messages("agent.optimised.result.outside.whyResult.p2")</p>
+    <p>@messages("agent.result.outside.whyResult.p2")</p>
 }
 
 @doNext = {
-    <p>@messages("agent.optimised.result.outside.doNext.p1")</p>
+    <p>@messages("agent.result.outside.doNext.p1")</p>
     <p>
-        @messages("agent.optimised.result.outside.doNext.p2.text")
-        @components.new_window_link("agent.optimised.result.outside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+        @messages("agent.result.outside.doNext.p2.text")
+        @components.new_window_link("agent.result.outside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
     </p>
 }

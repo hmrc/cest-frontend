@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))),
+    title = title(form, tailorMsgOptimised("extendContract.title"), Some(tailorMsgOptimised("extendContract.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("extendContract.heading"), Some(tailorMsg("extendContract.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("extendContract.heading"), Some(tailorMsgOptimised("extendContract.subheading")), asLegend = true),
             labelClass = Some("visually-hidden")
         )
 

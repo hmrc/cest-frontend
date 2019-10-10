@@ -18,7 +18,7 @@ package views.results
 
 import akka.http.scaladsl.model.HttpMethods
 import assets.messages.results.{AdditionalPDFMessages, DecisionVersionMessages, InDecisionMessages, UserAnswersMessages}
-import config.featureSwitch.OptimisedFlow
+
 import models.sections.setup.AboutYouAnswer.Worker
 import models.{AdditionalPdfDetails, PDFResultDetails, Section}
 import models.sections.financialRisk.CannotClaimAsExpense.WorkerUsedVehicle
@@ -34,7 +34,7 @@ trait ResultViewFixture extends ViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors {

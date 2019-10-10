@@ -16,7 +16,7 @@
 
 package controllers.sections.financialRisk
 
-import config.featureSwitch.OptimisedFlow
+
 import connectors.FakeDataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions.{FakeDontGetDataDataRetrievalAction, FakeGeneralDataRetrievalAction, _}
@@ -35,7 +35,7 @@ class EquipmentExpensesControllerSpec extends ControllerSpecBase {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   val formProvider = new EquipmentExpensesFormProvider()
@@ -53,11 +53,10 @@ class EquipmentExpensesControllerSpec extends ControllerSpecBase {
     formProvider = formProvider,
     controllerComponents = messagesControllerComponents,
     view = view,
-    compareAnswerService = mockCompareAnswerService,
-    decisionService = mockDecisionService
+    compareAnswerService = mockCompareAnswerService
   )
 
-  def viewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   "EquipmentExpensesController" must {
 
@@ -65,7 +64,7 @@ class EquipmentExpensesControllerSpec extends ControllerSpecBase {
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "populate the view correctly on a GET when the question has previously been answered" in {
@@ -74,12 +73,11 @@ class EquipmentExpensesControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(true))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(true))
     }
 
     "redirect to the next page when valid data is submitted" in {
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "true"))
-      val validData = Map(EquipmentExpensesPage.toString -> Json.toJson(Answers(true,0)))
 
       val answers = userAnswers.set(EquipmentExpensesPage,0,true)
       mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),Boolean)(answers)
@@ -97,7 +95,7 @@ class EquipmentExpensesControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index for a GET if no existing data is found" in {

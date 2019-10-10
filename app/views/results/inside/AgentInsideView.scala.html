@@ -28,9 +28,9 @@
 
 @defining(
     if(pdfResultDetails.printMode) {
-        printTemplate(title(form, "agent.optimised.result.inside.title"), appConfig = appConfig)(_)
+        printTemplate(title(form, "agent.result.inside.title"), appConfig = appConfig)(_)
     } else {
-        mainTemplate(title(form, "agent.optimised.result.inside.title"), appConfig = appConfig)(_)
+        mainTemplate(title(form, "agent.result.inside.title"), appConfig = appConfig)(_)
     }
 ){ template =>
 
@@ -43,7 +43,7 @@
         }
 
         @components.teal_result(
-            Html(messages("agent.optimised.result.inside.heading")),
+            Html(messages("agent.result.inside.heading")),
             "result.inside"
         )
 
@@ -68,14 +68,14 @@
 }
 
 @whyResult = {
-    <p>@messages("agent.optimised.result.inside.whyResult.p1")</p>
-    <p>@messages("agent.optimised.result.inside.whyResult.p2")</p>
+    <p>@messages("agent.result.inside.whyResult.p1")</p>
+    <p>@messages("agent.result.inside.whyResult.p2")</p>
 }
 
 @doNext = {
-    <p>@messages("agent.optimised.result.inside.doNext.p1")</p>
+    <p>@messages("agent.result.inside.doNext.p1")</p>
     <p>
-        @messages("agent.optimised.result.inside.doNext.p2.text")
-        @components.new_window_link("agent.optimised.result.inside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+        @messages("agent.result.inside.doNext.p2.text")
+        @components.new_window_link("agent.result.inside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
     </p>
 }

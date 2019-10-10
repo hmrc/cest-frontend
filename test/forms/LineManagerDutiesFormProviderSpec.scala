@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.partAndParcel.LineManagerDutiesFormProvider
 import play.api.data.FormError
@@ -41,7 +41,7 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new LineManagerDutiesFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new LineManagerDutiesFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new LineManagerDutiesFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

@@ -45,11 +45,11 @@ class AddReferenceDetailsControllerSpec extends ControllerSpecBase {
     navigator = FakeCYANavigator,
     dataCacheConnector = mockDataCacheConnector,
     compareAnswerService = mockCompareAnswerService,
-    decisionService = mockDecisionService,
+
     appConfig = frontendAppConfig
   )
 
-  def viewAsString(form: Form[_] = form) = view(form)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(form: Form[_] = form) = view(form)(fakeRequest, messages, frontendAppConfig).toString
 
   val validData = Map(AddReferenceDetailsPage.toString -> Json.toJson(Answers(true,0)))
 
@@ -59,7 +59,7 @@ class AddReferenceDetailsControllerSpec extends ControllerSpecBase {
 
       val result = controller().onPageLoad()(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
 
@@ -68,14 +68,14 @@ class AddReferenceDetailsControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad()(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(true))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(true))
     }
 
     "redirect to the next page when valid data is submitted" in {
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "true"))
 
       val answers = userAnswers.set(AddReferenceDetailsPage,0,true)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers),Boolean)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),Boolean)(answers)
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
@@ -91,7 +91,7 @@ class AddReferenceDetailsControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit()(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index Controller for a GET if no existing data is found" in {

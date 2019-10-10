@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views.sections.control
 
 import assets.messages.{HowWorkIsDoneMessages, SubHeadingMessages}
-import config.featureSwitch.OptimisedFlow
+
 import forms.sections.control.HowWorkIsDoneFormProvider
 import models.NormalMode
 import models.sections.control.HowWorkIsDone
@@ -30,7 +31,7 @@ class HowWorkIsDoneViewSpec extends ViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

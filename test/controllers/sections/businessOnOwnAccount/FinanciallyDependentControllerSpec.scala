@@ -16,7 +16,7 @@
 
 package controllers.sections.businessOnOwnAccount
 
-import config.featureSwitch.OptimisedFlow
+
 import connectors.FakeDataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions.{FakeDontGetDataDataRetrievalAction, FakeGeneralDataRetrievalAction, _}
@@ -35,7 +35,7 @@ class FinanciallyDependentControllerSpec extends ControllerSpecBase {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   val formProvider = new FinanciallyDependentFormProvider()
@@ -53,11 +53,11 @@ class FinanciallyDependentControllerSpec extends ControllerSpecBase {
     controllerComponents = messagesControllerComponents,
     view = view,
     compareAnswerService = mockCompareAnswerService,
-    decisionService = mockDecisionService,
+
     appConfig = frontendAppConfig
   )
 
-  def viewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   "FinanciallyDependentController" must {
 
@@ -65,7 +65,7 @@ class FinanciallyDependentControllerSpec extends ControllerSpecBase {
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "populate the view correctly on a GET when the question has previously been answered" in {
@@ -74,7 +74,7 @@ class FinanciallyDependentControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(true))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(true))
     }
 
     "redirect to the next page when valid data is submitted" in {
@@ -97,7 +97,7 @@ class FinanciallyDependentControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index for a GET if no existing data is found" in {

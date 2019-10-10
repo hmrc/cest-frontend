@@ -49,12 +49,12 @@ class WhatDoYouWantToDoControllerSpec extends ControllerSpecBase {
       checkYourAnswersService = mockCheckYourAnswersService,
       compareAnswerService = mockCompareAnswerService,
       dataCacheConnector = mockDataCacheConnector,
-      decisionService = mockDecisionService,
+
       navigator = FakeSetupNavigator,
       appConfig = frontendAppConfig
     )
 
-  def viewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString(form: Form[_] = form) = view(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   val validData = Map(WhatDoYouWantToDoPage.toString -> Json.toJson(Answers(WhatDoYouWantToDo.values.head,0)))
 
@@ -64,7 +64,7 @@ class WhatDoYouWantToDoControllerSpec extends ControllerSpecBase {
 
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "populate the view correctly on a GET when the question has previously been answered" in {
@@ -72,13 +72,13 @@ class WhatDoYouWantToDoControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(WhatDoYouWantToDo.values.head))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(WhatDoYouWantToDo.values.head))
     }
 
     "redirect to the next page when valid data is submitted" in {
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", WhatDoYouWantToDo.options.head.value))
       val answers = userAnswers.set(WhatDoYouWantToDoPage,0,WhatDoYouWantToDo.MakeNewDetermination)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers),WhatDoYouWantToDo)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),WhatDoYouWantToDo)(answers)
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
@@ -95,7 +95,7 @@ class WhatDoYouWantToDoControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index Controller for a GET if no existing data is found" in {

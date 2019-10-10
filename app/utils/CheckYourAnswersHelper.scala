@@ -28,7 +28,7 @@ import pages.sections.businessOnOwnAccount._
 import pages.sections.control.{ChooseWhereWorkPage, HowWorkIsDonePage, MoveWorkerPage, ScheduleOfWorkingHoursPage}
 import pages.sections.exit.OfficeHolderPage
 import pages.sections.financialRisk._
-import pages.sections.partParcel.{BenefitsPage, IdentifyToStakeholdersPage, InteractWithStakeholdersPage, LineManagerDutiesPage}
+import pages.sections.partParcel.{BenefitsPage, IdentifyToStakeholdersPage, LineManagerDutiesPage}
 import pages.sections.personalService._
 import pages.sections.setup._
 import play.api.i18n.Messages
@@ -54,22 +54,11 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers) extends Enumerable.Implic
   private def yesNoRowTailored(page: QuestionPage[Boolean], changeRoute: Call)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
     userAnswers.get(page) map { x =>
       AnswerRow(
-        tailorMsg(s"$page.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"$page.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true,
         Some(changeRoute.url),
-        changeContextMsgKey = Some(tailorMsg(s"$page.changeLinkContext"))
-      )
-    }
-
-  private def yesNoRow(page: QuestionPage[Boolean], changeRoute: Call)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    userAnswers.get(page) map { x =>
-      AnswerRow(
-        s"$page.checkYourAnswersLabel",
-        if(x.answer) "site.yes" else "site.no",
-        answerIsMessageKey = true,
-        Some(changeRoute.url),
-        changeContextMsgKey = Some(s"$page.changeLinkContext")
+        changeContextMsgKey = Some(tailorMsgOptimised(s"$page.changeLinkContext"))
       )
     }
 
@@ -132,9 +121,6 @@ class CheckYourAnswersHelper(userAnswers: UserAnswers) extends Enumerable.Implic
 
   def lineManagerDuties(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     yesNoRowTailoredOptimised(LineManagerDutiesPage, partParcelRoutes.LineManagerDutiesController.onPageLoad(CheckMode))
-
-  def interactWithStakeholders(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
-    yesNoRowTailoredOptimised(InteractWithStakeholdersPage, partParcelRoutes.InteractWithStakeholdersController.onPageLoad(CheckMode))
 
   def identifyToStakeholders(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     answerRowTailored(IdentifyToStakeholdersPage, partParcelRoutes.IdentifyToStakeholdersController.onPageLoad(CheckMode))

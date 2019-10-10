@@ -17,7 +17,7 @@
 package models.sections.personalService
 
 import config.FrontendAppConfig
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import models.{Enumerable, WithName}
 import play.api.libs.json._
 import viewmodels.{Radio, RadioOption}
@@ -41,7 +41,7 @@ object ArrangedSubstitute extends FeatureSwitching {
         value.toString,
         Radio,
         hasTailoredMsgs = true,
-        hasOptimisedMsgs = isEnabled(OptimisedFlow),
+        hasOptimisedMsgs = true,
         dividerPrefix = false
       )
   }

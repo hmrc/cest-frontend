@@ -26,6 +26,6 @@ class MaterialsFormProvider @Inject() extends Mappings with OptimisedErrorHandli
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("materials.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("materials.error.required"))
     )
 }

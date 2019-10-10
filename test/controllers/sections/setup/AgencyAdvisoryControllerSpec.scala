@@ -36,11 +36,11 @@ class AgencyAdvisoryControllerSpec extends ControllerSpecBase {
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString = view(
+  def optimisedViewAsString = view(
     postAction = routes.AgencyAdvisoryController.onSubmit()
   )(fakeRequest, messages, frontendAppConfig).toString
 
@@ -49,7 +49,7 @@ class AgencyAdvisoryControllerSpec extends ControllerSpecBase {
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString
+      contentAsString(result) mustBe optimisedViewAsString
     }
 
     "redirect to the next page when valid data is submitted" in {

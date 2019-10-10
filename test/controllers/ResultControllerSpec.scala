@@ -16,8 +16,6 @@
 
 package controllers
 
-import config.SessionKeys
-import config.featureSwitch.OptimisedFlow
 import controllers.actions._
 import forms.{DeclarationFormProvider, DownloadPDFCopyFormProvider}
 import models._
@@ -28,12 +26,10 @@ import play.api.i18n.Messages
 import play.api.libs.json.Json
 import play.api.test.Helpers._
 import play.twirl.api.Html
-import services.DecisionService
 import services.mocks.{MockCheckYourAnswersService, MockOptimisedDecisionService}
 import uk.gov.hmrc.http.cache.client.CacheMap
 import utils.FakeTimestamp
 import viewmodels.AnswerSection
-import views.html.subOptimised.results._
 
 class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecisionService with MockCheckYourAnswersService with Enumerable.Implicits {
 
@@ -42,17 +38,6 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
   val formProviderPDF = new DownloadPDFCopyFormProvider()
   val formPDF = formProvider()
-
-  val officeHolderInsideIR35View = injector.instanceOf[OfficeHolderInsideIR35View]
-  val officeHolderEmployedView = injector.instanceOf[OfficeHolderEmployedView]
-  val currentSubstitutionView = injector.instanceOf[CurrentSubstitutionView]
-  val futureSubstitutionView = injector.instanceOf[FutureSubstitutionView]
-  val selfEmployedView = injector.instanceOf[SelfEmployedView]
-  val employedView = injector.instanceOf[EmployedView]
-  val controlView = injector.instanceOf[ControlView]
-  val financialRiskView = injector.instanceOf[FinancialRiskView]
-  val indeterminateView = injector.instanceOf[IndeterminateView]
-  val insideIR35 = injector.instanceOf[InsideIR35View]
 
   val postAction = routes.ResultController.onSubmit()
 
@@ -72,7 +57,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
     FakeEmptyCacheMapDataRetrievalAction,
     new DataRequiredActionImpl(messagesControllerComponents),
     controllerComponents = messagesControllerComponents,
-    injector.instanceOf[DecisionService],
+
     formProvider,
     formProviderPDF,
     FakeCYANavigator,
@@ -84,8 +69,6 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
     frontendAppConfig
   )
 
-  def viewAsString() = employedView(answers, version, form, postAction)(fakeDataRequest, messages, frontendAppConfig).toString
-
   "ResultPage Controller" must {
 
     "If the Optimised Flow is enabled" should {
@@ -94,7 +77,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
         "return OK and the HTML returned from the Decision Service" in {
 
-          enable(OptimisedFlow)
+
 
           val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
           val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
@@ -113,7 +96,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
       "handle form errors" in {
 
-        enable(OptimisedFlow)
+
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "sdfgvf"))
         mockDetermineResultView()(Right(Html("Error")))
@@ -125,7 +108,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
       "handle errors" in {
 
-        enable(OptimisedFlow)
+
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "sdfgvf"))
         mockDetermineResultView()(Left(Html("Error")))
@@ -139,7 +122,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
         "return ISE and the HTML returned from the Decision Service" in {
 
-          enable(OptimisedFlow)
+
 
           val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
           val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
@@ -158,7 +141,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
       "redirect to next page" in {
 
-        enable(OptimisedFlow)
+
 
         val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
 
@@ -176,48 +159,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
       }
     }
 
-    "If the Optimised Flow is disabled" should {
-
-      "return OK and the correct view for a GET" in {
-
-        val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
-        val postRequest = fakeRequest
-        val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
-
-        mockConstructAnswers(DataRequest(postRequest, "id", answers), FakeTimestamp.timestamp())(answers)
-
-        mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
-
-
-        val result = TestResultController.onPageLoad(fakeRequest
-          .withSession(SessionKeys.result -> ResultEnum.EMPLOYED.toString,SessionKeys.userType -> "worker"))
-
-        status(result) mustBe OK
-        contentAsString(result) mustBe viewAsString()
-      }
-
-      "redirect to next page" in {
-
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "true"))
-
-        val result = TestResultController.onSubmit(postRequest)
-
-        status(result) mustBe SEE_OTHER
-        redirectLocation(result) mustBe Some(onwardRoute.url)
-      }
-
-      "handle errors" in {
-
-        val postRequest = fakeRequest
-
-        val result = TestResultController.onSubmit(postRequest)
-
-        status(result) mustBe BAD_REQUEST
-      }
-    }
   }
 }
-
-
 
 

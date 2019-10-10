@@ -26,6 +26,6 @@ class SimilarWorkOtherClientsFormProvider @Inject() extends Mappings with Optimi
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("similarWorkOtherClients.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("similarWorkOtherClients.error.required"))
     )
 }

@@ -36,18 +36,18 @@ class AboutYourResultControllerSpec extends ControllerSpecBase {
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString = view(routes.AboutYourResultController.onSubmit())(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString = view(routes.AboutYourResultController.onSubmit())(fakeRequest, messages, frontendAppConfig).toString
 
   "AboutYou Controller" must {
 
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString
+      contentAsString(result) mustBe optimisedViewAsString
     }
 
     "redirect to the next page when valid data is submitted" in {

@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views.sections.financialRisk
 
 import assets.messages.{HowWorkerIsPaidMessages, SubHeadingMessages}
-import config.featureSwitch.OptimisedFlow
+
 import forms.sections.financialRisk.HowWorkerIsPaidFormProvider
 import models.NormalMode
 import models.sections.financialRisk.HowWorkerIsPaid
@@ -30,7 +31,7 @@ class HowWorkerIsPaidViewSpec extends ViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors
@@ -107,7 +108,7 @@ class HowWorkerIsPaidViewSpec extends ViewBehaviours {
       }
     }
 
-    enable(OptimisedFlow)
+
     for(option <- HowWorkerIsPaid.options) {
       s"rendered with a value of '${option.value}'" must {
         s"have the '${option.value}' radio button selected" in {

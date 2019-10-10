@@ -16,17 +16,18 @@
 
 package controllers
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
 import connectors.DataCacheConnector
 import controllers.actions._
 import handlers.ErrorHandler
-import javax.inject.Inject
 import models.Section.SectionEnum
 import models._
 import navigation.CYANavigator
 import pages.CheckYourAnswersPage
 import play.api.mvc._
-import services.{CheckYourAnswersService, CheckYourAnswersValidationService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CheckYourAnswersValidationService, CompareAnswerService}
 import views.html.CheckYourAnswersView
 
 class CheckYourAnswersController @Inject()(navigator: CYANavigator,
@@ -39,15 +40,15 @@ class CheckYourAnswersController @Inject()(navigator: CYANavigator,
                                            checkYourAnswersValidationService: CheckYourAnswersValidationService,
                                            compareAnswerService: CompareAnswerService,
                                            dataCacheConnector: DataCacheConnector,
-                                           decisionService: DecisionService,
+
                                            errorHandler: ErrorHandler,
                                            implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) {
 
   def onPageLoad(sectionToExpand: Option[SectionEnum] = None): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     checkYourAnswersValidationService.isValid(request.userAnswers) match {
       case Right(_) => Ok(view(checkYourAnswersService.sections, sectionToExpand))
-      case Left(_) => Redirect(controllers.routes.StartAgainController.somethingWentWrong)
+      case Left(_) => Redirect(controllers.routes.StartAgainController.somethingWentWrong())
     }
   }
 

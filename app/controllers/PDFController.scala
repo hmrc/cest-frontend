@@ -16,14 +16,15 @@
 
 package controllers
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow, PrintPDF}
+import config.featureSwitch.{FeatureSwitching, PrintPDF}
 import connectors.DataCacheConnector
 import connectors.httpParsers.PDFGeneratorHttpParser.SuccessfulPDF
 import controllers.actions._
 import forms.CustomisePDFFormProvider
 import handlers.ErrorHandler
-import javax.inject.Inject
 import models.requests.DataRequest
 import models.{AdditionalPdfDetails, Mode, NormalMode, Timestamp}
 import navigation.CYANavigator
@@ -47,7 +48,7 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
                               controllerComponents: MessagesControllerComponents,
                               customisePdfView: CustomisePDFView,
                               addDetailsView: AddDetailsView,
-                              decisionService: DecisionService,
+
                               optimisedDecisionService: OptimisedDecisionService,
                               pdfService: PDFService,
                               errorHandler: ErrorHandler,
@@ -56,14 +57,14 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
                               checkYourAnswersService: CheckYourAnswersService,
                               encryption: EncryptionService,
                               implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService)
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator)
 
   with FeatureSwitching with UserAnswersUtils {
 
   def form: Form[AdditionalPdfDetails] = formProvider()
 
   private def view(form: Form[AdditionalPdfDetails], mode: Mode)(implicit request: Request[_]): HtmlFormat.Appendable =
-    if(isEnabled(OptimisedFlow)) addDetailsView(appConfig, form, mode) else customisePdfView(appConfig, form, mode)
+    addDetailsView(appConfig, form, mode)
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
 
@@ -73,46 +74,19 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
-
-    if(isEnabled(OptimisedFlow)){
-
-      form.bindFromRequest().fold(
-        formWithErrors => Future.successful(BadRequest(view(formWithErrors, mode))),
-        additionalData => {
-
-          val encryptedDetails = encryption.encryptDetails(additionalData)
-
-          redirect[AdditionalPdfDetails](NormalMode, encryptedDetails, CustomisePDFPage)
-        }
-      )
-
-    } else {
-      form.bindFromRequest().fold(
-        formWithErrors => Future.successful(BadRequest(view(formWithErrors, mode))),
-        additionalData => {
-          val timestamp = time.timestamp(request.userAnswers.get(Timestamp).map(_.answer))
-          printResult(additionalData, timestamp)
-        }
-      )
-    }
+    form.bindFromRequest().fold(
+      formWithErrors => Future.successful(BadRequest(view(formWithErrors, mode))),
+      additionalData => {
+        val encryptedDetails = encryption.encryptDetails(additionalData)
+        redirect[AdditionalPdfDetails](NormalMode, encryptedDetails, CustomisePDFPage)
+      }
+    )
   }
 
   def downloadPDF(): Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
-
     val pdfDetails = request.userAnswers.get(CustomisePDFPage).map(answer => encryption.decryptDetails(answer.answer)).getOrElse(AdditionalPdfDetails())
     val timestamp = time.timestamp(request.userAnswers.get(Timestamp).map(_.answer))
-
     optimisedPrintResult(pdfDetails, timestamp)
-  }
-
-  private def printResult(additionalPdfDetails: AdditionalPdfDetails, timestamp: String)(implicit request: DataRequest[_]): Future[Result] = {
-    val html = decisionService.determineResultView(
-      answers,
-      printMode = true,
-      additionalPdfDetails = Some(additionalPdfDetails),
-      timestamp = Some(timestamp)
-    )
-    generatePdf(html, additionalPdfDetails.reference)
   }
 
   private def optimisedPrintResult(additionalPdfDetails: AdditionalPdfDetails, timestamp: String)(implicit request: DataRequest[_]): Future[Result] = {

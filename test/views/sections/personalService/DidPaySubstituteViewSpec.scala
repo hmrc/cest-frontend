@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -18,7 +19,7 @@ package views.sections.personalService
 
 import assets.messages.{DidPaySubstituteMessages, SubHeadingMessages}
 import config.SessionKeys
-import config.featureSwitch.OptimisedFlow
+
 import controllers.sections.personalService.routes
 import forms.sections.personalService.DidPaySubstituteFormProvider
 import models.NormalMode
@@ -33,7 +34,7 @@ class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
 
   override def beforeEach = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

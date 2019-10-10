@@ -26,6 +26,6 @@ class MultipleContractsFormProvider @Inject() extends Mappings with OptimisedErr
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("multipleContracts.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("multipleContracts.error.required"))
     )
 }

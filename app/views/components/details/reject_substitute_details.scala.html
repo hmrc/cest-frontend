@@ -21,15 +21,15 @@
 
 @components.hint(hint)
 
-@components.exclamation(Html(messages(tailorMsg("rejectSubstitute.exclamation"))))
+@components.exclamation(Html(messages(tailorMsgOptimised("rejectSubstitute.exclamation"))))
 
 @hint = {
-    <p>@messages(tailorMsg("rejectSubstitute.hint.p1"))</p>
+    <p>@messages(tailorMsgOptimised("rejectSubstitute.hint.p1"))</p>
     @components.bulleted_list(Seq(
-        messages(tailorMsg("rejectSubstitute.hint.bullet1")),
-        messages(tailorMsg("rejectSubstitute.hint.bullet2")),
-        messages(tailorMsg("rejectSubstitute.hint.bullet3")),
-        messages(tailorMsg("rejectSubstitute.hint.bullet4")),
-        messages(tailorMsg("rejectSubstitute.hint.bullet5"))
+        messages(tailorMsgOptimised("rejectSubstitute.hint.bullet1")),
+        messages(tailorMsgOptimised("rejectSubstitute.hint.bullet2")),
+        messages(tailorMsgOptimised("rejectSubstitute.hint.bullet3")),
+        messages(tailorMsgOptimised("rejectSubstitute.hint.bullet4")),
+        messages(tailorMsgOptimised("rejectSubstitute.hint.bullet5"))
     ))
 }

@@ -26,6 +26,6 @@ class PreviousContractFormProvider @Inject() extends Mappings with OptimisedErro
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("previousContract.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("previousContract.error.required"))
     )
 }

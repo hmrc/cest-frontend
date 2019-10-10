@@ -48,12 +48,12 @@ class WhoAreYouControllerSpec extends ControllerSpecBase {
       view = view,
       compareAnswerService = mockCompareAnswerService,
       dataCacheConnector = mockDataCacheConnector,
-      decisionService = mockDecisionService,
+
       navigator = FakeSetupNavigator,
       appConfig = frontendAppConfig
     )
 
-  def viewAsString(form: Form[_] = form, showAgency: Boolean = false) =
+  def optimisedViewAsString(form: Form[_] = form, showAgency: Boolean = false) =
     view(
       controllers.sections.setup.routes.WhoAreYouController.onSubmit(NormalMode),
       form,
@@ -76,7 +76,7 @@ class WhoAreYouControllerSpec extends ControllerSpecBase {
         val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
         status(result) mustBe OK
-        contentAsString(result) mustBe viewAsString(showAgency = true)
+        contentAsString(result) mustBe optimisedViewAsString(showAgency = true)
       }
     }
 
@@ -91,7 +91,7 @@ class WhoAreYouControllerSpec extends ControllerSpecBase {
         val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
         status(result) mustBe OK
-        contentAsString(result) mustBe viewAsString()
+        contentAsString(result) mustBe optimisedViewAsString()
       }
     }
 
@@ -100,13 +100,13 @@ class WhoAreYouControllerSpec extends ControllerSpecBase {
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(Worker))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(Worker))
     }
 
     "redirect to the next page when valid data is submitted" in {
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", Worker.toString))
       val answers = userAnswers.set(WhoAreYouPage, Worker)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers), Worker)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers), Worker)(answers)
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
@@ -123,7 +123,7 @@ class WhoAreYouControllerSpec extends ControllerSpecBase {
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index Controller for a GET if no existing data is found" in {

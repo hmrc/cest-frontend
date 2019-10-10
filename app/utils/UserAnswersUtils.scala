@@ -58,9 +58,9 @@ trait UserAnswersUtils {
     whyResult = Some(Html(messages("result.substitutesAndHelpers.summary"))),
     rows = Seq(
       (checkYourAnswersHelper.arrangedSubstitute, Some(hint(arranged_substitute_details.apply()))),
-      (checkYourAnswersHelper.didPaySubstitute, Some(exclamation(Html(messages(tailorMsg("didPaySubstitute.exclamation")))))),
+      (checkYourAnswersHelper.didPaySubstitute, Some(exclamation(Html(messages(tailorMsgOptimised("didPaySubstitute.exclamation")))))),
       (checkYourAnswersHelper.rejectSubstitute, Some(reject_substitute_details.apply())),
-      (checkYourAnswersHelper.wouldWorkerPaySubstitute, Some(exclamation(Html(messages(tailorMsg("wouldWorkerPaySubstitute.exclamation")))))),
+      (checkYourAnswersHelper.wouldWorkerPaySubstitute, Some(exclamation(Html(messages(tailorMsgOptimised("wouldWorkerPaySubstitute.exclamation")))))),
       (checkYourAnswersHelper.neededToPayHelper, Some(hint(needed_to_pay_helper_details.apply())))
     ).filter(_._1.isDefined).map( answer => (answer._1.get, answer._2)),
     useProgressiveDisclosure = true
@@ -72,8 +72,8 @@ trait UserAnswersUtils {
     headingKey = "result.workArrangements.h2",
     whyResult = Some(Html(messages("result.workArrangements.summary"))),
     rows = Seq(
-      (checkYourAnswersHelper.moveWorker, Some(hint_p(Html(messages(tailorMsg("moveWorker.hint")))))),
-      (checkYourAnswersHelper.howWorkIsDone, Some(hint_p(Html(messages(tailorMsg("howWorkIsDone.hint")))))),
+      (checkYourAnswersHelper.moveWorker, Some(hint_p(Html(messages(tailorMsgOptimised("moveWorker.hint")))))),
+      (checkYourAnswersHelper.howWorkIsDone, Some(hint_p(Html(messages(tailorMsgOptimised("howWorkIsDone.hint")))))),
       (checkYourAnswersHelper.scheduleOfWorkingHours, None),
       (checkYourAnswersHelper.chooseWhereWork, None)
     ).filter(_._1.isDefined).map( answer => (answer._1.get, answer._2)),
@@ -99,7 +99,7 @@ trait UserAnswersUtils {
     rows = Seq(
       (checkYourAnswersHelper.benefits, Some(hint(benefits_details.apply()))),
       (checkYourAnswersHelper.lineManagerDuties, Some(hint(line_manager_duties_details.apply()))),
-      (checkYourAnswersHelper.interactWithStakeholders, Some(hint_p(Html(messages(tailorMsg("interactWithStakeholders.hint")))))),
+      (checkYourAnswersHelper.interactWithStakeholders, Some(hint_p(Html(messages(tailorMsgOptimised("interactWithStakeholders.hint")))))),
       (checkYourAnswersHelper.identifyToStakeholders, None)
     ).filter(_._1.isDefined).map( answer => (answer._1.get, answer._2)),
     useProgressiveDisclosure = true

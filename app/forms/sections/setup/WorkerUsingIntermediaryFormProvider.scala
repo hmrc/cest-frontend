@@ -26,6 +26,6 @@ class WorkerUsingIntermediaryFormProvider @Inject() extends Mappings with Optimi
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("workerUsingIntermediary.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("workerUsingIntermediary.error.required"))
     )
 }

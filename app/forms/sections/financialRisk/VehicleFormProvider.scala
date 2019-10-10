@@ -26,6 +26,6 @@ class VehicleFormProvider @Inject() extends Mappings with OptimisedErrorHandling
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("vehicle.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("vehicle.error.required"))
     )
 }

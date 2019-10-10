@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))),
+    title = title(form, tailorMsgOptimised("similarWorkOtherClients.title"), Some(tailorMsgOptimised("similarWorkOtherClients.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("similarWorkOtherClients.heading"), Some(tailorMsg("similarWorkOtherClients.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("similarWorkOtherClients.heading"), Some(tailorMsgOptimised("similarWorkOtherClients.subheading")), asLegend = true),
             labelClass = Some("visually-hidden"),
             otherContent = Some(p1)
 
@@ -48,5 +48,5 @@
 }
 
 @p1 = {
-    <p>@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
+    <p>@messages(tailorMsgOptimised("similarWorkOtherClients.p1"))</p>
 }

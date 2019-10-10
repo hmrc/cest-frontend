@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -47,8 +48,6 @@ class WhatDoYouWantToDoViewSpec extends QuestionViewBehaviours[WhatDoYouWantToDo
     behave like normalPage(createView, messageKeyPrefix, hasSubheading = false)
 
     behave like pageWithBackLink(createView)
-
-    behave like pageWithTextFields(createViewUsingForm, messageKeyPrefix, routes.AboutYouController.onSubmit(NormalMode).url)
 
     lazy val document = asDocument(createView())
 

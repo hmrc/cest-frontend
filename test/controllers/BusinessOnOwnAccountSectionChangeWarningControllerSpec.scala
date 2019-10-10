@@ -62,14 +62,14 @@ class BusinessOnOwnAccountSectionChangeWarningControllerSpec extends ControllerS
 
   val submitAction = routes.BusinessOnOwnAccountSectionChangeWarningController.onSubmit(ExtendContractPage)
 
-  def viewAsString = view(submitAction)(fakeRequest, messages, frontendAppConfig).toString
+  def optimisedViewAsString = view(submitAction)(fakeRequest, messages, frontendAppConfig).toString
 
   "AgencyAdvisory Controller" must {
 
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(ExtendContractPage)(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString
+      contentAsString(result) mustBe optimisedViewAsString
     }
 
     "redirect to the ExtendContract page if that was the selected page to change" in {

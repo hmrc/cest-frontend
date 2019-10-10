@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("ownershipRights.title"), Some(tailorMsg("ownershipRights.subheading"))),
+    title = title(form, tailorMsgOptimised("ownershipRights.title"), Some(tailorMsgOptimised("ownershipRights.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("ownershipRights.heading"), Some(tailorMsg("ownershipRights.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("ownershipRights.heading"), Some(tailorMsgOptimised("ownershipRights.subheading")), asLegend = true),
             labelClass = Some("visually-hidden"),
             otherContent = Some(content)
         )
@@ -47,5 +47,5 @@
 }
 
 @content = {
-    <p>@messages(tailorMsg("ownershipRights.p1"))</p>
+    <p>@messages(tailorMsgOptimised("ownershipRights.p1"))</p>
 }

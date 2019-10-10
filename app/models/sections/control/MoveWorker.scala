@@ -37,12 +37,7 @@ object MoveWorker {
     }
 
   def options(optimised: Boolean = false): Seq[RadioOption] = values(optimised).map {
-    value =>
-      if(optimised) {
-        RadioOption("optimised.moveWorker", value.toString, Radio, hasTailoredMsgs = true)
-      } else {
-        RadioOption("moveWorker", value.toString, Radio, hasTailoredMsgs = true)
-      }
+    value => RadioOption("moveWorker", value.toString, Radio, hasTailoredMsgs = true)
   }
 
   implicit val enumerable: Enumerable[MoveWorker] =

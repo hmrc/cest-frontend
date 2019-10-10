@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.personalService.NeededToPayHelperFormProvider
 import play.api.data.FormError
@@ -40,7 +40,7 @@ class NeededToPayHelperFormProviderSpec extends BooleanFieldBehaviours with Guic
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new NeededToPayHelperFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -54,7 +54,7 @@ class NeededToPayHelperFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new NeededToPayHelperFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -66,7 +66,7 @@ class NeededToPayHelperFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new NeededToPayHelperFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

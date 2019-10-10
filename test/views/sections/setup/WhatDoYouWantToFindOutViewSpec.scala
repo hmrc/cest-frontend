@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views.sections.setup
 
 import assets.messages.WhatDoYouWantToFindOutMessages
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import forms.sections.setup.WhatDoYouWantToFindOutFormProvider
 import models.NormalMode
 import play.api.data.Form

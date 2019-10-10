@@ -16,13 +16,14 @@
 
 package controllers.sections.financialRisk
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import connectors.DataCacheConnector
 import controllers.BaseNavigationController
 import controllers.actions._
 import forms.sections.financialRisk.PutRightAtOwnCostFormProvider
-import javax.inject.Inject
 import models.Mode
 import models.requests.DataRequest
 import models.sections.financialRisk.PutRightAtOwnCost
@@ -31,9 +32,8 @@ import pages.sections.financialRisk.PutRightAtOwnCostPage
 import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import play.twirl.api.HtmlFormat
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CompareAnswerService}
 import views.html.sections.financialRisk.PutRightAtOwnCostView
-import views.html.subOptimised.sections.financialRisk.{PutRightAtOwnCostView => SubOptimisedPutRightAtOwnCostView}
 
 import scala.concurrent.Future
 
@@ -42,22 +42,20 @@ class PutRightAtOwnCostController @Inject()(identify: IdentifierAction,
                                             requireData: DataRequiredAction,
                                             formProvider: PutRightAtOwnCostFormProvider,
                                             controllerComponents: MessagesControllerComponents,
-                                            subOptimisedView: SubOptimisedPutRightAtOwnCostView,
                                             optimisedView: PutRightAtOwnCostView,
                                             checkYourAnswersService: CheckYourAnswersService,
                                             compareAnswerService: CompareAnswerService,
                                             dataCacheConnector: DataCacheConnector,
-                                            decisionService: DecisionService,
                                             navigator: FinancialRiskNavigator,
                                             implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) with FeatureSwitching {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching {
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(fillForm(PutRightAtOwnCostPage, formProvider()), mode))
   }
 
   private def view(form: Form[PutRightAtOwnCost], mode: Mode)(implicit request: DataRequest[_]): HtmlFormat.Appendable = {
-    if(isEnabled(OptimisedFlow)) optimisedView(form, mode) else subOptimisedView(form, mode)
+    optimisedView(form, mode)
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>

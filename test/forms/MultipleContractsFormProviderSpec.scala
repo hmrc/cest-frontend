@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.businessOnOwnAccount.MultipleContractsFormProvider
 import play.api.data.FormError
@@ -41,7 +41,7 @@ class MultipleContractsFormProviderSpec extends BooleanFieldBehaviours with Guic
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new MultipleContractsFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class MultipleContractsFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new MultipleContractsFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class MultipleContractsFormProviderSpec extends BooleanFieldBehaviours with Guic
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new MultipleContractsFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

@@ -36,11 +36,11 @@ class WorkerAdvisoryControllerSpec extends ControllerSpecBase {
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString = view(
+  def optimisedViewAsString = view(
     postAction = routes.WorkerAdvisoryController.onSubmit(),
     finishAction = controllers.routes.ExitSurveyController.redirectToExitSurvey()
   )(fakeRequest, messages, frontendAppConfig).toString
@@ -50,7 +50,7 @@ class WorkerAdvisoryControllerSpec extends ControllerSpecBase {
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString
+      contentAsString(result) mustBe optimisedViewAsString
     }
 
     "redirect to the next page when valid data is submitted" in {

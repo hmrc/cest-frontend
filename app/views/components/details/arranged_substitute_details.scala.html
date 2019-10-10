@@ -19,12 +19,12 @@
 
 @()(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-<p>@messages(tailorMsg("arrangedSubstitute.p1"))</p>
+<p>@messages(tailorMsgOptimised("arrangedSubstitute.p1"))</p>
 
 @components.bulleted_list(Seq(
-    tailorMsg("arrangedSubstitute.bullet1"),
-    tailorMsg("arrangedSubstitute.bullet2"),
-    tailorMsg("arrangedSubstitute.bullet3"),
-    tailorMsg("arrangedSubstitute.bullet4"),
-    tailorMsg("arrangedSubstitute.bullet5")
+    tailorMsgOptimised("arrangedSubstitute.bullet1"),
+    tailorMsgOptimised("arrangedSubstitute.bullet2"),
+    tailorMsgOptimised("arrangedSubstitute.bullet3"),
+    tailorMsgOptimised("arrangedSubstitute.bullet4"),
+    tailorMsgOptimised("arrangedSubstitute.bullet5")
 ))

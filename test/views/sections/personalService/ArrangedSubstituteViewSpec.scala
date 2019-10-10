@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -18,7 +19,7 @@ package views.sections.personalService
 
 import assets.messages.{ArrangedSubstituteMessages, SubHeadingMessages}
 import config.SessionKeys
-import config.featureSwitch.OptimisedFlow
+
 import forms.sections.personalService.ArrangedSubstituteFormProvider
 import models.UserType.{Agency, Hirer, Worker}
 import models.NormalMode
@@ -32,7 +33,7 @@ class ArrangedSubstituteViewSpec extends ViewBehaviours {
 
   override def beforeEach = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

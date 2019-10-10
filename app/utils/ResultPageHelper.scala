@@ -34,7 +34,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def didPaySubstitute(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(DidPaySubstitutePage) map { x =>
       AnswerRow(
-        tailorMsg("didPaySubstitute.checkYourAnswersLabel"),
+        tailorMsgOptimised("didPaySubstitute.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -43,8 +43,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def rejectSubstitute(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(RejectSubstitutePage) map { x =>
       AnswerRow(
-        tailorMsg("rejectSubstitute.checkYourAnswersLabel"),
-        tailorMsg(if(x.answer) "rejectSubstitute.yes" else "rejectSubstitute.no"),
+        tailorMsgOptimised("rejectSubstitute.checkYourAnswersLabel"),
+        tailorMsgOptimised(if(x.answer) "rejectSubstitute.yes" else "rejectSubstitute.no"),
         answerIsMessageKey = true
       )
     }
@@ -52,7 +52,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def wouldWorkerPaySubstitute(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(WouldWorkerPaySubstitutePage) map { x =>
       AnswerRow(
-        tailorMsg("wouldWorkerPaySubstitute.checkYourAnswersLabel"),
+        tailorMsgOptimised("wouldWorkerPaySubstitute.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -61,7 +61,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def neededToPayHelper(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(NeededToPayHelperPage) map { x =>
       AnswerRow(
-        tailorMsg("neededToPayHelper.checkYourAnswersLabel"),
+        tailorMsgOptimised("neededToPayHelper.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -70,8 +70,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def moveWorker(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(MoveWorkerPage) map { x =>
       AnswerRow(
-        tailorMsg("moveWorker.checkYourAnswersLabel"),
-        tailorMsg(s"moveWorker.${x.answer}"),
+        tailorMsgOptimised("moveWorker.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"moveWorker.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -79,8 +79,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def howWorkIsDone(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(HowWorkIsDonePage) map { x =>
       AnswerRow(
-        tailorMsg("howWorkIsDone.checkYourAnswersLabel"),
-        tailorMsg(s"howWorkIsDone.${x.answer}"),
+        tailorMsgOptimised("howWorkIsDone.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"howWorkIsDone.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -88,8 +88,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def scheduleOfWorkingHours(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(ScheduleOfWorkingHoursPage) map { x =>
       AnswerRow(
-        tailorMsg("scheduleOfWorkingHours.checkYourAnswersLabel"),
-        tailorMsg(s"scheduleOfWorkingHours.${x.answer}"),
+        tailorMsgOptimised("scheduleOfWorkingHours.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"scheduleOfWorkingHours.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -97,8 +97,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def chooseWhereWork(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(ChooseWhereWorkPage) map { x =>
       AnswerRow(
-        tailorMsg("chooseWhereWork.checkYourAnswersLabel"),
-        tailorMsg(s"chooseWhereWork.${x.answer}"),
+        tailorMsgOptimised("chooseWhereWork.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"chooseWhereWork.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -106,8 +106,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def howWorkerIsPaid(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(HowWorkerIsPaidPage) map { x =>
       AnswerRow(
-        tailorMsg("howWorkerIsPaid.checkYourAnswersLabel"),
-        tailorMsg(s"howWorkerIsPaid.${x.answer}"),
+        tailorMsgOptimised("howWorkerIsPaid.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"howWorkerIsPaid.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -115,8 +115,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def putRightAtOwnCost(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(PutRightAtOwnCostPage) map { x =>
       AnswerRow(
-        tailorMsg("putRightAtOwnCost.checkYourAnswersLabel"),
-        tailorMsg(s"putRightAtOwnCost.${x.answer}"),
+        tailorMsgOptimised("putRightAtOwnCost.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"putRightAtOwnCost.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -124,7 +124,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def benefits(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(BenefitsPage) map { x =>
       AnswerRow(
-        tailorMsg("benefits.checkYourAnswersLabel"),
+        tailorMsgOptimised("benefits.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -133,7 +133,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def lineManagerDuties(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(LineManagerDutiesPage) map { x =>
       AnswerRow(
-        tailorMsg("lineManagerDuties.checkYourAnswersLabel"),
+        tailorMsgOptimised("lineManagerDuties.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -142,7 +142,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def interactWithStakeholders(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(InteractWithStakeholdersPage) map { x =>
       AnswerRow(
-        tailorMsg("interactWithStakeholders.checkYourAnswersLabel"),
+        tailorMsgOptimised("interactWithStakeholders.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -151,8 +151,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def identifyToStakeholders(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(IdentifyToStakeholdersPage) map { x =>
       AnswerRow(
-        tailorMsg("identifyToStakeholders.checkYourAnswersLabel"),
-        tailorMsg(s"identifyToStakeholders.${x.answer}"),
+        tailorMsgOptimised("identifyToStakeholders.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"identifyToStakeholders.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -160,8 +160,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def arrangedSubstitute(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(ArrangedSubstitutePage) map { x =>
       AnswerRow(
-        tailorMsg("arrangedSubstitute.checkYourAnswersLabel"),
-        tailorMsg(s"arrangedSubstitute.${x.answer}"),
+        tailorMsgOptimised("arrangedSubstitute.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"arrangedSubstitute.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -169,11 +169,11 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def cannotClaimAsExpense(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(CannotClaimAsExpensePage) map { x =>
       AnswerRow(
-        label = tailorMsg("cannotClaimAsExpense.checkYourAnswersLabel"),
+        label = tailorMsgOptimised("cannotClaimAsExpense.checkYourAnswersLabel"),
         answers = x.answer.map(ans =>
           AnswerRow(
-            label = tailorMsg(s"cannotClaimAsExpense.checkYourAnswersLabel"),
-            answer = tailorMsg(s"cannotClaimAsExpense.$ans"),
+            label = tailorMsgOptimised(s"cannotClaimAsExpense.checkYourAnswersLabel"),
+            answer = tailorMsgOptimised(s"cannotClaimAsExpense.$ans"),
             answerIsMessageKey = true
           )
         )
@@ -183,7 +183,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def officeHolder(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(OfficeHolderPage) map { x =>
       AnswerRow(
-        tailorMsg("officeHolder.checkYourAnswersLabel"),
+        tailorMsgOptimised("officeHolder.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )
@@ -192,8 +192,8 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def workerType(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(WorkerTypePage) map { x =>
       AnswerRow(
-        tailorMsg("workerType.checkYourAnswersLabel"),
-        tailorMsg(s"workerType.${x.answer}"),
+        tailorMsgOptimised("workerType.checkYourAnswersLabel"),
+        tailorMsgOptimised(s"workerType.${x.answer}"),
         answerIsMessageKey = true
       )
     }
@@ -201,7 +201,7 @@ class ResultPageHelper(userAnswers: UserAnswers) extends Enumerable.Implicits {
   def contractStarted(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Option[AnswerRow] =
     userAnswers.get(ContractStartedPage) map { x =>
       AnswerRow(
-        tailorMsg("contractStarted.checkYourAnswersLabel"),
+        tailorMsgOptimised("contractStarted.checkYourAnswersLabel"),
         if(x.answer) "site.yes" else "site.no",
         answerIsMessageKey = true
       )

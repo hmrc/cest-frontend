@@ -16,13 +16,14 @@
 
 package controllers.sections.control
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import connectors.DataCacheConnector
 import controllers.BaseNavigationController
 import controllers.actions._
 import forms.sections.control.HowWorkIsDoneFormProvider
-import javax.inject.Inject
 import models.Mode
 import models.sections.control.HowWorkIsDone
 import navigation.ControlNavigator
@@ -30,9 +31,8 @@ import pages.sections.control.HowWorkIsDonePage
 import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents, _}
 import play.twirl.api.HtmlFormat
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CompareAnswerService}
 import views.html.sections.control.HowWorkIsDoneView
-import views.html.subOptimised.sections.control.{HowWorkIsDoneView => SubOptimisedHowWorkIsDoneView}
 
 import scala.concurrent.Future
 
@@ -42,17 +42,15 @@ class HowWorkIsDoneController @Inject()(identify: IdentifierAction,
                                         formProvider: HowWorkIsDoneFormProvider,
                                         controllerComponents: MessagesControllerComponents,
                                         optimisedView: HowWorkIsDoneView,
-                                        subOptimisedView: SubOptimisedHowWorkIsDoneView,
                                         checkYourAnswersService: CheckYourAnswersService,
                                         compareAnswerService: CompareAnswerService,
                                         dataCacheConnector: DataCacheConnector,
-                                        decisionService: DecisionService,
                                         navigator: ControlNavigator,
                                         implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) with FeatureSwitching {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching {
 
   private def view(form: Form[HowWorkIsDone], mode: Mode)(implicit request: Request[_]): HtmlFormat.Appendable =
-    if(isEnabled(OptimisedFlow)) optimisedView(form, mode) else subOptimisedView(form, mode)
+    optimisedView(form, mode)
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(fillForm(HowWorkIsDonePage, formProvider()), mode))

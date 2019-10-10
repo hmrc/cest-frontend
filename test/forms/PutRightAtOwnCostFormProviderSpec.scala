@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.OptionFieldBehaviours
 import forms.sections.financialRisk.PutRightAtOwnCostFormProvider
 import models.sections.financialRisk.PutRightAtOwnCost
@@ -41,7 +41,7 @@ class PutRightAtOwnCostFormProviderSpec extends OptionFieldBehaviours with Guice
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new PutRightAtOwnCostFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class PutRightAtOwnCostFormProviderSpec extends OptionFieldBehaviours with Guice
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new PutRightAtOwnCostFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class PutRightAtOwnCostFormProviderSpec extends OptionFieldBehaviours with Guice
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new PutRightAtOwnCostFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

@@ -26,6 +26,6 @@ class PermissionToWorkWithOthersFormProvider @Inject() extends Mappings with Opt
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("permissionToWorkWithOthers.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("permissionToWorkWithOthers.error.required"))
     )
 }

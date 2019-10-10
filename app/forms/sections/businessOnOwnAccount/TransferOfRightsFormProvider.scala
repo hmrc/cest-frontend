@@ -26,6 +26,6 @@ class TransferOfRightsFormProvider @Inject() extends Mappings with OptimisedErro
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("transferOfRights.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("transferOfRights.error.required"))
     )
 }

@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -17,7 +18,7 @@
 package views.sections.control
 
 import assets.messages.{ChooseWhereWorkMessages, SubHeadingMessages}
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import forms.sections.control.ChooseWhereWorkFormProvider
 import models.NormalMode
 import models.sections.control.ChooseWhereWork
@@ -30,7 +31,7 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

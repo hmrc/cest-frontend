@@ -16,7 +16,7 @@
 
 package controllers.sections.control
 
-import config.featureSwitch.OptimisedFlow
+
 import connectors.mocks.MockDataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions._
@@ -32,7 +32,6 @@ import play.api.libs.json.Json
 import play.api.test.Helpers._
 import uk.gov.hmrc.http.cache.client.CacheMap
 import views.html.sections.control.ScheduleOfWorkingHoursView
-import views.html.subOptimised.sections.control.{ScheduleOfWorkingHoursView => SubOptimisedScheduleOfWorkingHoursView}
 
 class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockDataCacheConnector {
 
@@ -40,7 +39,6 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
   val form = formProvider()(fakeDataRequest, frontendAppConfig)
 
   val optimisedView = injector.instanceOf[ScheduleOfWorkingHoursView]
-  val subOptimisedView = injector.instanceOf[SubOptimisedScheduleOfWorkingHoursView]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction) = new ScheduleOfWorkingHoursController(
     FakeIdentifierAction,
@@ -50,15 +48,15 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
     controllerComponents = messagesControllerComponents,
     appConfig = frontendAppConfig,
     optimisedView = optimisedView,
-    subOptimisedView = subOptimisedView,
+
     checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
-    decisionService = mockDecisionService,
+
     navigator = FakeControlNavigator
   )
 
-  def viewAsString(form: Form[_] = form) = subOptimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
+
   def optimisedViewAsString(form: Form[_] = form) = optimisedView(form, NormalMode)(fakeRequest, messages, frontendAppConfig).toString
 
   val validData = Map(ScheduleOfWorkingHoursPage.toString -> Json.toJson(Answers(ScheduleOfWorkingHours.values.head,0)))
@@ -69,12 +67,12 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "return OK and the correct view for a GET for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val result = controller().onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe OK
@@ -86,12 +84,12 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
 
-      contentAsString(result) mustBe viewAsString(form.fill(ScheduleOfWorkingHours.values.head))
+      contentAsString(result) mustBe optimisedViewAsString(form.fill(ScheduleOfWorkingHours.values.head))
     }
 
     "populate the view correctly on a GET when the question has previously been answered for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
 
       val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
@@ -103,7 +101,7 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", ScheduleOfWorkingHours.options().head.value))
 
       val answers = userAnswers.set(ScheduleOfWorkingHoursPage,0,ScheduleOfWorkingHours.ScheduleDecidedForWorker)
-      mockConstructAnswers(DataRequest(postRequest,"id",answers),ScheduleOfWorkingHours)(answers)
+      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),ScheduleOfWorkingHours)(answers)
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
       val result = controller().onSubmit(NormalMode)(postRequest)
@@ -114,7 +112,7 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
 
     "redirect to the next page when valid data is submitted for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", ScheduleOfWorkingHours.options().head.value))
 
       mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
@@ -130,7 +128,7 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
 
     "return a Bad Request and errors when invalid data is submitted for optimised view" in {
 
-      enable(OptimisedFlow)
+
       val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "invalid value"))
       val boundForm = form.bind(Map("value" -> "invalid value"))
 
@@ -147,7 +145,7 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
       val result = controller().onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe viewAsString(boundForm)
+      contentAsString(result) mustBe optimisedViewAsString(boundForm)
     }
 
     "redirect to Index Controller for a GET if no existing data is found" in {

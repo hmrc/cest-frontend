@@ -16,13 +16,14 @@
 
 package controllers.sections.financialRisk
 
+import javax.inject.Inject
+
 import config.FrontendAppConfig
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
+import config.featureSwitch.FeatureSwitching
 import connectors.DataCacheConnector
 import controllers.BaseNavigationController
 import controllers.actions._
 import forms.sections.financialRisk.HowWorkerIsPaidFormProvider
-import javax.inject.Inject
 import models.Mode
 import models.requests.DataRequest
 import models.sections.financialRisk.HowWorkerIsPaid
@@ -31,9 +32,8 @@ import pages.sections.financialRisk.HowWorkerIsPaidPage
 import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import play.twirl.api.HtmlFormat
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CheckYourAnswersService, CompareAnswerService}
 import views.html.sections.financialRisk.HowWorkerIsPaidView
-import views.html.subOptimised.sections.financialRisk.{HowWorkerIsPaidView => SubOptimisedHowWorkerIsPaidView}
 
 import scala.concurrent.Future
 
@@ -42,18 +42,16 @@ class HowWorkerIsPaidController @Inject()(identify: IdentifierAction,
                                           requireData: DataRequiredAction,
                                           formProvider: HowWorkerIsPaidFormProvider,
                                           controllerComponents: MessagesControllerComponents,
-                                          subOptimisedView: SubOptimisedHowWorkerIsPaidView,
                                           optimisedView: HowWorkerIsPaidView,
                                           checkYourAnswersService: CheckYourAnswersService,
                                           compareAnswerService: CompareAnswerService,
                                           dataCacheConnector: DataCacheConnector,
-                                          decisionService: DecisionService,
                                           navigator: FinancialRiskNavigator,
                                           implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
-  controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) with FeatureSwitching {
+  controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching {
 
   private def view(form: Form[HowWorkerIsPaid], mode: Mode)(implicit request: DataRequest[_]): HtmlFormat.Appendable = {
-    if(isEnabled(OptimisedFlow)) optimisedView(form, mode) else subOptimisedView(form, mode)
+    optimisedView(form, mode)
   }
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>

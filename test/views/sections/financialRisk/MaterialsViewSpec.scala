@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -18,7 +19,7 @@ package views.sections.financialRisk
 
 import assets.messages.{MaterialsMessages, SubHeadingMessages}
 import config.SessionKeys
-import config.featureSwitch.OptimisedFlow
+
 import controllers.sections.financialRisk.routes
 import forms.sections.financialRisk.MaterialsFormProvider
 import models.NormalMode
@@ -35,7 +36,7 @@ class MaterialsViewSpec extends YesNoViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   val messageKeyPrefix = "worker.materials"

@@ -27,7 +27,7 @@ import navigation.FinancialRiskNavigator
 import pages.sections.financialRisk.VehiclePage
 import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CompareAnswerService, DecisionService}
+import services.CompareAnswerService
 import views.html.sections.financialRisk.VehicleView
 
 import scala.concurrent.Future
@@ -40,10 +40,9 @@ class VehicleController @Inject()(dataCacheConnector: DataCacheConnector,
                                   formProvider: VehicleFormProvider,
                                   controllerComponents: MessagesControllerComponents,
                                   compareAnswerService: CompareAnswerService,
-                                  decisionService: DecisionService,
                                   view: VehicleView,
                                   implicit val appConfig: FrontendAppConfig
-                                 ) extends BaseNavigationController(controllerComponents,compareAnswerService,dataCacheConnector,navigator,decisionService) {
+                                 ) extends BaseNavigationController(controllerComponents,compareAnswerService,dataCacheConnector,navigator) {
 
   def onPageLoad(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(fillForm(VehiclePage, formProvider()), mode))

@@ -22,15 +22,15 @@
     @components.hint(hint)
 
     @hint = {
-        <p>@messages(tailorMsg("officeHolder.p1"))</p>
-        <p>@messages(tailorMsg("officeHolder.p2"))</p>
+        <p>@messages(tailorMsgOptimised("officeHolder.p1"))</p>
+        <p>@messages(tailorMsgOptimised("officeHolder.p2"))</p>
 
         <ul class="list-bullet print-bullet">
-            <li>@messages(tailorMsg("officeHolder.bullet1"))</li>
-            <li>@messages(tailorMsg("officeHolder.bullet2"))</li>
-            <li>@messages(tailorMsg("officeHolder.bullet3"))</li>
+            <li>@messages(tailorMsgOptimised("officeHolder.bullet1"))</li>
+            <li>@messages(tailorMsgOptimised("officeHolder.bullet2"))</li>
+            <li>@messages(tailorMsgOptimised("officeHolder.bullet3"))</li>
         </ul>
     }
 
-    @components.exclamation(Html(messages(tailorMsg("officeHolder.exclamation"))))
+    @components.exclamation(Html(messages(tailorMsgOptimised("officeHolder.exclamation"))))
     

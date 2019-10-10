@@ -25,7 +25,7 @@
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
 @mainTemplate(
-    title = title(form, tailorMsg("transferOfRights.title"), Some(tailorMsg("transferOfRights.subheading"))),
+    title = title(form, tailorMsgOptimised("transferOfRights.title"), Some(tailorMsgOptimised("transferOfRights.subheading"))),
     appConfig = appConfig,
     bodyClasses = None) {
 
@@ -37,7 +37,7 @@
 
         @components.input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("transferOfRights.heading"), Some(tailorMsg("transferOfRights.subheading")), asLegend = true),
+            legend = components.heading(tailorMsgOptimised("transferOfRights.heading"), Some(tailorMsgOptimised("transferOfRights.subheading")), asLegend = true),
             labelClass = Some("visually-hidden"),
             otherContent = Some(p1)
         )
@@ -47,5 +47,5 @@
 }
 
 @p1 = {
-    <p>@messages(tailorMsg("transferOfRights.p1"))</p>
+    <p>@messages(tailorMsgOptimised("transferOfRights.p1"))</p>
 }

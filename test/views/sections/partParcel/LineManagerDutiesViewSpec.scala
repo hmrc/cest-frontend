@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2019 HM Revenue & Customs
  *
@@ -18,7 +19,7 @@ package views.sections.partParcel
 
 import assets.messages.{LineManagerDutiesMessages, SubHeadingMessages}
 import config.SessionKeys
-import config.featureSwitch.OptimisedFlow
+
 import forms.sections.partAndParcel.LineManagerDutiesFormProvider
 import models.NormalMode
 import models.UserType.{Agency, Hirer, Worker}
@@ -32,7 +33,7 @@ class LineManagerDutiesViewSpec extends YesNoViewBehaviours {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
-    enable(OptimisedFlow)
+
   }
 
   object Selectors extends BaseCSSSelectors

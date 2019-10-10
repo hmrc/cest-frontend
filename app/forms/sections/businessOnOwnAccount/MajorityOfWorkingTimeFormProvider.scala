@@ -26,6 +26,6 @@ class MajorityOfWorkingTimeFormProvider @Inject() extends Mappings with Optimise
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("majorityOfWorkingTime.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("majorityOfWorkingTime.error.required"))
     )
 }

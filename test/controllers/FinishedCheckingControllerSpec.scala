@@ -38,7 +38,7 @@ class FinishedCheckingControllerSpec extends ControllerSpecBase {
     appConfig = frontendAppConfig
   )
 
-  def viewAsString(call: Option[Call] = None) = view(frontendAppConfig, NormalMode, call)(fakeRequest, messages).toString
+  def optimisedViewAsString(call: Option[Call] = None) = view(frontendAppConfig, NormalMode, call)(fakeRequest, messages).toString
 
   val validData = Map(ResultPage.toString -> Json.toJson(Answers(true,0)))
 
@@ -48,7 +48,7 @@ class FinishedCheckingControllerSpec extends ControllerSpecBase {
 
     "return OK for a GET" in {
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString()
+      contentAsString(result) mustBe optimisedViewAsString()
     }
 
     "return OK for a GET when the download is present" in {
@@ -57,7 +57,7 @@ class FinishedCheckingControllerSpec extends ControllerSpecBase {
       lazy val result = testFinishedCheckingController(getRelevantData).onPageLoad()(fakeRequest)
 
       status(result) mustBe OK
-      contentAsString(result) mustBe viewAsString(Some(routes.PDFController.downloadPDF()))
+      contentAsString(result) mustBe optimisedViewAsString(Some(routes.PDFController.downloadPDF()))
 
     }
   }

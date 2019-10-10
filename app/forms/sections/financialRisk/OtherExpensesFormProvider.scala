@@ -26,6 +26,6 @@ class OtherExpensesFormProvider @Inject() extends Mappings with OptimisedErrorHa
 
   def apply()(implicit request: DataRequest[_], frontendAppConfig: FrontendAppConfig): Form[Boolean] =
     Form(
-      "value" -> boolean(tailoredErrMsg("otherExpenses.error.required"))
+      "value" -> boolean(tailoredErrMsgOptimised("otherExpenses.error.required"))
     )
 }

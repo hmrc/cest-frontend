@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.businessOnOwnAccount.FinanciallyDependentFormProvider
 import play.api.data.FormError
@@ -42,7 +42,7 @@ class FinanciallyDependentFormProviderSpec extends BooleanFieldBehaviours with G
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new FinanciallyDependentFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -56,7 +56,7 @@ class FinanciallyDependentFormProviderSpec extends BooleanFieldBehaviours with G
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new FinanciallyDependentFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -68,7 +68,7 @@ class FinanciallyDependentFormProviderSpec extends BooleanFieldBehaviours with G
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new FinanciallyDependentFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(

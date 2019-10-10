@@ -17,7 +17,7 @@
 package forms
 
 import base.GuiceAppSpecBase
-import config.featureSwitch.OptimisedFlow
+
 import forms.behaviours.BooleanFieldBehaviours
 import forms.sections.businessOnOwnAccount.TransferOfRightsFormProvider
 import play.api.data.FormError
@@ -41,7 +41,7 @@ class TransferOfRightsFormProviderSpec extends BooleanFieldBehaviours with Guice
 
     "for the sub optimised flow" should {
 
-      disable(OptimisedFlow)
+
       val form = new TransferOfRightsFormProvider()()(fakeDataRequest, frontendAppConfig)
 
       behave like mandatoryField(
@@ -55,7 +55,7 @@ class TransferOfRightsFormProviderSpec extends BooleanFieldBehaviours with Guice
 
       "if the user type is 'Worker'" must {
 
-        enable(OptimisedFlow)
+
         val form = new TransferOfRightsFormProvider()()(workerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
@@ -67,7 +67,7 @@ class TransferOfRightsFormProviderSpec extends BooleanFieldBehaviours with Guice
 
       "if the user type is 'Hirer'" must {
 
-        enable(OptimisedFlow)
+
         val form = new TransferOfRightsFormProvider()()(hirerFakeDataRequest, frontendAppConfig)
 
         behave like mandatoryField(
