@@ -100,24 +100,6 @@ hirer.contractStarted.subHeading = Amdanoch chi a’r gwaith
 hirer.contractStarted.checkYourAnswersLabel = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
 #########################
 
-## TODO: Need Welsh
-## Who Are you
-#########################
-
-whoAreYou.title =  Who are you?
-whoAreYou.heading =  Who are you?
-whoAreYou.subheading = About you and the work
-whoAreYou.checkYourAnswersLabel = Who are you?
-whoAreYou.personDoingWork = Worker
-whoAreYou.endClient = Hirer
-whoAreYou.placingAgency = Agency
-
-whoAreYou.ir35.error.required = Select if you are a worker, hirer or agency
-whoAreYou.ir35.error.invalid = Select if you are a worker, hirer or agency
-whoAreYou.paye.error.required = Select if you are a worker or hirer
-whoAreYou.paye.error.invalid = Select if you are a worker or hirer
-#########################
-
 ## What do you want
 #########################
 
@@ -165,6 +147,8 @@ worker.arrangedSubstitute.checkYourAnswersLabel = A ydych erioed wedi anfon eily
 worker.arrangedSubstitute.yesClientAgreed = Iawn, gwnaeth eich cleient ei dderbyn
 worker.arrangedSubstitute.notAgreedWithClient = Iawn, ond ni wnaeth eich cleient ei dderbyn
 worker.arrangedSubstitute.noSubstitutionHappened = Na, nid yw hynny wedi digwydd
+## TODO: Need Welsh
+worker.arrangedSubstitute.p1 = A substitute is someone you send in your place to do your role.
 
 ## TODO: Need Welsh
 hirer.arrangedSubstitute.error.required = Select if the worker has ever sent a substitute to do their work
@@ -176,6 +160,7 @@ hirer.arrangedSubstitute.checkYourAnswersLabel = Has the worker ever sent a subs
 hirer.arrangedSubstitute.yesClientAgreed = Yes, you accepted them
 hirer.arrangedSubstitute.notAgreedWithClient = Yes, but you did not accept them
 hirer.arrangedSubstitute.noSubstitutionHappened = No, it has not happened
+hirer.arrangedSubstitute.p1 = A substitute is someone the worker sends in their place to do their role.
 #########################
 
 ## Identify to stakeholders
@@ -1506,7 +1491,6 @@ hirer.noIntermediaryResult.p2.link2 = dechreuwch eto
 ### All of these below are prefixed on the view with "Change"
 
 whatDoYouWantToFindOut.changeLinkContext = what you want to find out
-whoAreYou.changeLinkContext = who you are
 whatDoYouWantToDo.changeLinkContext = what you want to do
 worker.workerUsingIntermediary.changeLinkContext = if you are trading through a limited company, partnership or unincorporated body
 hirer.workerUsingIntermediary.changeLinkContext = if the worker is trading through a limited company, partnership or unincorporated body

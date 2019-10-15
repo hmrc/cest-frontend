@@ -97,7 +97,6 @@ class MessagesSpec extends GuiceAppSpecBase {
 
     "contain the correct messages for the Change Link Contexts (to support Accessibility Software)" in {
       Messages("whatDoYouWantToFindOut.changeLinkContext") mustBe "what you want to find out"
-      Messages("whoAreYou.changeLinkContext") mustBe "who you are"
       Messages("whatDoYouWantToDo.changeLinkContext") mustBe "what you want to do"
       Messages("worker.workerUsingIntermediary.changeLinkContext") mustBe "if you are trading through a limited company, partnership or unincorporated body"
       Messages("hirer.workerUsingIntermediary.changeLinkContext") mustBe "if the worker is trading through a limited company, partnership or unincorporated body"

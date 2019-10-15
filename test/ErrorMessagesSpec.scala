@@ -48,11 +48,6 @@ class ErrorMessagesSpec extends GuiceAppSpecBase {
         Messages("whatDoYouWantToDo.error.required") mustBe WhatDoYouWantToDoMessages.error
       }
 
-      "have the correct error messages for the WhoAreYouPage" in {
-        Messages("whoAreYou.ir35.error.required") mustBe WhoAreYouMessages.ir35Error
-        Messages("whoAreYou.paye.error.required") mustBe WhoAreYouMessages.payeError
-      }
-
       "have the correct error messages for the WorkingUsingIntermediaryPage" in {
         Messages("worker.workerUsingIntermediary.error.required") mustBe WorkerUsingIntermediaryMessages.Worker.error
         Messages("hirer.workerUsingIntermediary.error.required") mustBe WorkerUsingIntermediaryMessages.Hirer.error
