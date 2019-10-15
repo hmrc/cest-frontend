@@ -86,18 +86,18 @@ unauthorised.heading =  You can’t access this service with this account
 
 ## Contract Started Page Questions
 #########################
-worker.optimised.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
-agency.optimised.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
-worker.optimised.contractStarted.title = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
-worker.optimised.contractStarted.heading = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
-worker.optimised.contractStarted.subHeading = Amdanoch chi a’r gwaith
-worker.optimised.contractStarted.checkYourAnswersLabel = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
+worker.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
+agency.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
+worker.contractStarted.title = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
+worker.contractStarted.heading = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
+worker.contractStarted.subHeading = Amdanoch chi a’r gwaith
+worker.contractStarted.checkYourAnswersLabel = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
 
-hirer.optimised.contractStarted.error.required = Dewiswch ‘Iawn’ os yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn
-hirer.optimised.contractStarted.title = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
-hirer.optimised.contractStarted.heading = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
-hirer.optimised.contractStarted.subHeading = Amdanoch chi a’r gwaith
-hirer.optimised.contractStarted.checkYourAnswersLabel = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
+hirer.contractStarted.error.required = Dewiswch ‘Iawn’ os yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn
+hirer.contractStarted.title = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
+hirer.contractStarted.heading = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
+hirer.contractStarted.subHeading = Amdanoch chi a’r gwaith
+hirer.contractStarted.checkYourAnswersLabel = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
 #########################
 
 ## TODO: Need Welsh
@@ -134,317 +134,264 @@ whatDoYouWantToFindOut.error.invalid = Dewiswch yr hyn yr hoffech gael gwybod
 
 ## Office Holder
 #########################
-worker.optimised.officeHolder.error.required = Select yes if you will be an Office Holder
-agency.optimised.officeHolder.error.required = Select yes if you will be an Office Holder
-worker.optimised.officeHolder.title = Will you be an ‘Office Holder’?
-worker.optimised.officeHolder.subheading = Worker’s duties
-worker.optimised.officeHolder.heading = Will you be an ‘Office Holder’?
-worker.optimised.officeHolder.checkYourAnswersLabel = Will you be an ‘Office Holder’?
-worker.optimised.officeholder.p1 = This can include being a board member, treasurer, trustee, company secretary or company director.
-worker.optimised.officeholder.p2 = Read more about
-worker.optimised.officeholder.link = Office Holders
+worker.officeHolder.error.required = Select yes if you will be an Office Holder
+agency.officeHolder.error.required = Select yes if you will be an Office Holder
+worker.officeHolder.title = Will you be an ‘Office Holder’?
+worker.officeHolder.subheading = Worker’s duties
+worker.officeHolder.heading = Will you be an ‘Office Holder’?
+worker.officeHolder.checkYourAnswersLabel = Will you be an ‘Office Holder’?
+worker.officeholder.p1 = This can include being a board member, treasurer, trustee, company secretary or company director.
+worker.officeholder.p2 = Read more about
+worker.officeholder.link = Office Holders
 
-hirer.optimised.officeHolder.error.required = Select yes if the worker will be an Office Holder
-hirer.optimised.officeHolder.title = Will the worker be an ‘Office Holder’?
-hirer.optimised.officeHolder.subheading = Worker’s duties
-hirer.optimised.officeHolder.heading = Will the worker be an ‘Office Holder’?
-hirer.optimised.officeHolder.checkYourAnswersLabel = Will the worker be an ‘Office Holder’?
-hirer.optimised.officeholder.p1 = This can include being a board member, treasurer, trustee, company secretary or company director.
-hirer.optimised.officeholder.p2 = Read more about
-hirer.optimised.officeholder.link = Office Holders
+hirer.officeHolder.error.required = Select yes if the worker will be an Office Holder
+hirer.officeHolder.title = Will the worker be an ‘Office Holder’?
+hirer.officeHolder.subheading = Worker’s duties
+hirer.officeHolder.heading = Will the worker be an ‘Office Holder’?
+hirer.officeHolder.checkYourAnswersLabel = Will the worker be an ‘Office Holder’?
+hirer.officeholder.p1 = This can include being a board member, treasurer, trustee, company secretary or company director.
+hirer.officeholder.p2 = Read more about
+hirer.officeholder.link = Office Holders
 #########################
 
 ## Arranged Substitute
 #########################
-worker.optimised.arrangedSubstitute.error.required = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
-agency.optimised.arrangedSubstitute.error.required = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
-worker.optimised.arrangedSubstitute.error.invalid = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
-agency.optimised.arrangedSubstitute.error.invalid = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
-worker.optimised.arrangedSubstitute.title = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
-worker.optimised.arrangedSubstitute.subheading = Eilyddion a chynorthwywyr
-worker.optimised.arrangedSubstitute.heading = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
-worker.optimised.arrangedSubstitute.checkYourAnswersLabel = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
-worker.optimised.arrangedSubstitute.yesClientAgreed = Iawn, gwnaeth eich cleient ei dderbyn
-worker.optimised.arrangedSubstitute.notAgreedWithClient = Iawn, ond ni wnaeth eich cleient ei dderbyn
-worker.optimised.arrangedSubstitute.noSubstitutionHappened = Na, nid yw hynny wedi digwydd
-## TODO: Need Welsh
-worker.optimised.arrangedSubstitute.error.required = Select if you have ever sent a substitute to do your work
-agency.optimised.arrangedSubstitute.error.required = Select if you have ever sent a substitute to do your work
-worker.optimised.arrangedSubstitute.error.invalid = Select if you have ever sent a substitute to do your work
-agency.optimised.arrangedSubstitute.error.invalid = Select if you have ever sent a substitute to do your work
-worker.optimised.arrangedSubstitute.title = Have you ever sent a substitute to do this work?
-worker.optimised.arrangedSubstitute.subheading = Substitutes and helpers
-worker.optimised.arrangedSubstitute.heading = Have you ever sent a substitute to do this work?
-worker.optimised.arrangedSubstitute.checkYourAnswersLabel = Have you ever sent a substitute to do this work?
-worker.optimised.arrangedSubstitute.yesClientAgreed = Yes, your client accepted them
-worker.optimised.arrangedSubstitute.notAgreedWithClient = Yes, but your client did not accept them
-worker.optimised.arrangedSubstitute.noSubstitutionHappened = No, it has not happened
-worker.optimised.arrangedSubstitute.p1 = A substitute is someone you send in your place to do your role.
+worker.arrangedSubstitute.error.required = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
+worker.arrangedSubstitute.error.invalid = Dewiswch os ydych erioed wedi anfon eilydd i wneud eich gwaith
+worker.arrangedSubstitute.title = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
+worker.arrangedSubstitute.subheading = Eilyddion a chynorthwywyr
+worker.arrangedSubstitute.heading = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
+worker.arrangedSubstitute.checkYourAnswersLabel = A ydych erioed wedi anfon eilydd i wneud eich gwaith?
+worker.arrangedSubstitute.yesClientAgreed = Iawn, gwnaeth eich cleient ei dderbyn
+worker.arrangedSubstitute.notAgreedWithClient = Iawn, ond ni wnaeth eich cleient ei dderbyn
+worker.arrangedSubstitute.noSubstitutionHappened = Na, nid yw hynny wedi digwydd
 
 ## TODO: Need Welsh
-hirer.optimised.arrangedSubstitute.error.required = Select if the worker has ever sent a substitute to do their work
-hirer.optimised.arrangedSubstitute.error.invalid = Select if the worker has ever sent a substitute to do their work
-hirer.optimised.arrangedSubstitute.title = Has the worker ever sent a substitute to do this work?
-hirer.optimised.arrangedSubstitute.subheading = Substitutes and helpers
-hirer.optimised.arrangedSubstitute.heading = Has the worker ever sent a substitute to do this work?
-hirer.optimised.arrangedSubstitute.checkYourAnswersLabel = Has the worker ever sent a substitute to do this work?
-hirer.optimised.arrangedSubstitute.yesClientAgreed = Yes, you accepted them
-hirer.optimised.arrangedSubstitute.notAgreedWithClient = Yes, but you did not accept them
-hirer.optimised.arrangedSubstitute.noSubstitutionHappened = No, it has not happened
-hirer.optimised.arrangedSubstitute.p1 = A substitute is someone the worker sends in their place to do their role.
+hirer.arrangedSubstitute.error.required = Select if the worker has ever sent a substitute to do their work
+hirer.arrangedSubstitute.error.invalid = Select if the worker has ever sent a substitute to do their work
+hirer.arrangedSubstitute.title = Has the worker ever sent a substitute to do this work?
+hirer.arrangedSubstitute.subheading = Substitutes and helpers
+hirer.arrangedSubstitute.heading = Has the worker ever sent a substitute to do this work?
+hirer.arrangedSubstitute.checkYourAnswersLabel = Has the worker ever sent a substitute to do this work?
+hirer.arrangedSubstitute.yesClientAgreed = Yes, you accepted them
+hirer.arrangedSubstitute.notAgreedWithClient = Yes, but you did not accept them
+hirer.arrangedSubstitute.noSubstitutionHappened = No, it has not happened
+hirer.arrangedSubstitute.p1 = A substitute is someone the worker sends in their place to do their role.
 #########################
 
 ## Identify to stakeholders
 #########################
 ##TODO: Need Welsh
-hirer.optimised.identifyToStakeholders.error.required = Select how the worker would introduce themselves to your consumers or suppliers
-hirer.optimised.identifyToStakeholders.title = How would the worker introduce themselves to your consumers or suppliers?
-hirer.optimised.identifyToStakeholders.subheading = Worker’s involvement
-hirer.optimised.identifyToStakeholders.heading = How would the worker introduce themselves to your consumers or suppliers?
-hirer.optimised.identifyToStakeholders.checkYourAnswersLabel = How would the worker introduce themselves to your consumers or suppliers?
-hirer.optimised.identifyToStakeholders.workForEndClient = They work for you
-hirer.optimised.identifyToStakeholders.workAsIndependent = They are an independent worker acting on your behalf
-hirer.optimised.identifyToStakeholders.workAsBusiness = They work for their own business
-hirer.optimised.identifyToStakeholders.wouldNotHappen = This would not happen
+hirer.identifyToStakeholders.error.required = Select how the worker would introduce themselves to your consumers or suppliers
+hirer.identifyToStakeholders.title = How would the worker introduce themselves to your consumers or suppliers?
+hirer.identifyToStakeholders.subheading = Worker’s involvement
+hirer.identifyToStakeholders.heading = How would the worker introduce themselves to your consumers or suppliers?
+hirer.identifyToStakeholders.checkYourAnswersLabel = How would the worker introduce themselves to your consumers or suppliers?
+hirer.identifyToStakeholders.workForEndClient = They work for you
+hirer.identifyToStakeholders.workAsIndependent = They are an independent worker acting on your behalf
+hirer.identifyToStakeholders.workAsBusiness = They work for their own business
+hirer.identifyToStakeholders.wouldNotHappen = This would not happen
 
-worker.optimised.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
-agency.optimised.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
-worker.optimised.identifyToStakeholders.title = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
-worker.optimised.identifyToStakeholders.subheading = Cyfraniad y gweithiwr
-worker.optimised.identifyToStakeholders.heading = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
-worker.optimised.identifyToStakeholders.checkYourAnswersLabel = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
-worker.optimised.identifyToStakeholders.workForEndClient = Rydych yn gweithio i’ch cleient
-worker.optimised.identifyToStakeholders.workAsIndependent = Rydych yn weithiwr annibynnol sy’n gweithredu ar ran eich cleient
-worker.optimised.identifyToStakeholders.workAsBusiness = Rydych yn gweithio i’ch busnes eich hun
-worker.optimised.identifyToStakeholders.wouldNotHappen = Ni fyddai hyn yn digwydd
+worker.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
+agency.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
+worker.identifyToStakeholders.title = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
+worker.identifyToStakeholders.subheading = Cyfraniad y gweithiwr
+worker.identifyToStakeholders.heading = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
+worker.identifyToStakeholders.checkYourAnswersLabel = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
+worker.identifyToStakeholders.workForEndClient = Rydych yn gweithio i’ch cleient
+worker.identifyToStakeholders.workAsIndependent = Rydych yn weithiwr annibynnol sy’n gweithredu ar ran eich cleient
+worker.identifyToStakeholders.workAsBusiness = Rydych yn gweithio i’ch busnes eich hun
+worker.identifyToStakeholders.wouldNotHappen = Ni fyddai hyn yn digwydd
 #########################
-
-## Worker interact with stakeholders
-#########################
-interactWithStakeholders.title =A yw’r gweithiwr yn rhyngweithio â chwsmeriaid, cleientiaid, cynulleidfa neu ddefnyddwyr y cleient terfynol?
-interactWithStakeholders.heading =A yw’r gweithiwr yn rhyngweithio â chwsmeriaid, cleientiaid, cynulleidfa neu ddefnyddwyr y cleient terfynol?
-interactWithStakeholders.subheading =Ynglŷn ag integreiddio’r gweithiwr i mewn i’r sefydliad
-interactWithStakeholders.hint =Mae’r rhain yn bobl sy’n defnyddio, neu sy’n cael eu heffeithio gan, y gwasanaeth a ddarperir gan y corff cyhoeddus, corfforaeth neu fusnes. Ni fyddai hyn yn cynnwys cydweithwyr y gweithiwr na gweithwyr eraill.
-interactWithStakeholders.checkYourAnswersLabel =A yw’r gweithiwr yn rhyngweithio â chwsmeriaid, cleientiaid, cynulleidfa neu ddefnyddwyr y cleient terfynol?
-interactWithStakeholders.error.required = Mae angen i chi ddewis ateb
-
-hirer.interactWithStakeholders.title = Does the worker interact with your customers, clients, audience or users?
-hirer.interactWithStakeholders.heading = Does the worker interact with your customers, clients, audience or users?
-hirer.interactWithStakeholders.subheading = About the worker’s integration into the organisation
-hirer.interactWithStakeholders.hint = These are people who use or are affected by the service provided by your organisation. This would not include the worker’s colleagues or other employees.
-hirer.interactWithStakeholders.checkYourAnswersLabel = Does the worker interact with your customers, clients, audience or users
-
-worker.interactWithStakeholders.title = Do you interact with the end client’s customers, clients, audience or users?
-worker.interactWithStakeholders.heading = Do you interact with the end client’s customers, clients, audience or users?
-worker.interactWithStakeholders.subheading = About the worker’s integration into the organisation
-worker.interactWithStakeholders.hint = These are people who use or are affected by the service provided by the public body, corporation or business. This would not include your colleagues or other employees.
-worker.interactWithStakeholders.checkYourAnswersLabel = Do you interact with the end client’s customers, clients, audience or users?
 
 ## Line Manager responsible for duties
 #########################
 ##TODO: Need Welsh
-hirer.optimised.lineManagerDuties.error.required = Select yes if the worker will have any management responsibilities for your organisation
-hirer.optimised.lineManagerDuties.title = Will the worker have any management responsibilities for your organisation?
-hirer.optimised.lineManagerDuties.subheading = Worker’s involvement
-hirer.optimised.lineManagerDuties.heading = Will the worker have any management responsibilities for your organisation?
-hirer.optimised.lineManagerDuties.checkYourAnswersLabel = Will the worker have any management responsibilities for your organisation?
-hirer.optimised.lineManagerDuties.p1 = This can include deciding how much to pay someone, hiring or dismissing workers, and delivering appraisals.
+hirer.lineManagerDuties.error.required = Select yes if the worker will have any management responsibilities for your organisation
+hirer.lineManagerDuties.title = Will the worker have any management responsibilities for your organisation?
+hirer.lineManagerDuties.subheading = Worker’s involvement
+hirer.lineManagerDuties.heading = Will the worker have any management responsibilities for your organisation?
+hirer.lineManagerDuties.checkYourAnswersLabel = Will the worker have any management responsibilities for your organisation?
+hirer.lineManagerDuties.p1 = This can include deciding how much to pay someone, hiring or dismissing workers, and delivering appraisals.
 
-worker.optimised.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
-agency.optimised.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
-worker.optimised.lineManagerDuties.title = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
-worker.optimised.lineManagerDuties.subheading = Cyfraniad y gweithiwr
-worker.optimised.lineManagerDuties.heading = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
-worker.optimised.lineManagerDuties.checkYourAnswersLabel = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
-worker.optimised.lineManagerDuties.p1 = Gall hyn gynnwys penderfynu faint i dalu rhywun, cyflogi neu ddiswyddo gweithwyr, a darparu gwerthusiadau.
+worker.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
+agency.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
+worker.lineManagerDuties.title = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
+worker.lineManagerDuties.subheading = Cyfraniad y gweithiwr
+worker.lineManagerDuties.heading = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
+worker.lineManagerDuties.checkYourAnswersLabel = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
+worker.lineManagerDuties.p1 = Gall hyn gynnwys penderfynu faint i dalu rhywun, cyflogi neu ddiswyddo gweithwyr, a darparu gwerthusiadau.
 #########################
 
 ## Benefits from end client
 #########################
-worker.optimised.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
-agency.optimised.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
-worker.optimised.benefits.title = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
-worker.optimised.benefits.subheading = Cyfraniad y gweithiwr
-worker.optimised.benefits.heading = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
-worker.optimised.benefits.checkYourAnswersLabel = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
-worker.optimised.benefits.p1 = Gall hyn gynnwys aelodaeth â champfa allanol, yswiriant iechyd neu ostyngiadau manwerthu.
+worker.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
+agency.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
+worker.benefits.title = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
+worker.benefits.subheading = Cyfraniad y gweithiwr
+worker.benefits.heading = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
+worker.benefits.checkYourAnswersLabel = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
+worker.benefits.p1 = Gall hyn gynnwys aelodaeth â champfa allanol, yswiriant iechyd neu ostyngiadau manwerthu.
 
 ##TODO: Need Welsh
-hirer.optimised.benefits.error.required = Select yes if your organisation will provide the worker with paid-for corporate benefits
-hirer.optimised.benefits.title = Will you provide the worker with paid-for corporate benefits?
-hirer.optimised.benefits.subheading = Worker’s involvement
-hirer.optimised.benefits.heading = Will you provide the worker with paid-for corporate benefits?
-hirer.optimised.benefits.checkYourAnswersLabel = Will you provide the worker with paid-for corporate benefits?
-hirer.optimised.benefits.p1 = This can include external gym memberships, health insurance or retail discounts.
+hirer.benefits.error.required = Select yes if your organisation will provide the worker with paid-for corporate benefits
+hirer.benefits.title = Will you provide the worker with paid-for corporate benefits?
+hirer.benefits.subheading = Worker’s involvement
+hirer.benefits.heading = Will you provide the worker with paid-for corporate benefits?
+hirer.benefits.checkYourAnswersLabel = Will you provide the worker with paid-for corporate benefits?
+hirer.benefits.p1 = This can include external gym memberships, health insurance or retail discounts.
 #########################
 
 ## Put Right at Workers Own Cost
 #########################
-worker.optimised.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-agency.optimised.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-worker.optimised.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-agency.optimised.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-worker.optimised.putRightAtOwnCost.title = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
-worker.optimised.putRightAtOwnCost.subheading = Risg ariannol y gweithiwr
-worker.optimised.putRightAtOwnCost.heading = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
-worker.optimised.putRightAtOwnCost.checkYourAnswersLabel = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
-worker.optimised.putRightAtOwnCost.outsideOfHoursNoCharge = Iawn, yn ddi-dâl a byddech yn wynebu costau ychwanegol
-worker.optimised.putRightAtOwnCost.outsideOfHoursNoCosts = Iawn, yn ddi-dâl ond eich unig gost fyddai colli’r cyfle i wneud gwaith arall
-worker.optimised.putRightAtOwnCost.asPartOfUsualRateInWorkingHours = Iawn, byddech yn ei drwsio yn ystod eich oriau arferol ar eich cyfradd neu ffi arferol
-worker.optimised.putRightAtOwnCost.cannotBeCorrected = Na, mae’r gwaith yn benodol i amser neu ar gyfer un digwyddiad
-worker.optimised.putRightAtOwnCost.noObligationToCorrect = Na
+worker.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
+agency.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
+worker.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
+agency.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
+worker.putRightAtOwnCost.title = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
+worker.putRightAtOwnCost.subheading = Risg ariannol y gweithiwr
+worker.putRightAtOwnCost.heading = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
+worker.putRightAtOwnCost.checkYourAnswersLabel = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
+worker.putRightAtOwnCost.outsideOfHoursNoCharge = Iawn, yn ddi-dâl a byddech yn wynebu costau ychwanegol
+worker.putRightAtOwnCost.outsideOfHoursNoCosts = Iawn, yn ddi-dâl ond eich unig gost fyddai colli’r cyfle i wneud gwaith arall
+worker.putRightAtOwnCost.asPartOfUsualRateInWorkingHours = Iawn, byddech yn ei drwsio yn ystod eich oriau arferol ar eich cyfradd neu ffi arferol
+worker.putRightAtOwnCost.cannotBeCorrected = Na, mae’r gwaith yn benodol i amser neu ar gyfer un digwyddiad
+worker.putRightAtOwnCost.noObligationToCorrect = Na
 
-hirer.optimised.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i’r gweithiwr unioni’r gwaith os nad oedd eich sefydliad yn hapus ag ef
-hirer.optimised.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i’r gweithiwr unioni’r gwaith os nad oedd eich sefydliad yn hapus ag ef
-hirer.optimised.putRightAtOwnCost.title = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
-hirer.optimised.putRightAtOwnCost.subheading = Risg ariannol y gweithiwr
-hirer.optimised.putRightAtOwnCost.heading = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
-hirer.optimised.putRightAtOwnCost.checkYourAnswersLabel = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
-hirer.optimised.putRightAtOwnCost.outsideOfHoursNoCharge = Iawn, yn ddi-dâl a byddai’n wynebu costau ychwanegol
-hirer.optimised.putRightAtOwnCost.outsideOfHoursNoCosts = Iawn, yn ddi-dâl ond ei unig gost fyddai colli’r cyfle i wneud gwaith arall
-hirer.optimised.putRightAtOwnCost.asPartOfUsualRateInWorkingHours = Iawn, byddai’n ei drwsio yn ystod ei oriau arferol ar ei gyfradd neu ffi arferol
-hirer.optimised.putRightAtOwnCost.cannotBeCorrected = Na, mae’r gwaith yn benodol i amser neu ar gyfer un digwyddiad
-hirer.optimised.putRightAtOwnCost.noObligationToCorrect = Na
+hirer.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i’r gweithiwr unioni’r gwaith os nad oedd eich sefydliad yn hapus ag ef
+hirer.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i’r gweithiwr unioni’r gwaith os nad oedd eich sefydliad yn hapus ag ef
+hirer.putRightAtOwnCost.title = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
+hirer.putRightAtOwnCost.subheading = Risg ariannol y gweithiwr
+hirer.putRightAtOwnCost.heading = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
+hirer.putRightAtOwnCost.checkYourAnswersLabel = Pe na bai’ch sefydliad yn hapus gyda’r gwaith, a fyddai’n rhaid i’r gweithiwr ei unioni?
+hirer.putRightAtOwnCost.outsideOfHoursNoCharge = Iawn, yn ddi-dâl a byddai’n wynebu costau ychwanegol
+hirer.putRightAtOwnCost.outsideOfHoursNoCosts = Iawn, yn ddi-dâl ond ei unig gost fyddai colli’r cyfle i wneud gwaith arall
+hirer.putRightAtOwnCost.asPartOfUsualRateInWorkingHours = Iawn, byddai’n ei drwsio yn ystod ei oriau arferol ar ei gyfradd neu ffi arferol
+hirer.putRightAtOwnCost.cannotBeCorrected = Na, mae’r gwaith yn benodol i amser neu ar gyfer un digwyddiad
+hirer.putRightAtOwnCost.noObligationToCorrect = Na
 #########################
 
 ## How Worker is Paid
 #########################
-worker.optimised.howWorkerIsPaid.error.required = Dewiswch sut y cewch eich talu am y gwaith hwn
-agency.optimised.howWorkerIsPaid.error.required = Dewiswch sut y cewch eich talu am y gwaith hwn
-worker.optimised.howWorkerIsPaid.error.invalid = Dewiswch sut y cewch eich talu am y gwaith hwn
-agency.optimised.howWorkerIsPaid.error.invalid = Dewiswch sut y cewch eich talu am y gwaith hwn
-worker.optimised.howWorkerIsPaid.title = Sut y cewch eich talu am y gwaith hwn?
-worker.optimised.howWorkerIsPaid.subheading = Risg ariannol y gweithiwr
-worker.optimised.howWorkerIsPaid.heading = Sut y cewch eich talu am y gwaith hwn?
-worker.optimised.howWorkerIsPaid.checkYourAnswersLabel = Sut y cewch eich talu am y gwaith hwn?
-worker.optimised.howWorkerIsPaid.incomeCalendarPeriods = Cyfradd yn ôl yr awr, cyfradd ddyddiol neu gyfradd wythnosol
-worker.optimised.howWorkerIsPaid.incomeFixed = Pris sefydlog ar gyfer prosiect penodol
-worker.optimised.howWorkerIsPaid.incomePieceRate = Swm y gwaith a gwblhawyd
-worker.optimised.howWorkerIsPaid.incomeCommission = Canran o’r gwerthiannau rydych yn eu cynhyrchu
-worker.optimised.howWorkerIsPaid.incomeProfitOrLosses = Canran o’ch cleient, elw neu gynilion
+worker.howWorkerIsPaid.error.required = Dewiswch sut y cewch eich talu am y gwaith hwn
+worker.howWorkerIsPaid.error.invalid = Dewiswch sut y cewch eich talu am y gwaith hwn
+worker.howWorkerIsPaid.title = Sut y cewch eich talu am y gwaith hwn?
+worker.howWorkerIsPaid.subheading = Risg ariannol y gweithiwr
+worker.howWorkerIsPaid.heading = Sut y cewch eich talu am y gwaith hwn?
+worker.howWorkerIsPaid.checkYourAnswersLabel = Sut y cewch eich talu am y gwaith hwn?
+worker.howWorkerIsPaid.incomeCalendarPeriods = Cyfradd yn ôl yr awr, cyfradd ddyddiol neu gyfradd wythnosol
+worker.howWorkerIsPaid.incomeFixed = Pris sefydlog ar gyfer prosiect penodol
+worker.howWorkerIsPaid.incomePieceRate = Swm y gwaith a gwblhawyd
+worker.howWorkerIsPaid.incomeCommission = Canran o’r gwerthiannau rydych yn eu cynhyrchu
+worker.howWorkerIsPaid.incomeProfitOrLosses = Canran o’ch cleient, elw neu gynilion
 
-## TODO Need Welsh
-worker.optimised.howWorkerIsPaid.error.required = Select how you will be paid for this work
-agency.optimised.howWorkerIsPaid.error.required = Select how you will be paid for this work
-worker.optimised.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
-agency.optimised.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
-worker.optimised.howWorkerIsPaid.title = How will you be paid for this work?
-worker.optimised.howWorkerIsPaid.subheading = Worker’s financial risk
-worker.optimised.howWorkerIsPaid.heading = How will you be paid for this work?
-worker.optimised.howWorkerIsPaid.checkYourAnswersLabel = How will you be paid for this work?
-worker.optimised.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
-worker.optimised.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
-worker.optimised.howWorkerIsPaid.incomePieceRate = The amount of work completed
-worker.optimised.howWorkerIsPaid.incomeCommission = A percentage of the sales you generate
-worker.optimised.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your client’s profits or savings
-
-hirer.optimised.howWorkerIsPaid.error.required = Select how the worker will be paid for this work
-hirer.optimised.howWorkerIsPaid.error.invalid = Select how the worker will be paid for this work
-hirer.optimised.howWorkerIsPaid.title = How will the worker be paid for this work?
-hirer.optimised.howWorkerIsPaid.subheading = Worker’s financial risk
-hirer.optimised.howWorkerIsPaid.heading = How will the worker be paid for this work?
-hirer.optimised.howWorkerIsPaid.checkYourAnswersLabel = How will the worker be paid for this work?
-hirer.optimised.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
-hirer.optimised.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
-hirer.optimised.howWorkerIsPaid.incomePieceRate = The amount of work completed
-hirer.optimised.howWorkerIsPaid.incomeCommission = A percentage of the sales the worker generates
-hirer.optimised.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation’s profits or savings
+hirer.howWorkerIsPaid.error.required = Select how the worker will be paid for this work
+hirer.howWorkerIsPaid.error.invalid = Select how the worker will be paid for this work
+hirer.howWorkerIsPaid.title = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.subheading = Worker’s financial risk
+hirer.howWorkerIsPaid.heading = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.checkYourAnswersLabel = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
+hirer.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
+hirer.howWorkerIsPaid.incomePieceRate = The amount of work completed
+hirer.howWorkerIsPaid.incomeCommission = A percentage of the sales the worker generates
+hirer.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation’s profits or savings
 #########################
 
 
 ## Choose Where Work
 #########################
-worker.optimised.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-agency.optimised.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-worker.optimised.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-agency.optimised.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-worker.optimised.chooseWhereWork.title = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
-worker.optimised.chooseWhereWork.subheading = Trefniadau gweithio
-worker.optimised.chooseWhereWork.heading = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
-worker.optimised.chooseWhereWork.checkYourAnswersLabel = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
-worker.optimised.chooseWhereWork.workerCannotChoose = Iawn
-worker.optimised.chooseWhereWork.workerChooses = Na, chi yn unig sy’n penderfynu
-worker.optimised.chooseWhereWork.noLocationRequired = Na, y dasg sy’n pennu’r lleoliad
-worker.optimised.chooseWhereWork.workerAgreeWithOthers = Na, rhaid gwneud peth o’r gwaith mewn lleoliad y cytunwyd arno a gallwch chi ddewis lle y gwneir peth ohono
+worker.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
+agency.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
+worker.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
+agency.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
+worker.chooseWhereWork.title = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
+worker.chooseWhereWork.subheading = Trefniadau gweithio
+worker.chooseWhereWork.heading = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
+worker.chooseWhereWork.checkYourAnswersLabel = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
+worker.chooseWhereWork.workerCannotChoose = Iawn
+worker.chooseWhereWork.workerChooses = Na, chi yn unig sy’n penderfynu
+worker.chooseWhereWork.noLocationRequired = Na, y dasg sy’n pennu’r lleoliad
+worker.chooseWhereWork.workerAgreeWithOthers = Na, rhaid gwneud peth o’r gwaith mewn lleoliad y cytunwyd arno a gallwch chi ddewis lle y gwneir peth ohono
 
 ##TODO: Need Welsh
-hirer.optimised.chooseWhereWork.error.required = Select yes if your organisation will decide where the worker does the work
-hirer.optimised.chooseWhereWork.error.invalid = Select yes if your organisation will decide where the worker does the work
-hirer.optimised.chooseWhereWork.title = Will your organisation decide where the worker does the work?
-hirer.optimised.chooseWhereWork.subheading = Working arrangements
-hirer.optimised.chooseWhereWork.heading = Will your organisation decide where the worker does the work?
-hirer.optimised.chooseWhereWork.checkYourAnswersLabel = Will your organisation decide where the worker does the work?
-hirer.optimised.chooseWhereWork.workerCannotChoose = Iawn
-hirer.optimised.chooseWhereWork.workerChooses = No, the worker decides
-hirer.optimised.chooseWhereWork.noLocationRequired = No, the task sets the location
-hirer.optimised.chooseWhereWork.workerAgreeWithOthers = No, some work has to be done in an agreed location and some can be the worker’s choice
+hirer.chooseWhereWork.error.required = Select yes if your organisation will decide where the worker does the work
+hirer.chooseWhereWork.error.invalid = Select yes if your organisation will decide where the worker does the work
+hirer.chooseWhereWork.title = Will your organisation decide where the worker does the work?
+hirer.chooseWhereWork.subheading = Working arrangements
+hirer.chooseWhereWork.heading = Will your organisation decide where the worker does the work?
+hirer.chooseWhereWork.checkYourAnswersLabel = Will your organisation decide where the worker does the work?
+hirer.chooseWhereWork.workerCannotChoose = Iawn
+hirer.chooseWhereWork.workerChooses = No, the worker decides
+hirer.chooseWhereWork.noLocationRequired = No, the task sets the location
+hirer.chooseWhereWork.workerAgreeWithOthers = No, some work has to be done in an agreed location and some can be the worker’s choice
 #########################
 
 
 ## How Work Is Done
 #########################
-worker.optimised.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-agency.optimised.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-worker.optimised.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-agency.optimised.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-worker.optimised.scheduleOfWorkingHours.title = A fydd eich cleient yn penderfynu’r oriau gweithio?
-worker.optimised.scheduleOfWorkingHours.subheading = Trefniadau gweithio
-worker.optimised.scheduleOfWorkingHours.heading = A fydd eich cleient yn penderfynu’r oriau gweithio?
-worker.optimised.scheduleOfWorkingHours.checkYourAnswersLabel = A fydd eich cleient yn penderfynu’r oriau gweithio?
-worker.optimised.scheduleOfWorkingHours.scheduleDecidedForWorker = Iawn
-worker.optimised.scheduleOfWorkingHours.workerDecideSchedule = Na, chi yn unig sy’n penderfynu
-worker.optimised.scheduleOfWorkingHours.workerAgreeSchedule = Na, byddwch chi â’ch cleient yn cytuno
-worker.optimised.scheduleOfWorkingHours.noScheduleRequiredOnlyDeadlines = Na, mae’r gwaith yn seiliedig ar ddyddiadau cau y cytunir arnynt
+worker.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
+agency.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
+worker.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
+agency.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
+worker.scheduleOfWorkingHours.title = A fydd eich cleient yn penderfynu’r oriau gweithio?
+worker.scheduleOfWorkingHours.subheading = Trefniadau gweithio
+worker.scheduleOfWorkingHours.heading = A fydd eich cleient yn penderfynu’r oriau gweithio?
+worker.scheduleOfWorkingHours.checkYourAnswersLabel = A fydd eich cleient yn penderfynu’r oriau gweithio?
+worker.scheduleOfWorkingHours.scheduleDecidedForWorker = Iawn
+worker.scheduleOfWorkingHours.workerDecideSchedule = Na, chi yn unig sy’n penderfynu
+worker.scheduleOfWorkingHours.workerAgreeSchedule = Na, byddwch chi â’ch cleient yn cytuno
+worker.scheduleOfWorkingHours.noScheduleRequiredOnlyDeadlines = Na, mae’r gwaith yn seiliedig ar ddyddiadau cau y cytunir arnynt
 
 ## TODO: Need Welsh
-hirer.optimised.scheduleOfWorkingHours.error.required = Select yes if your organisation will decide the working hours
-hirer.optimised.scheduleOfWorkingHours.error.invalid = Select yes if your organisation will decide the working hours
-hirer.optimised.scheduleOfWorkingHours.title = Will your organisation decide the working hours?
-hirer.optimised.scheduleOfWorkingHours.subheading = Working arrangements
-hirer.optimised.scheduleOfWorkingHours.heading = Will your organisation decide the working hours?
-hirer.optimised.scheduleOfWorkingHours.checkYourAnswersLabel = Will your organisation decide the working hours?
-hirer.optimised.scheduleOfWorkingHours.scheduleDecidedForWorker = Iawn
-hirer.optimised.scheduleOfWorkingHours.workerDecideSchedule = No, the worker solely decides
-hirer.optimised.scheduleOfWorkingHours.workerAgreeSchedule = No, your organisation and the worker agree
-hirer.optimised.scheduleOfWorkingHours.noScheduleRequiredOnlyDeadlines = No, the work is based on agreed deadlines
+hirer.scheduleOfWorkingHours.error.required = Select yes if your organisation will decide the working hours
+hirer.scheduleOfWorkingHours.error.invalid = Select yes if your organisation will decide the working hours
+hirer.scheduleOfWorkingHours.title = Will your organisation decide the working hours?
+hirer.scheduleOfWorkingHours.subheading = Working arrangements
+hirer.scheduleOfWorkingHours.heading = Will your organisation decide the working hours?
+hirer.scheduleOfWorkingHours.checkYourAnswersLabel = Will your organisation decide the working hours?
+hirer.scheduleOfWorkingHours.scheduleDecidedForWorker = Iawn
+hirer.scheduleOfWorkingHours.workerDecideSchedule = No, the worker solely decides
+hirer.scheduleOfWorkingHours.workerAgreeSchedule = No, your organisation and the worker agree
+hirer.scheduleOfWorkingHours.noScheduleRequiredOnlyDeadlines = No, the work is based on agreed deadlines
 #########################
 
 
 ## How Work Is Done
 #########################
 ## TODO: Need Welsh
-hirer.optimised.howWorkIsDone.error.required = Select yes if your organisation will decide how the work is done
-hirer.optimised.howWorkIsDone.error.invalid = Select yes if your organisation will decide how the work is done
-hirer.optimised.howWorkIsDone.title = Will your organisation decide how the work is done?
-hirer.optimised.howWorkIsDone.subheading = Working arrangements
-hirer.optimised.howWorkIsDone.heading = Will your organisation decide how the work is done?
-hirer.optimised.howWorkIsDone.p1 = This can include your organisation instructing, guiding or advising the way the task should be completed.
-hirer.optimised.howWorkIsDone.p2 = This is not relevant if it is highly skilled work. For example, an airline pilot.
-hirer.optimised.howWorkIsDone.p3.text = Read more examples of
-hirer.optimised.howWorkIsDone.p3.link = how the work is done
-hirer.optimised.howWorkIsDone.checkYourAnswersLabel = Will your organisation decide how the work is done?
-hirer.optimised.howWorkIsDone.noWorkerInputAllowed = Iawn
-hirer.optimised.howWorkIsDone.workerDecidesWithoutInput = No, the worker solely decides
-hirer.optimised.howWorkIsDone.workerFollowStrictEmployeeProcedures = Not relevant, it is highly skilled work
-hirer.optimised.howWorkIsDone.workerAgreeWithOthers = No, your organisation and the worker agree together
+hirer.howWorkIsDone.error.required = Select yes if your organisation will decide how the work is done
+hirer.howWorkIsDone.error.invalid = Select yes if your organisation will decide how the work is done
+hirer.howWorkIsDone.title = Will your organisation decide how the work is done?
+hirer.howWorkIsDone.subheading = Working arrangements
+hirer.howWorkIsDone.heading = Will your organisation decide how the work is done?
+hirer.howWorkIsDone.p1 = This can include your organisation instructing, guiding or advising the way the task should be completed.
+hirer.howWorkIsDone.p2 = This is not relevant if it is highly skilled work. For example, an airline pilot.
+hirer.howWorkIsDone.p3.text = Read more examples of
+hirer.howWorkIsDone.p3.link = how the work is done
+hirer.howWorkIsDone.checkYourAnswersLabel = Will your organisation decide how the work is done?
+hirer.howWorkIsDone.noWorkerInputAllowed = Iawn
+hirer.howWorkIsDone.workerDecidesWithoutInput = No, the worker solely decides
+hirer.howWorkIsDone.workerFollowStrictEmployeeProcedures = Not relevant, it is highly skilled work
+hirer.howWorkIsDone.workerAgreeWithOthers = No, your organisation and the worker agree together
 
 ## TODO: welsh needed for new english content
-worker.optimised.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-agency.optimised.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-worker.optimised.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-agency.optimised.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-worker.optimised.howWorkIsDone.title = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
-worker.optimised.howWorkIsDone.subheading = Trefniadau gweithio
-worker.optimised.howWorkIsDone.heading = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
-worker.optimised.howWorkIsDone.p1 = Byddai hyn yn wir os bydd eich cleient yn dweud wrthych sut y dylid cwblhau’r dasg drwy gyfarwyddo, arwain neu gynghori.
-worker.optimised.howWorkIsDone.p2 = This is not relevant if it is highly skilled work. For example, an airline pilot.
-worker.optimised.howWorkIsDone.p3.text = Read more examples of
-worker.optimised.howWorkIsDone.p3.link = how the work is done
-worker.optimised.howWorkIsDone.checkYourAnswersLabel = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
-worker.optimised.howWorkIsDone.noWorkerInputAllowed = Iawn
-worker.optimised.howWorkIsDone.workerDecidesWithoutInput = Na, chi yn unig sy’n penderfynu
-worker.optimised.howWorkIsDone.workerFollowStrictEmployeeProcedures = Na, oherwydd ei fod yn waith tra medrus
-worker.optimised.howWorkIsDone.workerAgreeWithOthers = Na, byddwch chi â’ch cleient yn cytuno â’ch gilydd
+worker.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
+agency.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
+worker.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
+agency.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
+worker.howWorkIsDone.title = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
+worker.howWorkIsDone.subheading = Trefniadau gweithio
+worker.howWorkIsDone.heading = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
+worker.howWorkIsDone.p1 = Byddai hyn yn wir os bydd eich cleient yn dweud wrthych sut y dylid cwblhau’r dasg drwy gyfarwyddo, arwain neu gynghori.
+worker.howWorkIsDone.p2 = This is not relevant if it is highly skilled work. For example, an airline pilot.
+worker.howWorkIsDone.p3.text = Read more examples of
+worker.howWorkIsDone.p3.link = how the work is done
+worker.howWorkIsDone.checkYourAnswersLabel = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
+worker.howWorkIsDone.noWorkerInputAllowed = Iawn
+worker.howWorkIsDone.workerDecidesWithoutInput = Na, chi yn unig sy’n penderfynu
+worker.howWorkIsDone.workerFollowStrictEmployeeProcedures = Na, oherwydd ei fod yn waith tra medrus
+worker.howWorkIsDone.workerAgreeWithOthers = Na, byddwch chi â’ch cleient yn cytuno â’ch gilydd
 #########################
 
 
@@ -452,110 +399,110 @@ worker.optimised.howWorkIsDone.workerAgreeWithOthers = Na, byddwch chi â’ch c
 ## Move Worker
 #########################
 ## TODO: Need Welsh
-hirer.optimised.moveWorker.error.required = Select yes if the task can be changed without the worker’s agreement
-hirer.optimised.moveWorker.error.invalid = Select yes if the task can be changed without the worker’s agreement
-hirer.optimised.moveWorker.title = Could the worker’s task be changed without their agreement?
-hirer.optimised.moveWorker.subheading = Working arrangements
-hirer.optimised.moveWorker.heading = Could the worker’s task be changed without their agreement?
-hirer.optimised.moveWorker.checkYourAnswersLabel = Could the worker’s task be changed without their agreement?
-hirer.optimised.moveWorker.p1 = This includes changing the project or base location.
-hirer.optimised.moveWorker.canMoveWorkerWithoutPermission = Iawn
-hirer.optimised.moveWorker.canMoveWorkerWithPermission = No, they would have to agree
-hirer.optimised.moveWorker.cannotMoveWorkerWithoutNewAgreement = No, that would require a new contract or formal working arrangement
+hirer.moveWorker.error.required = Select yes if the task can be changed without the worker’s agreement
+hirer.moveWorker.error.invalid = Select yes if the task can be changed without the worker’s agreement
+hirer.moveWorker.title = Could the worker’s task be changed without their agreement?
+hirer.moveWorker.subheading = Working arrangements
+hirer.moveWorker.heading = Could the worker’s task be changed without their agreement?
+hirer.moveWorker.checkYourAnswersLabel = Could the worker’s task be changed without their agreement?
+hirer.moveWorker.p1 = This includes changing the project or base location.
+hirer.moveWorker.canMoveWorkerWithoutPermission = Iawn
+hirer.moveWorker.canMoveWorkerWithPermission = No, they would have to agree
+hirer.moveWorker.cannotMoveWorkerWithoutNewAgreement = No, that would require a new contract or formal working arrangement
 
-worker.optimised.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-agency.optimised.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-worker.optimised.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-agency.optimised.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-worker.optimised.moveWorker.title = A ellir newid y dasg heb eich cytundeb?
-worker.optimised.moveWorker.subheading = Trefniadau gweithio
-worker.optimised.moveWorker.heading = A ellir newid y dasg heb eich cytundeb?
-worker.optimised.moveWorker.checkYourAnswersLabel = A ellir newid y dasg heb eich cytundeb?
-worker.optimised.moveWorker.p1 = Mae hyn yn cynnwys newid y prosiect neu’r lleoliad sylfaenol.
-worker.optimised.moveWorker.canMoveWorkerWithoutPermission = Iawn
-worker.optimised.moveWorker.canMoveWorkerWithPermission = Na, byddai’n rhaid i chi gytuno
-worker.optimised.moveWorker.cannotMoveWorkerWithoutNewAgreement = Na, byddai hynny’n gofyn am gontract newydd neu drefniant gweithio ffurfiol
+worker.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
+agency.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
+worker.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
+agency.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
+worker.moveWorker.title = A ellir newid y dasg heb eich cytundeb?
+worker.moveWorker.subheading = Trefniadau gweithio
+worker.moveWorker.heading = A ellir newid y dasg heb eich cytundeb?
+worker.moveWorker.checkYourAnswersLabel = A ellir newid y dasg heb eich cytundeb?
+worker.moveWorker.p1 = Mae hyn yn cynnwys newid y prosiect neu’r lleoliad sylfaenol.
+worker.moveWorker.canMoveWorkerWithoutPermission = Iawn
+worker.moveWorker.canMoveWorkerWithPermission = Na, byddai’n rhaid i chi gytuno
+worker.moveWorker.cannotMoveWorkerWithoutNewAgreement = Na, byddai hynny’n gofyn am gontract newydd neu drefniant gweithio ffurfiol
 #########################
 
 
 ## Needed to Pay Helper
 #########################
-worker.optimised.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
-agency.optimised.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
-worker.optimised.neededToPayHelper.title = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
-worker.optimised.neededToPayHelper.subheading = Eilyddion a chynorthwywyr
-worker.optimised.neededToPayHelper.heading = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
-worker.optimised.neededToPayHelper.checkYourAnswersLabel = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
+worker.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
+agency.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
+worker.neededToPayHelper.title = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
+worker.neededToPayHelper.subheading = Eilyddion a chynorthwywyr
+worker.neededToPayHelper.heading = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
+worker.neededToPayHelper.checkYourAnswersLabel = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
 
 ## TODO: Need Welsh
-hirer.optimised.neededToPayHelper.error.required = Select yes if the worker paid another person to do a significant amount of this work
-hirer.optimised.neededToPayHelper.title = Has the worker paid another person to do a significant amount of this work?
-hirer.optimised.neededToPayHelper.subheading = Substitutes and helpers
-hirer.optimised.neededToPayHelper.heading = Has the worker paid another person to do a significant amount of this work?
-hirer.optimised.neededToPayHelper.checkYourAnswersLabel = Has the worker paid another person to do a significant amount of this work?
+hirer.neededToPayHelper.error.required = Select yes if the worker paid another person to do a significant amount of this work
+hirer.neededToPayHelper.title = Has the worker paid another person to do a significant amount of this work?
+hirer.neededToPayHelper.subheading = Substitutes and helpers
+hirer.neededToPayHelper.heading = Has the worker paid another person to do a significant amount of this work?
+hirer.neededToPayHelper.checkYourAnswersLabel = Has the worker paid another person to do a significant amount of this work?
 #########################
 
 
 ## Would Pay Substitute
 #########################
-worker.optimised.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
-agency.optimised.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
-worker.optimised.wouldWorkerPaySubstitute.title = A fyddai’n rhaid i chi dalu’ch eilydd?
-worker.optimised.wouldWorkerPaySubstitute.subheading = Eilyddion a chynorthwywyr
-worker.optimised.wouldWorkerPaySubstitute.heading = A fyddai’n rhaid i chi dalu’ch eilydd?
-worker.optimised.wouldWorkerPaySubstitute.checkYourAnswersLabel = A fyddai’n rhaid i chi dalu’ch eilydd?
-worker.optimised.wouldWorkerPaySubstitute.hint = Byddai hyn yn cynnwys taliadau a wneir gennych chi neu’ch busnes
+worker.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
+agency.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
+worker.wouldWorkerPaySubstitute.title = A fyddai’n rhaid i chi dalu’ch eilydd?
+worker.wouldWorkerPaySubstitute.subheading = Eilyddion a chynorthwywyr
+worker.wouldWorkerPaySubstitute.heading = A fyddai’n rhaid i chi dalu’ch eilydd?
+worker.wouldWorkerPaySubstitute.checkYourAnswersLabel = A fyddai’n rhaid i chi dalu’ch eilydd?
+worker.wouldWorkerPaySubstitute.hint = Byddai hyn yn cynnwys taliadau a wneir gennych chi neu’ch busnes
 
 ## TODO: Need Welsh
-hirer.optimised.wouldWorkerPaySubstitute.error.required = Select yes if the worker would have to pay their substitute
-hirer.optimised.wouldWorkerPaySubstitute.title = Would the worker have to pay their substitute?
-hirer.optimised.wouldWorkerPaySubstitute.subheading = Substitutes and helpers
-hirer.optimised.wouldWorkerPaySubstitute.heading = Would the worker have to pay their substitute?
-hirer.optimised.wouldWorkerPaySubstitute.checkYourAnswersLabel = Would the worker have to pay their substitute?
-hirer.optimised.wouldWorkerPaySubstitute.hint = This would include payments made by the worker or their business.
+hirer.wouldWorkerPaySubstitute.error.required = Select yes if the worker would have to pay their substitute
+hirer.wouldWorkerPaySubstitute.title = Would the worker have to pay their substitute?
+hirer.wouldWorkerPaySubstitute.subheading = Substitutes and helpers
+hirer.wouldWorkerPaySubstitute.heading = Would the worker have to pay their substitute?
+hirer.wouldWorkerPaySubstitute.checkYourAnswersLabel = Would the worker have to pay their substitute?
+hirer.wouldWorkerPaySubstitute.hint = This would include payments made by the worker or their business.
 #########################
 
 
 ## Reject Substitute
 #########################
 ## TODO: welsh needed for new english content
-worker.optimised.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
-agency.optimised.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
-worker.optimised.rejectSubstitute.title = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
-worker.optimised.rejectSubstitute.subheading = Eilyddion a chynorthwywyr
-worker.optimised.rejectSubstitute.heading = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
-worker.optimised.rejectSubstitute.checkYourAnswersLabel = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
-worker.optimised.rejectSubstitute.p1 = Mae’r meini prawf hyn yn cynnwys bod gan yr eilydd gymwysterau cydradd, yn ogystal â’i fod yn bodloni gweithdrefnau’ch cleient o ran cyfweld, fetio a chliriadau diogelwch.
-worker.optimised.rejectSubstitute.p2 = This can include rejecting a substitute even if they are equally qualified, and meet your client’s interviewing, vetting and security clearance procedures.
+worker.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
+agency.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
+worker.rejectSubstitute.title = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
+worker.rejectSubstitute.subheading = Eilyddion a chynorthwywyr
+worker.rejectSubstitute.heading = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
+worker.rejectSubstitute.checkYourAnswersLabel = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
+worker.rejectSubstitute.p1 = Mae’r meini prawf hyn yn cynnwys bod gan yr eilydd gymwysterau cydradd, yn ogystal â’i fod yn bodloni gweithdrefnau’ch cleient o ran cyfweld, fetio a chliriadau diogelwch.
+worker.rejectSubstitute.p2 = This can include rejecting a substitute even if they are equally qualified, and meet your client’s interviewing, vetting and security clearance procedures.
 
 ## TODO: Welsh Needed
-hirer.optimised.rejectSubstitute.error.required = Select yes if you have the right to reject a substitute who met all your criteria
-hirer.optimised.rejectSubstitute.title = Do you have the right to reject a substitute?
-hirer.optimised.rejectSubstitute.subheading = Substitutes and helpers
-hirer.optimised.rejectSubstitute.heading = Do you have the right to reject a substitute?
-hirer.optimised.rejectSubstitute.checkYourAnswersLabel = Do you have the right to reject a substitute?
-hirer.optimised.rejectSubstitute.p1 = A substitute is someone the worker sends in their place to do their role.
-hirer.optimised.rejectSubstitute.p2 = This can include rejecting a substitute even if they are equally qualified, and meet your interviewing, vetting and security clearance procedures.
+hirer.rejectSubstitute.error.required = Select yes if you have the right to reject a substitute who met all your criteria
+hirer.rejectSubstitute.title = Do you have the right to reject a substitute?
+hirer.rejectSubstitute.subheading = Substitutes and helpers
+hirer.rejectSubstitute.heading = Do you have the right to reject a substitute?
+hirer.rejectSubstitute.checkYourAnswersLabel = Do you have the right to reject a substitute?
+hirer.rejectSubstitute.p1 = A substitute is someone the worker sends in their place to do their role.
+hirer.rejectSubstitute.p2 = This can include rejecting a substitute even if they are equally qualified, and meet your interviewing, vetting and security clearance procedures.
 #########################
 
 
 ## Did Pay Substitute
 #########################
-worker.optimised.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
-agency.optimised.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
-worker.optimised.didPaySubstitute.title = A wnaethoch dalu eich eilydd?
-worker.optimised.didPaySubstitute.subheading = Eilyddion a chynorthwywyr
-worker.optimised.didPaySubstitute.heading = A wnaethoch dalu eich eilydd?
-worker.optimised.didPaySubstitute.checkYourAnswersLabel = A wnaethoch dalu eich eilydd?
-worker.optimised.didPaySubstitute.p1 = Mae hyn yn cynnwys taliadau gennych chi neu’ch busnes.
+worker.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
+agency.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
+worker.didPaySubstitute.title = A wnaethoch dalu eich eilydd?
+worker.didPaySubstitute.subheading = Eilyddion a chynorthwywyr
+worker.didPaySubstitute.heading = A wnaethoch dalu eich eilydd?
+worker.didPaySubstitute.checkYourAnswersLabel = A wnaethoch dalu eich eilydd?
+worker.didPaySubstitute.p1 = Mae hyn yn cynnwys taliadau gennych chi neu’ch busnes.
 
 ## TODO: Welsh Needed
-hirer.optimised.didPaySubstitute.error.required = Select yes if the worker paid their substitute
-hirer.optimised.didPaySubstitute.title = Did the worker pay their substitute?
-hirer.optimised.didPaySubstitute.subheading = Substitutes and helpers
-hirer.optimised.didPaySubstitute.heading = Did the worker pay their substitute?
-hirer.optimised.didPaySubstitute.checkYourAnswersLabel = Did the worker pay their substitute?
-hirer.optimised.didPaySubstitute.p1 = This includes payments made by the worker or their business.
+hirer.didPaySubstitute.error.required = Select yes if the worker paid their substitute
+hirer.didPaySubstitute.title = Did the worker pay their substitute?
+hirer.didPaySubstitute.subheading = Substitutes and helpers
+hirer.didPaySubstitute.heading = Did the worker pay their substitute?
+hirer.didPaySubstitute.checkYourAnswersLabel = Did the worker pay their substitute?
+hirer.didPaySubstitute.p1 = This includes payments made by the worker or their business.
 #########################
 
 
@@ -890,210 +837,210 @@ toolNotNeeded.client.paye.p2 = This is because you told us they will trade throu
 
 ## Common Result Messages
 ## ----------------------
-optimised.result.whyResult.h2 = Pam yr ydych yn cael y canlyniad hwn
-optimised.result.doNext.h2 = Beth y dylech ei wneud nesaf
-optimised.result.download.h2 = A ydych am lawrlwytho’r canlyniad hwn?
-optimised.result.download.p1 = Cewch ddogfen sy’n dangos dyddiad heddiw a’r amser cwblhau, ynghyd â’ch atebion a’r canlyniad uchod. Gallwch hefyd ychwanegu manylion at y ddogfen i helpu i gyfeirio ati ar gyfer eich defnydd yn y dyfodol.
-optimised.result.download.p2 = Ni fydd CThEM yn cadw cofnod o’r canlyniad hwn.
+result.whyResult.h2 = Pam yr ydych yn cael y canlyniad hwn
+result.doNext.h2 = Beth y dylech ei wneud nesaf
+result.download.h2 = A ydych am lawrlwytho’r canlyniad hwn?
+result.download.p1 = Cewch ddogfen sy’n dangos dyddiad heddiw a’r amser cwblhau, ynghyd â’ch atebion a’r canlyniad uchod. Gallwch hefyd ychwanegu manylion at y ddogfen i helpu i gyfeirio ati ar gyfer eich defnydd yn y dyfodol.
+result.download.p2 = Ni fydd CThEM yn cadw cofnod o’r canlyniad hwn.
 
 
 ## Office Holder PAYE
 ## ------------------
-worker.optimised.result.officeHolder.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.officeHolder.paye.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn eich bod yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.officeHolder.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
+worker.result.officeHolder.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.officeHolder.paye.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn eich bod yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.officeHolder.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
 
-hirer.optimised.result.officeHolder.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.officeHolder.paye.whyResult.p1 = In the ‘Worker’s Duties’ section, you answered that the worker will perform office holder duties. This means they are employed for tax purposes for this work.
-hirer.optimised.result.officeHolder.paye.doNext.p1 = Mae angen i chi weithredu TWE ar enillion y gweithiwr.
-hirer.optimised.result.officeHolder.paye.doNext.p2.preLink = Os mai’r gweithiwr hwn yw’ch cyflogai cyntaf, gallech ddarllen yr arweiniad hwn am
-hirer.optimised.result.officeHolder.paye.doNext.p2.link = TWE a’r gyflogres ar gyfer cyflogwyr.
+hirer.result.officeHolder.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.officeHolder.paye.whyResult.p1 = In the ‘Worker’s Duties’ section, you answered that the worker will perform office holder duties. This means they are employed for tax purposes for this work.
+hirer.result.officeHolder.paye.doNext.p1 = Mae angen i chi weithredu TWE ar enillion y gweithiwr.
+hirer.result.officeHolder.paye.doNext.p2.preLink = Os mai’r gweithiwr hwn yw’ch cyflogai cyntaf, gallech ddarllen yr arweiniad hwn am
+hirer.result.officeHolder.paye.doNext.p2.link = TWE a’r gyflogres ar gyfer cyflogwyr.
 ## ------------------
 
 ## Office Holder IR35
 ## ------------------
 ##TODO: Need Welsh
-worker.optimised.result.officeHolder.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.officeHolder.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.officeHolder.ir35.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.officeHolder.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
-worker.optimised.result.officeHolder.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.optimised.result.officeHolder.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-worker.optimised.result.officeHolder.ir35.check.doNext.p3.preLink = Gallech hefyd ddarllen pennod 5 o’r
-worker.optimised.result.officeHolder.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
+worker.result.officeHolder.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.officeHolder.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.officeHolder.ir35.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.officeHolder.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
+worker.result.officeHolder.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+worker.result.officeHolder.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.officeHolder.ir35.check.doNext.p3.preLink = Gallech hefyd ddarllen pennod 5 o’r
+worker.result.officeHolder.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
 
 ##TODO: Need Welsh
-hirer.optimised.result.officeHolder.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.officeHolder.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.officeHolder.ir35.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y bydd y gweithiwr yn cyflawni dyletswyddau deiliad swydd. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-hirer.optimised.result.officeHolder.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi weithredu TWE ar ei enillion.
-hirer.optimised.result.officeHolder.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
-hirer.optimised.result.officeHolder.ir35.doNext.p3.preLink = Gallech hefyd ddarllen rhagor am
-hirer.optimised.result.officeHolder.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd.
+hirer.result.officeHolder.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.officeHolder.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.officeHolder.ir35.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y bydd y gweithiwr yn cyflawni dyletswyddau deiliad swydd. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+hirer.result.officeHolder.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi weithredu TWE ar ei enillion.
+hirer.result.officeHolder.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
+hirer.result.officeHolder.ir35.doNext.p3.preLink = Gallech hefyd ddarllen rhagor am
+hirer.result.officeHolder.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd.
 ## ------------------
 
 ## Office Holder Agent
 ## -------------------
 ##TODO: Need Welsh
-agent.optimised.result.officeHolder.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.officeHolder.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.officeHolder.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
-agent.optimised.result.officeHolder.whyResult.p2 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y bydd yn gweithredu mewn swyddogaeth swyddogol ar gyfer eich cleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-agent.optimised.result.officeHolder.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.optimised.result.officeHolder.doNext.p2.preLink = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.optimised.result.officeHolder.doNext.p2.link = Canllaw Statws Cyflogaeth.
+agent.result.officeHolder.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.officeHolder.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.officeHolder.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
+agent.result.officeHolder.whyResult.p2 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y bydd yn gweithredu mewn swyddogaeth swyddogol ar gyfer eich cleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+agent.result.officeHolder.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+agent.result.officeHolder.doNext.p2.preLink = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
+agent.result.officeHolder.doNext.p2.link = Canllaw Statws Cyflogaeth.
 ## ------------------
 
 ## Inside PAYE Hirer
 ## ------------------
 ##TODO: Need Welsh
-hirer.optimised.result.inside.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.inside.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.inside.paye.whyResult.p1 = The answers you have given suggest the worker is employed for tax purposes for this work.
-hirer.optimised.result.inside.paye.doNext.p1 = Mae angen i chi weithredu TWE ar enillion y gweithiwr.
-hirer.optimised.result.inside.paye.doNext.p2.text = Os mai’r gweithiwr hwn yw’ch cyflogai cyntaf, gallech ddarllen yr arweiniad hwn am
-hirer.optimised.result.inside.paye.doNext.p2.link = TWE a’r gyflogres ar gyfer cyflogwyr
-hirer.optimised.result.inside.paye.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
+hirer.result.inside.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.inside.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.inside.paye.whyResult.p1 = The answers you have given suggest the worker is employed for tax purposes for this work.
+hirer.result.inside.paye.doNext.p1 = Mae angen i chi weithredu TWE ar enillion y gweithiwr.
+hirer.result.inside.paye.doNext.p2.text = Os mai’r gweithiwr hwn yw’ch cyflogai cyntaf, gallech ddarllen yr arweiniad hwn am
+hirer.result.inside.paye.doNext.p2.link = TWE a’r gyflogres ar gyfer cyflogwyr
+hirer.result.inside.paye.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
 ## ------------------
 
 ## Undetermined PAYE Hirer
 ## ------------------
 ##TODO: Need Welsh
-hirer.optimised.result.undetermined.paye.title = Methu gwneud penderfyniad
-hirer.optimised.result.undetermined.paye.heading = Methu gwneud penderfyniad
-hirer.optimised.result.undetermined.paye.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r gweithiwr yn gyflogedig neu’n hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-hirer.optimised.result.undetermined.paye.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-hirer.optimised.result.undetermined.paye.doNext.p1.workerKnown = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r gweithiwr. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
-hirer.optimised.result.undetermined.paye.doNext.p1.workerNotKnown = You told us your organisation does not know who will be doing this work. To make sure this result reflects the actual or expected working practices, you should use this tool again when you know who the worker is.
-hirer.optimised.result.undetermined.paye.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-hirer.optimised.result.undetermined.paye.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
+hirer.result.undetermined.paye.title = Methu gwneud penderfyniad
+hirer.result.undetermined.paye.heading = Methu gwneud penderfyniad
+hirer.result.undetermined.paye.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r gweithiwr yn gyflogedig neu’n hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+hirer.result.undetermined.paye.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
+hirer.result.undetermined.paye.doNext.p1.workerKnown = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r gweithiwr. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
+hirer.result.undetermined.paye.doNext.p1.workerNotKnown = You told us your organisation does not know who will be doing this work. To make sure this result reflects the actual or expected working practices, you should use this tool again when you know who the worker is.
+hirer.result.undetermined.paye.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+hirer.result.undetermined.paye.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
 
 ##TODO: Need Welsh
-worker.optimised.result.inside.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.inside.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.inside.ir35.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu eich bod yn cynnig gwasanaeth personol i’ch cleient. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.inside.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
-worker.optimised.result.inside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.optimised.result.inside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-worker.optimised.result.inside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
-worker.optimised.result.inside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
+worker.result.inside.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.inside.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.inside.ir35.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu eich bod yn cynnig gwasanaeth personol i’ch cleient. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.inside.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
+worker.result.inside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+worker.result.inside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.inside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
+worker.result.inside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
 ## ------------------
 
 ## Undetermined IR35 Decision Worker
 ## -------------------
 ##TODO: Need Welsh
-worker.optimised.result.undetermined.ir35.title = Methu gwneud penderfyniad
-worker.optimised.result.undetermined.ir35.heading = Methu gwneud penderfyniad
-worker.optimised.result.undetermined.ir35.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
-worker.optimised.result.undetermined.ir35.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-worker.optimised.result.undetermined.ir35.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’ch arferion gwaith gwirioneddol neu ddisgwyliedig.
-worker.optimised.result.undetermined.ir35.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-worker.optimised.result.undetermined.ir35.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
+worker.result.undetermined.ir35.title = Methu gwneud penderfyniad
+worker.result.undetermined.ir35.heading = Methu gwneud penderfyniad
+worker.result.undetermined.ir35.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
+worker.result.undetermined.ir35.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
+worker.result.undetermined.ir35.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’ch arferion gwaith gwirioneddol neu ddisgwyliedig.
+worker.result.undetermined.ir35.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.undetermined.ir35.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
 ## ------------------
 
 ## Outside IR35 Decision Worker
 ## ------------------
 ##TODO: Need Welsh
-worker.optimised.result.outside.ir35.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.outside.ir35.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-worker.optimised.result.outside.ir35.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-worker.optimised.result.outside.ir35.whyResult.substituteToDoWork = mae’ch cleient wedi derbyn, neu byddai’n derbyn, eilydd
-worker.optimised.result.outside.ir35.whyResult.clientNotControlWork = nid oes gan eich cleient reolaeth dros y gwaith hwn
-worker.optimised.result.outside.ir35.whyResult.incurCostNoReclaim = byddwch chi a’ch busnes yn wynebu cost am y gwaith hwn na fydd eich cleient yn talu amdani
-worker.optimised.result.outside.ir35.whyResult.booa = you are providing services as a business
-worker.optimised.result.outside.ir35.whyResult.p2 = Mae hyn yn awgrymu eich bod yn gweithio ar sail busnes i fusnes.
-worker.optimised.result.outside.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad dalu’ch enillion yn llawn, heb ddidynnu treth ac Yswiriant Gwladol.
-worker.optimised.result.outside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.optimised.result.outside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-worker.optimised.result.outside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
-worker.optimised.result.outside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
-worker.optimised.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Your answers told us your client has accepted, or would accept, a substitute.
-worker.optimised.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
-worker.optimised.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
-worker.optimised.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
+worker.result.outside.ir35.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.outside.ir35.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+worker.result.outside.ir35.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
+worker.result.outside.ir35.whyResult.substituteToDoWork = mae’ch cleient wedi derbyn, neu byddai’n derbyn, eilydd
+worker.result.outside.ir35.whyResult.clientNotControlWork = nid oes gan eich cleient reolaeth dros y gwaith hwn
+worker.result.outside.ir35.whyResult.incurCostNoReclaim = byddwch chi a’ch busnes yn wynebu cost am y gwaith hwn na fydd eich cleient yn talu amdani
+worker.result.outside.ir35.whyResult.booa = you are providing services as a business
+worker.result.outside.ir35.whyResult.p2 = Mae hyn yn awgrymu eich bod yn gweithio ar sail busnes i fusnes.
+worker.result.outside.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad dalu’ch enillion yn llawn, heb ddidynnu treth ac Yswiriant Gwladol.
+worker.result.outside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+worker.result.outside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.outside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
+worker.result.outside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
+worker.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Your answers told us your client has accepted, or would accept, a substitute.
+worker.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
+worker.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
+worker.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 
 ## Outside PAYE Decision Worker
 ## ------------------
 ##TODO: Need Welsh
-worker.optimised.result.outside.paye.title = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.outside.paye.heading = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.outside.paye.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-worker.optimised.result.outside.paye.whyResult.substituteToDoWork = mae’ch cleient wedi derbyn, neu byddai’n derbyn, eilydd
-worker.optimised.result.outside.paye.whyResult.clientNotControlWork = nid oes gan eich cleient reolaeth dros y gwaith hwn
-worker.optimised.result.outside.paye.whyResult.incurCostNoReclaim = byddwch chi a’ch busnes yn wynebu cost am y gwaith hwn na fydd eich cleient yn talu amdani
-worker.optimised.result.outside.paye.whyResult.booa = you are providing services as a business
-worker.optimised.result.outside.paye.whyResult.p2 = Golyga hyn eich bod yn hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.outside.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad dalu’ch enillion yn llawn, heb ddidynnu treth ac Yswiriant Gwladol.
-worker.optimised.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers told us your client has accepted, or would accept, a substitute.
-worker.optimised.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
-worker.optimised.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
-worker.optimised.result.outside.paye.whyResult.booaOnlyReason = Your answers told us you are providing services as a business.
+worker.result.outside.paye.title = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.outside.paye.heading = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.outside.paye.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
+worker.result.outside.paye.whyResult.substituteToDoWork = mae’ch cleient wedi derbyn, neu byddai’n derbyn, eilydd
+worker.result.outside.paye.whyResult.clientNotControlWork = nid oes gan eich cleient reolaeth dros y gwaith hwn
+worker.result.outside.paye.whyResult.incurCostNoReclaim = byddwch chi a’ch busnes yn wynebu cost am y gwaith hwn na fydd eich cleient yn talu amdani
+worker.result.outside.paye.whyResult.booa = you are providing services as a business
+worker.result.outside.paye.whyResult.p2 = Golyga hyn eich bod yn hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.outside.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad dalu’ch enillion yn llawn, heb ddidynnu treth ac Yswiriant Gwladol.
+worker.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers told us your client has accepted, or would accept, a substitute.
+worker.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
+worker.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
+worker.result.outside.paye.whyResult.booaOnlyReason = Your answers told us you are providing services as a business.
 
 ## Inside Agent
 ## ------------------
 ##TODO: Need Welsh
-agent.optimised.result.inside.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.inside.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.inside.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
-agent.optimised.result.inside.whyResult.p2 = Mae’r atebion a roddwyd gennych yn dweud wrthym fod y gweithiwr yn darparu gwasanaeth personol i’w gleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-agent.optimised.result.inside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.optimised.result.inside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.optimised.result.inside.doNext.p2.link = Canllaw Statws Cyflogaeth
+agent.result.inside.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.inside.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.inside.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
+agent.result.inside.whyResult.p2 = Mae’r atebion a roddwyd gennych yn dweud wrthym fod y gweithiwr yn darparu gwasanaeth personol i’w gleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+agent.result.inside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+agent.result.inside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
+agent.result.inside.doNext.p2.link = Canllaw Statws Cyflogaeth
 ## ------------------
 
 ## ------------------
 ## Undetermined Agent
 ## ------------------
 ##TODO: Need Welsh
-agent.optimised.result.undetermined.title =  Methu gwneud penderfyniad
-agent.optimised.result.undetermined.heading = Methu gwneud penderfyniad
-agent.optimised.result.undetermined.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
-agent.optimised.result.undetermined.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-agent.optimised.result.undetermined.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.optimised.result.undetermined.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
+agent.result.undetermined.title =  Methu gwneud penderfyniad
+agent.result.undetermined.heading = Methu gwneud penderfyniad
+agent.result.undetermined.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
+agent.result.undetermined.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
+agent.result.undetermined.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+agent.result.undetermined.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
 
 ## ------------------
 ## Hirer IR35
 ## ------------------
 ##TODO: Need Welsh
-hirer.optimised.result.inside.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.inside.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.inside.ir35.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu bod y gweithiwr yn darparu gwasanaeth personol i’ch sefydliad. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-hirer.optimised.result.inside.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi weithredu TWE ar ei enillion.
-hirer.optimised.result.inside.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
-hirer.optimised.result.inside.ir35.doNext.p3.text = Gallech hefyd ddarllen rhagor am
-hirer.optimised.result.inside.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd.
-hirer.optimised.result.inside.ir35.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
+hirer.result.inside.ir35.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.inside.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.inside.ir35.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu bod y gweithiwr yn darparu gwasanaeth personol i’ch sefydliad. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+hirer.result.inside.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi weithredu TWE ar ei enillion.
+hirer.result.inside.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
+hirer.result.inside.ir35.doNext.p3.text = Gallech hefyd ddarllen rhagor am
+hirer.result.inside.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd.
+hirer.result.inside.ir35.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
 ##TODO: Need Welsh
-hirer.optimised.result.undetermined.ir35.title = Methu gwneud penderfyniad
-hirer.optimised.result.undetermined.ir35.heading = Methu gwneud penderfyniad
-hirer.optimised.result.undetermined.ir35.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
-hirer.optimised.result.undetermined.ir35.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-hirer.optimised.result.undetermined.ir35.doNext.p1.workerKnown = Dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos i’r gweithiwr. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
-hirer.optimised.result.undetermined.ir35.doNext.p1.workerNotKnown = You told us your organisation does not know who will be doing this work. To make sure this result reflects the actual or expected working practices, you should use this tool again when you know who the worker is.
-hirer.optimised.result.undetermined.ir35.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, cysylltwch â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-hirer.optimised.result.undetermined.ir35.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
+hirer.result.undetermined.ir35.title = Methu gwneud penderfyniad
+hirer.result.undetermined.ir35.heading = Methu gwneud penderfyniad
+hirer.result.undetermined.ir35.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
+hirer.result.undetermined.ir35.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
+hirer.result.undetermined.ir35.doNext.p1.workerKnown = Dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos i’r gweithiwr. Gwiriwch eich atebion gydag ef i sicrhau eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
+hirer.result.undetermined.ir35.doNext.p1.workerNotKnown = You told us your organisation does not know who will be doing this work. To make sure this result reflects the actual or expected working practices, you should use this tool again when you know who the worker is.
+hirer.result.undetermined.ir35.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, cysylltwch â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+hirer.result.undetermined.ir35.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
 
 ## PAYE Worker
 ## ------------------
 ##TODO: Need Welsh
-worker.optimised.result.inside.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.inside.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
-worker.optimised.result.inside.paye.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu eich bod yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.inside.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
+worker.result.inside.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.inside.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
+worker.result.inside.paye.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu eich bod yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.inside.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
 
 ## Undetermined PAYE Worker
 ## ------------------
 ##TODO: Need Welsh
-worker.optimised.result.undetermined.paye.title = Methu gwneud penderfyniad
-worker.optimised.result.undetermined.paye.heading = Methu gwneud penderfyniad
-worker.optimised.result.undetermined.paye.whyResult.p1 = Ni allwn benderfynu o’ch atebion a ydych yn gyflogedig neu’n hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-worker.optimised.result.undetermined.paye.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-worker.optimised.result.undetermined.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Gwiriwch eich atebion gyda’r sefydliad i sicrhau eu bod yn adlewyrchu’ch arferion gwaith gwirioneddol neu ddisgwyliedig.
-worker.optimised.result.undetermined.paye.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
-worker.optimised.result.undetermined.paye.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
+worker.result.undetermined.paye.title = Methu gwneud penderfyniad
+worker.result.undetermined.paye.heading = Methu gwneud penderfyniad
+worker.result.undetermined.paye.whyResult.p1 = Ni allwn benderfynu o’ch atebion a ydych yn gyflogedig neu’n hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+worker.result.undetermined.paye.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
+worker.result.undetermined.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Gwiriwch eich atebion gyda’r sefydliad i sicrhau eu bod yn adlewyrchu’ch arferion gwaith gwirioneddol neu ddisgwyliedig.
+worker.result.undetermined.paye.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.undetermined.paye.doNext.p3 = Gallech hefyd ddarllen pennod 5 o’r
 # TODO: Need Welsh
 downloadPDFCopy.error.required = Select yes to download this result
 
@@ -1211,58 +1158,58 @@ personalServiceSectionChangeWarning.heading = By changing your answers in this s
 businessOnOwnAccountSectionChangeWarning.title = Drwy newid eich atebion yn yr adran hon, efallai y bydd angen i chi ateb cwestiynau ychwanegol.
 businessOnOwnAccountSectionChangeWarning.heading = Drwy newid eich atebion yn yr adran hon, efallai y bydd angen i chi ateb cwestiynau ychwanegol.
 
-hirer.optimised.result.outside.ir35.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.outside.ir35.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-hirer.optimised.result.outside.ir35.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-hirer.optimised.result.outside.ir35.whyResult.substituteToDoWork = rydych wedi derbyn, neu byddech yn derbyn, eilydd
-hirer.optimised.result.outside.ir35.whyResult.clientNotControlWork = nid oes gennych reolaeth dros y gwaith hwn
-hirer.optimised.result.outside.ir35.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd eich sefydliad yn talu amdani
-hirer.optimised.result.outside.ir35.whyResult.booa = the worker is providing services as a business
-hirer.optimised.result.outside.ir35.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn gweithio ar sail busnes i fusnes.
-hirer.optimised.result.outside.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi dalu ei enillion yn llawn heb ddidynnu treth ac Yswiriant Gwladol.
-hirer.optimised.result.outside.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
-hirer.optimised.result.outside.ir35.doNext.p3.text = Gallech hefyd ddarllen rhagor am
-hirer.optimised.result.outside.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd
-hirer.optimised.result.outside.ir35.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
-hirer.optimised.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Your answers told us you have accepted, or would accept, a substitute.
-hirer.optimised.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answers told us you do not have control over this work.
-hirer.optimised.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that your organisation will not pay for.
-hirer.optimised.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
+hirer.result.outside.ir35.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.outside.ir35.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+hirer.result.outside.ir35.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
+hirer.result.outside.ir35.whyResult.substituteToDoWork = rydych wedi derbyn, neu byddech yn derbyn, eilydd
+hirer.result.outside.ir35.whyResult.clientNotControlWork = nid oes gennych reolaeth dros y gwaith hwn
+hirer.result.outside.ir35.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd eich sefydliad yn talu amdani
+hirer.result.outside.ir35.whyResult.booa = the worker is providing services as a business
+hirer.result.outside.ir35.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn gweithio ar sail busnes i fusnes.
+hirer.result.outside.ir35.doNext.p1 = Os yw’ch sefydliad yn gyfrifol am dalu’r gweithiwr, mae angen i chi dalu ei enillion yn llawn heb ddidynnu treth ac Yswiriant Gwladol.
+hirer.result.outside.ir35.doNext.p2 = Os yw rhywun arall yn gyfrifol, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos iddo.
+hirer.result.outside.ir35.doNext.p3.text = Gallech hefyd ddarllen rhagor am
+hirer.result.outside.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd
+hirer.result.outside.ir35.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
+hirer.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Your answers told us you have accepted, or would accept, a substitute.
+hirer.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answers told us you do not have control over this work.
+hirer.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that your organisation will not pay for.
+hirer.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 ## ------------------
 ## Out Agent
 ## ------------------
 ##TODO: Need Welsh
-agent.optimised.result.outside.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.outside.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.optimised.result.outside.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-agent.optimised.result.outside.whyResult.substituteToDoWork = mae cleient y gweithiwr wedi derbyn, neu byddai’n derbyn, eilydd
-agent.optimised.result.outside.whyResult.clientNotControlWork = nid oes gan gleient y gweithiwr reolaeth dros y gwaith hwn
-agent.optimised.result.outside.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd ei gleient yn talu amdani
-agent.optimised.result.outside.whyResult.booa = the worker is providing services as a business
-agent.optimised.result.outside.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn gweithio ar sail busnes i fusnes.
-agent.optimised.result.outside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.optimised.result.outside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.optimised.result.outside.doNext.p2.link = Canllaw Statws Cyflogaeth.
-agent.optimised.result.outside.whyResult.substituteToDoWorkOnlyReason = Your answers told us the worker’s client has accepted, or would accept, a substitute.
-agent.optimised.result.outside.whyResult.clientNotControlWorkOnlyReason = Your answers told us the worker’s client does not have control over this work.
-agent.optimised.result.outside.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that their client will not pay for.
-agent.optimised.result.outside.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
+agent.result.outside.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.outside.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
+agent.result.outside.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
+agent.result.outside.whyResult.substituteToDoWork = mae cleient y gweithiwr wedi derbyn, neu byddai’n derbyn, eilydd
+agent.result.outside.whyResult.clientNotControlWork = nid oes gan gleient y gweithiwr reolaeth dros y gwaith hwn
+agent.result.outside.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd ei gleient yn talu amdani
+agent.result.outside.whyResult.booa = the worker is providing services as a business
+agent.result.outside.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn gweithio ar sail busnes i fusnes.
+agent.result.outside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
+agent.result.outside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
+agent.result.outside.doNext.p2.link = Canllaw Statws Cyflogaeth.
+agent.result.outside.whyResult.substituteToDoWorkOnlyReason = Your answers told us the worker’s client has accepted, or would accept, a substitute.
+agent.result.outside.whyResult.clientNotControlWorkOnlyReason = Your answers told us the worker’s client does not have control over this work.
+agent.result.outside.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that their client will not pay for.
+agent.result.outside.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 ##TODO: Need Welsh
 
-hirer.optimised.result.outside.paye.title = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.outside.paye.heading = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
-hirer.optimised.result.outside.paye.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-hirer.optimised.result.outside.paye.whyResult.substituteToDoWork = rydych wedi derbyn, neu byddech yn derbyn, eilydd
-hirer.optimised.result.outside.paye.whyResult.clientNotControlWork = nid oes gennych reolaeth dros y gwaith hwn
-hirer.optimised.result.outside.paye.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd eich sefydliad yn talu amdani
-hirer.optimised.result.outside.paye.whyResult.booa = the worker is providing services as a business
-hirer.optimised.result.outside.paye.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-hirer.optimised.result.outside.paye.doNext.p1 = Mae angen i chi dalu enillion y gweithiwr yn llawn, heb ddidynnu treth nac Yswiriant Gwladol.
-hirer.optimised.result.outside.paye.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
-hirer.optimised.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers told us you have accepted, or would accept, a substitute.
-hirer.optimised.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us you do not have control over this work.
-hirer.optimised.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that your organisation will not pay for.
-hirer.optimised.result.outside.paye.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
+hirer.result.outside.paye.title = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.outside.paye.heading = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
+hirer.result.outside.paye.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
+hirer.result.outside.paye.whyResult.substituteToDoWork = rydych wedi derbyn, neu byddech yn derbyn, eilydd
+hirer.result.outside.paye.whyResult.clientNotControlWork = nid oes gennych reolaeth dros y gwaith hwn
+hirer.result.outside.paye.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd eich sefydliad yn talu amdani
+hirer.result.outside.paye.whyResult.booa = the worker is providing services as a business
+hirer.result.outside.paye.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn.
+hirer.result.outside.paye.doNext.p1 = Mae angen i chi dalu enillion y gweithiwr yn llawn, heb ddidynnu treth nac Yswiriant Gwladol.
+hirer.result.outside.paye.doNext.workerNotKnown = You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices.
+hirer.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers told us you have accepted, or would accept, a substitute.
+hirer.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us you do not have control over this work.
+hirer.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that your organisation will not pay for.
+hirer.result.outside.paye.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 
 pdfDetails.fileName.error.maxLength = The file name must be {0} characters or less
 pdfDetails.completedBy.error.maxLength = The name must be {0} characters or less

@@ -101,20 +101,6 @@ hirer.contractStarted.checkYourAnswersLabel = Has the worker already started wor
 ## Who Are you
 #########################
 
-whoAreYou.title = Who are you?
-whoAreYou.heading = Who are you?
-whoAreYou.subheading = About you and the work
-whoAreYou.checkYourAnswersLabel = Who are you?
-whoAreYou.personDoingWork = Worker
-whoAreYou.endClient = Hirer
-whoAreYou.placingAgency = Agency
-
-whoAreYou.ir35.error.required = Select if you are a worker, hirer or agency
-whoAreYou.ir35.error.invalid = Select if you are a worker, hirer or agency
-whoAreYou.paye.error.required = Select if you are a worker or hirer
-whoAreYou.paye.error.invalid = Select if you are a worker or hirer
-#########################
-
 ## What do you want
 #########################
 
@@ -154,9 +140,7 @@ hirer.officeholder.link = Office Holders
 ## Arranged Substitute
 #########################
 worker.arrangedSubstitute.error.required = Select if you have ever sent a substitute to do your work
-agency.arrangedSubstitute.error.required = Select if you have ever sent a substitute to do your work
 worker.arrangedSubstitute.error.invalid = Select if you have ever sent a substitute to do your work
-agency.arrangedSubstitute.error.invalid = Select if you have ever sent a substitute to do your work
 worker.arrangedSubstitute.title = Have you ever sent a substitute to do this work?
 worker.arrangedSubstitute.subheading = Substitutes and helpers
 worker.arrangedSubstitute.heading = Have you ever sent a substitute to do this work?
@@ -270,9 +254,7 @@ hirer.putRightAtOwnCost.noObligationToCorrect = No
 ## How Worker is Paid
 #########################
 worker.howWorkerIsPaid.error.required = Select how you will be paid for this work
-agency.howWorkerIsPaid.error.required = Select how you will be paid for this work
 worker.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
-agency.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
 worker.howWorkerIsPaid.title = How will you be paid for this work?
 worker.howWorkerIsPaid.subheading = Worker’s financial risk
 worker.howWorkerIsPaid.heading = How will you be paid for this work?
@@ -1462,7 +1444,6 @@ hirer.noIntermediaryResult.p2.link2 = start again
 ### All of these below are prefixed on the view with "Change"
 
 whatDoYouWantToFindOut.changeLinkContext = what you want to find out
-whoAreYou.changeLinkContext = who you are
 whatDoYouWantToDo.changeLinkContext = what you want to do
 worker.workerUsingIntermediary.changeLinkContext = if you are trading through a limited company, partnership or unincorporated body
 hirer.workerUsingIntermediary.changeLinkContext = if the worker is trading through a limited company, partnership or unincorporated body
