@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -91,10 +106,10 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(CannotClaimAsExpensePage, 1, Seq(WorkerUsedVehicle))
           new ResultPageHelper(cacheMap).cannotClaimAsExpense mustBe
             Some(AnswerRow(
-              label = s"$CannotClaimAsExpensePage.checkYourAnswersLabel",
+              label = s"$Worker.$CannotClaimAsExpensePage.checkYourAnswersLabel",
               answers = Seq(AnswerRow(
-                label = s"$CannotClaimAsExpensePage.checkYourAnswersLabel",
-                answer = s"$CannotClaimAsExpensePage.$WorkerUsedVehicle",
+                label = s"$Worker.$CannotClaimAsExpensePage.checkYourAnswersLabel",
+                answer = s"$Worker.$CannotClaimAsExpensePage.$WorkerUsedVehicle",
                 answerIsMessageKey = true
               ))
             ))
@@ -148,7 +163,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
             val cacheMap = UserAnswers("id").set(OfficeHolderPage, 1, true)
             new ResultPageHelper(cacheMap).officeHolder mustBe
               Some(AnswerRow(
-                label = s"$OfficeHolderPage.checkYourAnswersLabel",
+                label = s"$Worker.$OfficeHolderPage.checkYourAnswersLabel",
                 answer = "site.yes",
                 answerIsMessageKey = true
               ))
@@ -162,7 +177,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(OfficeHolderPage, 1,false)
           new ResultPageHelper(cacheMap).officeHolder mustBe
             Some(AnswerRow(
-              label = s"$OfficeHolderPage.checkYourAnswersLabel",
+              label = s"$Worker.$OfficeHolderPage.checkYourAnswersLabel",
               answer = "site.no",
               answerIsMessageKey = true
             ))
@@ -214,8 +229,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(WorkerTypePage, 1, LimitedCompany)
           new ResultPageHelper(cacheMap).workerType(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$WorkerTypePage.checkYourAnswersLabel",
-              answer = s"$WorkerTypePage.$LimitedCompany",
+              label = s"$Worker.$WorkerTypePage.checkYourAnswersLabel",
+              answer = s"$Worker.$WorkerTypePage.$LimitedCompany",
               answerIsMessageKey = true
             ))
         }
@@ -291,7 +306,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
             val cacheMap = UserAnswers("id").set(ContractStartedPage, 1, true)
             new ResultPageHelper(cacheMap).contractStarted(messages, fakeRequest, frontendAppConfig) mustBe
               Some(AnswerRow(
-                label = s"$ContractStartedPage.checkYourAnswersLabel",
+                label = s"$Worker.$ContractStartedPage.checkYourAnswersLabel",
                 answer = "site.yes",
                 answerIsMessageKey = true
               ))
@@ -305,7 +320,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(ContractStartedPage, 1,false)
           new ResultPageHelper(cacheMap).contractStarted mustBe
             Some(AnswerRow(
-              label = s"$ContractStartedPage.checkYourAnswersLabel",
+              label = s"$Worker.$ContractStartedPage.checkYourAnswersLabel",
               answer = "site.no",
               answerIsMessageKey = true
             ))
@@ -357,8 +372,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(ArrangedSubstitutePage, 1, YesClientAgreed)
           new ResultPageHelper(cacheMap).arrangedSubstitute(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$ArrangedSubstitutePage.checkYourAnswersLabel",
-              answer = s"$ArrangedSubstitutePage.$YesClientAgreed",
+              label = s"$Worker.$ArrangedSubstitutePage.checkYourAnswersLabel",
+              answer = s"$Worker.$ArrangedSubstitutePage.$YesClientAgreed",
               answerIsMessageKey = true
             ))
         }
@@ -411,7 +426,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
             val cacheMap = UserAnswers("id").set(BenefitsPage, 1, true)
             new ResultPageHelper(cacheMap).benefits mustBe
               Some(AnswerRow(
-                label = s"$BenefitsPage.checkYourAnswersLabel",
+                label = s"$Worker.$BenefitsPage.checkYourAnswersLabel",
                 answer = "site.yes",
                 answerIsMessageKey = true
               ))
@@ -425,7 +440,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(BenefitsPage, 1,false)
           new ResultPageHelper(cacheMap).benefits mustBe
             Some(AnswerRow(
-              label = s"$BenefitsPage.checkYourAnswersLabel",
+              label = s"$Worker.$BenefitsPage.checkYourAnswersLabel",
               answer = "site.no",
               answerIsMessageKey = true
             ))
@@ -477,8 +492,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(ChooseWhereWorkPage, 1, WorkerChooses)
           new ResultPageHelper(cacheMap).chooseWhereWork(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$ChooseWhereWorkPage.checkYourAnswersLabel",
-              answer = s"$ChooseWhereWorkPage.$WorkerChooses",
+              label = s"$Worker.$ChooseWhereWorkPage.checkYourAnswersLabel",
+              answer = s"$Worker.$ChooseWhereWorkPage.$WorkerChooses",
               answerIsMessageKey = true
             ))
         }
@@ -529,7 +544,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(DidPaySubstitutePage, 1, true)
           new ResultPageHelper(cacheMap).didPaySubstitute(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$DidPaySubstitutePage.checkYourAnswersLabel",
+              label = s"$Worker.$DidPaySubstitutePage.checkYourAnswersLabel",
               answer = "site.yes",
               answerIsMessageKey = true
             ))
@@ -581,8 +596,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(HowWorkerIsPaidPage, 1, Commission)
           new ResultPageHelper(cacheMap).howWorkerIsPaid(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$HowWorkerIsPaidPage.checkYourAnswersLabel",
-              answer = s"$HowWorkerIsPaidPage.$Commission",
+              label = s"$Worker.$HowWorkerIsPaidPage.checkYourAnswersLabel",
+              answer = s"$Worker.$HowWorkerIsPaidPage.$Commission",
               answerIsMessageKey = true
             ))
         }
@@ -633,8 +648,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(HowWorkIsDonePage, 1, NoWorkerInputAllowed)
           new ResultPageHelper(cacheMap).howWorkIsDone(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$HowWorkIsDonePage.checkYourAnswersLabel",
-              answer = s"$HowWorkIsDonePage.$NoWorkerInputAllowed",
+              label = s"$Worker.$HowWorkIsDonePage.checkYourAnswersLabel",
+              answer = s"$Worker.$HowWorkIsDonePage.$NoWorkerInputAllowed",
               answerIsMessageKey = true
             ))
         }
@@ -685,8 +700,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(IdentifyToStakeholdersPage, 1, WorkForEndClient)
           new ResultPageHelper(cacheMap).identifyToStakeholders(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$IdentifyToStakeholdersPage.checkYourAnswersLabel",
-              answer = s"$IdentifyToStakeholdersPage.$WorkForEndClient",
+              label = s"$Worker.$IdentifyToStakeholdersPage.checkYourAnswersLabel",
+              answer = s"$Worker.$IdentifyToStakeholdersPage.$WorkForEndClient",
               answerIsMessageKey = true
             ))
         }
@@ -737,7 +752,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(InteractWithStakeholdersPage, 1, true)
           new ResultPageHelper(cacheMap).interactWithStakeholders(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$InteractWithStakeholdersPage.checkYourAnswersLabel",
+              label = s"$Worker.$InteractWithStakeholdersPage.checkYourAnswersLabel",
               answer = "site.yes",
               answerIsMessageKey = true
             ))
@@ -789,7 +804,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(LineManagerDutiesPage, 1, true)
           new ResultPageHelper(cacheMap).lineManagerDuties(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$LineManagerDutiesPage.checkYourAnswersLabel",
+              label = s"$Worker.$LineManagerDutiesPage.checkYourAnswersLabel",
               answer = "site.yes",
               answerIsMessageKey = true
             ))
@@ -841,8 +856,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(MoveWorkerPage, 1, CanMoveWorkerWithPermission)
           new ResultPageHelper(cacheMap).moveWorker(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$MoveWorkerPage.checkYourAnswersLabel",
-              answer = s"$MoveWorkerPage.$CanMoveWorkerWithPermission",
+              label = s"$Worker.$MoveWorkerPage.checkYourAnswersLabel",
+              answer = s"$Worker.$MoveWorkerPage.$CanMoveWorkerWithPermission",
               answerIsMessageKey = true
             ))
         }
@@ -893,7 +908,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(NeededToPayHelperPage, 1, true)
           new ResultPageHelper(cacheMap).neededToPayHelper(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$NeededToPayHelperPage.checkYourAnswersLabel",
+              label = s"$Worker.$NeededToPayHelperPage.checkYourAnswersLabel",
               answer = "site.yes",
               answerIsMessageKey = true
             ))
@@ -945,8 +960,8 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(RejectSubstitutePage, 1, true)
           new ResultPageHelper(cacheMap).rejectSubstitute(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$RejectSubstitutePage.checkYourAnswersLabel",
-              answer = s"$RejectSubstitutePage.yes",
+              label = s"$Worker.$RejectSubstitutePage.checkYourAnswersLabel",
+              answer = s"$Worker.$RejectSubstitutePage.yes",
               answerIsMessageKey = true
             ))
         }
@@ -997,7 +1012,7 @@ class ResultPageHelperSpec extends GuiceAppSpecBase with Enumerable.Implicits {
           val cacheMap = UserAnswers("id").set(WouldWorkerPaySubstitutePage, 1, true)
           new ResultPageHelper(cacheMap).wouldWorkerPaySubstitute(messages, fakeRequest, frontendAppConfig) mustBe
             Some(AnswerRow(
-              label = s"$WouldWorkerPaySubstitutePage.checkYourAnswersLabel",
+              label = s"$Worker.$WouldWorkerPaySubstitutePage.checkYourAnswersLabel",
               answer = "site.yes",
               answerIsMessageKey = true
             ))

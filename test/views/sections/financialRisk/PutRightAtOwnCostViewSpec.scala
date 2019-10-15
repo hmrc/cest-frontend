@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class PutRightAtOwnCostViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.putRightAtOwnCost"
+  val messageKeyPrefix = "worker.putRightAtOwnCost"
 
   val form = new PutRightAtOwnCostFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,19 +73,19 @@ class PutRightAtOwnCostViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(PutRightAtOwnCostsMessages.WorkerOptimised.title, Some(SubHeadingMessages.Optimised.financialRisk))
+        document.title mustBe title(PutRightAtOwnCostsMessages.Worker.title, Some(SubHeadingMessages.financialRisk))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.heading
+        document.select(Selectors.heading).text mustBe PutRightAtOwnCostsMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.yesAdditionalCost
-        document.select(Selectors.multichoice(2)).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.yesAdditionalCharge
-        document.select(Selectors.multichoice(3)).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.noUsualHours
-        document.select(Selectors.multichoice(4)).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.noSingleEvent
-        document.select(Selectors.multichoice(5)).text mustBe PutRightAtOwnCostsMessages.WorkerOptimised.no
+        document.select(Selectors.multichoice(1)).text mustBe PutRightAtOwnCostsMessages.Worker.yesAdditionalCost
+        document.select(Selectors.multichoice(2)).text mustBe PutRightAtOwnCostsMessages.Worker.yesAdditionalCharge
+        document.select(Selectors.multichoice(3)).text mustBe PutRightAtOwnCostsMessages.Worker.noUsualHours
+        document.select(Selectors.multichoice(4)).text mustBe PutRightAtOwnCostsMessages.Worker.noSingleEvent
+        document.select(Selectors.multichoice(5)).text mustBe PutRightAtOwnCostsMessages.Worker.no
       }
     }
 
@@ -79,19 +94,19 @@ class PutRightAtOwnCostViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(PutRightAtOwnCostsMessages.HirerOptimised.title, Some(SubHeadingMessages.Optimised.financialRisk))
+        document.title mustBe title(PutRightAtOwnCostsMessages.Hirer.title, Some(SubHeadingMessages.financialRisk))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.heading
+        document.select(Selectors.heading).text mustBe PutRightAtOwnCostsMessages.Hirer.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.yesAdditionalCost
-        document.select(Selectors.multichoice(2)).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.yesAdditionalCharge
-        document.select(Selectors.multichoice(3)).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.noUsualHours
-        document.select(Selectors.multichoice(4)).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.noSingleEvent
-        document.select(Selectors.multichoice(5)).text mustBe PutRightAtOwnCostsMessages.HirerOptimised.no
+        document.select(Selectors.multichoice(1)).text mustBe PutRightAtOwnCostsMessages.Hirer.yesAdditionalCost
+        document.select(Selectors.multichoice(2)).text mustBe PutRightAtOwnCostsMessages.Hirer.yesAdditionalCharge
+        document.select(Selectors.multichoice(3)).text mustBe PutRightAtOwnCostsMessages.Hirer.noUsualHours
+        document.select(Selectors.multichoice(4)).text mustBe PutRightAtOwnCostsMessages.Hirer.noSingleEvent
+        document.select(Selectors.multichoice(5)).text mustBe PutRightAtOwnCostsMessages.Hirer.no
       }
     }
   }

@@ -99,19 +99,6 @@ class WorkerTypeControllerSpec extends ControllerSpecBase {
       contentAsString(result) mustBe optimisedViewAsStringInt(formInt.fill(true))
     }
 
-    "redirect to the next page when valid data is submitted" in {
-      val postRequest = fakeRequest.withFormUrlEncodedBody(("value", WorkerType.options.head.value))
-      val answers = userAnswers.set(WorkerTypePage,0,WorkerType.LimitedCompany)
-      mockOptimisedConstructAnswers(DataRequest(postRequest,"id",answers),WorkerType)(answers)
-
-      mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
-
-      val result = controller().onSubmit(NormalMode)(postRequest)
-
-      status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(onwardRoute.url)
-    }
-
     "redirect to the next page when valid data is submitted for the optimised flow" in {
 
 
@@ -125,16 +112,6 @@ class WorkerTypeControllerSpec extends ControllerSpecBase {
 
       status(result) mustBe SEE_OTHER
       redirectLocation(result) mustBe Some(onwardRoute.url)
-    }
-
-    "return a Bad Request and errors when invalid data is submitted" in {
-      val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "invalid value"))
-      val boundForm = form.bind(Map("value" -> "invalid value"))
-
-      val result = controller().onSubmit(NormalMode)(postRequest)
-
-      status(result) mustBe BAD_REQUEST
-      contentAsString(result) mustBe optimisedViewAsStringInt(boundForm)
     }
 
     "return a Bad Request and errors when invalid data is submitted for the optimised flow" in {

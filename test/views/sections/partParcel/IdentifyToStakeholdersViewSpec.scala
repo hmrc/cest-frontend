@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.identifyToStakeholders"
+  val messageKeyPrefix = "worker.identifyToStakeholders"
 
   val form = new IdentifyToStakeholdersFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,18 +73,18 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(IdentifyToStakeholdersMessages.Optimised.Worker.title, Some(SubHeadingMessages.Optimised.partAndParcel))
+        document.title mustBe title(IdentifyToStakeholdersMessages.Worker.title, Some(SubHeadingMessages.partAndParcel))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.heading
+        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Worker.heading
       }
 
       "have the correct radio options" in {
-        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workForEndClient
-        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workAsIndependent
-        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workAsBusiness
-        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workAsBusiness
+        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Worker.workForEndClient
+        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Worker.workAsIndependent
+        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Worker.workAsBusiness
+        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Worker.workAsBusiness
       }
     }
 
@@ -78,18 +93,18 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(IdentifyToStakeholdersMessages.Optimised.Hirer.title, Some(SubHeadingMessages.Optimised.partAndParcel))
+        document.title mustBe title(IdentifyToStakeholdersMessages.Hirer.title, Some(SubHeadingMessages.partAndParcel))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Optimised.Hirer.heading
+        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Hirer.heading
       }
 
       "have the correct radio options" in {
-        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Optimised.Hirer.workForEndClient
-        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Optimised.Hirer.workAsIndependent
-        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Optimised.Hirer.workAsBusiness
-        document.select(Selectors.multichoice(4)).text mustBe IdentifyToStakeholdersMessages.Optimised.Hirer.wouldNotHappen
+        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Hirer.workForEndClient
+        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Hirer.workAsIndependent
+        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Hirer.workAsBusiness
+        document.select(Selectors.multichoice(4)).text mustBe IdentifyToStakeholdersMessages.Hirer.wouldNotHappen
       }
     }
 
@@ -98,18 +113,18 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(IdentifyToStakeholdersMessages.Optimised.Worker.title, Some(SubHeadingMessages.Optimised.partAndParcel))
+        document.title mustBe title(IdentifyToStakeholdersMessages.Worker.title, Some(SubHeadingMessages.partAndParcel))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.heading
+        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Worker.heading
       }
 
       "have the correct radio options" in {
-        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workForEndClient
-        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workAsIndependent
-        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.workAsBusiness
-        document.select(Selectors.multichoice(4)).text mustBe IdentifyToStakeholdersMessages.Optimised.Worker.wouldNotHappen
+        document.select(Selectors.multichoice(1)).text mustBe IdentifyToStakeholdersMessages.Worker.workForEndClient
+        document.select(Selectors.multichoice(2)).text mustBe IdentifyToStakeholdersMessages.Worker.workAsIndependent
+        document.select(Selectors.multichoice(3)).text mustBe IdentifyToStakeholdersMessages.Worker.workAsBusiness
+        document.select(Selectors.multichoice(4)).text mustBe IdentifyToStakeholdersMessages.Worker.wouldNotHappen
       }
     }
   }

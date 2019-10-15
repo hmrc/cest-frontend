@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -31,13 +46,13 @@ class ViewUtilsSpec extends ViewSpecBase {
       ViewUtils.tailorMsgOptimised("key")(req, frontendAppConfig) mustBe "hirer.key"
     }
 
-    "If the user is of type Agency, do not prefix the supplied message key" in {
+    "If the user is of type Agency, use worker message key" in {
       val req = agencyFakeRequest
-      ViewUtils.tailorMsgOptimised("key")(req, frontendAppConfig) mustBe "key"
+      ViewUtils.tailorMsgOptimised("key")(req, frontendAppConfig) mustBe "worker.key"
     }
 
-    "If the user is unknown, do not prefix the supplied message key" in {
-      ViewUtils.tailorMsgOptimised("key")(fakeRequest, frontendAppConfig) mustBe "key"
+    "If the user is unknown, use worker message key" in {
+      ViewUtils.tailorMsgOptimised("key")(fakeRequest, frontendAppConfig) mustBe "worker.key"
     }
   }
 }

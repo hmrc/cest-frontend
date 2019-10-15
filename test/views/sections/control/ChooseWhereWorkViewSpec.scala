@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.chooseWhereWork"
+  val messageKeyPrefix = "worker.chooseWhereWork"
 
   val form = new ChooseWhereWorkFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,18 +73,18 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ChooseWhereWorkMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ChooseWhereWorkMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.clientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.workerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.noTaskDeterminate
-        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.partly
+        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.Worker.clientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.Worker.workerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.Worker.noTaskDeterminate
+        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.Worker.partly
       }
     }
 
@@ -78,18 +93,18 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ChooseWhereWorkMessages.OptimisedHirer.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ChooseWhereWorkMessages.Hirer.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.Hirer.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.OptimisedHirer.clientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.OptimisedHirer.workerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.OptimisedHirer.noTaskDeterminate
-        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.OptimisedHirer.partly
+        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.Hirer.clientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.Hirer.workerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.Hirer.noTaskDeterminate
+        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.Hirer.partly
       }
     }
 
@@ -98,18 +113,18 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ChooseWhereWorkMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ChooseWhereWorkMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.clientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.workerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.noTaskDeterminate
-        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.OptimisedWorker.partly
+        document.select(Selectors.multichoice(1)).text mustBe ChooseWhereWorkMessages.Worker.clientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ChooseWhereWorkMessages.Worker.workerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ChooseWhereWorkMessages.Worker.noTaskDeterminate
+        document.select(Selectors.multichoice(4)).text mustBe ChooseWhereWorkMessages.Worker.partly
       }
     }
   }

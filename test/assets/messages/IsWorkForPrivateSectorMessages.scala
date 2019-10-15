@@ -30,9 +30,4 @@ object IsWorkForPrivateSectorMessages extends BaseMessages {
     val heading = "In which sector is your organisation?"
     val title = heading
   }
-
-  object NonTailored {
-    val heading = "In which sector is the client you will be doing the work for?"
-    val title = heading
-  }
 }

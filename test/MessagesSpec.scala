@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -86,28 +101,28 @@ class MessagesSpec extends GuiceAppSpecBase {
       Messages("whatDoYouWantToDo.changeLinkContext") mustBe "what you want to do"
       Messages("worker.workerUsingIntermediary.changeLinkContext") mustBe "if you are trading through a limited company, partnership or unincorporated body"
       Messages("hirer.workerUsingIntermediary.changeLinkContext") mustBe "if the worker is trading through a limited company, partnership or unincorporated body"
-      Messages("worker.optimised.contractStarted.changeLinkContext") mustBe "if you have already started working for this client"
-      Messages("hirer.optimised.contractStarted.changeLinkContext") mustBe "if the worker has already started working for your organisation"
-      Messages("worker.optimised.officeHolder.changeLinkContext") mustBe "if you will be an ‘Office Holder’"
-      Messages("hirer.optimised.officeHolder.changeLinkContext") mustBe "if the worker will be an ‘Office Holder’"
-      Messages("worker.optimised.arrangedSubstitute.changeLinkContext") mustBe "if you have ever sent a substitute to do your work"
-      Messages("hirer.optimised.arrangedSubstitute.changeLinkContext") mustBe "if the worker has ever sent a substitute to do their work"
-      Messages("worker.optimised.didPaySubstitute.changeLinkContext") mustBe "if you had to pay your substitute"
-      Messages("hirer.optimised.didPaySubstitute.changeLinkContext") mustBe "if the worker paid their substitute"
-      Messages("worker.optimised.rejectSubstitute.changeLinkContext") mustBe "if your client has the right to reject a substitute"
-      Messages("hirer.optimised.rejectSubstitute.changeLinkContext") mustBe "if you have the right to reject a substitute"
-      Messages("worker.optimised.wouldWorkerPaySubstitute.changeLinkContext") mustBe "if you would have to pay your substitute"
-      Messages("hirer.optimised.wouldWorkerPaySubstitute.changeLinkContext") mustBe "if the worker has to pay their substitute"
-      Messages("worker.optimised.neededToPayHelper.changeLinkContext") mustBe "if you have paid another person to do a significant amount of this work"
-      Messages("hirer.optimised.neededToPayHelper.changeLinkContext") mustBe "if the worker paid another person to do a significant amount of this work"
-      Messages("worker.optimised.moveWorker.changeLinkContext") mustBe "if the task can be changed without your agreement"
-      Messages("hirer.optimised.moveWorker.changeLinkContext") mustBe "if the worker’s task could be changed without their agreement"
-      Messages("worker.optimised.howWorkIsDone.changeLinkContext") mustBe "if your client will decide how the work is done"
-      Messages("hirer.optimised.howWorkIsDone.changeLinkContext") mustBe "if your organisation will decide how the work is done"
-      Messages("worker.optimised.scheduleOfWorkingHours.changeLinkContext") mustBe "if your client will decide the working hours"
-      Messages("hirer.optimised.scheduleOfWorkingHours.changeLinkContext") mustBe "if your organisation will decide the working hours"
-      Messages("worker.optimised.chooseWhereWork.changeLinkContext") mustBe "if your client will decide where you do the work"
-      Messages("hirer.optimised.chooseWhereWork.changeLinkContext") mustBe "if your organisation will decide where the worker does the work"
+      Messages("worker.contractStarted.changeLinkContext") mustBe "if you have already started working for this client"
+      Messages("hirer.contractStarted.changeLinkContext") mustBe "if the worker has already started working for your organisation"
+      Messages("worker.officeHolder.changeLinkContext") mustBe "if you will be an ‘Office Holder’"
+      Messages("hirer.officeHolder.changeLinkContext") mustBe "if the worker will be an ‘Office Holder’"
+      Messages("worker.arrangedSubstitute.changeLinkContext") mustBe "if you have ever sent a substitute to do your work"
+      Messages("hirer.arrangedSubstitute.changeLinkContext") mustBe "if the worker has ever sent a substitute to do their work"
+      Messages("worker.didPaySubstitute.changeLinkContext") mustBe "if you had to pay your substitute"
+      Messages("hirer.didPaySubstitute.changeLinkContext") mustBe "if the worker paid their substitute"
+      Messages("worker.rejectSubstitute.changeLinkContext") mustBe "if your client has the right to reject a substitute"
+      Messages("hirer.rejectSubstitute.changeLinkContext") mustBe "if you have the right to reject a substitute"
+      Messages("worker.wouldWorkerPaySubstitute.changeLinkContext") mustBe "if you would have to pay your substitute"
+      Messages("hirer.wouldWorkerPaySubstitute.changeLinkContext") mustBe "if the worker has to pay their substitute"
+      Messages("worker.neededToPayHelper.changeLinkContext") mustBe "if you have paid another person to do a significant amount of this work"
+      Messages("hirer.neededToPayHelper.changeLinkContext") mustBe "if the worker paid another person to do a significant amount of this work"
+      Messages("worker.moveWorker.changeLinkContext") mustBe "if the task can be changed without your agreement"
+      Messages("hirer.moveWorker.changeLinkContext") mustBe "if the worker’s task could be changed without their agreement"
+      Messages("worker.howWorkIsDone.changeLinkContext") mustBe "if your client will decide how the work is done"
+      Messages("hirer.howWorkIsDone.changeLinkContext") mustBe "if your organisation will decide how the work is done"
+      Messages("worker.scheduleOfWorkingHours.changeLinkContext") mustBe "if your client will decide the working hours"
+      Messages("hirer.scheduleOfWorkingHours.changeLinkContext") mustBe "if your organisation will decide the working hours"
+      Messages("worker.chooseWhereWork.changeLinkContext") mustBe "if your client will decide where you do the work"
+      Messages("hirer.chooseWhereWork.changeLinkContext") mustBe "if your organisation will decide where the worker does the work"
       Messages("worker.equipmentExpenses.changeLinkContext") mustBe "if you will have equipment costs that your client will not pay for"
       Messages("hirer.equipmentExpenses.changeLinkContext") mustBe "if the worker will have equipment costs that your organisation will not pay for"
       Messages("worker.vehicle.changeLinkContext") mustBe "if you will have costs for a vehicle that your client will not pay for"
@@ -116,16 +131,16 @@ class MessagesSpec extends GuiceAppSpecBase {
       Messages("hirer.materials.changeLinkContext") mustBe "if the worker will have costs for materials that your organisation will not pay for"
       Messages("worker.otherExpenses.changeLinkContext") mustBe "if you will have any other costs that your client will not pay for"
       Messages("hirer.otherExpenses.changeLinkContext") mustBe "if the worker will have any other costs that your organisation will not pay for"
-      Messages("worker.optimised.howWorkerIsPaid.changeLinkContext") mustBe "how you will be paid for this work"
-      Messages("hirer.optimised.howWorkerIsPaid.changeLinkContext") mustBe "how the worker will be paid for this work"
-      Messages("worker.optimised.putRightAtOwnCost.changeLinkContext") mustBe "if you would have to put the work right if your client was not happy with it"
-      Messages("hirer.optimised.putRightAtOwnCost.changeLinkContext") mustBe "if the worker would have to put the work right if your organisation was not happy with it"
-      Messages("worker.optimised.benefits.changeLinkContext") mustBe "if your client will provide you with paid-for corporate benefits"
-      Messages("hirer.optimised.benefits.changeLinkContext") mustBe "if you will provide the worker with paid-for corporate benefits"
-      Messages("worker.optimised.lineManagerDuties.changeLinkContext") mustBe "if you will have any management responsibilities for your client"
-      Messages("hirer.optimised.lineManagerDuties.changeLinkContext") mustBe "if the worker will have any management responsibilities for your organisation"
-      Messages("worker.optimised.identifyToStakeholders.changeLinkContext") mustBe "how you would introduce yourself to your client’s consumers or suppliers"
-      Messages("hirer.optimised.identifyToStakeholders.changeLinkContext") mustBe "how the worker would introduce themselves to your consumers or suppliers"
+      Messages("worker.howWorkerIsPaid.changeLinkContext") mustBe "how you will be paid for this work"
+      Messages("hirer.howWorkerIsPaid.changeLinkContext") mustBe "how the worker will be paid for this work"
+      Messages("worker.putRightAtOwnCost.changeLinkContext") mustBe "if you would have to put the work right if your client was not happy with it"
+      Messages("hirer.putRightAtOwnCost.changeLinkContext") mustBe "if the worker would have to put the work right if your organisation was not happy with it"
+      Messages("worker.benefits.changeLinkContext") mustBe "if your client will provide you with paid-for corporate benefits"
+      Messages("hirer.benefits.changeLinkContext") mustBe "if you will provide the worker with paid-for corporate benefits"
+      Messages("worker.lineManagerDuties.changeLinkContext") mustBe "if you will have any management responsibilities for your client"
+      Messages("hirer.lineManagerDuties.changeLinkContext") mustBe "if the worker will have any management responsibilities for your organisation"
+      Messages("worker.identifyToStakeholders.changeLinkContext") mustBe "how you would introduce yourself to your client’s consumers or suppliers"
+      Messages("hirer.identifyToStakeholders.changeLinkContext") mustBe "how the worker would introduce themselves to your consumers or suppliers"
       Messages("hirer.workerKnown.changeLinkContext") mustBe "if your organisation will know who will be doing this work"
       Messages("worker.multipleContracts.changeLinkContext") mustBe "if this contract will stop you from doing similar work for other clients"
       Messages("hirer.multipleContracts.changeLinkContext") mustBe "if the contract stops the worker from doing similar work for other organisations"

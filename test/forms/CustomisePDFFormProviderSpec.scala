@@ -33,26 +33,6 @@ class CustomisePDFFormProviderSpec extends GuiceAppSpecBase with StringFieldBeha
 
   val optFields = Seq("completedBy", "client", "job")
 
-  val fields = Seq("completedBy", "client", "job", "reference")
-
-  for (fieldName <- fields) {
-
-    s"$fieldName" must {
-      behave like fieldThatBindsValidData(
-        form,
-        fieldName,
-        stringsWithMaxLength(maxLength)
-      )
-      behave like fieldWithMaxLength(
-        form,
-        fieldName,
-        maxLength = maxLength,
-        lengthError = FormError(fieldName, lengthKey(fieldName), Seq(maxLength))
-      )
-    }
-  }
-
-
   val optForm = new CustomisePDFFormProvider()()
 
   override def beforeEach(): Unit = {

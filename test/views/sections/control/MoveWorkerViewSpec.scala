@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class MoveWorkerViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.moveWorker"
+  val messageKeyPrefix = "worker.moveWorker"
 
   val form = new MoveWorkerFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,21 +73,21 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(MoveWorkerMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(MoveWorkerMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe MoveWorkerMessages.Worker.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.OptimisedWorker.p1
+        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.Worker.p1
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.OptimisedWorker.yesWithAgreement
-        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.OptimisedWorker.yesWithoutAgreement
-        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.OptimisedWorker.no
+        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.Worker.yesWithAgreement
+        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.Worker.yesWithoutAgreement
+        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.Worker.no
       }
     }
 
@@ -81,21 +96,21 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(MoveWorkerMessages.OptimisedHirer.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(MoveWorkerMessages.Hirer.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text mustBe MoveWorkerMessages.Hirer.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.OptimisedHirer.p1
+        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.Hirer.p1
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.OptimisedHirer.yesWithAgreement
-        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.OptimisedHirer.yesWithoutAgreement
-        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.OptimisedHirer.no
+        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.Hirer.yesWithAgreement
+        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.Hirer.yesWithoutAgreement
+        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.Hirer.no
       }
     }
 
@@ -104,21 +119,21 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(MoveWorkerMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(MoveWorkerMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe MoveWorkerMessages.Worker.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.OptimisedWorker.p1
+        document.select(Selectors.p(1)).text mustBe MoveWorkerMessages.Worker.p1
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.OptimisedWorker.yesWithAgreement
-        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.OptimisedWorker.yesWithoutAgreement
-        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.OptimisedWorker.no
+        document.select(Selectors.multichoice(1)).text mustBe MoveWorkerMessages.Worker.yesWithAgreement
+        document.select(Selectors.multichoice(2)).text mustBe MoveWorkerMessages.Worker.yesWithoutAgreement
+        document.select(Selectors.multichoice(3)).text mustBe MoveWorkerMessages.Worker.no
       }
     }
   }

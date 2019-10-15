@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -17,7 +32,7 @@
 
 package views.sections.setup
 
-import assets.messages.ContractStartedOptimisedMessages
+import assets.messages.ContractStartedMessages
 import config.SessionKeys
 import config.featureSwitch.FeatureSwitching
 import controllers.sections.setup.routes
@@ -34,7 +49,7 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "optimised.contractStarted"
+  val messageKeyPrefix = "worker.contractStarted"
 
   val form = new ContractStartedFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -60,18 +75,18 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct title" in {
 
-        document.title mustBe title(ContractStartedOptimisedMessages.Worker.title)
+        document.title mustBe title(ContractStartedMessages.Worker.title)
       }
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.Worker.heading
+        document.select(Selectors.heading).text mustBe ContractStartedMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
 
-        document.select(Selectors.multichoice(1)).text mustBe ContractStartedOptimisedMessages.yes
-        document.select(Selectors.multichoice(2)).text mustBe ContractStartedOptimisedMessages.no
+        document.select(Selectors.multichoice(1)).text mustBe ContractStartedMessages.yes
+        document.select(Selectors.multichoice(2)).text mustBe ContractStartedMessages.no
       }
     }
 
@@ -81,18 +96,18 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct title" in {
 
-        document.title mustBe title(ContractStartedOptimisedMessages.Hirer.title)
+        document.title mustBe title(ContractStartedMessages.Hirer.title)
       }
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.Hirer.heading
+        document.select(Selectors.heading).text mustBe ContractStartedMessages.Hirer.heading
       }
 
       "have the correct radio option messages" in {
 
-        document.select(Selectors.multichoice(1)).text mustBe ContractStartedOptimisedMessages.yes
-        document.select(Selectors.multichoice(2)).text mustBe ContractStartedOptimisedMessages.no
+        document.select(Selectors.multichoice(1)).text mustBe ContractStartedMessages.yes
+        document.select(Selectors.multichoice(2)).text mustBe ContractStartedMessages.no
       }
     }
 
@@ -102,18 +117,18 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct title" in {
 
-        document.title mustBe title(ContractStartedOptimisedMessages.NonTailored.title)
+        document.title mustBe title(ContractStartedMessages.Worker.title)
       }
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.NonTailored.heading
+        document.select(Selectors.heading).text mustBe ContractStartedMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
 
-        document.select(Selectors.multichoice(1)).text mustBe ContractStartedOptimisedMessages.yes
-        document.select(Selectors.multichoice(2)).text mustBe ContractStartedOptimisedMessages.no
+        document.select(Selectors.multichoice(1)).text mustBe ContractStartedMessages.yes
+        document.select(Selectors.multichoice(2)).text mustBe ContractStartedMessages.no
       }
     }
   }

@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class HowWorkIsDoneViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.howWorkIsDone"
+  val messageKeyPrefix = "worker.howWorkIsDone"
 
   val form = new HowWorkIsDoneFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,25 +73,25 @@ class HowWorkIsDoneViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(HowWorkIsDoneMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(HowWorkIsDoneMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.Worker.heading
       }
 
       "have the correct content" in {
-        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p1
-        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p2
-        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p3
+        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.Worker.p1
+        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.Worker.p2
+        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.Worker.p3
         document.select("#employmentStatusManualLink").attr("href") mustBe frontendAppConfig.employmentStatusManualESM0527Url
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.partly
-        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.noSkilledRole
+        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.Worker.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.Worker.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.Worker.partly
+        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.Worker.noSkilledRole
 
       }
     }
@@ -86,25 +101,25 @@ class HowWorkIsDoneViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(HowWorkIsDoneMessages.OptimisedHirer.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(HowWorkIsDoneMessages.Hirer.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.Hirer.heading
       }
 
       "have the correct content" in {
-        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.p1
-        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.p2
-        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.p3
+        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.Hirer.p1
+        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.Hirer.p2
+        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.Hirer.p3
         document.select("#employmentStatusManualLink").attr("href") mustBe frontendAppConfig.employmentStatusManualESM0527Url
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.partly
-        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.OptimisedHirer.noSkilledRole
+        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.Hirer.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.Hirer.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.Hirer.partly
+        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.Hirer.noSkilledRole
 
       }
     }
@@ -114,25 +129,25 @@ class HowWorkIsDoneViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(HowWorkIsDoneMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(HowWorkIsDoneMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe HowWorkIsDoneMessages.Worker.heading
       }
 
       "have the correct content" in {
-        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p1
-        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p2
-        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.p3
+        document.select(Selectors.p(1)).text mustBe HowWorkIsDoneMessages.Worker.p1
+        document.select(Selectors.p(2)).text mustBe HowWorkIsDoneMessages.Worker.p2
+        document.select(Selectors.p(3)).text mustBe HowWorkIsDoneMessages.Worker.p3
         document.select("#employmentStatusManualLink").attr("href") mustBe frontendAppConfig.employmentStatusManualESM0527Url
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.partly
-        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.OptimisedWorker.noSkilledRole
+        document.select(Selectors.multichoice(1)).text mustBe HowWorkIsDoneMessages.Worker.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe HowWorkIsDoneMessages.Worker.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe HowWorkIsDoneMessages.Worker.partly
+        document.select(Selectors.multichoice(4)).text mustBe HowWorkIsDoneMessages.Worker.noSkilledRole
 
       }
     }

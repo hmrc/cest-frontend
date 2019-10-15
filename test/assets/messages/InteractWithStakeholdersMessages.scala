@@ -29,10 +29,4 @@ object InteractWithStakeholdersMessages extends BaseMessages {
     val title = heading
     val hint = "These are people who use or are affected by the service provided by your organisation. This would not include the worker’s colleagues or other employees."
   }
-
-  object NonTailored {
-    val heading = "Does the worker interact with the end client’s customers, clients, audience or users?"
-    val title = heading
-    val hint = "These are people who use or are affected by the service provided by the public body, corporation or business. This would not include the worker’s colleagues or other employees."
-  }
 }

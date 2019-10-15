@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -39,7 +54,7 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.rejectSubstitute"
+  val messageKeyPrefix = "worker.rejectSubstitute"
 
   val form = new RejectSubstituteFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -64,16 +79,16 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(RejectSubstituteMessages.Optimised.Worker.title, Some(SubHeadingMessages.Optimised.personalService))
+        document.title mustBe title(RejectSubstituteMessages.Worker.title, Some(SubHeadingMessages.personalService))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Optimised.Worker.heading
+        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Worker.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Optimised.Worker.p1
-        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Optimised.Worker.p2
+        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Worker.p1
+        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Worker.p2
       }
 
       "have the correct radio option messages" in {
@@ -87,16 +102,16 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(RejectSubstituteMessages.Optimised.Hirer.title, Some(SubHeadingMessages.Optimised.personalService))
+        document.title mustBe title(RejectSubstituteMessages.Hirer.title, Some(SubHeadingMessages.personalService))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Optimised.Hirer.heading
+        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Hirer.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Optimised.Hirer.p1
-        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Optimised.Hirer.p2
+        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Hirer.p1
+        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Hirer.p2
       }
 
       "have the correct radio option messages" in {
@@ -110,16 +125,16 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(RejectSubstituteMessages.Optimised.Worker.title, Some(SubHeadingMessages.Optimised.personalService))
+        document.title mustBe title(RejectSubstituteMessages.Worker.title, Some(SubHeadingMessages.personalService))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Optimised.Worker.heading
+        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Worker.heading
       }
 
       "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Optimised.Worker.p1
-        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Optimised.Worker.p2
+        document.select(Selectors.p(1)).text mustBe RejectSubstituteMessages.Worker.p1
+        document.select(Selectors.p(2)).text mustBe RejectSubstituteMessages.Worker.p2
       }
 
       "have the correct radio option messages" in {

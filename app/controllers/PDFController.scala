@@ -48,7 +48,6 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
                               controllerComponents: MessagesControllerComponents,
                               customisePdfView: CustomisePDFView,
                               addDetailsView: AddDetailsView,
-
                               optimisedDecisionService: OptimisedDecisionService,
                               pdfService: PDFService,
                               errorHandler: ErrorHandler,

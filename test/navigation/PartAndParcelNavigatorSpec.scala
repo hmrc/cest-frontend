@@ -57,11 +57,6 @@ class PartAndParcelNavigatorSpec extends GuiceAppSpecBase {
 
         nextPage(InteractWithStakeholdersPage) mustBe booa.MultipleContractsController.onPageLoad(NormalMode)
       }
-
-      "if InteractWithStakeholders is false AND OptimisedFlow is disabled go to the IdentifyToStakeholdersPage" in {
-
-        nextPage(InteractWithStakeholdersPage) mustBe routes.ResultController.onPageLoad()
-      }
     }
 
     "go from the IdentifyToStakeholdersPage" when {
@@ -69,11 +64,6 @@ class PartAndParcelNavigatorSpec extends GuiceAppSpecBase {
       "if OptimisedFlow and BusinessOnOwnAccountJourney are enabled go to the MultipleContractsPage" in {
 
         nextPage(IdentifyToStakeholdersPage) mustBe booa.MultipleContractsController.onPageLoad(NormalMode)
-      }
-
-      "if OptimisedFlow is disabled go to the ResultPage" in {
-
-        nextPage(IdentifyToStakeholdersPage) mustBe routes.ResultController.onPageLoad()
       }
     }
   }

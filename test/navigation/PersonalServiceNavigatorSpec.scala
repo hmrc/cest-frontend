@@ -96,15 +96,6 @@ class PersonalServiceNavigatorSpec extends GuiceAppSpecBase {
 
     "go from the WouldWorkerPaySubstitutePage" when {
 
-      "ContractStartedPage answer is true and optimised flow is disabled to NeededToPayHelperPage " in {
-
-
-        lazy val userAnswers = UserAnswers("id")
-          .set(ContractStartedPage, true)
-
-        nextPage(WouldWorkerPaySubstitutePage, userAnswers) mustBe personalServiceRoutes.NeededToPayHelperController.onPageLoad(NormalMode)
-      }
-
       "both ContractStartedPage and WouldWorkerPaySubstitutePage answers is false and optimised flow is enabled to NeededToPayHelperPage " in {
 
 

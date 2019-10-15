@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /*
  * Copyright 2019 HM Revenue & Customs
@@ -36,7 +51,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors
 
-  val messageKeyPrefix = "worker.optimised.scheduleOfWorkingHours"
+  val messageKeyPrefix = "worker.scheduleOfWorkingHours"
 
   val form = new ScheduleOfWorkingHoursFormProvider()()(fakeDataRequest, frontendAppConfig)
 
@@ -58,18 +73,18 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(workerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ScheduleOfWorkingHoursMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ScheduleOfWorkingHoursMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.partly
-        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.notApplicable
+        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.Worker.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.Worker.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.Worker.partly
+        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.Worker.notApplicable
       }
     }
 
@@ -78,18 +93,18 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ScheduleOfWorkingHoursMessages.OptimisedHirer.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ScheduleOfWorkingHoursMessages.Hirer.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.Hirer.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.partly
-        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.notApplicable
+        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.Hirer.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.Hirer.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.Hirer.partly
+        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.Hirer.notApplicable
 
       }
     }
@@ -99,18 +114,18 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(agencyFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(ScheduleOfWorkingHoursMessages.OptimisedWorker.title, Some(SubHeadingMessages.Optimised.control))
+        document.title mustBe title(ScheduleOfWorkingHoursMessages.Worker.title, Some(SubHeadingMessages.control))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.Worker.heading
       }
 
       "have the correct radio option messages" in {
-        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.yesClientDecides
-        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.noWorkerDecides
-        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.partly
-        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.notApplicable
+        document.select(Selectors.multichoice(1)).text mustBe ScheduleOfWorkingHoursMessages.Worker.yesClientDecides
+        document.select(Selectors.multichoice(2)).text mustBe ScheduleOfWorkingHoursMessages.Worker.noWorkerDecides
+        document.select(Selectors.multichoice(3)).text mustBe ScheduleOfWorkingHoursMessages.Worker.partly
+        document.select(Selectors.multichoice(4)).text mustBe ScheduleOfWorkingHoursMessages.Worker.notApplicable
 
       }
     }

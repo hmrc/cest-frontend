@@ -58,12 +58,6 @@ class CYANavigatorSpec extends GuiceAppSpecBase {
           nextPage(ResultPage, userAnswers) mustBe routes.FinishedCheckingController.onPageLoad()
         }
       }
-
-      "optimised flow is disabled go to the PDFPage" in {
-
-
-        nextPage(ResultPage) mustBe routes.PDFController.onPageLoad(NormalMode)
-      }
     }
 
     "go from the AddReferenceDetailsPage" when {

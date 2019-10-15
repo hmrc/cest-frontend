@@ -39,18 +39,6 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
       invalidError = FormError(fieldName, invalidKey)
     )
 
-    "for the sub optimised flow" should {
-
-
-      val form = new LineManagerDutiesFormProvider()()(fakeDataRequest, frontendAppConfig)
-
-      behave like mandatoryField(
-        form ,
-        fieldName,
-        requiredError = FormError(fieldName, requiredKey)
-      )
-    }
-
     "for the optimised flow" should {
 
       "if the user type is 'Worker'" must {
@@ -61,7 +49,7 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"worker.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"worker.$requiredKey")
         )
       }
 
@@ -73,7 +61,7 @@ class LineManagerDutiesFormProviderSpec extends BooleanFieldBehaviours with Guic
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"hirer.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"hirer.$requiredKey")
         )
       }
     }

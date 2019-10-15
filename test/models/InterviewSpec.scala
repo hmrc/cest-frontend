@@ -951,67 +951,6 @@ class InterviewSpec extends GuiceAppSpecBase {
         }
       }
 
-      "OptimisedFlow is disabled" when {
-
-        "all values are supplied" in {
-
-          val userAnswers = UserAnswers("id")
-            .set(AboutYouPage, 0, Worker)
-            .set(ContractStartedPage, 1, true)
-            .set(WorkerTypePage, 2, SoleTrader)
-            .set(OfficeHolderPage, 3, false)
-            .set(ArrangedSubstitutePage, 4, YesClientAgreed)
-            .set(DidPaySubstitutePage, 5, false)
-            .set(WouldWorkerPaySubstitutePage, 6, true)
-            .set(RejectSubstitutePage, 7, false)
-            .set(NeededToPayHelperPage, 8, false)
-            .set(MoveWorkerPage, 9, CanMoveWorkerWithPermission)
-            .set(HowWorkIsDonePage, 10, WorkerFollowStrictEmployeeProcedures)
-            .set(ScheduleOfWorkingHoursPage, 11, WorkerAgreeSchedule)
-            .set(ChooseWhereWorkPage, 12, WorkerAgreeWithOthers)
-            .set(CannotClaimAsExpensePage, 13, Seq(WorkerUsedVehicle, WorkerHadOtherExpenses))
-            .set(HowWorkerIsPaidPage, 14, Commission)
-            .set(PutRightAtOwnCostPage, 15, CannotBeCorrected)
-            .set(BenefitsPage, 16, false)
-            .set(LineManagerDutiesPage, 17, false)
-            .set(InteractWithStakeholdersPage, 18, false)
-            .set(IdentifyToStakeholdersPage, 19, WorkAsIndependent)
-
-          val expected = Interview(
-            correlationId = "id",
-            endUserRole = Some(UserType.Worker),
-            hasContractStarted = Some(true),
-            provideServices = Some(SoleTrader),
-            officeHolder = Some(false),
-            workerSentActualSubstitute = Some(YesClientAgreed),
-            workerPayActualSubstitute = Some(false),
-            possibleSubstituteRejection = Some(false),
-            possibleSubstituteWorkerPay = Some(true),
-            wouldWorkerPayHelper = Some(false),
-            engagerMovingWorker = Some(CanMoveWorkerWithPermission),
-            workerDecidingHowWorkIsDone = Some(WorkerFollowStrictEmployeeProcedures),
-            whenWorkHasToBeDone = Some(WorkerAgreeSchedule),
-            workerDecideWhere = Some(WorkerAgreeWithOthers),
-            workerProvidedMaterials = Some(false),
-            workerProvidedEquipment = Some(false),
-            workerUsedVehicle = Some(true),
-            workerHadOtherExpenses = Some(true),
-            expensesAreNotRelevantForRole = Some(false),
-            workerMainIncome = Some(Commission),
-            paidForSubstandardWork = Some(CannotBeCorrected),
-            workerReceivesBenefits = Some(false),
-            workerAsLineManager = Some(false),
-            contactWithEngagerCustomer = Some(false),
-            workerRepresentsEngagerBusiness = Some(WorkAsIndependent)
-          )
-
-          val actual = Interview(userAnswers)(frontendAppConfig, workerFakeDataRequest)
-
-          actual mustBe expected
-
-        }
-      }
-
       "minimum values are supplied" in {
 
         val userAnswers = UserAnswers("id")

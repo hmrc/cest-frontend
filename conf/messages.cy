@@ -84,20 +84,6 @@ feedback.after = yn ein helpu i’w wella.
 unauthorised.title =  You can’t access this service with this account
 unauthorised.heading =  You can’t access this service with this account
 
-aboutYou.title = Pa un o’r canlynol sy’n eich disgrifio orau?
-aboutYou.heading = Pa un o’r canlynol sy’n eich disgrifio orau?
-aboutYou.subheading = Ynglŷn â’r bobl berthnasol
-aboutYou.checkYourAnswersLabel = Pa un o’r canlynol sy’n eich disgrifio orau?
-aboutYou.hint = Y cleient terfynol yw’r corff cyhoeddus, corfforaeth neu’r busnes y mae’r gweithiwr yn cyflenwi gwasanaethau iddo/iddi.
-aboutYou.personDoingWork = Y gweithiwr
-aboutYou.endClient = Y cleient terfynol
-aboutYou.placingAgency = Yr asiantaeth sy’n talu’r gweithiwr
-aboutYou.none = Dim un o’r uchod
-
-aboutYou.error.required = Mae angen i chi ddewis ateb
-aboutYou.error.invalid = Mae angen i chi ddewis ateb
-
-
 ## Contract Started Page Questions
 #########################
 worker.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn

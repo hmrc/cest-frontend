@@ -38,18 +38,6 @@ class WouldWorkerPaySubstituteFormProviderSpec extends BooleanFieldBehaviours wi
       invalidError = FormError(fieldName, invalidKey)
     )
 
-    "for the sub optimised flow" should {
-
-
-      val form = new WouldWorkerPaySubstituteFormProvider()()(fakeDataRequest, frontendAppConfig)
-
-      behave like mandatoryField(
-        form ,
-        fieldName,
-        requiredError = FormError(fieldName, requiredKey)
-      )
-    }
-
     "for the optimised flow" should {
 
       "if the user type is 'Worker'" must {
@@ -60,7 +48,7 @@ class WouldWorkerPaySubstituteFormProviderSpec extends BooleanFieldBehaviours wi
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"worker.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"worker.$requiredKey")
         )
       }
 
@@ -72,7 +60,7 @@ class WouldWorkerPaySubstituteFormProviderSpec extends BooleanFieldBehaviours wi
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"hirer.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"hirer.$requiredKey")
         )
       }
     }

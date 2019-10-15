@@ -39,18 +39,6 @@ class MoveWorkerFormProviderSpec extends OptionFieldBehaviours with GuiceAppSpec
       invalidError = FormError(fieldName, "error.invalid")
     )
 
-    "for the sub optimised flow" should {
-
-
-      val form = new MoveWorkerFormProvider()()(fakeDataRequest, frontendAppConfig)
-
-      behave like mandatoryField(
-        form ,
-        fieldName,
-        requiredError = FormError(fieldName, requiredKey)
-      )
-    }
-
     "for the optimised flow" should {
 
       "if the user type is 'Worker'" must {
@@ -61,7 +49,7 @@ class MoveWorkerFormProviderSpec extends OptionFieldBehaviours with GuiceAppSpec
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"worker.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"worker.$requiredKey")
         )
       }
 
@@ -73,7 +61,7 @@ class MoveWorkerFormProviderSpec extends OptionFieldBehaviours with GuiceAppSpec
         behave like mandatoryField(
           form,
           fieldName,
-          requiredError = FormError(fieldName, s"hirer.optimised.$requiredKey")
+          requiredError = FormError(fieldName, s"hirer.$requiredKey")
         )
       }
     }
