@@ -87,7 +87,6 @@ unauthorised.heading =  You can’t access this service with this account
 ## Contract Started Page Questions
 #########################
 worker.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
-agency.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
 worker.contractStarted.title = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
 worker.contractStarted.heading = A ydych eisoes wedi dechrau gweithio i’r cleient hwn?
 worker.contractStarted.subHeading = Amdanoch chi a’r gwaith
@@ -117,7 +116,6 @@ whatDoYouWantToFindOut.error.invalid = Dewiswch yr hyn yr hoffech gael gwybod
 ## Office Holder
 #########################
 worker.officeHolder.error.required = Select yes if you will be an Office Holder
-agency.officeHolder.error.required = Select yes if you will be an Office Holder
 worker.officeHolder.title = Will you be an ‘Office Holder’?
 worker.officeHolder.subheading = Worker’s duties
 worker.officeHolder.heading = Will you be an ‘Office Holder’?
@@ -177,7 +175,6 @@ hirer.identifyToStakeholders.workAsBusiness = They work for their own business
 hirer.identifyToStakeholders.wouldNotHappen = This would not happen
 
 worker.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
-agency.identifyToStakeholders.error.required = Dewiswch sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient
 worker.identifyToStakeholders.title = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
 worker.identifyToStakeholders.subheading = Cyfraniad y gweithiwr
 worker.identifyToStakeholders.heading = Sut y byddech yn cyflwyno’ch hun i ddefnyddwyr neu gyflenwyr eich cleient?
@@ -199,7 +196,6 @@ hirer.lineManagerDuties.checkYourAnswersLabel = Will the worker have any managem
 hirer.lineManagerDuties.p1 = This can include deciding how much to pay someone, hiring or dismissing workers, and delivering appraisals.
 
 worker.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
-agency.lineManagerDuties.error.required = Dewiswch os bydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient
 worker.lineManagerDuties.title = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
 worker.lineManagerDuties.subheading = Cyfraniad y gweithiwr
 worker.lineManagerDuties.heading = A fydd gennych unrhyw gyfrifoldebau rheoli ar gyfer eich cleient?
@@ -210,7 +206,6 @@ worker.lineManagerDuties.p1 = Gall hyn gynnwys penderfynu faint i dalu rhywun, c
 ## Benefits from end client
 #########################
 worker.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
-agency.benefits.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi
 worker.benefits.title = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
 worker.benefits.subheading = Cyfraniad y gweithiwr
 worker.benefits.heading = A fydd eich cleient yn rhoi buddiannau corfforaethol sydd wedi’u talu i chi?
@@ -229,9 +224,7 @@ hirer.benefits.p1 = This can include external gym memberships, health insurance 
 ## Put Right at Workers Own Cost
 #########################
 worker.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-agency.putRightAtOwnCost.error.required = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
 worker.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
-agency.putRightAtOwnCost.error.invalid = Dewiswch pe bai’n rhaid i chi unioni’ch gwaith os nad oedd eich cleient yn hapus ag ef
 worker.putRightAtOwnCost.title = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
 worker.putRightAtOwnCost.subheading = Risg ariannol y gweithiwr
 worker.putRightAtOwnCost.heading = Os nad oedd eich cleient yn hapus gyda’ch gwaith, a fyddai’n rhaid i chi ei unioni?
@@ -286,9 +279,7 @@ hirer.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation�
 ## Choose Where Work
 #########################
 worker.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-agency.chooseWhereWork.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
 worker.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
-agency.chooseWhereWork.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith
 worker.chooseWhereWork.title = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
 worker.chooseWhereWork.subheading = Trefniadau gweithio
 worker.chooseWhereWork.heading = A fydd eich cleient yn penderfynu ble rydych yn gwneud y gwaith?
@@ -315,9 +306,7 @@ hirer.chooseWhereWork.workerAgreeWithOthers = No, some work has to be done in an
 ## How Work Is Done
 #########################
 worker.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-agency.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
 worker.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
-agency.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os bydd eich cleient yn penderfynu’r oriau gweithio
 worker.scheduleOfWorkingHours.title = A fydd eich cleient yn penderfynu’r oriau gweithio?
 worker.scheduleOfWorkingHours.subheading = Trefniadau gweithio
 worker.scheduleOfWorkingHours.heading = A fydd eich cleient yn penderfynu’r oriau gweithio?
@@ -361,9 +350,7 @@ hirer.howWorkIsDone.workerAgreeWithOthers = No, your organisation and the worker
 
 ## TODO: welsh needed for new english content
 worker.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-agency.howWorkIsDone.error.required = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
 worker.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
-agency.howWorkIsDone.error.invalid = Dewiswch os bydd eich cleient yn penderfynu sut y gwneir y gwaith
 worker.howWorkIsDone.title = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
 worker.howWorkIsDone.subheading = Trefniadau gweithio
 worker.howWorkIsDone.heading = A fydd eich cleient yn penderfynu sut y gwneir y gwaith?
@@ -395,9 +382,7 @@ hirer.moveWorker.canMoveWorkerWithPermission = No, they would have to agree
 hirer.moveWorker.cannotMoveWorkerWithoutNewAgreement = No, that would require a new contract or formal working arrangement
 
 worker.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-agency.moveWorker.error.required = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
 worker.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
-agency.moveWorker.error.invalid = Dewiswch ‘Iawn’ os gellir newid y dasg heb eich cytundeb
 worker.moveWorker.title = A ellir newid y dasg heb eich cytundeb?
 worker.moveWorker.subheading = Trefniadau gweithio
 worker.moveWorker.heading = A ellir newid y dasg heb eich cytundeb?
@@ -412,7 +397,6 @@ worker.moveWorker.cannotMoveWorkerWithoutNewAgreement = Na, byddai hynny’n gof
 ## Needed to Pay Helper
 #########################
 worker.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
-agency.neededToPayHelper.error.required = Dewiswch os ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn
 worker.neededToPayHelper.title = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
 worker.neededToPayHelper.subheading = Eilyddion a chynorthwywyr
 worker.neededToPayHelper.heading = A ydych wedi talu person arall i wneud cryn dipyn o’r gwaith hwn?
@@ -430,7 +414,6 @@ hirer.neededToPayHelper.checkYourAnswersLabel = Has the worker paid another pers
 ## Would Pay Substitute
 #########################
 worker.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
-agency.wouldWorkerPaySubstitute.error.required = Dewiswch ‘Iawn’ pe bai’n rhaid i chi dalu’ch eilydd
 worker.wouldWorkerPaySubstitute.title = A fyddai’n rhaid i chi dalu’ch eilydd?
 worker.wouldWorkerPaySubstitute.subheading = Eilyddion a chynorthwywyr
 worker.wouldWorkerPaySubstitute.heading = A fyddai’n rhaid i chi dalu’ch eilydd?
@@ -451,7 +434,6 @@ hirer.wouldWorkerPaySubstitute.hint = This would include payments made by the wo
 #########################
 ## TODO: welsh needed for new english content
 worker.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
-agency.rejectSubstitute.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i wrthod eilydd a oedd yn bodloni ei holl feini prawf
 worker.rejectSubstitute.title = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
 worker.rejectSubstitute.subheading = Eilyddion a chynorthwywyr
 worker.rejectSubstitute.heading = Os anfonoch eilydd a oedd yn bodloni holl feini prawf eich cleient, a oes gan y cleient yr hawl i’w wrthod?
@@ -473,7 +455,6 @@ hirer.rejectSubstitute.p2 = This can include rejecting a substitute even if they
 ## Did Pay Substitute
 #########################
 worker.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
-agency.didPaySubstitute.error.required = Dewiswch ‘Iawn’ os gwnaethoch dalu eich eilydd
 worker.didPaySubstitute.title = A wnaethoch dalu eich eilydd?
 worker.didPaySubstitute.subheading = Eilyddion a chynorthwywyr
 worker.didPaySubstitute.heading = A wnaethoch dalu eich eilydd?
@@ -708,8 +689,6 @@ leave.heading = You have now left the tool
 
 worker.workerUsingIntermediary.error.required = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
 worker.workerUsingIntermediary.error.invalid = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
-agency.workerUsingIntermediary.error.required = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
-agency.workerUsingIntermediary.error.invalid = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
 worker.workerUsingIntermediary.title = A ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig?
 worker.workerUsingIntermediary.heading = A ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig?
 worker.workerUsingIntermediary.subHeading = Amdanoch chi a’r gwaith
@@ -1065,7 +1044,6 @@ hirer.materials.p1 = This can include items that form a lasting part of the work
 hirer.materials.p2 = This question is most likely to be relevant to the construction industry.
 
 worker.materials.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer deunyddiau yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
-agency.materials.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer deunyddiau yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
 worker.materials.title = A fydd unrhyw gostau ar gyfer deunyddiau’n cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
 worker.materials.subheading = Risg ariannol y gweithiwr
 worker.materials.heading = A fydd unrhyw gostau ar gyfer deunyddiau’n cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
@@ -1083,7 +1061,6 @@ hirer.vehicle.checkYourAnswersLabel = Will the worker have costs for a vehicle t
 hirer.vehicle.p1 = This can include purchasing, leasing, hiring, fuel and other running costs for this work, but does not include commuting costs.
 
 worker.vehicle.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer cerbyd yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
-agency.vehicle.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer cerbyd yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
 worker.vehicle.title = A fydd unrhyw gostau eraill ar gyfer cerbyd yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
 worker.vehicle.subheading = Risg ariannol y gweithiwr
 worker.vehicle.heading = A fydd unrhyw gostau eraill ar gyfer cerbyd yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
@@ -1100,7 +1077,6 @@ hirer.otherExpenses.checkYourAnswersLabel = Will the worker have any other costs
 hirer.otherExpenses.p1 = This can include non-commuting travel or accommodation, external business premises, or accreditation for this work only.
 
 worker.otherExpenses.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau eraill yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
-agency.otherExpenses.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau eraill yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
 worker.otherExpenses.title = A fydd unrhyw gostau eraill yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
 worker.otherExpenses.subheading = Risg ariannol y gweithiwr
 worker.otherExpenses.heading = A fydd unrhyw gostau eraill yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
@@ -1116,7 +1092,6 @@ hirer.equipmentExpenses.checkYourAnswersLabel = Will the worker have equipment c
 hirer.equipmentExpenses.p1 = This can include heavy machinery or high-cost specialist equipment used for this work, but does not include laptops, tablets and phones.
 
 worker.equipmentExpenses.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer offer yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
-agency.equipmentExpenses.error.required = Dewiswch ‘Iawn’ os bydd unrhyw gostau ar gyfer offer yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt
 worker.equipmentExpenses.title = A fydd unrhyw gostau ar gyfer offer yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
 worker.equipmentExpenses.subheading = Risg ariannol y gweithiwr
 worker.equipmentExpenses.heading = A fydd unrhyw gostau ar gyfer offer yn cael eu codi arnoch na fydd eich cleient yn talu amdanynt?
@@ -1213,7 +1188,6 @@ resetAnswersWarning.error.required = Mae angen i chi ddewis ateb
 ### Multiple Contracts Page
 ### -----------------------
 worker.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill
-agency.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill
 worker.multipleContracts.subheading = Contractau’r gweithiwr
 worker.multipleContracts.title = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill?
 worker.multipleContracts.heading = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill?
@@ -1231,7 +1205,6 @@ hirer.multipleContracts.p1 = Mae hyn yn cynnwys gweithio i’ch cystadleuwyr.
 #### Transfer of Rights Page - BoOA
 #### ------------------------------
 worker.transferOfRights.error.required = Dewiswch ‘Iawn’ os yw’r contract yn rhoi’r opsiwn i’ch cleient brynu’r hawliau am ffi ar wahân
-agency.transferOfRights.error.required = Dewiswch ‘Iawn’ os yw’r contract yn rhoi’r opsiwn i’ch cleient brynu’r hawliau am ffi ar wahân
 worker.transferOfRights.subheading = Contractau’r gweithiwr
 worker.transferOfRights.title = A yw’r contract yn rhoi’r opsiwn i’ch cleient brynu’r hawliau am ffi ar wahân?
 worker.transferOfRights.heading = A yw’r contract yn rhoi’r opsiwn i’ch cleient brynu’r hawliau am ffi ar wahân?
@@ -1249,7 +1222,6 @@ hirer.transferOfRights.p1 = Os nad yw opsiwn fel hwn yn bodoli, byddai’r gweit
 #### Permission to Work Page - BoOA
 #### ------------------------------
 worker.permissionToWorkWithOthers.error.required = Dewiswch ‘Iawn’ os oes rhaid i chi ofyn am ganiatâd i weithio i gleientiaid eraill
-agency.permissionToWorkWithOthers.error.required = Dewiswch ‘Iawn’ os oes rhaid i chi ofyn am ganiatâd i weithio i gleientiaid eraill
 worker.permissionToWorkWithOthers.title = A oes rhaid i chi ofyn am ganiatâd i weithio i gleientiaid eraill?
 worker.permissionToWorkWithOthers.heading = A oes rhaid i chi ofyn am ganiatâd i weithio i gleientiaid eraill?
 worker.permissionToWorkWithOthers.checkYourAnswersLabel = A oes rhaid i chi ofyn am ganiatâd i weithio i gleientiaid eraill?
@@ -1265,7 +1237,6 @@ hirer.permissionToWorkWithOthers.subheading = Contractau’r gweithiwr
 #### Permission to Work Page - BoOA
 #### ------------------------------
 worker.previousContract.error.required = Dewiswch ‘Iawn’ os ydych wedi cael contract blaenorol gyda’r cleient hwn
-agency.previousContract.error.required = Dewiswch ‘Iawn’ os ydych wedi cael contract blaenorol gyda’r cleient hwn
 worker.previousContract.title = A ydych wedi cael contract blaenorol gyda’r cleient hwn?
 worker.previousContract.heading = A ydych wedi cael contract blaenorol gyda’r cleient hwn?
 worker.previousContract.checkYourAnswersLabel = A ydych wedi cael contract blaenorol gyda’r cleient hwn?
@@ -1297,7 +1268,6 @@ hirer.followOnContract.p1 = Nid yw hyn yn cynnwys unrhyw gyfnod o wyliau rhwng y
 ### MajorityOfWorkingTime Page
 ### ---------------------------------
 worker.majorityOfWorkingTime.error.required = Dewiswch ‘Iawn’ os bydd y gwaith yn cymryd y rhan fwyaf o’ch amser gwaith sydd ar gael
-agency.majorityOfWorkingTime.error.required = Dewiswch ‘Iawn’ os bydd y gwaith yn cymryd y rhan fwyaf o’ch amser gwaith sydd ar gael
 worker.majorityOfWorkingTime.title = A fydd y gwaith hwn yn cymryd y rhan fwyaf o’ch amser gwaith sydd ar gael?
 worker.majorityOfWorkingTime.heading = A fydd y gwaith hwn yn cymryd y rhan fwyaf o’ch amser gwaith sydd ar gael?
 worker.majorityOfWorkingTime.checkYourAnswersLabel = A fydd y gwaith hwn yn cymryd y rhan fwyaf o’ch amser gwaith sydd ar gael?
@@ -1314,7 +1284,6 @@ hirer.majorityOfWorkingTime.p1 = Dewiswch ‘Iawn’ os bydd y gwaith yn cymryd 
 ### RightsOfWork Page
 ### ---------------------------------
 worker.rightsOfWork.error.required = Dewiswch ‘Iawn’ os yw’r contract yn datgan bod yr hawliau i’r gwaith hwn yn perthyn i’ch cleient
-agency.rightsOfWork.error.required = Dewiswch ‘Iawn’ os yw’r contract yn datgan bod yr hawliau i’r gwaith hwn yn perthyn i’ch cleient
 worker.rightsOfWork.title = A yw’r contract yn datgan bod yr hawliau i’r gwaith hwn yn perthyn i’ch cleient?
 worker.rightsOfWork.heading = A yw’r contract yn datgan bod yr hawliau i’r gwaith hwn yn perthyn i’ch cleient?
 worker.rightsOfWork.checkYourAnswersLabel = A yw’r contract yn datgan bod yr hawliau i’r gwaith hwn yn perthyn i’ch cleient?
@@ -1331,7 +1300,6 @@ hirer.rightsOfWork.p1 = Nid yw hyn yn cynnwys yr opsiwn i brynu’r hawliau am f
 ### FirstContract Page
 ### ---------------------------------
 worker.firstContract.error.required = Dewiswch ‘Iawn’ os mai’r contract presennol yw’r cyntaf mewn cyfres o gontractau y cytunwyd arnynt â’r cleient hwn
-agency.firstContract.error.required = Dewiswch ‘Iawn’ os mai’r contract presennol yw’r cyntaf mewn cyfres o gontractau y cytunwyd arnynt â’r cleient hwn
 worker.firstContract.title = Ai’r contract presennol yw’r cyntaf mewn cyfres o gontractau y cytunwyd arnynt â’r cleient hwn?
 worker.firstContract.heading = Ai’r contract presennol yw’r cyntaf mewn cyfres o gontractau y cytunwyd arnynt â’r cleient hwn?
 worker.firstContract.checkYourAnswersLabel = Ai’r contract presennol yw’r cyntaf mewn cyfres o gontractau y cytunwyd arnynt â’r cleient hwn?
@@ -1360,7 +1328,6 @@ hirer.extendContract.checkYourAnswersLabel = A yw’r contract presennol yn rhoi
 #### Financially Dependent Page - BoOA
 #### ------------------------------
 worker.financiallyDependent.error.required = Dewiswch ‘Iawn’ os bydd y contract hwn yn rhoi’r rhan fwyaf o’ch incwm i chi
-agency.financiallyDependent.error.required = Dewiswch ‘Iawn’ os bydd y contract hwn yn rhoi’r rhan fwyaf o’ch incwm i chi
 worker.financiallyDependent.subheading = Contractau’r gweithiwr
 worker.financiallyDependent.title = A fydd y contract hwn yn rhoi’r rhan fwyaf o’ch incwm i chi?
 worker.financiallyDependent.heading = A fydd y contract hwn yn rhoi’r rhan fwyaf o’ch incwm i chi?
@@ -1389,7 +1356,6 @@ hirer.workerKnown.p2 = You will still get a result if you do not know who the wo
 ### SimilarWorkOtherClients Page
 ### ---------------------------------
 worker.similarWorkOtherClients.error.required = Dewiswch ‘Iawn’ os ydych wedi gwneud gwaith tebyg ar gyfer cleientiaid eraill yn ystod y 12 mis diwethaf
-agency.similarWorkOtherClients.error.required = Dewiswch ‘Iawn’ os ydych wedi gwneud gwaith tebyg ar gyfer cleientiaid eraill yn ystod y 12 mis diwethaf
 worker.similarWorkOtherClients.title = A ydych wedi gwneud gwaith tebyg ar gyfer cleientiaid eraill yn ystod y 12 mis diwethaf?
 worker.similarWorkOtherClients.heading = A ydych wedi gwneud gwaith tebyg ar gyfer cleientiaid eraill yn ystod y 12 mis diwethaf?
 worker.similarWorkOtherClients.subheading = Contractau’r gweithiwr
