@@ -981,21 +981,6 @@ class CheckYourAnswersHelperSpec extends GuiceAppSpecBase with Enumerable.Implic
             ))
         }
       }
-
-      "the user type is of Agent" should {
-
-        "Return correctly formatted answer row" in {
-          val cacheMap = UserAnswers("id").set(WhoAreYouPage, 1, WhoAreYou.Agency)
-          new CheckYourAnswersHelper(cacheMap).whoAreYou(messages, workerRequest, frontendAppConfig) mustBe
-            Some(AnswerRow(
-              label = s"$WhoAreYouPage.checkYourAnswersLabel",
-              answer = s"whoAreYou.placingAgency",
-              answerIsMessageKey = true,
-              changeUrl = Some(controllers.routes.ResetAnswersWarningController.onPageLoad().url),
-              changeContextMsgKey = Some(s"$WhoAreYouPage.changeLinkContext")
-            ))
-        }
-      }
     }
   }
 

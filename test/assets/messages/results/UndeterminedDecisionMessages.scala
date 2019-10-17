@@ -45,16 +45,6 @@ object UndeterminedDecisionMessages extends BaseResultMessages {
     val workerNotKnown = "You should use this tool again when you know who the worker is to make sure this result reflects the actual or expected working practices."
   }
 
-  object Agent {
-    val title = "Unable to make a determination"
-    val heading = "Unable to make a determination"
-    val whyResult_p1 = "We cannot determine from your answers if the off-payroll working rules apply to this work."
-    val whyResult_p2 = "We will need more information to check your employment status for tax."
-    val doNext_p1 = "If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct."
-    val doNext_p2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
-  }
-
-
   object HirerIR35 {
     val title = "Unable to make a determination"
     val heading = "Unable to make a determination"

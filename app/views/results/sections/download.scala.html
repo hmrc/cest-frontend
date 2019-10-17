@@ -17,20 +17,17 @@
 @(form: Form[_])(implicit messages: Messages)
 
 <div id="download">
- @components.input_yes_no(
-  field = form("value"),
-  legend = yesNoHeader,
-  labelClass = Some("visually-hidden"),
-  otherContent = Some(additionalContent)
-)
+
+    <p>@messages("result.download.p1")</p>
+
+    <button class="form-group">@messages("result.download.getCopy")</button>
+
+    <p>
+        @messages("result.download.p2.preExit")
+        <a href="@routes.ExitSurveyController.redirectToExitSurvey">@messages("result.download.p2.exitLink")</a>
+        @messages("result.download.p2.preStartAgain")
+        <a href="@routes.StartAgainController.redirectToDisclaimer().url">@messages("result.download.p2.startAgainLink")</a>
+        @messages("result.download.p2.postStartAgain")
+    </p>
+
 </div>
-
-@yesNoHeader = {
- <legend><h2>@messages("result.download.h2")</h2></legend>
-}
-
-@additionalContent = {
- <p>@messages("result.download.p1")</p>
- <p>@messages("result.download.p2")</p>
-}
-

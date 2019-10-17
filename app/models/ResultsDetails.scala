@@ -18,7 +18,7 @@ package models
 
 import play.api.data.Form
 import play.api.mvc.Call
-import viewmodels.AnswerSection
+import viewmodels.{AnswerSection, ResultMode}
 
 case class ResultsDetails(officeHolderAnswer: Boolean,
                           isMakingDetermination: Boolean,
@@ -29,12 +29,9 @@ case class ResultsDetails(officeHolderAnswer: Boolean,
                           financialRiskOption: Option[WeightedAnswerEnum.Value] = None,
                           boOAOption: Option[WeightedAnswerEnum.Value] = None,
                           workerKnown: Boolean,
-                          form: Form[Boolean]) {
+                          form: Form[Boolean])
 
-  def isAgent: Boolean = userType.contains(UserType.Agency)
-}
-
-case class PDFResultDetails(printMode: Boolean = false,
+case class PDFResultDetails(resultMode: ResultMode,
                             additionalPdfDetails: Option[AdditionalPdfDetails] = None,
                             timestamp: Option[String] = None,
                             answerSections: Seq[AnswerSection] = Seq())

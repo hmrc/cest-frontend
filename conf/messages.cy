@@ -63,6 +63,7 @@ site.finish = Finish
 site.exit = Exit
 site.confirm_continue =Cadarnhau a pharhau
 site.service_name = Gwirio statws cyflogaeth ar gyfer treth
+site.service_name.camel = Gwirio Statws Cyflogaeth ar Gyfer Treth
 site.home = Hafan
 site.hmrc = Cyllid a Thollau EM
 site.govuk = GOV.UK
@@ -72,6 +73,22 @@ site.telephone = Ffôn:
 site.telephone.number = 0300 200 1900
 site.email = E-bost:
 site.opensInNewWindow = (yn agor mewn ffenestr newydd)
+
+## TODO: Need Welsh
+site.letter.h1 = Your determination and answers
+site.letter.forYourRecords = For your records
+site.letter.print = Print this document
+site.letter.pdf = Save as a PDF
+site.letter.copyOf.onceYouHave = Once you have a copy of your result you can
+site.letter.copyOf.exit = exit
+site.letter.copyOf.or = , or
+site.letter.copyOf.startAgain = start again
+site.letter.copyOf.otherWork = to check the employment status of some other work.
+site.letter.aboutThisResult = About this result
+site.letter.dateOfResult = Date of result:
+site.letter.version = Decision service version:
+site.letter.version.disclaimer = This version number is used for HMRC internal purposes only. HMRC will stand by your result unless working practices have changed, in which case you should use this service again to reflect those changes
+site.letter.footer = Page {0} of {1}
 
 ## TODO NEED WELSH
 site.accordion.openAll = Open all
@@ -802,9 +819,14 @@ toolNotNeeded.client.paye.p2 = This is because you told us they will trade throu
 ## ----------------------
 result.whyResult.h2 = Pam yr ydych yn cael y canlyniad hwn
 result.doNext.h2 = Beth y dylech ei wneud nesaf
-result.download.h2 = A ydych am lawrlwytho’r canlyniad hwn?
-result.download.p1 = Cewch ddogfen sy’n dangos dyddiad heddiw a’r amser cwblhau, ynghyd â’ch atebion a’r canlyniad uchod. Gallwch hefyd ychwanegu manylion at y ddogfen i helpu i gyfeirio ati ar gyfer eich defnydd yn y dyfodol.
-result.download.p2 = Ni fydd CThEM yn cadw cofnod o’r canlyniad hwn.
+result.download.p1 = You should keep a copy of this result for your records.
+result.download.getCopy = Get a copy of this result
+## TODO: NEED WELSH
+result.download.p2.preExit = If you do not want to download a copy of your result, you can
+result.download.p2.exitLink = exit
+result.download.p2.preStartAgain = now, or
+result.download.p2.startAgainLink = start again
+result.download.p2.postStartAgain = to check the employment status of some other work.
 
 
 ## Office Holder PAYE
@@ -1010,7 +1032,7 @@ downloadPDFCopy.error.required = Select yes to download this result
 addReferenceDetails.error.required = Mae angen i chi ddewis ateb
 addReferenceDetails.title = Do you want to add some reference details to this document?
 addReferenceDetails.heading = Do you want to add some reference details to this document?
-addReferenceDetails.yourRecordsOnly = This is for your records only, HMRC will not keep these details.
+addReferenceDetails.yourRecordsOnly = You will get a document that shows today’s date and time of completion, your answers and your result. This is for your records only, HMRC will not keep these details.
 addReferenceDetails.example = For example, contract information, job title or hiring department.
 
 addDetails.title =Add details

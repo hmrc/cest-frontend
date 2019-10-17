@@ -16,12 +16,14 @@
 
 package controllers
 
+import config.SessionKeys
 import controllers.actions._
 import forms.{DeclarationFormProvider, DownloadPDFCopyFormProvider}
 import models._
 import models.requests.DataRequest
 import navigation.mocks.FakeNavigators.FakeCYANavigator
 import pages.Timestamp
+import play.api.http.Status
 import play.api.i18n.Messages
 import play.api.libs.json.Json
 import play.api.test.Helpers._
@@ -29,6 +31,7 @@ import play.twirl.api.Html
 import services.mocks.{MockCheckYourAnswersService, MockOptimisedDecisionService}
 import uk.gov.hmrc.http.cache.client.CacheMap
 import utils.FakeTimestamp
+import utils.SessionUtils._
 import viewmodels.AnswerSection
 
 class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecisionService with MockCheckYourAnswersService with Enumerable.Implicits {
@@ -66,6 +69,7 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
     mockCompareAnswerService,
     mockOptimisedDecisionService,
     mockCheckYourAnswersService,
+    errorHandler,
     frontendAppConfig
   )
 
@@ -81,44 +85,42 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
           val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
           val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
-          val dataRequest = DataRequest(fakeRequest, "id", answers)
+          val decisionResponse = DecisionResponse("", "",Score(),ResultEnum.OUTSIDE_IR35)
+          implicit val dataRequest = DataRequest(fakeRequest, "id", answers)
 
           mockOptimisedConstructAnswers(dataRequest, FakeTimestamp.timestamp())(answers)
+          mockDecide(Right(decisionResponse))
+          mockDetermineResultView(decisionResponse)(Right(Html("Success")))
           mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
-          mockDetermineResultView()(Right(Html("Success")))
 
           val result = TestResultController.onPageLoad(dataRequest)
 
           status(result) mustBe OK
           contentAsString(result) mustBe "Success"
+          session(result).getModel[DecisionResponse](SessionKeys.decisionResponse) mustBe Some(decisionResponse)
         }
       }
 
-      "handle form errors" in {
+      "If an error response is returned from the Optimised Decision Service determine decide method" should {
 
+        "return ISE and the HTML returned from the Decision Service" in {
 
+          val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
+          val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
+          implicit val dataRequest = DataRequest(fakeRequest, "id", answers)
 
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "sdfgvf"))
-        mockDetermineResultView()(Right(Html("Error")))
+          mockOptimisedConstructAnswers(dataRequest, FakeTimestamp.timestamp())(answers)
+          mockDecide(Left(ErrorResponse(Status.INTERNAL_SERVER_ERROR, "Err")))
+          mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
-        val result = TestResultController.onSubmit(postRequest)
+          val result = TestResultController.onPageLoad(dataRequest)
 
-        status(result) mustBe BAD_REQUEST
+          status(result) mustBe INTERNAL_SERVER_ERROR
+          contentAsString(result) mustBe errorHandler.internalServerErrorTemplate(dataRequest).toString
+        }
       }
 
-      "handle errors" in {
-
-
-
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("value", "sdfgvf"))
-        mockDetermineResultView()(Left(Html("Error")))
-
-        val result = TestResultController.onSubmit(postRequest)
-
-        status(result) mustBe INTERNAL_SERVER_ERROR
-      }
-
-      "If an error response is returned from the Optimised Decision Service" should {
+      "If an error response is returned from the Optimised Decision Service determine result view method" should {
 
         "return ISE and the HTML returned from the Decision Service" in {
 
@@ -126,16 +128,18 @@ class ResultControllerSpec extends ControllerSpecBase with MockOptimisedDecision
 
           val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
           val answers = userAnswers.set(Timestamp, 0, FakeTimestamp.timestamp())
-          val dataRequest = DataRequest(fakeRequest, "id", answers)
+          val decisionResponse = DecisionResponse("", "",Score(),ResultEnum.OUTSIDE_IR35)
+          implicit val dataRequest = DataRequest(fakeRequest, "id", answers)
 
           mockOptimisedConstructAnswers(dataRequest, FakeTimestamp.timestamp())(answers)
+          mockDecide(Right(decisionResponse))
           mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
-          mockDetermineResultView()(Left(Html("Error")))
+          mockDetermineResultView(decisionResponse)(Left(Html("Error")))
 
           val result = TestResultController.onPageLoad(dataRequest)
 
           status(result) mustBe INTERNAL_SERVER_ERROR
-          contentAsString(result) mustBe "Error"
+          contentAsString(result) mustBe errorHandler.internalServerErrorTemplate(dataRequest).toString
         }
       }
 

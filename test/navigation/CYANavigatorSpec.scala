@@ -32,7 +32,7 @@ class CYANavigatorSpec extends GuiceAppSpecBase {
 
     "go from the CheckYourAnswersPage to the ResultPage" in {
 
-
+      
       nextPage(CheckYourAnswersPage) mustBe routes.ResultController.onPageLoad()
     }
 
@@ -42,7 +42,7 @@ class CYANavigatorSpec extends GuiceAppSpecBase {
 
         "and the ResultPage has the answer true, go to the AddReferenceDetailsPage" in {
 
-
+          
           lazy val userAnswers = UserAnswers("id")
             .set(ResultPage, true)
 
@@ -51,20 +51,21 @@ class CYANavigatorSpec extends GuiceAppSpecBase {
 
         "and the ResultPage does NOT have the answer true, go to the AddReferenceDetailsPage" in {
 
-
+          
           lazy val userAnswers = UserAnswers("id")
             .set(ResultPage, false)
 
-          nextPage(ResultPage, userAnswers) mustBe routes.FinishedCheckingController.onPageLoad()
+          nextPage(ResultPage, userAnswers) mustBe routes.PrintPreviewController.onPageLoad()
         }
       }
+
     }
 
     "go from the AddReferenceDetailsPage" when {
 
       "AddReferenceDetailsPage answer is true go to the PDFPage" in {
 
-
+        
         lazy val userAnswers = UserAnswers("id")
           .set(AddReferenceDetailsPage, true)
 
@@ -73,18 +74,18 @@ class CYANavigatorSpec extends GuiceAppSpecBase {
 
       "AddReferenceDetailsPage answer is false go to the FinishedCheckingPage" in {
 
-
+        
         lazy val userAnswers = UserAnswers("id")
           .set(AddReferenceDetailsPage, false)
 
-        nextPage(AddReferenceDetailsPage, userAnswers) mustBe routes.FinishedCheckingController.onPageLoad()
+        nextPage(AddReferenceDetailsPage, userAnswers) mustBe routes.PrintPreviewController.onPageLoad()
       }
     }
 
     "go from the CustomisePDFPage to the FinishedCheckingPage" in {
 
-
-      nextPage(CustomisePDFPage) mustBe routes.FinishedCheckingController.onPageLoad()
+      
+      nextPage(CustomisePDFPage) mustBe routes.PrintPreviewController.onPageLoad()
     }
   }
 }

@@ -18,24 +18,26 @@ package controllers
 
 import javax.inject.Inject
 
-import config.FrontendAppConfig
 import config.featureSwitch.FeatureSwitching
+import config.{FrontendAppConfig, SessionKeys}
 import connectors.DataCacheConnector
 import controllers.actions._
 import forms.{DeclarationFormProvider, DownloadPDFCopyFormProvider}
-import models.{NormalMode, Timestamp}
+import handlers.ErrorHandler
+import models.requests.DataRequest
+import models.{NormalMode, Timestamp, UserAnswers}
 import navigation.CYANavigator
 import pages.{ResultPage, Timestamp}
 import play.api.data.Form
-import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
+import play.api.mvc.{Action, AnyContent, Call, MessagesControllerComponents}
 import services.{CheckYourAnswersService, CompareAnswerService, OptimisedDecisionService}
+import utils.SessionUtils._
 import utils.UserAnswersUtils
 
 class ResultController @Inject()(identify: IdentifierAction,
                                  getData: DataRetrievalAction,
                                  requireData: DataRequiredAction,
                                  controllerComponents: MessagesControllerComponents,
-
                                  formProvider: DeclarationFormProvider,
                                  formProviderPDF: DownloadPDFCopyFormProvider,
                                  navigator: CYANavigator,
@@ -44,32 +46,32 @@ class ResultController @Inject()(identify: IdentifierAction,
                                  compareAnswerService: CompareAnswerService,
                                  optimisedDecisionService: OptimisedDecisionService,
                                  checkYourAnswersService: CheckYourAnswersService,
+                                 errorHandler: ErrorHandler,
                                  implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
   controllerComponents,compareAnswerService,dataCacheConnector,navigator) with FeatureSwitching with UserAnswersUtils {
 
+  private val resultForm: Form[Boolean] = formProvider()
   private val resultFormPDF: Form[Boolean] = formProviderPDF()
+  private def nextPage(userAnswers: Option[UserAnswers] = None)
+                      (implicit request: DataRequest[_]): Call = navigator.nextPage(ResultPage, NormalMode)(userAnswers.getOrElse(request.userAnswers))
 
   def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
+
     val timestamp = compareAnswerService.optimisedConstructAnswers(request,time.timestamp(),Timestamp)
+
     dataCacheConnector.save(timestamp.cacheMap).flatMap { _ =>
-      optimisedDecisionService.determineResultView().map {
-        case Right(result) => Ok(result)
-        case Left(err) => InternalServerError(err)
-      }
+        optimisedDecisionService.decide.map {
+          case Right(decision) =>
+            optimisedDecisionService.determineResultView(decision) match {
+              case Right(result) => Ok(result).addingToSession(SessionKeys.decisionResponse -> decision)
+              case Left(_) => InternalServerError(errorHandler.internalServerErrorTemplate)
+            }
+          case Left(_) => InternalServerError(errorHandler.internalServerErrorTemplate)
+        }
     }
   }
 
   def onSubmit: Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
-    resultFormPDF.bindFromRequest().fold(
-      formWithErrors => {
-        optimisedDecisionService.determineResultView(Some(formWithErrors)).map {
-          case Right(result) => BadRequest(result)
-          case Left(err) => InternalServerError(err)
-        }
-      },
-      answer => {
-        redirect[Boolean](NormalMode, answer, ResultPage, callDecisionService = false)
-      }
-    )
+      redirect[Boolean](NormalMode, true, ResultPage, callDecisionService = false)
   }
 }

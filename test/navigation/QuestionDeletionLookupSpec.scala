@@ -71,14 +71,6 @@ class QuestionDeletionLookupSpec extends GuiceAppSpecBase {
 
       "handle WhoAreYouPage" when {
 
-        "answer is Agent, return expected pages" in {
-
-          val res = navigator.getPagesToRemove(WhoAreYouPage)(
-            userAnswers.set(WhoAreYouPage, 0, WhoAreYou.Agency))
-
-          res mustBe List(WhatDoYouWantToDoPage,WorkerUsingIntermediaryPage)
-        }
-
         "answer is Client, return expected pages" in {
 
           val res = navigator.getPagesToRemove(WhoAreYouPage)(
