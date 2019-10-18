@@ -255,7 +255,7 @@ worker.identifyToStakeholders.workAsIndependent = You are an independent worker 
 worker.identifyToStakeholders.workAsBusiness = You work for your own business
 worker.identifyToStakeholders.wouldNotHappen = This would not happen
 #########################
-        
+
 ## Line Manager responsible for duties
 #########################
 hirer.lineManagerDuties.error.required = Select yes if the worker will have any management responsibilities for your organisation
@@ -316,34 +316,6 @@ hirer.putRightAtOwnCost.asPartOfUsualRateInWorkingHours = Yes, they would fix it
 hirer.putRightAtOwnCost.cannotBeCorrected = No, the work is time-specific or for a single event
 hirer.putRightAtOwnCost.noObligationToCorrect = No
 #########################
-
-## How Worker is Paid
-#########################
-worker.howWorkerIsPaid.error.required = Select how you will be paid for this work
-worker.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
-worker.howWorkerIsPaid.title = How will you be paid for this work?
-worker.howWorkerIsPaid.subheading = Worker’s financial risk
-worker.howWorkerIsPaid.heading = How will you be paid for this work?
-worker.howWorkerIsPaid.checkYourAnswersLabel = How will you be paid for this work?
-worker.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
-worker.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
-worker.howWorkerIsPaid.incomePieceRate = The amount of work completed
-worker.howWorkerIsPaid.incomeCommission = A percentage of the sales you generate
-worker.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your client’s profits or savings
-
-hirer.howWorkerIsPaid.error.required = Select how the worker will be paid for this work
-hirer.howWorkerIsPaid.error.invalid = Select how the worker will be paid for this work
-hirer.howWorkerIsPaid.title = How will the worker be paid for this work?
-hirer.howWorkerIsPaid.subheading = Worker’s financial risk
-hirer.howWorkerIsPaid.heading = How will the worker be paid for this work?
-hirer.howWorkerIsPaid.checkYourAnswersLabel = How will the worker be paid for this work?
-hirer.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
-hirer.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
-hirer.howWorkerIsPaid.incomePieceRate = The amount of work completed
-hirer.howWorkerIsPaid.incomeCommission = A percentage of the sales the worker generates
-hirer.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation’s profits or savings
-#########################
-
 
 ## How Work Is Done
 #########################
@@ -531,8 +503,6 @@ hirer.didPaySubstitute.p1 = This includes payments made by the worker or their b
 
 
 # Common Result Page Messages
-result.whyResult.h2 = Why are you getting this result
-
 result.showAnswers = View my answers for this section
 
 result.peopleInvolved.h2 = About the people involved
@@ -770,6 +740,7 @@ checkYourAnswers.businessOnOwnAccount.header = 7. Worker’s contracts
 
 ## Common Result Messages
 ## ----------------------
+result.whyResult.h2 = Why you are getting this result
 result.doNext.h2 = What you should do next
 result.download.p1 = You should keep a copy of this result for your records.
 result.download.getCopy = Get a copy of this result
@@ -814,18 +785,7 @@ hirer.result.officeHolder.ir35.doNext.p2 = If someone else is responsible, you s
 hirer.result.officeHolder.ir35.doNext.p3.preLink = You could also read more about the
 hirer.result.officeHolder.ir35.doNext.p3.link = responsibilities of the fee-payer
 ## ------------------
-
-## Office Holder Agent
-## -------------------
-agent.result.officeHolder.title = Off-payroll working rules (IR35) apply
-agent.result.officeHolder.heading = Off-payroll working rules (IR35) apply
-agent.result.officeHolder.whyResult.p1 = You have completed the tool as if you are the worker.
-agent.result.officeHolder.whyResult.p2 = In the ‘Worker’s Duties’ section, you answered that they will act in an official position for your client. This means they are classed as employed for tax purposes for this work.
-agent.result.officeHolder.doNext.p1 = If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct.
-agent.result.officeHolder.doNext.p2.preLink = If you need more guidance, you could also read Chapter 5 of the
-agent.result.officeHolder.doNext.p2.link = Employment Status Manual
-## ------------------
-
+        
 ## Inside PAYE Hirer
 ## ------------------
 hirer.result.inside.paye.title = Employed for tax purposes for this work
@@ -927,46 +887,6 @@ worker.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Your answers
 worker.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
 worker.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
 worker.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us you are providing services as a business.
-
-## Inside Agent
-## ------------------
-agent.result.inside.title = Off-payroll working rules (IR35) apply
-agent.result.inside.heading = Off-payroll working rules (IR35) apply
-agent.result.inside.whyResult.p1 = You have completed this tool as if you are the worker.
-agent.result.inside.whyResult.p2 = The answers you have given tell us that the worker is providing a personal service to their client. This means they are classed as employed for tax purposes for this work.
-agent.result.inside.doNext.p1 = If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct.
-agent.result.inside.doNext.p2.text = If you need more guidance, you could also read Chapter 5 of the
-agent.result.inside.doNext.p2.link = Employment Status Manual
-## ------------------
-
-## Undetermined Agent
-## ------------------
-agent.result.undetermined.title = Unable to make a determination
-agent.result.undetermined.heading = Unable to make a determination
-agent.result.undetermined.whyResult.p1 = We cannot determine from your answers if the off-payroll working rules apply to this work.
-agent.result.undetermined.whyResult.p2 = We will need more information to check your employment status for tax.
-agent.result.undetermined.doNext.p1 = If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct.
-agent.result.undetermined.doNext.p2 = If you need more guidance, you could also read Chapter 5 of the
-
-## ------------------
-## Out Agent
-## ------------------
-agent.result.outside.title = Off-payroll working rules (IR35) do not apply
-agent.result.outside.heading = Off-payroll working rules (IR35) do not apply
-agent.result.outside.whyResult.p1 = Your answers told us:
-agent.result.outside.whyResult.substituteToDoWork = the worker’s client has accepted, or would accept, a substitute
-agent.result.outside.whyResult.clientNotControlWork = the worker’s client does not have control over this work
-agent.result.outside.whyResult.incurCostNoReclaim = the worker’s business will have costs for this work that their client will not pay for
-agent.result.outside.whyResult.booa = the worker is providing services as a business
-agent.result.outside.whyResult.p2 = This suggests the worker is working on a business to business basis.
-agent.result.outside.doNext.p1 = If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct.
-agent.result.outside.doNext.p2.text = If you need more guidance, you could also read Chapter 5 of the
-agent.result.outside.doNext.p2.link = Employment Status Manual
-agent.result.outside.whyResult.substituteToDoWorkOnlyReason = Your answers told us the worker’s client has accepted, or would accept, a substitute.
-agent.result.outside.whyResult.clientNotControlWorkOnlyReason = Your answers told us the worker’s client does not have control over this work.
-agent.result.outside.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that their client will not pay for.
-agent.result.outside.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
-
 ## ------------------
 ## Hirer IR35
 ## ------------------
@@ -1022,8 +942,34 @@ worker.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers
 worker.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
 worker.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
 worker.result.outside.paye.whyResult.booaOnlyReason = Your answers told us you are providing services as a business.
-## ------------------
+#########################
 
+## How Worker is Paid
+#########################
+worker.howWorkerIsPaid.error.required = Select how you will be paid for this work
+worker.howWorkerIsPaid.error.invalid = Select how you will be paid for this work
+worker.howWorkerIsPaid.title = How will you be paid for this work?
+worker.howWorkerIsPaid.subheading = Worker’s financial risk
+worker.howWorkerIsPaid.heading = How will you be paid for this work?
+worker.howWorkerIsPaid.checkYourAnswersLabel = How will you be paid for this work?
+worker.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
+worker.howWorkerIsPaid.incomeFixed = A fixed price for the project
+worker.howWorkerIsPaid.incomePieceRate = A fixed amount for each piece of work completed
+worker.howWorkerIsPaid.incomeCommission = A percentage of the sales you generate
+worker.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your client’s profits or savings
+
+hirer.howWorkerIsPaid.error.required = Select how the worker will be paid for this work
+hirer.howWorkerIsPaid.error.invalid = Select how the worker will be paid for this work
+hirer.howWorkerIsPaid.title = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.subheading = Worker’s financial risk
+hirer.howWorkerIsPaid.heading = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.checkYourAnswersLabel = How will the worker be paid for this work?
+hirer.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
+hirer.howWorkerIsPaid.incomeFixed = A fixed price for the project
+hirer.howWorkerIsPaid.incomePieceRate = A fixed amount for each piece of work completed
+hirer.howWorkerIsPaid.incomeCommission = A percentage of the sales the worker generates
+hirer.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation’s profits or savings
+## ------------------
 downloadPDFCopy.error.required = Select yes to download this result
 
 addReferenceDetails.error.required = Select yes if you want to add some reference details to this document
@@ -1061,6 +1007,7 @@ hirer.materials.p1 = This can include items that form a lasting part of the work
 hirer.materials.p2 = This question is most likely to be relevant to the construction industry.
 
 worker.materials.error.required = Select yes if you will have costs for materials that your client will not pay for
+
 worker.materials.title = Will you have costs for materials that your client will not pay for?
 worker.materials.subheading = Worker’s financial risk
 worker.materials.heading = Will you have costs for materials that your client will not pay for?
@@ -1342,13 +1289,13 @@ worker.ownershipRights.subheading = Worker’s contracts
 worker.ownershipRights.title = Are there any ownership rights relating to this contract?
 worker.ownershipRights.heading = Are there any ownership rights relating to this contract?
 worker.ownershipRights.checkYourAnswersLabel = Are there any ownership rights relating to this contract?
-worker.ownershipRights.p1 = These types of rights are usually found on media, arts and creative industry contracts. This includes copyright, trademarks, patents, all intellectual property and image rights.
+worker.ownershipRights.p1 = This includes copyright, trademarks, patents, all intellectual property and image rights.
 
 hirer.ownershipRights.subheading = Worker’s contracts
 hirer.ownershipRights.title = Are there any ownership rights relating to this contract?
 hirer.ownershipRights.heading = Are there any ownership rights relating to this contract?
 hirer.ownershipRights.checkYourAnswersLabel = Are there any ownership rights relating to this contract?
-hirer.ownershipRights.p1 = These types of rights are usually found on media, arts and creative industry contracts. This includes copyright, trademarks, patents, all intellectual property and image rights.
+hirer.ownershipRights.p1 = This includes copyright, trademarks, patents, all intellectual property and image rights.
 
 ### What Do You Want To Do Page
 ### ------------------------------

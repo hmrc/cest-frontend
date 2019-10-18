@@ -125,6 +125,8 @@ hirer.contractStarted.subHeading = Amdanoch chi a’r gwaith
 hirer.contractStarted.checkYourAnswersLabel = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
 #########################
 
+
+
 ## Way that the worker provides services page (Worker Type)
 #########################
 workerType.title = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
@@ -346,8 +348,8 @@ hirer.howWorkerIsPaid.subheading = Worker’s financial risk
 hirer.howWorkerIsPaid.heading = How will the worker be paid for this work?
 hirer.howWorkerIsPaid.checkYourAnswersLabel = How will the worker be paid for this work?
 hirer.howWorkerIsPaid.incomeCalendarPeriods = An hourly, daily or weekly rate
-hirer.howWorkerIsPaid.incomeFixed = A fixed price for a specific project
-hirer.howWorkerIsPaid.incomePieceRate = The amount of work completed
+hirer.howWorkerIsPaid.incomeFixed = A fixed price for the project
+hirer.howWorkerIsPaid.incomePieceRate = A fixed amount for each piece of work completed
 hirer.howWorkerIsPaid.incomeCommission = A percentage of the sales the worker generates
 hirer.howWorkerIsPaid.incomeProfitOrLosses = A percentage of your organisation’s profits or savings
 #########################
@@ -841,18 +843,6 @@ hirer.result.officeHolder.ir35.doNext.p3.preLink = Gallech hefyd ddarllen rhagor
 hirer.result.officeHolder.ir35.doNext.p3.link = gyfrifoldebau’r talwr ffioedd.
 ## ------------------
 
-## Office Holder Agent
-## -------------------
-##TODO: Need Welsh
-agent.result.officeHolder.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.officeHolder.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.officeHolder.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
-agent.result.officeHolder.whyResult.p2 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y bydd yn gweithredu mewn swyddogaeth swyddogol ar gyfer eich cleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-agent.result.officeHolder.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.result.officeHolder.doNext.p2.preLink = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.result.officeHolder.doNext.p2.link = Canllaw Statws Cyflogaeth.
-## ------------------
-
 ## Inside PAYE Hirer
 ## ------------------
 ##TODO: Need Welsh
@@ -937,29 +927,6 @@ worker.result.outside.paye.whyResult.substituteToDoWorkOnlyReason = Your answers
 worker.result.outside.paye.whyResult.clientNotControlWorkOnlyReason = Your answers told us your client does not have control over this work.
 worker.result.outside.paye.whyResult.incurCostNoReclaimOnlyReason = Your answers told us you and your business will have costs for this work that your client will not pay for.
 worker.result.outside.paye.whyResult.booaOnlyReason = Your answers told us you are providing services as a business.
-
-## Inside Agent
-## ------------------
-##TODO: Need Welsh
-agent.result.inside.title = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.inside.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.inside.whyResult.p1 = Rydych wedi cwblhau’r twlsyn fel pe bai chi yw’r gweithiwr.
-agent.result.inside.whyResult.p2 = Mae’r atebion a roddwyd gennych yn dweud wrthym fod y gweithiwr yn darparu gwasanaeth personol i’w gleient. Golyga hyn ei fod yn cael ei ystyried yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
-agent.result.inside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.result.inside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.result.inside.doNext.p2.link = Canllaw Statws Cyflogaeth
-## ------------------
-
-## ------------------
-## Undetermined Agent
-## ------------------
-##TODO: Need Welsh
-agent.result.undetermined.title =  Methu gwneud penderfyniad
-agent.result.undetermined.heading = Methu gwneud penderfyniad
-agent.result.undetermined.whyResult.p1 = Ni allwn benderfynu o’ch atebion a yw’r rheolau gweithio oddi ar y gyflogres yn berthnasol i’r gwaith hwn.
-agent.result.undetermined.whyResult.p2 = Bydd angen rhagor o wybodaeth arnom i wirio’ch statws cyflogaeth ar gyfer treth.
-agent.result.undetermined.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.result.undetermined.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
 
 ## ------------------
 ## Hirer IR35
@@ -1132,24 +1099,6 @@ hirer.result.outside.ir35.whyResult.clientNotControlWorkOnlyReason = Your answer
 hirer.result.outside.ir35.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that your organisation will not pay for.
 hirer.result.outside.ir35.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 ## ------------------
-## Out Agent
-## ------------------
-##TODO: Need Welsh
-agent.result.outside.title = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.outside.heading = Nid yw rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
-agent.result.outside.whyResult.p1 = Yn ôl eich atebion, mae’r canlynol yn wir:
-agent.result.outside.whyResult.substituteToDoWork = mae cleient y gweithiwr wedi derbyn, neu byddai’n derbyn, eilydd
-agent.result.outside.whyResult.clientNotControlWork = nid oes gan gleient y gweithiwr reolaeth dros y gwaith hwn
-agent.result.outside.whyResult.incurCostNoReclaim = bydd busnes y gweithiwr yn wynebu cost am y gwaith hwn na fydd ei gleient yn talu amdani
-agent.result.outside.whyResult.booa = the worker is providing services as a business
-agent.result.outside.whyResult.p2 = Mae hyn yn awgrymu bod y gweithiwr yn gweithio ar sail busnes i fusnes.
-agent.result.outside.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i gleient eich gweithiwr. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-agent.result.outside.doNext.p2.text = Os oes angen rhagor o arweiniad arnoch, gallech hefyd ddarllen pennod 5 o’r
-agent.result.outside.doNext.p2.link = Canllaw Statws Cyflogaeth.
-agent.result.outside.whyResult.substituteToDoWorkOnlyReason = Your answers told us the worker’s client has accepted, or would accept, a substitute.
-agent.result.outside.whyResult.clientNotControlWorkOnlyReason = Your answers told us the worker’s client does not have control over this work.
-agent.result.outside.whyResult.incurCostNoReclaimOnlyReason = Your answers told us the worker’s business will have costs for this work that their client will not pay for.
-agent.result.outside.whyResult.booaOnlyReason = Your answers told us the worker is providing services as a business.
 ##TODO: Need Welsh
 
 hirer.result.outside.paye.title = Hunangyflogedig at ddibenion treth ar gyfer y gwaith hwn
