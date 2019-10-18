@@ -41,10 +41,6 @@ timeout.minute = minute
 timeout.minutes = minutes
 timeout.minutes.two = minutes
 
-session.deleted.title = You have closed this session. For your security, we have deleted your answers.
-session.deleted.heading = You have closed this session. For your security, we have deleted your answers.
-session.deleted.start_again = Start again
-
 session.expired.title = This session has been closed as it was inactive for more than 15 minutes. For your security, we have deleted your answers.
 session.expired.heading = This session has been closed as it was inactive for more than 15 minutes. For your security, we have deleted your answers.
 session.expired.start_again = Start again
@@ -59,7 +55,6 @@ site.no = No
 site.yes = Yes
 site.continue = Continue
 site.accept_continue = Accept and continue
-site.finish = Finish
 site.exit = Exit
 site.confirm_continue = Confirm for result
 site.service_name = Check employment status for tax
@@ -98,6 +93,20 @@ feedback.after = will help us to improve it.
 unauthorised.title = You can’t access this service with this account
 unauthorised.heading = You can’t access this service with this account
 
+aboutYou.title = Which of these describes you best?
+aboutYou.heading = Which of these describes you best?
+aboutYou.subheading = About the people involved
+aboutYou.checkYourAnswersLabel = Which of these describes you best?
+aboutYou.hint = The end client is the public body, corporation or business that the worker is providing services to.
+aboutYou.personDoingWork = The worker
+aboutYou.endClient = The end client
+aboutYou.placingAgency = The agency paying the worker
+aboutYou.none = None of the above
+
+aboutYou.error.required = You need to select an answer
+aboutYou.error.invalid = You need to select an answer
+
+
 ## Contract Started Page Questions
 #########################
 worker.contractStarted.error.required = Select yes if you have already started working for this client
@@ -111,6 +120,55 @@ hirer.contractStarted.title = Has the worker already started working for your or
 hirer.contractStarted.heading = Has the worker already started working for your organisation?
 hirer.contractStarted.subHeading = About you and the work
 hirer.contractStarted.checkYourAnswersLabel = Has the worker already started working for your organisation?
+#########################
+
+## Way that the worker provides services page (Worker Type)
+#########################
+workerType.title = How does the worker provide their services to the end client?
+workerType.heading = How does the worker provide their services to the end client?
+workerType.subheading = About the people involved
+workerType.limitedCompany = As a limited company
+workerType.partnership = As a partnership
+workerType.throughIndividual = Through another individual (not an agency)
+workerType.soleTrader = As a sole trader
+workerType.checkYourAnswersLabel = How does the worker provide their services to the end client?
+workerType.error.required = You need to select an answer
+workerType.error.invalid = You need to select an answer
+
+worker.workerType.title = How do you provide your services to the end client?
+worker.workerType.heading = How do you provide your services to the end client?
+worker.workerType.subheading = About the people involved
+worker.workerType.limitedCompany = As a limited company
+worker.workerType.partnership = As a partnership
+worker.workerType.throughIndividual = Through another individual (not an agency)
+worker.workerType.soleTrader = As a sole trader
+worker.workerType.checkYourAnswersLabel = How do you provide your services to the end client?
+
+hirer.workerType.title = How does the worker provide their services to you?
+hirer.workerType.heading = How does the worker provide their services to you?
+hirer.workerType.subheading = About the people involved
+hirer.workerType.limitedCompany = As a limited company
+hirer.workerType.partnership = As a partnership
+hirer.workerType.throughIndividual = Through another individual (not an agency)
+hirer.workerType.soleTrader = As a sole trader
+hirer.workerType.checkYourAnswersLabel = How does the worker provide their services to you?
+#########################
+
+## Who Are you
+#########################
+
+whoAreYou.title = Who are you?
+whoAreYou.heading = Who are you?
+whoAreYou.subheading = About you and the work
+whoAreYou.checkYourAnswersLabel = Who are you?
+whoAreYou.personDoingWork = Worker
+whoAreYou.endClient = Hirer
+whoAreYou.placingAgency = Agency
+
+whoAreYou.ir35.error.required = Select if you are a worker, hirer or agency
+whoAreYou.ir35.error.invalid = Select if you are a worker, hirer or agency
+whoAreYou.paye.error.required = Select if you are a worker or hirer
+whoAreYou.paye.error.invalid = Select if you are a worker or hirer
 #########################
 
 ## What do you want
@@ -129,7 +187,6 @@ whatDoYouWantToFindOut.error.invalid = Select what you want to find out
 
 ## Office Holder
 #########################
-
 worker.officeHolder.error.required = Select yes if you will be an Office Holder
 worker.officeHolder.title = Will you be an ‘Office Holder’?
 worker.officeHolder.subheading = Worker’s duties
@@ -147,6 +204,9 @@ hirer.officeHolder.checkYourAnswersLabel = Will the worker be an ‘Office Holde
 hirer.officeholder.p1 = This can include being a board member, treasurer, trustee, company secretary or company director.
 hirer.officeholder.p2 = Read more about
 hirer.officeholder.link = Office Holders
+
+
+#########################
 
 ## Arranged Substitute
 #########################
@@ -195,7 +255,7 @@ worker.identifyToStakeholders.workAsIndependent = You are an independent worker 
 worker.identifyToStakeholders.workAsBusiness = You work for your own business
 worker.identifyToStakeholders.wouldNotHappen = This would not happen
 #########################
-
+        
 ## Line Manager responsible for duties
 #########################
 hirer.lineManagerDuties.error.required = Select yes if the worker will have any management responsibilities for your organisation
@@ -471,6 +531,8 @@ hirer.didPaySubstitute.p1 = This includes payments made by the worker or their b
 
 
 # Common Result Page Messages
+result.whyResult.h2 = Why are you getting this result
+
 result.showAnswers = View my answers for this section
 
 result.peopleInvolved.h2 = About the people involved
@@ -671,16 +733,6 @@ agencyAdvisory.title = Continue as the worker to check a determination
 agencyAdvisory.heading = Continue as the worker to check a determination
 agencyAdvisory.p1 = It is the client or worker’s responsibility to determine if the off-payroll working rules (IR35) apply to a contract or other period of work.
 
-hirerAdvisory.title = Until April 2020, you do not need to determine if this work falls within the off-payroll working rules (IR35)
-hirerAdvisory.heading = Until April 2020, you do not need to determine if this work falls within the off-payroll working rules (IR35)
-hirerAdvisory.p1 = It is the worker’s responsibility.
-hirerAdvisory.p2 = After April 2020, proposed legislation will come into effect that changes this. Medium and large private sector organisations will be responsible for determining the employment status for tax purposes of contracts they offer.
-hirerAdvisory.subheading = What you should do next
-hirerAdvisory.p3 = You can exit the tool now. Or continue through it, to see how aspects of the work, like its duties and arrangements, affect the result given.
-
-leave.title = You have now left the tool
-leave.heading = You have now left the tool
-
 
 worker.workerUsingIntermediary.error.required = Select yes if you are trading through a limited company, partnership or unincorporated body
 worker.workerUsingIntermediary.error.invalid = Select yes if you are trading through a limited company, partnership or unincorporated body
@@ -695,63 +747,6 @@ hirer.workerUsingIntermediary.title = Is the worker trading through a limited co
 hirer.workerUsingIntermediary.heading = Is the worker trading through a limited company, partnership or unincorporated body?
 hirer.workerUsingIntermediary.subHeading = About you and the work
 hirer.workerUsingIntermediary.checkYourAnswersLabel = Is the worker trading through a limited company, partnership or unincorporated body?
-
-isWorkForPrivateSector.error.required = You need to select an answer
-isWorkForPrivateSector.error.invalid = You need to select an answer
-
-isWorkForPrivateSector.private = Private sector
-isWorkForPrivateSector.public = Public sector
-
-worker.isWorkForPrivateSector.title = In which sector is the client you will be doing the work for?
-worker.isWorkForPrivateSector.heading = In which sector is the client you will be doing the work for?
-worker.isWorkForPrivateSector.checkYourAnswersLabel = In which sector is the client you will be doing the work for?
-
-hirer.isWorkForPrivateSector.title = In which sector is your organisation?
-hirer.isWorkForPrivateSector.heading = In which sector is your organisation?
-hirer.isWorkForPrivateSector.checkYourAnswersLabel = In which sector is your organisation?
-
-workerAdvisory.title = You don’t need to determine if the off-payroll rules (IR35) apply to this work
-workerAdvisory.heading = You don’t need to determine if the off-payroll rules (IR35) apply to this work
-workerAdvisory.p1 = Because you told us this work is for a public sector body, they are responsible for determining its employment status for tax purposes.
-workerAdvisory.subheading = What you should do next
-workerAdvisory.p2 = You can exit the tool now. Or continue through it, to see how aspects of the work, like its duties and arrangements, affect the result given.
-
-hirer.businessSize.title = How large is your organisation? Tick all that apply
-hirer.businessSize.heading = How large is your organisation? Tick all that apply
-hirer.businessSize.checkYourAnswersLabel = Does your organisation have more than:
-worker.businessSize.title = How large is this organisation? Tick all that apply
-worker.businessSize.heading = How large is this organisation? Tick all that apply
-worker.businessSize.checkYourAnswersLabel = Does this client have more than:
-businessSize.turnover = More than £10.2 million annual turnover.
-businessSize.balanceSheet = More than £5.1 million on their balance sheet.
-businessSize.employees = More than 50 employees.
-businessSize.noneOfAbove = None of the above.
-businessSize.error.required = You need to select an answer
-businessSize.error.invalid = You need to select an answer
-
-hirer.turnoverOver.title = Does your organisation have an annual turnover of more than £10.2 million?
-hirer.turnoverOver.heading = Does your organisation have an annual turnover of more than £10.2 million?
-hirer.turnoverOver.checkYourAnswersLabel = Does your organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.title = Does this organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.heading = Does this organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.checkYourAnswersLabel = Does this organisation have an annual turnover of more than £10.2 million?
-turnoverOver.error.required = You need to select an answer
-
-hirer.balanceSheetOver.title = Does your organisation have more than £5.1 million on its balance sheet?
-hirer.balanceSheetOver.heading = Does your organisation have more than £5.1 million on its balance sheet?
-hirer.balanceSheetOver.checkYourAnswersLabel = Does your organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.title = Does this organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.heading = Does this organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.checkYourAnswersLabel = Does this organisation have more than £5.1 million on its balance sheet?
-balanceSheetOver.error.required = You need to select an answer
-
-hirer.employeesOver.title = Does your organisation employ more than 50 people?
-hirer.employeesOver.heading = Does your organisation employ more than 50 people?
-hirer.employeesOver.checkYourAnswersLabel = Does your organisation employ more than 50 people?
-worker.employeesOver.title = Does this organisation employ more than 50 people?
-worker.employeesOver.heading = Does this organisation employ more than 50 people?
-worker.employeesOver.checkYourAnswersLabel = Does this organisation employ more than 50 people?
-employeesOver.error.required = You need to select an answer
 
 checkYourAnswers.title = Review your answers in each section below
 checkYourAnswers.heading = Review your answers in each section below
@@ -770,21 +765,11 @@ checkYourAnswers.financialRisk.header = 5. Worker’s financial risk
 checkYourAnswers.partParcel.header = 6. Worker’s involvement
 checkYourAnswers.businessOnOwnAccount.header = 7. Worker’s contracts
 
-toolNotNeeded.client.ir35.title = You don’t need to determine if this work falls within the off-payroll rules (IR35)
-toolNotNeeded.client.ir35.heading = You don’t need to determine if this work falls within the off-payroll rules (IR35)
-toolNotNeeded.client.ir35.p1 = It is the worker’s responsibility.
-toolNotNeeded.client.ir35.p2 = This is because you told us they will trade through a limited company, partnership or unincorporated body. And because they’re responsible for determining the employment status for tax purposes of work for smaller private sector organisations.
-toolNotNeeded.client.paye.title = You don’t need to determine if this work should be classed as employed or self-employed for tax purposes
-toolNotNeeded.client.paye.heading = You don’t need to determine if this work should be classed as employed or self-employed for tax purposes
-toolNotNeeded.client.paye.p1 = It is the worker’s responsibility.
-toolNotNeeded.client.paye.p2 = This is because you told us they will trade through a limited company, partnership or unincorporated body.
-
 #### New Optimised Result Pages ####
 #----------------------------------#
 
 ## Common Result Messages
 ## ----------------------
-result.whyResult.h2 = Why you are getting this result
 result.doNext.h2 = What you should do next
 result.download.p1 = You should keep a copy of this result for your records.
 result.download.getCopy = Get a copy of this result
@@ -1427,6 +1412,7 @@ hirer.noIntermediaryResult.p2.link2 = start again
 ### All of these below are prefixed on the view with "Change"
 
 whatDoYouWantToFindOut.changeLinkContext = what you want to find out
+whoAreYou.changeLinkContext = who you are
 whatDoYouWantToDo.changeLinkContext = what you want to do
 worker.workerUsingIntermediary.changeLinkContext = if you are trading through a limited company, partnership or unincorporated body
 hirer.workerUsingIntermediary.changeLinkContext = if the worker is trading through a limited company, partnership or unincorporated body

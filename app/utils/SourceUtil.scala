@@ -14,10 +14,14 @@
  * limitations under the License.
  */
 
-package pages.sections.setup
+package utils
 
-import pages.Page
+import javax.inject.Inject
 
-case object HirerAdvisoryPage extends Page {
-  override def toString: String = "hirerAdvisoryPage"
+import scala.io.{BufferedSource, Source}
+
+class SourceUtil @Inject()() {
+
+  def fromURL(url: String): BufferedSource = Source.fromURL(url)
+
 }

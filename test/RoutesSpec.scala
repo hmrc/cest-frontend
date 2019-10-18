@@ -40,11 +40,6 @@ class RoutesSpec extends SpecBase {
       setupRoutes.AgencyAdvisoryController.onSubmit().url mustBe fullPath("/agency-not-responsible")
     }
 
-    "Have the correct routes for the Hirer Advisory page" in {
-      setupRoutes.HirerAdvisoryController.onPageLoad().url mustBe fullPath("/hirer-advisory")
-      setupRoutes.HirerAdvisoryController.onSubmit().url mustBe fullPath("/hirer-advisory")
-    }
-
     "Have the correct routes for the Contract Started page" in {
       setupRoutes.ContractStartedController.onPageLoad(NormalMode).url mustBe fullPath("/work-started")
       setupRoutes.ContractStartedController.onPageLoad(CheckMode).url mustBe fullPath("/work-started/change")
@@ -64,11 +59,6 @@ class RoutesSpec extends SpecBase {
       setupRoutes.WhatDoYouWantToDoController.onPageLoad(CheckMode).url mustBe fullPath("/what-do-you-want-to-do/change")
       setupRoutes.WhatDoYouWantToDoController.onSubmit(NormalMode).url mustBe fullPath("/what-do-you-want-to-do")
       setupRoutes.WhatDoYouWantToDoController.onSubmit(CheckMode).url mustBe fullPath("/what-do-you-want-to-do/change")
-    }
-
-    "Have the correct routes for the Tool Not Needed page" in {
-      setupRoutes.ToolNotNeededController.onPageLoad().url mustBe fullPath("/tool-not-needed")
-      setupRoutes.ToolNotNeededController.onSubmit().url mustBe fullPath("/tool-not-needed")
     }
 
     "Have the correct routes for the Office Holder page" in {
@@ -174,28 +164,6 @@ class RoutesSpec extends SpecBase {
       partParcelRoutes.IdentifyToStakeholdersController.onPageLoad(CheckMode).url mustBe fullPath("/introduce-worker/change")
       partParcelRoutes.IdentifyToStakeholdersController.onSubmit(NormalMode).url mustBe fullPath("/introduce-worker")
       partParcelRoutes.IdentifyToStakeholdersController.onSubmit(CheckMode).url mustBe fullPath("/introduce-worker/change")
-    }
-
-    "Have the correct routes for the Result page" in {
-      ResultController.onPageLoad().url mustBe fullPath("/result")
-      ResultController.onSubmit().url mustBe fullPath("/result")
-    }
-
-    "Have the correct routes for the Customise Result page" in {
-      PDFController.onPageLoad(NormalMode).url mustBe fullPath("/add-details-to-document")
-      PDFController.onPageLoad(CheckMode).url mustBe fullPath("/add-details-to-document/change")
-      PDFController.onSubmit(NormalMode).url mustBe fullPath("/add-details-to-document")
-      PDFController.onSubmit(CheckMode).url mustBe fullPath("/add-details-to-document/change")
-    }
-
-    "Have the correct routes for the Check Your Answers page" in {
-      CheckYourAnswersController.onPageLoad().url mustBe fullPath("/review-answers")
-      CheckYourAnswersController.onPageLoad(Some(Section.personalService)).url mustBe fullPath("/review-answers?sectionToExpand=personalService")
-      CheckYourAnswersController.onSubmit().url mustBe fullPath("/review-answers")
-    }
-
-    "Have the correct routes for the ExitSurvey" in {
-      ExitSurveyController.redirectToExitSurvey().url mustBe fullPath("/exit-survey")
     }
   }
 }

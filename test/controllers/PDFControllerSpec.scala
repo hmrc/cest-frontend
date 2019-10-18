@@ -20,19 +20,19 @@ import akka.util.ByteString
 import config.SessionKeys
 import config.featureSwitch.PrintPDF
 import connectors.httpParsers.PDFGeneratorHttpParser
-import connectors.httpParsers.PDFGeneratorHttpParser.{BadRequest, SuccessfulPDF}
+import connectors.httpParsers.PDFGeneratorHttpParser.SuccessfulPDF
 import controllers.actions._
 import forms.CustomisePDFFormProvider
 import models._
 import models.requests.DataRequest
 import navigation.mocks.FakeNavigators.FakeCYANavigator
-import pages.{CustomisePDFPage, ResultPage, Timestamp}
+import pages.{CustomisePDFPage, Timestamp}
 import play.api.data.Form
-import play.api.libs.json.{JsString, Json}
+import play.api.libs.json.Json
 import play.api.test.Helpers._
 import play.twirl.api.Html
 import uk.gov.hmrc.http.cache.client.CacheMap
-import utils.FakeTimestamp
+import utils.{FakeTimestamp, MockSourceUtil}
 import views.html.{AddDetailsView, CustomisePDFView}
 
 class PDFControllerSpec extends ControllerSpecBase {
@@ -68,6 +68,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     mockCompareAnswerService,
     mockCheckYourAnswersService,
     mockEncryptionService,
+    MockSourceUtil,
     frontendAppConfig
   )
 
@@ -88,6 +89,7 @@ class PDFControllerSpec extends ControllerSpecBase {
     mockCompareAnswerService,
     mockCheckYourAnswersService,
     mockEncryptionService,
+    MockSourceUtil,
     frontendAppConfig
   )
 
@@ -322,114 +324,6 @@ class PDFControllerSpec extends ControllerSpecBase {
       "redirect to Index Controller for a POST if no existing data is found" in {
         
 
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("value", testAnswer))
-        val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe SEE_OTHER
-        redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
-      }
-    }
-
-    "If the OptimisedFlow is disabled" should {
-
-      "return OK and the correct view for a GET" in {
-        val result = controller().onPageLoad(NormalMode)(fakeRequest)
-
-        status(result) mustBe OK
-        contentAsString(result) mustBe viewAsString()
-      }
-
-      "populate the view correctly on a GET when the question has previously been answered" in {
-        val validData = Map(CustomisePDFPage.toString -> Json.toJson(Answers(AdditionalPdfDetails(Some("answer")), 0)))
-        val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
-
-        mockDecryptDetails(AdditionalPdfDetails(Some("answer")))
-
-        val result = controller(getRelevantData).onPageLoad(NormalMode)(fakeRequest)
-
-        contentAsString(result) mustBe viewAsString(form.fill(AdditionalPdfDetails(Some(testAnswer))))
-      }
-
-      "show the PDF view" in {
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
-
-        val validData = Map(Timestamp.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
-        val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
-
-        val response: PDFGeneratorHttpParser.Response = Right(SuccessfulPDF(ByteString("PDF")))
-
-        mockGeneratePdf(response)
-
-        val result = controller(getRelevantData).onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe OK
-        contentAsString(result) mustBe "PDF"
-      }
-
-      "show the PDF view with a default timestamp" in {
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
-
-        val response: PDFGeneratorHttpParser.Response = Right(SuccessfulPDF(ByteString("PDF")))
-
-        mockGeneratePdf(response)
-
-        val result = controller().onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe OK
-        contentAsString(result) mustBe "PDF"
-      }
-
-      "show the PDF view when the feature is disabled" in {
-        disable(PrintPDF)
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
-
-        val validData = Map(ResultPage.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
-        val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
-
-        val result = controller(getRelevantData).onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe OK
-      }
-
-      "handle error from PDF service" in {
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
-
-        val response: PDFGeneratorHttpParser.Response = Left(BadRequest)
-
-        val validData = Map(ResultPage.toString -> Json.toJson(Answers(FakeTimestamp.timestamp(), 0)))
-        val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
-
-        mockGeneratePdf(response)
-
-        val result = controller(getRelevantData).onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe INTERNAL_SERVER_ERROR
-        contentAsString(result) must include("Sorry we are experiencing technical problems")
-        contentAsString(result) must include("Please try again in few moments")
-        contentAsString(result) must not include "What do you want to find out?"
-      }
-
-      "return a Bad Request and errors when invalid data is submitted" in {
-        val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", "a" * (CustomisePDFFormProvider.maxFieldLength + 1)))
-        val boundForm = form.bind(Map("completedBy" -> "a" * (CustomisePDFFormProvider.maxFieldLength + 1)))
-
-        val validData = Map(ResultPage.toString -> JsString(FakeTimestamp.timestamp()))
-        val getRelevantData = new FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
-
-        val result = controller(getRelevantData).onSubmit(NormalMode)(postRequest)
-
-        status(result) mustBe BAD_REQUEST
-        contentAsString(result) mustBe viewAsString(boundForm)
-      }
-
-      "redirect to Index Controller for a GET if no existing data is found" in {
-        val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(NormalMode)(fakeRequest)
-
-        status(result) mustBe SEE_OTHER
-        redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
-      }
-
-      "redirect to Index Controller for a POST if no existing data is found" in {
         val postRequest = fakeRequest.withFormUrlEncodedBody(("value", testAnswer))
         val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(NormalMode)(postRequest)
 

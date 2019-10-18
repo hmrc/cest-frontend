@@ -35,12 +35,11 @@ import play.core.utils.AsciiSet
 import play.twirl.api.{Html, HtmlFormat}
 import services._
 import utils.SessionUtils._
-import utils.UserAnswersUtils
+import utils.{SourceUtil, UserAnswersUtils}
 import viewmodels.ResultPDF
 import views.html.{AddDetailsView, CustomisePDFView}
 
 import scala.concurrent.Future
-import scala.io.Source
 
 class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
                               navigator: CYANavigator,
@@ -58,6 +57,7 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
                               compareAnswerService: CompareAnswerService,
                               checkYourAnswersService: CheckYourAnswersService,
                               encryption: EncryptionService,
+                              source: SourceUtil,
                               implicit val appConfig: FrontendAppConfig) extends BaseNavigationController(
   controllerComponents,compareAnswerService,dataCacheConnector,navigator)
 
@@ -76,15 +76,13 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
   }
 
   def onSubmit(mode: Mode): Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
-      form.bindFromRequest().fold(
-        formWithErrors => Future.successful(BadRequest(view(formWithErrors, mode))),
-        additionalData => {
-
-          val encryptedDetails = encryption.encryptDetails(additionalData)
-
-          redirect[AdditionalPdfDetails](NormalMode, encryptedDetails, CustomisePDFPage)
-        }
-      )
+    form.bindFromRequest().fold(
+      formWithErrors => Future.successful(BadRequest(view(formWithErrors, mode))),
+      additionalData => {
+        val encryptedDetails = encryption.encryptDetails(additionalData)
+        redirect[AdditionalPdfDetails](NormalMode, encryptedDetails, CustomisePDFPage)
+      }
+    )
   }
 
   def downloadPDF(): Action[AnyContent] = (identify andThen getData andThen requireData).async { implicit request =>
@@ -95,7 +93,6 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
       case Some(decision) => optimisedPrintResult(decision, pdfDetails, timestamp)
       case _ => Future.successful(InternalServerError(errorHandler.internalServerErrorTemplate))
     }
-
   }
 
   private def optimisedPrintResult(decision: DecisionResponse, additionalPdfDetails: AdditionalPdfDetails, timestamp: String)
@@ -115,7 +112,7 @@ class PDFController @Inject()(dataCacheConnector: DataCacheConnector,
 
   private def generatePdf(view: Html, reference: Option[String])(implicit request: DataRequest[_]): Future[Result] = {
 
-    val css = Source.fromURL(controllers.routes.Assets.versioned("stylesheets/optimised_print_pdf.css").absoluteURL).mkString
+    val css = source.fromURL(controllers.routes.Assets.versioned("stylesheets/optimised_print_pdf.css").absoluteURL).mkString
 
     val printHtml = Html(view.toString
       .replace("<head>", s"<head><style>$css</style>")

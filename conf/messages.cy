@@ -41,10 +41,6 @@ timeout.minute = munud
 timeout.minutes = munud
 timeout.minutes.two = funud
 
-session.deleted.title =  You have closed this session. For your security, we have deleted your answers.
-session.deleted.heading = You have closed this session. For your security, we have deleted your answers.
-session.deleted.start_again = Dechrau eto
-
 session.expired.title = Mae’r sesiwn hon wedi dod i ben am iddi fod yn segur am fwy na 15 munud. Er eich diogelwch, rydym wedi dileu’ch atebion.
 session.expired.heading = Mae’r sesiwn hon wedi dod i ben am iddi fod yn segur am fwy na 15 munud. Er eich diogelwch, rydym wedi dileu’ch atebion.
 session.expired.start_again =Dechrau eto
@@ -59,7 +55,6 @@ site.no = Na
 site.yes = Iawn
 site.continue = Yn eich blaen
 site.accept_continue = Accept and continue
-site.finish = Finish
 site.exit = Exit
 site.confirm_continue =Cadarnhau a pharhau
 site.service_name = Gwirio statws cyflogaeth ar gyfer treth
@@ -101,6 +96,20 @@ feedback.after = yn ein helpu i’w wella.
 unauthorised.title =  You can’t access this service with this account
 unauthorised.heading =  You can’t access this service with this account
 
+aboutYou.title = Pa un o’r canlynol sy’n eich disgrifio orau?
+aboutYou.heading = Pa un o’r canlynol sy’n eich disgrifio orau?
+aboutYou.subheading = Ynglŷn â’r bobl berthnasol
+aboutYou.checkYourAnswersLabel = Pa un o’r canlynol sy’n eich disgrifio orau?
+aboutYou.hint = Y cleient terfynol yw’r corff cyhoeddus, corfforaeth neu’r busnes y mae’r gweithiwr yn cyflenwi gwasanaethau iddo/iddi.
+aboutYou.personDoingWork = Y gweithiwr
+aboutYou.endClient = Y cleient terfynol
+aboutYou.placingAgency = Yr asiantaeth sy’n talu’r gweithiwr
+aboutYou.none = Dim un o’r uchod
+
+aboutYou.error.required = Mae angen i chi ddewis ateb
+aboutYou.error.invalid = Mae angen i chi ddewis ateb
+
+
 ## Contract Started Page Questions
 #########################
 worker.contractStarted.error.required = Dewiswch ‘Iawn’ os ydych eisoes wedi dechrau gweithio i’r cleient hwn
@@ -114,6 +123,56 @@ hirer.contractStarted.title = A yw’r gweithiwr eisoes wedi dechrau gweithio i�
 hirer.contractStarted.heading = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
 hirer.contractStarted.subHeading = Amdanoch chi a’r gwaith
 hirer.contractStarted.checkYourAnswersLabel = A yw’r gweithiwr eisoes wedi dechrau gweithio i’r cleient hwn?
+#########################
+
+## Way that the worker provides services page (Worker Type)
+#########################
+workerType.title = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+workerType.heading = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+workerType.subheading = Ynglŷn â’r bobl berthnasol
+workerType.limitedCompany = Fel cwmni cyfyngedig
+workerType.partnership = Fel partneriaeth
+workerType.throughIndividual = Drwy unigolyn arall (nid asiantaeth)
+workerType.soleTrader = Fel unig fasnachwr
+workerType.checkYourAnswersLabel = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+workerType.error.required = Mae angen i chi ddewis ateb
+workerType.error.invalid = Mae angen i chi ddewis ateb
+
+worker.workerType.title = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+worker.workerType.heading = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+worker.workerType.subheading = Ynglŷn â’r bobl berthnasol
+worker.workerType.limitedCompany = Fel cwmni cyfyngedig
+worker.workerType.partnership = Fel partneriaeth
+worker.workerType.throughIndividual = Drwy unigolyn arall (nid asiantaeth)
+worker.workerType.soleTrader = Fel unig fasnachwr
+worker.workerType.checkYourAnswersLabel = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+
+hirer.workerType.title = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+hirer.workerType.heading = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+hirer.workerType.subheading = Ynglŷn â’r bobl berthnasol
+hirer.workerType.limitedCompany = Fel cwmni cyfyngedig
+hirer.workerType.partnership = Fel partneriaeth
+hirer.workerType.throughIndividual = Drwy unigolyn arall (nid asiantaeth)
+hirer.workerType.soleTrader = Fel unig fasnachwr
+hirer.workerType.checkYourAnswersLabel = Sut mae’r gweithiwr yn darparu’i wasanaethau i’r cleient terfynol?
+#########################
+
+## TODO: Need Welsh
+## Who Are you
+#########################
+
+whoAreYou.title =  Who are you?
+whoAreYou.heading =  Who are you?
+whoAreYou.subheading = About you and the work
+whoAreYou.checkYourAnswersLabel = Who are you?
+whoAreYou.personDoingWork = Worker
+whoAreYou.endClient = Hirer
+whoAreYou.placingAgency = Agency
+
+whoAreYou.ir35.error.required = Select if you are a worker, hirer or agency
+whoAreYou.ir35.error.invalid = Select if you are a worker, hirer or agency
+whoAreYou.paye.error.required = Select if you are a worker or hirer
+whoAreYou.paye.error.invalid = Select if you are a worker or hirer
 #########################
 
 ## What do you want
@@ -279,6 +338,7 @@ worker.howWorkerIsPaid.incomePieceRate = Swm y gwaith a gwblhawyd
 worker.howWorkerIsPaid.incomeCommission = Canran o’r gwerthiannau rydych yn eu cynhyrchu
 worker.howWorkerIsPaid.incomeProfitOrLosses = Canran o’ch cleient, elw neu gynilion
 
+## TODO Need Welsh
 hirer.howWorkerIsPaid.error.required = Select how the worker will be paid for this work
 hirer.howWorkerIsPaid.error.invalid = Select how the worker will be paid for this work
 hirer.howWorkerIsPaid.title = How will the worker be paid for this work?
@@ -489,6 +549,7 @@ hirer.didPaySubstitute.p1 = This includes payments made by the worker or their b
 
 
 # Common Result Page Messages
+
 result.showAnswers =Gweld fy atebion ar gyfer yr adran hon
 
 result.peopleInvolved.h2 = Ynglŷn â’r bobl berthnasol
@@ -692,18 +753,6 @@ agencyAdvisory.title = Mynd yn eich blaen fel y gweithiwr i wirio penderfyniad
 agencyAdvisory.heading = Mynd yn eich blaen fel y gweithiwr i wirio penderfyniad
 agencyAdvisory.p1 = Cyfrifoldeb y cleient neu’r gweithiwr yw penderfynu a yw’r rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol i gontract neu gyfnod arall o waith.
 
-##### TODO NEED WELSH FOR ####
-hirerAdvisory.title = Until April 2020, you do not need to determine if this work falls within the off-payroll working rules (IR35)
-hirerAdvisory.heading = Until April 2020, you do not need to determine if this work falls within the off-payroll working rules (IR35)
-hirerAdvisory.p1 = It is the worker’s responsibility.
-hirerAdvisory.p2 = After April 2020, proposed legislation will come into effect that changes this. Medium and large private sector organisations will be responsible for determining the employment status for tax purposes of contracts they offer.
-hirerAdvisory.subheading = Beth y dylech ei wneud nesaf
-hirerAdvisory.p3 = You can exit the tool now. Or continue through it, to see how aspects of the work, like its duties and arrangements, affect the result given.
-
-##### TODO NEED WELSH FOR ####
-leave.title = You have now left the tool
-leave.heading = You have now left the tool
-
 worker.workerUsingIntermediary.error.required = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
 worker.workerUsingIntermediary.error.invalid = Dewiswch ‘Iawn’ os ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig
 worker.workerUsingIntermediary.title = A ydych yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig?
@@ -717,70 +766,6 @@ hirer.workerUsingIntermediary.title = A yw’r gweithiwr yn masnachu drwy gwmni 
 hirer.workerUsingIntermediary.heading = A yw’r gweithiwr yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig?
 hirer.workerUsingIntermediary.subHeading = Amdanoch chi a’r gwaith
 hirer.workerUsingIntermediary.checkYourAnswersLabel = A yw’r gweithiwr yn masnachu drwy gwmni cyfyngedig, partneriaeth neu gorff anghorfforedig?
-
-##### TODO NEED WELSH FOR ####
-
-isWorkForPrivateSector.private = Private sector
-isWorkForPrivateSector.public = Public sector
-isWorkForPrivateSector.error.required = Mae angen i chi ddewis ateb
-isWorkForPrivateSector.error.invalid = Mae angen i chi ddewis ateb
-
-worker.isWorkForPrivateSector.title = In which sector is the client you will be doing the work for?
-worker.isWorkForPrivateSector.heading = In which sector is the client you will be doing the work for?
-worker.isWorkForPrivateSector.checkYourAnswersLabel = In which sector is the client you will be doing the work for?
-
-##### TODO NEED WELSH FOR ####
-hirer.isWorkForPrivateSector.title = In which sector is your organisation?
-hirer.isWorkForPrivateSector.heading = In which sector is your organisation?
-hirer.isWorkForPrivateSector.checkYourAnswersLabel = In which sector is your organisation?
-
-##### TODO NEED WELSH FOR ####
-workerAdvisory.title = You don’t need to determine if the off-payroll rules (IR35) apply to this work
-workerAdvisory.heading = You don’t need to determine if the off-payroll rules (IR35) apply to this work
-workerAdvisory.p1 = Because you told us this work is for a public sector body, they are responsible for determining its employment status for tax purposes.
-workerAdvisory.subheading = Beth y dylech ei wneud nesaf
-workerAdvisory.p2 = You can exit the tool now. Or continue through it, to see how aspects of the work, like its duties and arrangements, affect the result given.
-
-##### TODO NEED WELSH FOR ####
-hirer.businessSize.title = How large is your organisation? Tick all that apply
-hirer.businessSize.heading = How large is your organisation? Tick all that apply
-hirer.businessSize.checkYourAnswersLabel = Does your organisation have more than:
-worker.businessSize.title = How large is this organisation? Tick all that apply
-worker.businessSize.heading = How large is this organisation? Tick all that apply
-worker.businessSize.checkYourAnswersLabel = Does this client have more than:
-businessSize.turnover = More than £10.2 million annual turnover.
-businessSize.balanceSheet = More than £5.1 million on their balance sheet.
-businessSize.employees = More than 50 employees.
-businessSize.noneOfAbove = None of the above.
-businessSize.error.required = Select an option
-businessSize.error.invalid = Select a valid option
-
-##### TODO NEED WELSH FOR ####
-hirer.turnoverOver.title = Does your organisation have an annual turnover of more than £10.2 million?
-hirer.turnoverOver.heading = Does your organisation have an annual turnover of more than £10.2 million?
-hirer.turnoverOver.checkYourAnswersLabel = Does your organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.title = Does this organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.heading = Does this organisation have an annual turnover of more than £10.2 million?
-worker.turnoverOver.checkYourAnswersLabel = Does this organisation have an annual turnover of more than £10.2 million?
-turnoverOver.error.required = Mae angen i chi ddewis ateb
-
-##### TODO NEED WELSH FOR ####
-hirer.balanceSheetOver.title = Does your organisation have more than £5.1 million on its balance sheet?
-hirer.balanceSheetOver.heading = Does your organisation have more than £5.1 million on its balance sheet?
-hirer.balanceSheetOver.checkYourAnswersLabel = Does your organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.title = Does this organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.heading = Does this organisation have more than £5.1 million on its balance sheet?
-worker.balanceSheetOver.checkYourAnswersLabel = Does this organisation have more than £5.1 million on its balance sheet?
-balanceSheetOver.error.required = Mae angen i chi ddewis ateb
-
-##### TODO NEED WELSH FOR ####
-hirer.employeesOver.title = Does your organisation employ more than 50 people?
-hirer.employeesOver.heading = Does your organisation employ more than 50 people?
-hirer.employeesOver.checkYourAnswersLabel = Does your organisation employ more than 50 people?
-worker.employeesOver.title = Does this organisation employ more than 50 people?
-worker.employeesOver.heading = Does this organisation employ more than 50 people?
-worker.employeesOver.checkYourAnswersLabel = this your organisation employ more than 50 people?
-employeesOver.error.required = Mae angen i chi ddewis ateb
 
 ##### TODO NEED WELSH FOR ####
 checkYourAnswers.title = Review your answers in each section below
@@ -801,27 +786,16 @@ checkYourAnswers.partParcel.header = 6. Worker’s involvement
 checkYourAnswers.businessOnOwnAccount.header = 7. Worker’s contracts
 
 
-##### TODO NEED WELSH FOR ####
-toolNotNeeded.client.ir35.title = You don’t need to determine if this work falls within the off-payroll rules (IR35)
-toolNotNeeded.client.ir35.heading = You don’t need to determine if this work falls within the off-payroll rules (IR35)
-toolNotNeeded.client.ir35.p1 = It is the worker’s responsibility.
-toolNotNeeded.client.ir35.p2 = This is because you told us they will trade through a limited company, partnership or unincorporated body. And because they’re responsible for determining the employment status for tax purposes of work for smaller private sector organisations.
-toolNotNeeded.client.paye.title = You don’t need to determine if this work should be classed as employed or self-employed for tax purposes
-toolNotNeeded.client.paye.heading = You don’t need to determine if this work should be classed as employed or self-employed for tax purposes
-toolNotNeeded.client.paye.p1 = It is the worker’s responsibility.
-toolNotNeeded.client.paye.p2 = This is because you told us they will trade through a limited company, partnership or unincorporated body.
-
-
 #### New Optimised Result Pages ####
 #----------------------------------#
 
 ## Common Result Messages
 ## ----------------------
+##TODO: Need Welsh
 result.whyResult.h2 = Pam yr ydych yn cael y canlyniad hwn
 result.doNext.h2 = Beth y dylech ei wneud nesaf
 result.download.p1 = You should keep a copy of this result for your records.
 result.download.getCopy = Get a copy of this result
-## TODO: NEED WELSH
 result.download.p2.preExit = If you do not want to download a copy of your result, you can
 result.download.p2.exitLink = exit
 result.download.p2.preStartAgain = now, or
@@ -836,6 +810,7 @@ worker.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer
 worker.result.officeHolder.paye.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn eich bod yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
 worker.result.officeHolder.paye.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad weithredu TWE ar eich enillion.
 
+##TODO: Need Welsh
 hirer.result.officeHolder.paye.title = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
 hirer.result.officeHolder.paye.heading = Cyflogedig at ddibenion treth ar gyfer y gwaith hwn
 hirer.result.officeHolder.paye.whyResult.p1 = In the ‘Worker’s Duties’ section, you answered that the worker will perform office holder duties. This means they are employed for tax purposes for this work.
@@ -1479,6 +1454,7 @@ hirer.noIntermediaryResult.p2.link2 = dechreuwch eto
 ### All of these below are prefixed on the view with "Change"
 
 whatDoYouWantToFindOut.changeLinkContext = what you want to find out
+whoAreYou.changeLinkContext = who you are
 whatDoYouWantToDo.changeLinkContext = what you want to do
 worker.workerUsingIntermediary.changeLinkContext = if you are trading through a limited company, partnership or unincorporated body
 hirer.workerUsingIntermediary.changeLinkContext = if the worker is trading through a limited company, partnership or unincorporated body

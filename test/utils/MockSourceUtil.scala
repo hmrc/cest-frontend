@@ -14,17 +14,14 @@
  * limitations under the License.
  */
 
-package pages.setup
+package utils
 
-import pages.behaviours.PageBehaviours
-import pages.sections.setup.WorkerAdvisoryPage
+import java.io.ByteArrayInputStream
 
-class WorkerAdvisoryPageSpec extends PageBehaviours {
+import org.scalamock.scalatest.MockFactory
 
-  "WorkerAdvisoryPage" should {
+import scala.io.{BufferedSource, Source}
 
-    "have the correct name" in {
-      WorkerAdvisoryPage.toString mustBe "workerAdvisoryPage"
-    }
-  }
+object MockSourceUtil extends SourceUtil with MockFactory {
+  override def fromURL(url: String): BufferedSource = Source.createBufferedSource(new ByteArrayInputStream("abc".getBytes))
 }
