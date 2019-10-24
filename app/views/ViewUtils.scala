@@ -16,10 +16,10 @@
 
 package views
 
+import config.featureSwitch.{FeatureSwitching, OptimisedFlow}
 import config.{FrontendAppConfig, SessionKeys}
-import config.featureSwitch.{FeatureSwitching, OptimisedFlow, WelshLanguage}
-import models.{ResultType, UserType}
 import models.UserType._
+import models.{ResultType, UserType}
 import play.api.data.Form
 import play.api.i18n.Messages
 import play.api.mvc.Request
@@ -50,8 +50,6 @@ object ViewUtils extends FeatureSwitching {
 
   def tailorMsgOptimised(msgKey: String)(implicit request: Request[_], appConfig: FrontendAppConfig): String =
     tailorMsg(msgKey, optimisedContent = true)
-
-  def isWelshEnabled(implicit appConfig: FrontendAppConfig): Boolean = isEnabled(WelshLanguage)(appConfig)
 
   def allOutReasons(outType: ResultType,
                     isSubstituteToDoWork: Boolean,

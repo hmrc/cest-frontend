@@ -138,12 +138,11 @@ languageSelection: LanguageSelection)
 
 @mainContentHeaderContent = {
 
-    @if(isWelshEnabled(appConfig)) {
-        @languageSelection(
-            appConfig.languageMap,
-            appConfig.routeToSwitchLanguage,
-            Some("translate float--right"))
-    }
+    @languageSelection(
+        appConfig.languageMap,
+        appConfig.routeToSwitchLanguage,
+        Some("translate float--right")
+    )
 
     @if(contentHeader.isDefined) {
         @mainContentHeader(contentHeader = contentHeader.get)
