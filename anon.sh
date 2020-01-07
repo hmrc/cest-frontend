@@ -31,6 +31,9 @@ function initialisation() {
     rm repository.yaml
     mv public_repo_yaml repository.yaml
 
+    # Make the Public License Active (required to cirumvent auto-build checks)
+    mv public_LICENSE LICENSE
+
     # Remove anon.sh script
     echo "${GREEN}Deleting the anon.sh script...${NC}"
     rm anon.sh
