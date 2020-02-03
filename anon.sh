@@ -48,13 +48,11 @@ function redactCommits() {
 
     # Rewrite all commits to hide the author's name and email
     echo "${GREEN}Rewriting all commits across all branches to remove Names and Emails of Committer and Author...${NC}"
-    for branch in `ls .git/refs/heads`; do
-        git filter-branch --tag-name-filter cat -f --env-filter '
-            export GIT_AUTHOR_NAME="REDACTED"
-            export GIT_COMMITTER_NAME="REDACTED"
-            export GIT_COMMITTER_EMAIL="REDACTED"
-            export GIT_AUTHOR_EMAIL="REDACTED"' $branch
-    done
+    git filter-branch --env-filter '
+      export GIT_AUTHOR_NAME="REDACTED"
+      export GIT_COMMITTER_NAME="REDACTED"
+      export GIT_COMMITTER_EMAIL="REDACTED"
+      export GIT_AUTHOR_EMAIL="REDACTED"' --tag-name-filter cat -- --branches --tags
 
     # Delete the old commits
     echo "${GREEN}Deleting references to old commits...${NC}"
