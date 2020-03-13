@@ -6,7 +6,7 @@ This is a frontend µ-service providing a user interface to check an employment 
 
 This frontend interfaces with a backend µ-service [(off-payroll-decision)](http://www.github.com/hmrc/off-payroll-decision) which contains the rules engine for determining the employment status.  
 
-### Frontend UI Journey Diagram
+### Frontend UI Journey diagram
 
 ![CEST User Interface Journey](CEST_UI_Flow.jpg)
 
