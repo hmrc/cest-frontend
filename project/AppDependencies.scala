@@ -9,14 +9,15 @@ object AppDependencies {
     play.sbt.PlayImport.ws,
     "uk.gov.hmrc" %% "simple-reactivemongo" % "8.0.0-play-27",
     "uk.gov.hmrc" %% "logback-json-logger" % "5.1.0",
-    "uk.gov.hmrc" %% "govuk-template" % "5.65.0-play-27",
+    "uk.gov.hmrc" %% "govuk-template" % "5.66.0-play-27",
     "uk.gov.hmrc" %% "play-health" % "3.16.0-play-27",
     "uk.gov.hmrc" %% "play-ui" % "9.1.0-play-27",
     "uk.gov.hmrc" %% "http-caching-client" % "9.2.0-play-27",
     "uk.gov.hmrc" %% "play-conditional-form-mapping" % "1.6.0-play-26",
     "uk.gov.hmrc" %% "bootstrap-frontend-play-27" % "3.4.0",
     "uk.gov.hmrc" %% "play-allowlist-filter" % "1.0.0-play-27",
-    "com.typesafe.play" %% "play-json-joda" % "2.7.4"
+    "com.typesafe.play" %% "play-json-joda" % "2.7.4",
+    "uk.gov.hmrc" %% "digital-engagement-platform-chat" % "0.15.0-play-27"
   )
 
   val test = Seq(
@@ -30,7 +31,7 @@ object AppDependencies {
     "org.jsoup" % "jsoup" % "1.13.1",
     "com.typesafe.play" %% "play-test" % PlayVersion.current,
     "org.mockito" % "mockito-all" % "2.0.2-beta",
-    "org.scalacheck" %% "scalacheck" % "1.14.3",
+    "org.scalacheck" %% "scalacheck" % "1.15.4",
     "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0",
     "com.github.tomakehurst" % "wiremock-jre8" % wireMockVersion,
     "com.github.tomakehurst" % "wiremock-standalone" % wireMockVersion,
