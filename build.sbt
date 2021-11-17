@@ -17,7 +17,7 @@ lazy val scoverageSettings = {
         ScoverageKeys.coverageExcludedPackages := "<empty>;Reverse.*;.*filters.*;.*handlers.*;.*components.*;.*repositories.*;" +
           ".*BuildInfo.*;.*javascript.*;.*FrontendAuditConnector.*;.*Routes.*;.*GuiceInjector;" +
           ".*ControllerConfiguration;.*LanguageSwitchController;.*testonly.*;.*views.*;",
-        ScoverageKeys.coverageMinimum := 80,
+        ScoverageKeys.coverageMinimumStmtTotal := 80,
         ScoverageKeys.coverageFailOnMinimum := true,
         ScoverageKeys.coverageHighlighting := true,
         parallelExecution in Test := false
@@ -40,7 +40,6 @@ lazy val microservice = Project(appName, file("."))
     inConfig(IntegrationTest)(Defaults.itSettings),
     libraryDependencies ++= appDependencies,
     retrieveManaged := true,
-    evictionWarningOptions in update := EvictionWarningOptions.default.withWarnScalaVersionEviction(false),
     parallelExecution          in Test := true,
     fork                       in Test := true,
     Keys.fork                  in IntegrationTest :=  false,
