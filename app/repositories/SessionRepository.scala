@@ -20,9 +20,7 @@ import uk.gov.hmrc.mongo.play.json.formats.MongoJodaFormats.Implicits._
 import java.util.concurrent.TimeUnit
 import uk.gov.hmrc.http.cache.client.CacheMap
 import uk.gov.hmrc.play.http.logging.Mdc
-
 import javax.inject.{Inject, Named, Singleton}
-import scala.concurrent.{ExecutionContext, Future}
 
 case class DatedCacheMap(id: String,
                          data: Map[String, JsValue],
