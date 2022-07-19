@@ -1,3 +1,5 @@
+service.name = Gwirio statws cyflogaeth ar gyfer treth
+
 common.standardErrorMessageContent = Rhowch gynnig arall arni yn nes ymlaen.
 common.standardErrorMessageHeader = Mae’n ddrwg gennym – mae problem gyda’r gwasanaeth
 common.standardPageNotFoundErrorMessageContent1= Gwnewch yn siŵr fod y cyfeiriad yn gywir
