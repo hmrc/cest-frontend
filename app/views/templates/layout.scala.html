@@ -4,106 +4,38 @@
 @import config.FrontendAppConfig
 @import play.api.mvc.Request
 @import play.api.i18n.Messages
+@import uk.gov.hmrc.webchat.client.WebChatClient
 
-@this(hmrcLayout: HmrcLayout)
+@this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient)
 
 @(title: String,
   appConfig: FrontendAppConfig,
-  sidebarLinks: Option[Html] = None,
-  contentHeader: Option[Html] = None,
-  bodyClasses: Option[String] = None,
-  mainClass: Option[String] = None,
   scriptElem: Option[Html] = None,
-  articleLayout: Boolean = true,
   js: Seq[String] = Seq("show-hide-content.js", "offpayrollfrontend.js"),
   css: Option[String] = Some("offpayrollfrontend-app")
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
-@sidebarContent = {
-@if(sidebarLinks.isDefined) {
-    @sidebar(sidebarLinks.get, Some("sidebar"))
-}
-}
-
-@mainBodyContent = @{
-    if(articleLayout) article(mainContent) else mainContent
-}
-
-@headerNavLinks = {
-    <li>
-        <a href="@routes.IndexController.onPageLoad.url">@messages("site.home")</a>
-    </li>
-}
-
-@insideHeader = {
-@headerNav(
-    navTitle = Some(messages("site.service_name")),
-    navTitleLink = None,
-    showBetaLink = false,
-    navLinks = Some(headerNavLinks))
+@headContent = {
+    <meta name="format-detection" content="telephone=no" />
+    @css.map { x =>
+        <link rel="stylesheet" href='@routes.Assets.versioned(s"stylesheets/$x.css")' />
+  }
 }
 
 @scriptElement = {
-    <script>
-            @if(showSignout) {
-            window.GOVUK.timeoutDialog({
-                title: '',
-                message: '@messages("timeout.text")',
-                timeout: @appConfig.timeoutPeriod,
-                countdown: @appConfig.timeoutCountdown,
-                keepAliveUrl: '@controllers.routes.IndexController.onPageLoad.url',
-                keepAliveButtonText: '@messages("timeout.keep_alive")',
-                signOutUrl: '@controllers.errors.routes.SessionExpiredController.onPageLoad.url',
-                signOutButtonText: '@messages("timeout.delete_answers")'
-            });
-            var dialogOpen;
-            }
-    </script>
 @scriptElem.map(x => x)
-
 @{webChatClient.loadRequiredElements()}
 @{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
+@js.map { x =>
+    <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
 }
-
-    @bodyEnd = {
-    @footer(
-        analyticsToken = None,
-        analyticsHost = "",
-        ssoUrl = None,
-        scriptElem = Some(scriptElement),
-        gaCalls = None)
-    @js.map { x =>
-        <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
-    }
 }
-
-    @serviceInfoHtml = {
-    @serviceInfo(
-        betaBanner = phaseBanner,
-        includeHMRCBranding = false,
-        includeGridWrapper = false,
-        serviceInfoContent = Some(serviceInfoContent))
-}
-
-    @mainContentHeaderContent = {
-
-    @if(isWelshEnabled(appConfig)) {
-        @languageSelection(
-            appConfig.languageMap,
-            appConfig.routeToSwitchLanguage,
-            Some("translate float--right"))
-    }
-
-    @if(contentHeader.isDefined) {
-        @mainContentHeader(contentHeader = contentHeader.get)
-    }
-}
-
-    @getHelpForm = @{reportAProblemLink(appConfig.reportAProblemPartialUrl, appConfig.reportAProblemNonJSUrl)}
 
 @hmrcLayout(
     pageTitle = Some(title),
     isWelshTranslationAvailable = true,
     serviceUrl = Some(routes.IndexController.onPageLoad.url),
+    additionalHeadBlock = Some(headContent),
+    additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
 )(contentBlock)
