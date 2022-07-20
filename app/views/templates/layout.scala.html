@@ -24,7 +24,7 @@
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient)
 
-@(title: String,
+@(pageTitle: String,
   appConfig: FrontendAppConfig,
   scriptElem: Option[Html] = None,
   js: Seq[String] = Seq("show-hide-content.js", "offpayrollfrontend.js"),
@@ -48,7 +48,7 @@
 }
 
 @hmrcLayout(
-    pageTitle = Some(title),
+    pageTitle = Some(pageTitle),
     isWelshTranslationAvailable = true,
     serviceUrl = Some(routes.IndexController.onPageLoad.url),
     additionalHeadBlock = Some(headContent),
