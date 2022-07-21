@@ -19,7 +19,7 @@ package controllers.sections.businessOnOwnAccount
 
 import connectors.FakeDataCacheConnector
 import controllers.ControllerSpecBase
-import controllers.actions.{FakeDontGetDataDataRetrievalAction, FakeGeneralDataRetrievalAction, FakeIdentifierAction, _}
+import controllers.actions._
 import forms.sections.businessOnOwnAccount.ExtendContractFormProvider
 import models.NormalMode
 import models.requests.DataRequest
@@ -29,14 +29,14 @@ import play.api.data.Form
 import play.api.libs.json.Json
 import play.api.test.Helpers._
 import uk.gov.hmrc.http.cache.client.CacheMap
-import views.html.sections.businessOnOwnAccount.ExtendContractView
+import views.html.sections.businessOnOwnAccount.ExtendContractViewNew
 
 class ExtendContractControllerSpec extends ControllerSpecBase {
 
   val formProvider = new ExtendContractFormProvider()
   val form = formProvider()
 
-  val view = injector.instanceOf[ExtendContractView]
+  val view = injector.instanceOf[ExtendContractViewNew]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction,
                  requireUserType: UserTypeRequiredAction = FakeUserTypeRequiredSuccessAction) = new ExtendContractController(

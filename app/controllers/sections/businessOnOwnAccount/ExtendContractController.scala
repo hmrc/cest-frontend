@@ -21,7 +21,6 @@ import connectors.DataCacheConnector
 import controllers.BaseNavigationController
 import controllers.actions._
 import forms.sections.businessOnOwnAccount.ExtendContractFormProvider
-import javax.inject.Inject
 import models.Mode
 import navigation.BusinessOnOwnAccountNavigator
 import pages.sections.businessOnOwnAccount.ExtendContractPage
@@ -30,6 +29,7 @@ import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import services.CompareAnswerService
 import views.html.sections.businessOnOwnAccount.ExtendContractViewNew
 
+import javax.inject.Inject
 import scala.concurrent.Future
 
 class ExtendContractController @Inject()(override val dataCacheConnector: DataCacheConnector,
