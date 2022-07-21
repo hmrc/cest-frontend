@@ -21,8 +21,9 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcLayout, HmrcReportTechnicalIssueHelper}
 @import uk.gov.hmrc.webchat.client.WebChatClient
 @import views.html.helper.CSPNonce
+@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
 
-@this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper)
+@this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
 
 @(pageTitle: String,
         appConfig: FrontendAppConfig,
@@ -37,6 +38,15 @@
     @css.map { x =>
         <link rel="stylesheet" href='@routes.Assets.versioned(s"stylesheets/$x.css")' />
     }
+    @hmrcTimeoutDialogHelper(
+        signOutUrl = controllers.errors.routes.SessionExpiredController.onPageLoad.url,
+        keepAliveUrl = Some(controllers.routes.IndexController.onPageLoad.url),
+        message = Some(messages("timeout.text")),
+        keepAliveButtonText = Some(messages("timeout.keep_alive")),
+        signOutButtonText = Some(messages("timeout.delete_answers")),
+        timeout = Some(appConfig.timeoutPeriod),
+        countdown = Some(appConfig.timeoutCountdown)
+    )
 }
 
 @scriptElement = {
