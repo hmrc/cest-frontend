@@ -14,38 +14,43 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcLayout
-@import views.html.helper.CSPNonce
-@import controllers.routes
 @import config.FrontendAppConfig
-@import play.api.mvc.Request
+@import controllers.routes
 @import play.api.i18n.Messages
+@import play.api.mvc.Request
+@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcLayout, HmrcReportTechnicalIssueHelper}
 @import uk.gov.hmrc.webchat.client.WebChatClient
+@import views.html.helper.CSPNonce
 
-@this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient)
+@this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper)
 
 @(pageTitle: String,
-  appConfig: FrontendAppConfig,
-  scriptElem: Option[Html] = None,
-  mode: Mode = NormalMode,
-  js: Seq[String] = Seq("show-hide-content.js", "offpayrollfrontend.js"),
-  css: Option[String] = Some("offpayrollfrontend-app")
+        appConfig: FrontendAppConfig,
+        scriptElem: Option[Html] = None,
+        mode: Mode = NormalMode,
+        js: Seq[String] = Seq.empty,
+        css: Option[String] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
     <meta name="format-detection" content="telephone=no" />
     @css.map { x =>
         <link rel="stylesheet" href='@routes.Assets.versioned(s"stylesheets/$x.css")' />
-  }
+    }
 }
 
 @scriptElement = {
-@scriptElem.map(x => x)
-@{webChatClient.loadRequiredElements()}
-@{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
-@*//@js.map { x =>*@
-@*    <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>*@
-@*}*@
+    @scriptElem.map(x => x)
+    @{webChatClient.loadRequiredElements()}
+    @{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
+    @js.map { x =>
+        <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
+    }
+}
+
+@content = {
+    @contentBlock
+    @hmrcReportTechnicalIssueHelper()
 }
 
 @hmrcLayout(
@@ -56,4 +61,4 @@
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
-)(contentBlock)
+)(content)
