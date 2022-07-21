@@ -27,7 +27,7 @@ import pages.sections.businessOnOwnAccount.ExtendContractPage
 import play.api.data.Form
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import services.CompareAnswerService
-import views.html.sections.businessOnOwnAccount.ExtendContractViewNew
+import views.html.sections.businessOnOwnAccount.ExtendContractView
 
 import javax.inject.Inject
 import scala.concurrent.Future
@@ -41,7 +41,7 @@ class ExtendContractController @Inject()(override val dataCacheConnector: DataCa
                                          formProvider: ExtendContractFormProvider,
                                          override val controllerComponents: MessagesControllerComponents,
                                          override val compareAnswerService: CompareAnswerService,
-                                         view: ExtendContractViewNew,
+                                         view: ExtendContractView,
                                          implicit val appConfig: FrontendAppConfig)
   extends BaseNavigationController {
 

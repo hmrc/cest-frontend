@@ -29,14 +29,14 @@ import play.api.data.Form
 import play.api.libs.json.Json
 import play.api.test.Helpers._
 import uk.gov.hmrc.http.cache.client.CacheMap
-import views.html.sections.businessOnOwnAccount.ExtendContractViewNew
+import views.html.sections.businessOnOwnAccount.ExtendContractView
 
 class ExtendContractControllerSpec extends ControllerSpecBase {
 
   val formProvider = new ExtendContractFormProvider()
   val form = formProvider()
 
-  val view = injector.instanceOf[ExtendContractViewNew]
+  val view = injector.instanceOf[ExtendContractView]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction,
                  requireUserType: UserTypeRequiredAction = FakeUserTypeRequiredSuccessAction) = new ExtendContractController(
