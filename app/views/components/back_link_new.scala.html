@@ -17,13 +17,11 @@
 @import models.Mode
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @this(govukBackLink: GovukBackLink)
-@(url: String = "#")(mode: Mode = NormalMode)(implicit messages: Messages)
+@(url: String = "javascript:history.back()")(mode: Mode = NormalMode)(implicit messages: Messages)
 
  @if(mode == NormalMode) {
-  <div class="js-visible">
     @govukBackLink(BackLink(
       content = Text(messages("site.back")),
       href = url,
       attributes = Map("id" -> "back-link")))
-  </div>
  }

@@ -29,9 +29,7 @@
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@layout(pageTitle = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))), appConfig = appConfig) {
-
-    @backLink()(mode)
+@layout(pageTitle = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))), appConfig = appConfig, mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
@@ -41,8 +39,8 @@
 
         @radios(
             field = form("value"),
-            legend = tailorMsg("extendContract.title"),
-            subHeading = tailorMsg("extendContract.subheading")
+            legendKey = tailorMsg("extendContract.title"),
+            subHeadingKey = tailorMsg("extendContract.subheading")
         )
 
      @submit()

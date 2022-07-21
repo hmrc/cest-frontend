@@ -27,6 +27,7 @@
 @(pageTitle: String,
   appConfig: FrontendAppConfig,
   scriptElem: Option[Html] = None,
+  mode: Mode = NormalMode,
   js: Seq[String] = Seq("show-hide-content.js", "offpayrollfrontend.js"),
   css: Option[String] = Some("offpayrollfrontend-app")
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
@@ -42,15 +43,16 @@
 @scriptElem.map(x => x)
 @{webChatClient.loadRequiredElements()}
 @{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
-@js.map { x =>
-    <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
-}
+@*//@js.map { x =>*@
+@*    <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>*@
+@*}*@
 }
 
 @hmrcLayout(
     pageTitle = Some(pageTitle),
     isWelshTranslationAvailable = true,
     serviceUrl = Some(routes.IndexController.onPageLoad.url),
+    backLinkUrl = if(mode == NormalMode) Some("javascript:history.back()") else None,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
