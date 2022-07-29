@@ -31,6 +31,8 @@
 
 @layout(pageTitle = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))), appConfig = appConfig, mode = mode) {
 
+    @backLink()(mode)
+
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }

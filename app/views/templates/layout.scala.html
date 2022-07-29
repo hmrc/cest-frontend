@@ -67,7 +67,6 @@
     pageTitle = Some(pageTitle),
     isWelshTranslationAvailable = true,
     serviceUrl = Some(routes.IndexController.onPageLoad.url),
-    backLinkUrl = if(mode == NormalMode) Some("javascript:history.back()") else None,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
