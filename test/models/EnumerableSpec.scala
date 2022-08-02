@@ -16,9 +16,9 @@
 
 package models
 
+import org.scalatest.EitherValues
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.wordspec.AnyWordSpec
-import org.scalatest.{EitherValues, OptionValues}
 import play.api.libs.json._
 
 object EnumerableSpec {
@@ -36,7 +36,7 @@ object EnumerableSpec {
   }
 }
 
-class EnumerableSpec extends AnyWordSpec with Matchers with EitherValues with OptionValues with Enumerable.Implicits {
+class EnumerableSpec extends AnyWordSpec with Matchers with EitherValues with Enumerable.Implicits {
 
   import EnumerableSpec._
 
@@ -49,7 +49,7 @@ class EnumerableSpec extends AnyWordSpec with Matchers with EitherValues with Op
     Foo.values.foreach {
       value =>
         s"bind correctly for: $value" in {
-          Json.fromJson[Foo](JsString(value.toString)).asEither.value mustEqual value
+          Json.fromJson[Foo](JsString(value.toString)).asEither.right.value mustEqual value
         }
     }
 
