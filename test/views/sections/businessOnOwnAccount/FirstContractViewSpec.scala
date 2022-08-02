@@ -17,15 +17,14 @@
 package views.sections.businessOnOwnAccount
 
 import assets.messages.FirstContractMessages
-import controllers.sections.businessOnOwnAccount.routes
 import forms.sections.businessOnOwnAccount.FirstContractFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.FirstContractView
 
-class FirstContractViewSpec extends YesNoViewBehaviours {
+class FirstContractViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class FirstContractViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.FirstContractController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
 
     "the WhoAreYou is Worker" must {
@@ -59,7 +58,7 @@ class FirstContractViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe FirstContractMessages.Worker.heading
+        document.select(Selectors.heading).text must include(FirstContractMessages.Worker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -77,7 +76,7 @@ class FirstContractViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe FirstContractMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(FirstContractMessages.Hirer.heading)
       }
 
       "have the correct radio option messages" in {
