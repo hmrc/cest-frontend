@@ -8,7 +8,7 @@ object AppDependencies {
 
   val compile = Seq(
     play.sbt.PlayImport.ws,
-    "uk.gov.hmrc.mongo" %% "hmrc-mongo-play-28"               % "0.59.0",
+    "uk.gov.hmrc.mongo" %% "hmrc-mongo-play-28"               % "0.68.0",
     "uk.gov.hmrc"       %% "logback-json-logger"              % "5.1.0",
     "uk.gov.hmrc"       %% "govuk-template"                   % "5.74.0-play-28",
     "uk.gov.hmrc"       %% "play-ui"                          % "9.8.0-play-28",
@@ -22,7 +22,7 @@ object AppDependencies {
 
   val test = Seq(
     "uk.gov.hmrc"                  %% "service-integration-test"    % "1.2.0-play-28",
-    "uk.gov.hmrc.mongo"            %% "hmrc-mongo-test-play-28"     % "0.59.0",
+    "uk.gov.hmrc.mongo"            %% "hmrc-mongo-test-play-28"     % "0.68.0",
     "org.scalatest"                %% "scalatest"                   % "3.3.0-SNAP3",
     "org.scalatestplus.play"       %% "scalatestplus-play"          % "5.1.0",
     "org.mockito"                  %  "mockito-core"                % "4.2.0",
