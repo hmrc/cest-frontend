@@ -19,33 +19,32 @@
 @import controllers.sections.businessOnOwnAccount.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_new, submit: submit_button_new)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("followOnContract.title"), Some(tailorMsg("followOnContract.subheading"))),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(pageTitle = title(form, tailorMsg("followOnContract.title"), Some(tailorMsg("followOnContract.subheading"))), appConfig = appConfig, mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
 
     @formWithCsrf(action = FollowOnContractController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
-
-        @components.input_yes_no(
+        @radios(
             field = form("value"),
-            legend = components.heading(tailorMsg("followOnContract.heading"), Some(tailorMsg("followOnContract.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(p1)
+            legendKey = tailorMsg("followOnContract.title"),
+            subHeadingKey = tailorMsg("followOnContract.subheading"),
+            hintKey = Some(tailorMsg("followOnContract.p1"))
         )
 
-        @components.submit_button()
+     @submit()
     }
 }
 
-@p1 = {
-    <p>@messages(tailorMsg("followOnContract.p1"))</p>
-}
+
