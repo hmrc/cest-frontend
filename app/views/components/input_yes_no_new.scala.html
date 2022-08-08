@@ -31,7 +31,7 @@
 
 @radios(
     Radios(
-        hint = if(hintKey.isDefined) Some(Hint(content = Text(messages(hintKey.get)))) else None,
+        hint = hintKey.map(h => Hint(content = Text(messages(h)))),
         items = Seq(
             RadioItem(
                 content = Text(messages("site.yes")),
