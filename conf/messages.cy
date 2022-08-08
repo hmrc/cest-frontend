@@ -67,6 +67,7 @@ site.govuk = GOV.UK
 site.employmentStatusManual = Canllaw Statws Cyflogaeth
 site.telephone = Ffôn:
 site.telephone.number = 0300 200 1900
+site.opensInNewTab = (yn agor tab newydd)
 site.opensInNewWindow = (yn agor mewn ffenestr newydd)
 site.opensInNewWindowOrTab = (yn agor ffenestr neu dab newydd)
 
@@ -82,6 +83,7 @@ site.letter.dateOfResult = Dyddiad y canlyniad:
 site.letter.version = Gwasanaeth Penderfynu, fersiwn:
 site.letter.version.disclaimer = Bydd CThEM yn glynu wrth eich canlyniad oni bai bod arferion gwaith wedi newid ac, os ydynt wedi newid, dylech ddefnyddio’r gwasanaeth hwn eto i adlewyrchu’r newidiadau hynny.
 site.letter.footer = Tudalen {0} o {1}
+site.section.prefix = Teitl yr adran hon yw 
 
 site.accordion.openAll = Agor pob un
 site.accordion.closeAll = Cau pob un

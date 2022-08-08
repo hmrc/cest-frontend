@@ -19,36 +19,34 @@
 @import controllers.sections.businessOnOwnAccount.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, layout: layout, errorSummary: GovukErrorSummary, submit: submit_button_new, radios: input_yes_no_hidden_legendNew, heading: headingNew, newTabLink: new_tab_linkNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("majorityOfWorkingTime.title"), Some(tailorMsg("majorityOfWorkingTime.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("majorityOfWorkingTime.title"), Some(tailorMsg("majorityOfWorkingTime.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("majorityOfWorkingTime.title"), Some(tailorMsg("majorityOfWorkingTime.subheading")))
 
     @formWithCsrf(action = MajorityOfWorkingTimeController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        <p class="govuk-body">@messages(tailorMsg("majorityOfWorkingTime.p1"))</p>
+        <p class="govuk-body">@messages(tailorMsg("majorityOfWorkingTime.p2"))
+            @newTabLink(tailorMsg("majorityOfWorkingTime.p2.link"), appConfig.employmentStatusManualESM11160Url, Some("employmentStatusManualLink")).
+        </p>
 
-        @components.input_yes_no(
-            field = form("value"),
-            legend = components.heading(tailorMsg("majorityOfWorkingTime.heading"), Some(tailorMsg("majorityOfWorkingTime.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(p1)
-        )
-
-        @components.submit_button()
+    @radios(tailorMsg("majorityOfWorkingTime.title"), form("value"))
+        @submit()
     }
-}
-
-@p1 = {
-    <p>@messages(tailorMsg("majorityOfWorkingTime.p1"))</p>
-    <p>@messages(tailorMsg("majorityOfWorkingTime.p2"))
-        @components.new_window_link(tailorMsg("majorityOfWorkingTime.p2.link"), appConfig.employmentStatusManualESM11160Url, Some("employmentStatusManualLink")).
-    </p>
 }
