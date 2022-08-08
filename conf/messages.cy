@@ -83,7 +83,7 @@ site.letter.dateOfResult = Dyddiad y canlyniad:
 site.letter.version = Gwasanaeth Penderfynu, fersiwn:
 site.letter.version.disclaimer = Bydd CThEM yn glynu wrth eich canlyniad oni bai bod arferion gwaith wedi newid ac, os ydynt wedi newid, dylech ddefnyddio’r gwasanaeth hwn eto i adlewyrchu’r newidiadau hynny.
 site.letter.footer = Tudalen {0} o {1}
-site.section.prefix = Teitl yr adran hon yw 
+site.section.prefix = Teitl yr adran hon yw
 
 site.accordion.openAll = Agor pob un
 site.accordion.closeAll = Cau pob un
