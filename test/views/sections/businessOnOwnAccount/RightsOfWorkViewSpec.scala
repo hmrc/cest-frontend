@@ -21,12 +21,10 @@ import forms.sections.businessOnOwnAccount.RightsOfWorkFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.RightsOfWorkView
 
-
-
-class RightsOfWorkViewSpec extends ViewBehaviours {
+class RightsOfWorkViewSpec extends YesNoViewBehavioursNew   {
 
   object Selectors extends BaseCSSSelectors
 
@@ -45,6 +43,8 @@ class RightsOfWorkViewSpec extends ViewBehaviours {
   "RightsOfWork view" must {
     behave like normalPage(createView, messageKeyPrefix, hasSubheading = true)
 
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
+
     behave like pageWithBackLink(createView)
 
     "If the user type is of Worker" should {
@@ -56,11 +56,11 @@ class RightsOfWorkViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RightsOfWorkMessages.Worker.heading
+        document.select(Selectors.heading).text must include(RightsOfWorkMessages.Worker.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Worker.p1
+      "have the correct hint" in {
+        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Worker.hint
       }
 
       "have the correct radio option messages" in {
@@ -78,11 +78,11 @@ class RightsOfWorkViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RightsOfWorkMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(RightsOfWorkMessages.Hirer.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Hirer.p1
+      "have the correct hint" in {
+        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Hirer.hint
       }
 
       "have the correct radio option messages" in {
@@ -100,11 +100,11 @@ class RightsOfWorkViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RightsOfWorkMessages.Worker.heading
+        document.select(Selectors.heading).text must include(RightsOfWorkMessages.Worker.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Worker.p1
+      "have the correct hint" in {
+        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Worker.hint
       }
 
       "have the correct radio option messages" in {
