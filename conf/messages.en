@@ -69,7 +69,7 @@ site.accordion.openAll = Open all
 site.accordion.closeAll = Close all
 site.telephone = Telephone:
 site.telephone.number = 0300 123 2326
-site.opensInNewTab = (opens in a new tab)
+site.opensInNewTab = (opens in new tab)
 site.opensInNewWindow = (opens in a new window)
 site.opensInNewWindowOrTab = (opens in a new window or tab)
 
