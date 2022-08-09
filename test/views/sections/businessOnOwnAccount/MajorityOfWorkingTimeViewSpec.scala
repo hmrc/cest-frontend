@@ -17,15 +17,14 @@
 package views.sections.businessOnOwnAccount
 
 import assets.messages.MajorityOfWorkingTimeMessages
-import controllers.sections.businessOnOwnAccount.routes
 import forms.sections.businessOnOwnAccount.MajorityOfWorkingTimeFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.MajorityOfWorkingTimeView
 
-class MajorityOfWorkingTimeViewSpec extends YesNoViewBehaviours {
+class MajorityOfWorkingTimeViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class MajorityOfWorkingTimeViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.MajorityOfWorkingTimeController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "the WhoAreYou is Worker" must {
 
@@ -58,7 +57,7 @@ class MajorityOfWorkingTimeViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MajorityOfWorkingTimeMessages.Worker.heading
+        document.select(Selectors.heading).text must include(MajorityOfWorkingTimeMessages.Worker.heading)
       }
 
       "have the correct p1" in {
@@ -68,9 +67,6 @@ class MajorityOfWorkingTimeViewSpec extends YesNoViewBehaviours {
       "have the correct p2" in {
         document.select(Selectors.p(2)).text mustBe MajorityOfWorkingTimeMessages.Worker.p2
       }
-
-      document.select(Selectors.p(2)).text mustBe MajorityOfWorkingTimeMessages.Worker.p2
-
 
       "have the correct radio option messages" in {
         document.select(Selectors.multichoice(1)).text mustBe MajorityOfWorkingTimeMessages.yes
@@ -91,7 +87,7 @@ class MajorityOfWorkingTimeViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MajorityOfWorkingTimeMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(MajorityOfWorkingTimeMessages.Hirer.heading)
       }
 
       "have the correct p1" in {

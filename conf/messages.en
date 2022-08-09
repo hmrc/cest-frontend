@@ -69,6 +69,7 @@ site.accordion.openAll = Open all
 site.accordion.closeAll = Close all
 site.telephone = Telephone:
 site.telephone.number = 0300 123 2326
+site.opensInNewTab = (opens in new tab)
 site.opensInNewWindow = (opens in a new window)
 site.opensInNewWindowOrTab = (opens in a new window or tab)
 
@@ -84,6 +85,7 @@ site.letter.dateOfResult = Date of result:
 site.letter.version = Decision service version:
 site.letter.version.disclaimer = HMRC will stand by this result as long as it reflects the actual or expected working practices. If these working practices change, you should use this tool again.
 site.letter.footer = Page {0} of {1}
+site.section.prefix = This section is
 
 feedback.before = This is a new service - your
 feedback.link = feedback
