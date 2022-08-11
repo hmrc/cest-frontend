@@ -17,15 +17,14 @@
 package views.sections.businessOnOwnAccount
 
 import assets.messages.OwnershipRightsMessages
-import controllers.sections.businessOnOwnAccount.routes
 import forms.sections.businessOnOwnAccount.OwnershipRightsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.OwnershipRightsView
 
-class OwnershipRIghtsViewSpec extends YesNoViewBehaviours {
+class OwnershipRIghtsViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class OwnershipRIghtsViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.OwnershipRightsController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "the WhoAreYou is Worker" must {
 
@@ -58,7 +57,7 @@ class OwnershipRIghtsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OwnershipRightsMessages.Worker.heading
+        document.select(Selectors.heading).text must include(OwnershipRightsMessages.Worker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -76,7 +75,7 @@ class OwnershipRIghtsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OwnershipRightsMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(OwnershipRightsMessages.Hirer.heading)
       }
 
       "have the correct radio option messages" in {

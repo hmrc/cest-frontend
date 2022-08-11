@@ -17,7 +17,7 @@
 @this()
 @(headingKey: String, subHeading: Option[String] = None)(implicit messages: Messages)
 
-<h1 class="govuk-heading-xl hmrc-page-heading govuk-!-margin-bottom-5">
+<h1 class="govuk-heading-xl hmrc-page-heading govuk-!-margin-bottom-3">
     @messages(headingKey)
     @subHeading.map { x =>
         <span class="hmrc-caption govuk-caption-xl">
