@@ -14,7 +14,7 @@ object AppDependencies {
     "uk.gov.hmrc"       %% "play-ui"                          % "9.8.0-play-28",
     "uk.gov.hmrc"       %% "http-caching-client"              % "9.5.0-play-28",
     "uk.gov.hmrc"       %% "play-conditional-form-mapping"    % "1.10.0-play-28",
-    "uk.gov.hmrc"       %% "bootstrap-frontend-play-28"       % "5.19.0",
+    "uk.gov.hmrc"       %% "bootstrap-frontend-play-28"       % "5.25.0",
     "uk.gov.hmrc"       %% "play-allowlist-filter"            % "1.0.0-play-28",
     "com.typesafe.play" %% "play-json-joda"                   % "2.9.2",
     "uk.gov.hmrc"       %% "digital-engagement-platform-chat" % "0.25.0-play-28"
@@ -33,7 +33,7 @@ object AppDependencies {
     "com.typesafe.play"            %% "play-test"                   % current,
     "org.scalacheck"               %% "scalacheck"                  % "1.15.4",
     "org.scalamock"                %% "scalamock-scalatest-support" % "3.6.0",
-    "uk.gov.hmrc"                  %% "bootstrap-test-play-28"      % "5.19.0",
+    "uk.gov.hmrc"                  %% "bootstrap-test-play-28"      % "5.25.0",
     "com.github.tomakehurst"       %  "wiremock-jre8"               % wireMockVersion,
     "com.github.tomakehurst"       %  "wiremock-standalone"         % wireMockStandAloneVersion,
     "com.fasterxml.jackson.module" %% "jackson-module-scala"        % "2.13.1"
