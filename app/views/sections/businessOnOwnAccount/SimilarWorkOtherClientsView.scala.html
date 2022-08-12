@@ -14,40 +14,57 @@
  * limitations under the License.
  *@
 
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
 @import config.FrontendAppConfig
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.businessOnOwnAccount.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_hidden_legendNew, submit: submit_button_new, heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(pageTitle = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))), appConfig = appConfig, mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading")))
+
 
     @formWithCsrf(action = SimilarWorkOtherClientsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
+        <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p2"))</p>
 
-        @components.input_yes_no(
+        @radios(
             field = form("value"),
-            legend = components.heading(tailorMsg("similarWorkOtherClients.heading"), Some(tailorMsg("similarWorkOtherClients.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(p1)
-
+            legendKey = tailorMsg("similarWorkOtherClients.title")
         )
 
-        @components.submit_button()
+     @submit()
     }
 }
 
-@p1 = {
-    <p>@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
-    <p>@messages(tailorMsg("similarWorkOtherClients.p2"))</p>
-}
+
