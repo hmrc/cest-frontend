@@ -15,30 +15,27 @@
  *@
 
 @import config.FrontendAppConfig
-@import models.Mode
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
-@import play.api.i18n.MessagesApi
+@import views.html.components.headingNew
+@import views.html.templates.layout
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, layout: layout, heading: headingNew)
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
-@mainTemplate(
-    title = titleNoForm("newPageNotFoundErrorMessage.title"),
-    appConfig = appConfig,
-    bodyClasses = None,
-    showSignout = false) {
+@layout(
+    pageTitle = titleNoForm("newPageNotFoundErrorMessage.title"),
+    appConfig = appConfig) {
 
-    @components.heading("newPageNotFoundErrorMessage.heading")
+    @heading("newPageNotFoundErrorMessage.heading")
 
 
-        <p>@messages("newPageNotFoundErrorMessage.p1")
-        <a id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer.url}">@messages("newPageNotFoundErrorMessage.link")</a>
+    <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p1")
+        <a class="govuk-link" id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer.url}">@messages("newPageNotFoundErrorMessage.link")</a>
+        @messages("newPageNotFoundErrorMessage.p2")
+    </p>
 
-        @messages("newPageNotFoundErrorMessage.p2")</p>
-
-        <p>@messages("newPageNotFoundErrorMessage.p3")</p>
-
+    <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p3")</p>
 
 }
