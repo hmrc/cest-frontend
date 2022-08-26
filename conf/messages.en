@@ -921,7 +921,7 @@ businessOnOwnAccountSectionChangeWarning.heading = By changing your answers in t
 
 ### Multiple Contracts Page - BoOA
 ### ------------------------------
-worker.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other organisations
+worker.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other clients
 agency.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other organisations
 worker.multipleContracts.subheading = Worker’s contracts
 worker.multipleContracts.title = Does this contract stop you from doing similar work for other clients?
