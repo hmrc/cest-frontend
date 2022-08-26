@@ -15,7 +15,6 @@ object AppDependencies {
     "uk.gov.hmrc"       %% "http-caching-client"              % "9.5.0-play-28",
     "uk.gov.hmrc"       %% "play-conditional-form-mapping"    % "1.10.0-play-28",
     "uk.gov.hmrc"       %% "bootstrap-frontend-play-28"       % "5.25.0",
-    "uk.gov.hmrc"       %% "play-allowlist-filter"            % "1.0.0-play-28",
     "com.typesafe.play" %% "play-json-joda"                   % "2.9.2",
     "uk.gov.hmrc"       %% "digital-engagement-platform-chat" % "0.25.0-play-28"
   )
