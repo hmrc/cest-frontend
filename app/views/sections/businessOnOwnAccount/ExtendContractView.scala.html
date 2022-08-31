@@ -24,7 +24,12 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_new, submit: submit_button_new)
+@this(formWithCsrf: FormWithCSRF,
+        mainTemplate: templates.MainTemplate,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
