@@ -59,8 +59,8 @@ class RightsOfWorkViewSpec extends YesNoViewBehavioursNew   {
         document.select(Selectors.heading).text must include(RightsOfWorkMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Worker.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -81,8 +81,8 @@ class RightsOfWorkViewSpec extends YesNoViewBehavioursNew   {
         document.select(Selectors.heading).text must include(RightsOfWorkMessages.Hirer.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Hirer.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {
@@ -103,8 +103,8 @@ class RightsOfWorkViewSpec extends YesNoViewBehavioursNew   {
         document.select(Selectors.heading).text must include(RightsOfWorkMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe RightsOfWorkMessages.Worker.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe RightsOfWorkMessages.Worker.p
       }
 
       "have the correct radio option messages" in {

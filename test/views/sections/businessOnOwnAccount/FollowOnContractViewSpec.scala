@@ -61,7 +61,7 @@ class FollowOnContractViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(FollowOnContractMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
+      "have the correct p" in {
         document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Worker.p
       }
 
@@ -83,7 +83,7 @@ class FollowOnContractViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(FollowOnContractMessages.Hirer.heading)
       }
 
-      "have the correct hint" in {
+      "have the correct p" in {
         document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Hirer.p
       }
 
