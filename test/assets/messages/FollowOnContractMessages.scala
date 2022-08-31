@@ -24,13 +24,13 @@ object FollowOnContractMessages extends BaseMessages {
     val title = "Will this contract start immediately after the previous one ended?"
     val heading = "Will this contract start immediately after the previous one ended?"
     val subheading = "Worker’s contracts"
-    val hint = "This does not include any holiday period between the two contracts."
+    val p = "This does not include any holiday period between the two contracts."
   }
 
   object Hirer {
     val title = "Will this contract start immediately after the previous one ended?"
     val heading = "Will this contract start immediately after the previous one ended?"
     val subheading = "Worker’s contracts"
-    val hint = "This does not include any holiday period between the two contracts."
+    val p = "This does not include any holiday period between the two contracts."
   }
 }
