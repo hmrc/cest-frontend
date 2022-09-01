@@ -19,28 +19,32 @@
 @import controllers.sections.businessOnOwnAccount.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(pageTitle = title(form, tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading"))), appConfig = appConfig, mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("extendContract.title"), Some(tailorMsg("extendContract.subheading")))
 
     @formWithCsrf(action = ExtendContractController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @radios(field = form("value"), legendKey = tailorMsg("extendContract.title"))
 
-        @components.input_yes_no(
-            field = form("value"),
-            legend = components.heading(tailorMsg("extendContract.heading"), Some(tailorMsg("extendContract.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden")
-        )
-
-        @components.submit_button()
+        @submit()
     }
 }

@@ -22,10 +22,11 @@ import forms.sections.businessOnOwnAccount.TransferOfRightsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import play.twirl.api.HtmlFormat
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.TransferOfRightsView
 
-class TransferOfRightsViewSpec extends YesNoViewBehaviours {
+class TransferOfRightsViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -33,13 +34,13 @@ class TransferOfRightsViewSpec extends YesNoViewBehaviours {
 
   val form = new TransferOfRightsFormProvider()()(fakeDataRequest, frontendAppConfig)
 
-  val view = injector.instanceOf[TransferOfRightsView]
+  val view: TransferOfRightsView = injector.instanceOf[TransferOfRightsView]
 
-  def createView = () => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
+  def createView: () => HtmlFormat.Appendable = () => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
 
-  def createViewUsingForm = (form: Form[_]) => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
+  def createViewUsingForm: Form[_] => HtmlFormat.Appendable = (form: Form[_]) => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
 
-  def createViewWithRequest = (req: Request[_]) => view(form, NormalMode)(req, messages, frontendAppConfig)
+  def createViewWithRequest: Request[_] => HtmlFormat.Appendable = (req: Request[_]) => view(form, NormalMode)(req, messages, frontendAppConfig)
 
   "TransferOfRightsView" when {
 
@@ -47,7 +48,7 @@ class TransferOfRightsViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.TransferOfRightsController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "WhoAreYou is Worker" must {
 
@@ -58,11 +59,11 @@ class TransferOfRightsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe TransferOfRightsMessages.Worker.heading
+        document.select(Selectors.heading).text must include(TransferOfRightsMessages.Worker.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Worker.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -80,11 +81,11 @@ class TransferOfRightsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe TransferOfRightsMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(TransferOfRightsMessages.Hirer.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Hirer.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

@@ -1,3 +1,5 @@
+service.name = Gwirio statws cyflogaeth ar gyfer treth
+
 common.standardErrorMessageContent = Rhowch gynnig arall arni yn nes ymlaen.
 common.standardErrorMessageHeader = Mae’n ddrwg gennym – mae problem gyda’r gwasanaeth
 common.standardPageNotFoundErrorMessageContent1= Gwnewch yn siŵr fod y cyfeiriad yn gywir
@@ -65,6 +67,7 @@ site.govuk = GOV.UK
 site.employmentStatusManual = Canllaw Statws Cyflogaeth
 site.telephone = Ffôn:
 site.telephone.number = 0300 200 1900
+site.opensInNewTab = (yn agor tab newydd)
 site.opensInNewWindow = (yn agor mewn ffenestr newydd)
 site.opensInNewWindowOrTab = (yn agor ffenestr neu dab newydd)
 
@@ -80,6 +83,7 @@ site.letter.dateOfResult = Dyddiad y canlyniad:
 site.letter.version = Gwasanaeth Penderfynu, fersiwn:
 site.letter.version.disclaimer = Bydd CThEM yn glynu wrth eich canlyniad oni bai bod arferion gwaith wedi newid ac, os ydynt wedi newid, dylech ddefnyddio’r gwasanaeth hwn eto i adlewyrchu’r newidiadau hynny.
 site.letter.footer = Tudalen {0} o {1}
+site.section.prefix = Teitl yr adran hon yw
 
 site.accordion.openAll = Agor pob un
 site.accordion.closeAll = Cau pob un
@@ -337,7 +341,7 @@ hirer.chooseWhereWork.workerAgreeWithOthers = Na, mae’n rhaid gwneud peth gwai
 #########################
 worker.scheduleOfWorkingHours.error.required = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i benderfynu ar eich oriau gwaith
 worker.scheduleOfWorkingHours.error.invalid = Dewiswch ‘Iawn’ os oes gan eich cleient yr hawl i benderfynu ar eich oriau gwaith
-worker.scheduleOfWorkingHours.title = Does your client have the right to decide your working hours?
+worker.scheduleOfWorkingHours.title = A oes gan eich cleient yr hawl i benderfynu ar eich oriau gwaith?
 worker.scheduleOfWorkingHours.subheading = Trefniadau gweithio
 worker.scheduleOfWorkingHours.heading = A oes gan eich cleient yr hawl i benderfynu ar eich oriau gwaith?
 worker.scheduleOfWorkingHours.checkYourAnswersLabel = A oes gan eich cleient yr hawl i benderfynu ar eich oriau gwaith?
@@ -905,12 +909,12 @@ resetAnswersWarning.error.required = Mae angen i chi ddewis ateb
 
 ### Multiple Contracts Page
 ### -----------------------
-worker.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill
+worker.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill
 agency.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill
 worker.multipleContracts.subheading = Contractau’r gweithiwr
-worker.multipleContracts.title = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill?
-worker.multipleContracts.heading = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill?
-worker.multipleContracts.checkYourAnswersLabel = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill?
+worker.multipleContracts.title = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill?
+worker.multipleContracts.heading = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill?
+worker.multipleContracts.checkYourAnswersLabel = A yw’r contract hwn yn eich atal rhag gwneud gwaith tebyg ar gyfer cleientiaid eraill?
 worker.multipleContracts.p1 = Mae hyn yn cynnwys gweithio i gystadleuwyr eich cleient.
 
 hirer.multipleContracts.error.required = Dewiswch ‘Iawn’ os yw’r contract hwn yn atal y gweithiwr rhag gwneud gwaith tebyg ar gyfer sefydliadau eraill
@@ -1059,7 +1063,7 @@ hirer.workerKnown.heading = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y g
 hirer.workerKnown.title = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y gwaith hwn?
 hirer.workerKnown.checkYourAnswersLabel = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y gwaith hwn?
 hirer.workerKnown.p1 = Os nad ydych yn gwybod pwy yw’r gweithiwr, ni fydd angen i chi ateb unrhyw gwestiynau pellach. Byddwch yn dal i gael penderfyniad y bydd CThEM yn glynu wrtho.
-hirer.workerKnown.p2 = You should use this tool again if the worker disagrees with the determination. You would then be asked additional questions about the worker.
+hirer.workerKnown.p2 = Dylech ddefnyddio’r offeryn hwn eto os yw’r gweithiwr yn anghytuno â’r penderfyniad. Yna, gofynnir cwestiynau ychwanegol i chi am y gweithiwr.
 
 ### SimilarWorkOtherClients Page
 ### ---------------------------------

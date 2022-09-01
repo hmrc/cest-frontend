@@ -1,3 +1,5 @@
+service.name = Check employment status for tax
+
 common.standardErrorMessageContent = Try again later.
 common.standardErrorMessageHeader = Sorry, there is a problem with the service
 common.standardPageNotFoundErrorMessageContent1 = Please check the address is correct
@@ -67,6 +69,7 @@ site.accordion.openAll = Open all
 site.accordion.closeAll = Close all
 site.telephone = Telephone:
 site.telephone.number = 0300 123 2326
+site.opensInNewTab = (opens in new tab)
 site.opensInNewWindow = (opens in a new window)
 site.opensInNewWindowOrTab = (opens in a new window or tab)
 
@@ -82,6 +85,7 @@ site.letter.dateOfResult = Date of result:
 site.letter.version = Decision service version:
 site.letter.version.disclaimer = HMRC will stand by this result as long as it reflects the actual or expected working practices. If these working practices change, you should use this tool again.
 site.letter.footer = Page {0} of {1}
+site.section.prefix = This section is
 
 feedback.before = This is a new service - your
 feedback.link = feedback
@@ -917,7 +921,7 @@ businessOnOwnAccountSectionChangeWarning.heading = By changing your answers in t
 
 ### Multiple Contracts Page - BoOA
 ### ------------------------------
-worker.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other organisations
+worker.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other clients
 agency.multipleContracts.error.required = Select yes if this contract stops you from doing similar work for other organisations
 worker.multipleContracts.subheading = Worker’s contracts
 worker.multipleContracts.title = Does this contract stop you from doing similar work for other clients?

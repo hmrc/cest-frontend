@@ -19,7 +19,7 @@ package controllers.sections.businessOnOwnAccount
 
 import connectors.FakeDataCacheConnector
 import controllers.ControllerSpecBase
-import controllers.actions.{FakeDontGetDataDataRetrievalAction, FakeGeneralDataRetrievalAction, FakeIdentifierAction, _}
+import controllers.actions._
 import forms.sections.businessOnOwnAccount.ExtendContractFormProvider
 import models.NormalMode
 import models.requests.DataRequest

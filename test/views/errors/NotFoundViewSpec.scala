@@ -17,17 +17,17 @@
 package views.errors
 
 import assets.messages.NotFoundMessages
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.errors.NotFoundView
 
-class NotFoundViewSpec extends ViewBehaviours {
+class NotFoundViewSpec extends ViewBehavioursNew {
 
   val view = injector.instanceOf[NotFoundView]
 
   object Selectors extends BaseCSSSelectors{
-    val link = "#content > article > p:nth-child(2) > a"
-    val p1 = "#content > article > p:nth-child(2)"
-    val p2 = "#content > article > p:nth-child(3)"
+    val link = "#main-content p:nth-child(2) > a"
+    val p1 = "#main-content p:nth-child(2)"
+    val p2 = "#main-content p:nth-child(3)"
   }
 
   def createView = () => view(frontendAppConfig)(fakeRequest, messages)
@@ -59,8 +59,6 @@ class NotFoundViewSpec extends ViewBehaviours {
       document.select(Selectors.p2).text mustBe NotFoundMessages.p2
     }
 
-
   }
-
 
 }

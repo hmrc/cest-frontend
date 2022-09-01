@@ -17,15 +17,15 @@
 package views.sections.businessOnOwnAccount
 
 import assets.messages.FollowOnContractMessages
-import controllers.sections.businessOnOwnAccount.routes
 import forms.sections.businessOnOwnAccount.FollowOnContractFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import play.twirl.api.HtmlFormat
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.FollowOnContractView
 
-class FollowOnContractViewSpec extends YesNoViewBehaviours {
+class FollowOnContractViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -33,13 +33,13 @@ class FollowOnContractViewSpec extends YesNoViewBehaviours {
 
   val form = new FollowOnContractFormProvider()()
 
-  val view = injector.instanceOf[FollowOnContractView]
+  val view: FollowOnContractView = injector.instanceOf[FollowOnContractView]
 
-  def createView = () => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
+  def createView: () => HtmlFormat.Appendable = () => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
 
-  def createViewUsingForm = (form: Form[_]) => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
+  def createViewUsingForm: Form[_] => HtmlFormat.Appendable = (form: Form[_]) => view(form, NormalMode)(workerFakeRequest, messages, frontendAppConfig)
 
-  def createViewWithRequest = (req: Request[_]) => view(form, NormalMode)(req, messages, frontendAppConfig)
+  def createViewWithRequest: Request[_] => HtmlFormat.Appendable = (req: Request[_]) => view(form, NormalMode)(req, messages, frontendAppConfig)
 
   "FollowOnContractView" when {
 
@@ -47,7 +47,7 @@ class FollowOnContractViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.FollowOnContractController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "the WhoAreYou is Worker" must {
 
@@ -58,11 +58,11 @@ class FollowOnContractViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe FollowOnContractMessages.Worker.heading
+        document.select(Selectors.heading).text must include(FollowOnContractMessages.Worker.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Worker.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -80,11 +80,11 @@ class FollowOnContractViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe FollowOnContractMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(FollowOnContractMessages.Hirer.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Hirer.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

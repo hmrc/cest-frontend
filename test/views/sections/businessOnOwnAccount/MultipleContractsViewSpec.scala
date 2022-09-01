@@ -17,15 +17,14 @@
 package views.sections.businessOnOwnAccount
 
 import assets.messages.MultipleContractsMessages
-import controllers.sections.businessOnOwnAccount.routes
 import forms.sections.businessOnOwnAccount.MultipleContractsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.businessOnOwnAccount.MultipleContractsView
 
-class MultipleContractsViewSpec extends YesNoViewBehaviours {
+class MultipleContractsViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class MultipleContractsViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.MultipleContractsController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
 
     "the WhoAreYou is Worker" must {
@@ -59,11 +58,11 @@ class MultipleContractsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MultipleContractsMessages.Worker.heading
+        document.select(Selectors.heading).text must include(MultipleContractsMessages.Worker.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Worker.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -81,11 +80,11 @@ class MultipleContractsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MultipleContractsMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(MultipleContractsMessages.Hirer.heading)
       }
 
-      "have the correct p1" in {
-        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Hirer.p1
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

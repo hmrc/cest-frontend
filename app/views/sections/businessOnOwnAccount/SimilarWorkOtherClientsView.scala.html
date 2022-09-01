@@ -19,35 +19,40 @@
 @import controllers.sections.businessOnOwnAccount.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        mainTemplate: templates.MainTemplate,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(pageTitle = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))), appConfig = appConfig, mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading")))
+
 
     @formWithCsrf(action = SimilarWorkOtherClientsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
+        <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p2"))</p>
 
-        @components.input_yes_no(
-            field = form("value"),
-            legend = components.heading(tailorMsg("similarWorkOtherClients.heading"), Some(tailorMsg("similarWorkOtherClients.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(p1)
+        @radios(field = form("value"), legendKey = tailorMsg("similarWorkOtherClients.title"))
 
-        )
+        @submit()
 
-        @components.submit_button()
     }
 }
 
-@p1 = {
-    <p>@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
-    <p>@messages(tailorMsg("similarWorkOtherClients.p2"))</p>
-}
+
