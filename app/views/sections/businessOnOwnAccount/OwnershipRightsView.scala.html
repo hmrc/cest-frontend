@@ -24,7 +24,12 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_hidden_legendNew, submit: submit_button_new, heading: headingNew)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
@@ -40,12 +45,9 @@
 
     @formWithCsrf(action = OwnershipRightsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @radios(
-            field = form("value"),
-            legendKey = tailorMsg("ownershipRights.title")
-        )
+        @radios(field = form("value"), legendKey = tailorMsg("ownershipRights.title"))
 
-     @submit()
+        @submit()
     }
 }
 

@@ -24,7 +24,12 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_new, submit: submit_button_new)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
@@ -34,13 +39,11 @@
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
 
+    @heading(tailorMsg("permissionToWorkWithOthers.title"), Some(tailorMsg("permissionToWorkWithOthers.subheading")))
+
     @formWithCsrf(action = PermissionToWorkWithOthersController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @radios(
-            field = form("value"),
-            legendKey = tailorMsg("permissionToWorkWithOthers.title"),
-            subHeadingKey = tailorMsg("permissionToWorkWithOthers.subheading")
-        )
+        @radios(field = form("value"), legendKey = tailorMsg("permissionToWorkWithOthers.title"))
 
         @submit()
     }

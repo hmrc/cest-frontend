@@ -61,8 +61,8 @@ class FollowOnContractViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(FollowOnContractMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe FollowOnContractMessages.Worker.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -83,8 +83,8 @@ class FollowOnContractViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(FollowOnContractMessages.Hirer.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe FollowOnContractMessages.Hirer.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe FollowOnContractMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

@@ -61,8 +61,8 @@ class MultipleContractsViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(MultipleContractsMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe MultipleContractsMessages.Worker.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -83,8 +83,8 @@ class MultipleContractsViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(MultipleContractsMessages.Hirer.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe MultipleContractsMessages.Hirer.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe MultipleContractsMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

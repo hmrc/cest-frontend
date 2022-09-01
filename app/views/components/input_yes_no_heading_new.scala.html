@@ -14,27 +14,24 @@
  * limitations under the License.
  *@
 
+@import play.twirl.api.Html
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import uk.gov.hmrc.govukfrontend.views.Implicits.RichRadios
 
 @this(radios: GovukRadios)
 @(
-        legendKey: String,
-        field: Field,
-        hintKey: Option[String] = None,
-        yesHtml: Option[Html] = None,
-        noHtml: Option[Html] = None,
-        inline: Boolean = true)(implicit messages: Messages
-)
+    field: Field,
+    legendKey: String,
+    subHeadingKey: String,
+    hintKey: Option[String] = None,
+    yesHtml: Option[Html] = None,
+    noHtml: Option[Html] = None,
+    inline: Boolean = true
+)(implicit messages: Messages)
+
 @radios(
     Radios(
-        hint = if(hintKey.isDefined) Some(Hint(content = Text(messages(hintKey.get)))) else None,
-        fieldset = Some(Fieldset(
-            legend = Some(Legend(
-                content = Text(messages(legendKey)),
-                classes = "govuk-visually-hidden"
-            ))
-        )),
+        hint = hintKey.map(h => Hint(content = Text(messages(h)))),
         items = Seq(
             RadioItem(
                 content = Text(messages("site.yes")),
@@ -44,10 +41,11 @@
             RadioItem(
                 content = Text(messages("site.no")),
                 value = Some("false"),
-                conditionalHtml = noHtml,
+                conditionalHtml = noHtml
             )
         ),
         classes = if(inline) "govuk-radios--inline" else ""
-    ).withFormField(field)
+    ).withFormField(field).withHeadingAndSectionCaption(Text(messages(legendKey)), Text(messages(subHeadingKey)))
 )
+
 

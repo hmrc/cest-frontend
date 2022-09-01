@@ -24,7 +24,13 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_hidden_legendNew, submit: submit_button_new, heading: headingNew)
+@this(formWithCsrf: FormWithCSRF,
+        mainTemplate: templates.MainTemplate,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
@@ -42,12 +48,10 @@
         <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
         <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p2"))</p>
 
-        @radios(
-            field = form("value"),
-            legendKey = tailorMsg("similarWorkOtherClients.title")
-        )
+        @radios(field = form("value"), legendKey = tailorMsg("similarWorkOtherClients.title"))
 
-    @submit()
+        @submit()
+
     }
 }
 

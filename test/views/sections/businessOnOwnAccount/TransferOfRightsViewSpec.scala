@@ -62,8 +62,8 @@ class TransferOfRightsViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(TransferOfRightsMessages.Worker.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe TransferOfRightsMessages.Worker.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Worker.p
       }
 
       "have the correct radio option messages" in {
@@ -84,8 +84,8 @@ class TransferOfRightsViewSpec extends YesNoViewBehavioursNew {
         document.select(Selectors.heading).text must include(TransferOfRightsMessages.Hirer.heading)
       }
 
-      "have the correct hint" in {
-        document.select(Selectors.hint(1)).text mustBe TransferOfRightsMessages.Hirer.hint
+      "have the correct p" in {
+        document.select(Selectors.p(1)).text mustBe TransferOfRightsMessages.Hirer.p
       }
 
       "have the correct radio option messages" in {

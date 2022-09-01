@@ -24,7 +24,12 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate, layout: layout, errorSummary: GovukErrorSummary, radios: input_yes_no_new, submit: submit_button_new)
+@this(formWithCsrf: FormWithCSRF,
+      layout: layout,
+      errorSummary: GovukErrorSummary,
+      radios: input_yes_no_new,
+      submit: submit_button_new,
+      heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
@@ -34,17 +39,15 @@
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
 
+    @heading(tailorMsg("followOnContract.title"), Some(tailorMsg("followOnContract.subheading")))
+
     @formWithCsrf(action = FollowOnContractController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @radios(
-            field = form("value"),
-            legendKey = tailorMsg("followOnContract.title"),
-            subHeadingKey = tailorMsg("followOnContract.subheading"),
-            hintKey = Some(tailorMsg("followOnContract.p1"))
-        )
+        <p class="govuk-body">@messages(tailorMsg("followOnContract.p1"))</p>
+
+        @radios(field = form("value"), legendKey = tailorMsg("followOnContract.title"))
 
      @submit()
+
     }
 }
-
-
