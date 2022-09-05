@@ -18,10 +18,10 @@ package views.sections.setup
 
 import assets.messages.AboutYourResultMessages
 import play.api.mvc.Call
-import views.behaviours.ViewBehaviours
+import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
 import views.html.sections.setup.AboutYourResultView
 
-class AboutYourResultViewSpec extends ViewBehaviours {
+class AboutYourResultViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
     val p1 = "#content > article > form > p"
@@ -54,11 +54,11 @@ class AboutYourResultViewSpec extends ViewBehaviours {
     }
 
     "have the correct p1" in {
-      document.select(Selectors.p1).text mustBe AboutYourResultMessages.p1
+      document.select(Selectors.p(1)).text mustBe AboutYourResultMessages.p1
     }
 
     "have the correct warning" in {
-      document.select(Selectors.exclamation).text mustBe s"${AboutYourResultMessages.p2} ${AboutYourResultMessages.p3}"
+      document.select(Selectors.exclamation).text mustBe s"${AboutYourResultMessages.warning} ${AboutYourResultMessages.p2} ${AboutYourResultMessages.p3}"
     }
   }
 }

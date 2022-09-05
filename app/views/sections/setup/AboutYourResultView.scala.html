@@ -18,24 +18,27 @@
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import models.NormalMode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import views.html.components.headingNew
+@import views.html.components.submit_button_new
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components.exclamationNew
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, layout: layout, heading: headingNew, submit: submit_button_new, exclamation: exclamationNew)
 
 @(postAction: Call)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(title = titleNoForm("aboutYourResult.title"),
-              appConfig = appConfig,
-              bodyClasses = None) {
-
-    @components.back_link(appConfig.govUkStartPageUrl)(NormalMode)
+@layout(pageTitle = titleNoForm("aboutYourResult.title"), appConfig = appConfig, backLinkUrl = Some(appConfig.govUkStartPageUrl)) {
 
     @formWithCsrf(postAction, 'autoComplete -> "off") {
 
-        @components.heading("aboutYourResult.heading")
+        @heading("aboutYourResult.heading")
 
-        <p>@messages("aboutYourResult.p1")</p>
-        @components.exclamation(exclamationBlock)
-        @components.submit_button("site.accept_continue")
+        <p class="govuk-body">@messages("aboutYourResult.p1")</p>
+
+        @exclamation(exclamationBlock)
+
+        @submit("site.accept_continue")
     }
 }
 
