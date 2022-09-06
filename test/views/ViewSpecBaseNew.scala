@@ -30,7 +30,7 @@ trait ViewSpecBaseNew extends GuiceAppSpecBase {
     val h2 = (i: Int) => s"#main-content form h2:nth-of-type($i)"
     val bullet = (i: Int) => s"#main-content form ul li:nth-of-type($i)"
     val multichoice = (i: Int) => s"div.govuk-radios div:nth-of-type($i) label"
-    val exclamation = s"#main-content form div.govuk-warning-text strong"
+    val exclamation = s"#main-content strong.govuk-warning-text__text"
     val continueButton = "#main-content form button"
     val hint = (i: Int) => s".govuk-hint:nth-of-type($i)"
     val li = (i: Int) => s"#main-content form > ul > li:nth-child($i)"

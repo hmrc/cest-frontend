@@ -30,7 +30,8 @@
         scriptElem: Option[Html] = None,
         mode: Mode = NormalMode,
         js: Seq[String] = Seq.empty,
-        css: Option[String] = None
+        css: Option[String] = None,
+        backLinkUrl: Option[String] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -47,6 +48,17 @@
         timeout = Some(appConfig.timeoutPeriod),
         countdown = Some(appConfig.timeoutCountdown)
     )
+}
+
+@backLink = @{
+    if(mode == CheckMode) {
+        None
+    } else {
+        backLinkUrl match {
+            case Some(a) => Some(a)
+            case _ => Some("javascript:history.back()")
+        }
+    }
 }
 
 @scriptElement = {
@@ -67,7 +79,7 @@
     pageTitle = Some(pageTitle),
     isWelshTranslationAvailable = true,
     serviceUrl = Some(routes.IndexController.onPageLoad.url),
-    backLinkUrl = if(mode == NormalMode) Some("javascript:history.back()") else None,
+    backLinkUrl = backLink,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
