@@ -18,8 +18,6 @@ package models.sections.setup
 
 import models.{Enumerable, WithName}
 import play.api.libs.json._
-import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
-import uk.gov.hmrc.govukfrontend.views.viewmodels.radios.RadioItem
 import viewmodels.{Radio, RadioOption}
 
 sealed trait WhatDoYouWantToFindOut
