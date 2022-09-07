@@ -22,10 +22,10 @@ import forms.sections.setup.WhatDoYouWantToFindOutFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
 import views.html.sections.setup.WhatDoYouWantToFindOutView
 
-class WhatDoYouWantToFindOutViewSpec extends ViewBehaviours with FeatureSwitching {
+class WhatDoYouWantToFindOutViewSpec extends ViewBehavioursNew with FeatureSwitching {
 
   object Selectors extends BaseCSSSelectors
 
@@ -56,11 +56,11 @@ class WhatDoYouWantToFindOutViewSpec extends ViewBehaviours with FeatureSwitchin
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WhatDoYouWantToFindOutMessages.heading
+        document.select(Selectors.heading).text must include(WhatDoYouWantToFindOutMessages.heading)
       }
 
       "have the correct subheading" in {
-        document.select(Selectors.subheading).text mustBe WhatDoYouWantToFindOutMessages.subheading
+        document.select(Selectors.subheading).text must include(WhatDoYouWantToFindOutMessages.subheading)
       }
 
       "have the correct radio option messages" in {

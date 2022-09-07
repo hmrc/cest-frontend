@@ -19,32 +19,33 @@
 @import controllers.sections.setup.routes._
 @import models.Mode
 @import views.ViewUtils._
-@import viewmodels.RadioOption
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 @import models.sections.setup.WhatDoYouWantToFindOut
 
-
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+layout: layout,
+errorSummary: GovukErrorSummary,
+radios: input_radio_new,
+submit: submit_button_new,
+heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, "whatDoYouWantToFindOut.title", Some("whatDoYouWantToFindOut.subheading")),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(pageTitle = title(form, "whatDoYouWantToFindOut.title", Some("whatDoYouWantToFindOut.subheading")), appConfig = appConfig, mode = mode) {
+
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading("whatDoYouWantToFindOut.title", Some("whatDoYouWantToFindOut.subheading"))
 
     @formWithCsrf(action = WhatDoYouWantToFindOutController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.back_link()(mode)
+        @radios(field = form("value"), legendKey = tailorMsg("extendContract.title"), radioItems = WhatDoYouWantToFindOut.options)
 
-        @components.error_summary(form.errors)
-
-        @components.input_radio(
-            field = form("value"),
-            legend = components.heading("whatDoYouWantToFindOut.heading", Some("whatDoYouWantToFindOut.subheading"), asLegend = true),
-            legendClass = Some("visually-hidden"),
-            inputs = WhatDoYouWantToFindOut.options
-        )
-
-        @components.submit_button()
+        @submit()
     }
 }
