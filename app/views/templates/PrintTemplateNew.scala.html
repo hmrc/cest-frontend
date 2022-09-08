@@ -14,15 +14,21 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
-@this(button: GovukButton)
-@(key: String = "site.continue", id: String = "submit")(implicit messages: Messages)
+@import config.FrontendAppConfig
+@import uk.gov.hmrc.play.config.AssetsConfig
 
-<div class="section">
-   @button(
-      Button(
-        content = Text(messages(key)),
-        attributes = Map("id" -> id)
-      )
-   )
-</div>
+@this(assetsConfig: AssetsConfig)
+
+@(title: String, appConfig: FrontendAppConfig, bodyClasses: Option[String] = None)(content: Html)
+
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>@title</title>
+        <link href='@controllers.routes.Assets.versioned("stylesheets/application.css")' media="all" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body id="content" class='@bodyClasses.getOrElse("")'>
+        @content
+    </body>
+</html>
