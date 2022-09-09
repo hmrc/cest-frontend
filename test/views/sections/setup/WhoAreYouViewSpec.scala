@@ -21,10 +21,10 @@ import config.featureSwitch.FeatureSwitching
 import forms.sections.setup.WhoAreYouFormProvider
 import models.NormalMode
 import play.api.mvc.{Call, Request}
-import views.behaviours.ViewBehaviours
+import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
 import views.html.sections.setup.WhoAreYouView
 
-class WhoAreYouViewSpec extends ViewBehaviours with FeatureSwitching {
+class WhoAreYouViewSpec extends ViewBehavioursNew with FeatureSwitching {
 
   object Selectors extends BaseCSSSelectors
 
@@ -56,11 +56,11 @@ class WhoAreYouViewSpec extends ViewBehaviours with FeatureSwitching {
         }
 
         "have the correct heading" in {
-          document.select(Selectors.heading).text mustBe WhoAreYouMessages.heading
+          document.select(Selectors.heading).text must include(WhoAreYouMessages.heading)
         }
 
         "have the correct subheading" in {
-          document.select(Selectors.subheading).text mustBe WhoAreYouMessages.subHeading
+          document.select(Selectors.subheading).text must include(WhoAreYouMessages.subHeading)
         }
 
         "when showAgency is true" should {
@@ -82,11 +82,11 @@ class WhoAreYouViewSpec extends ViewBehaviours with FeatureSwitching {
         }
 
         "have the correct heading" in {
-          document.select(Selectors.heading).text mustBe WhoAreYouMessages.heading
+          document.select(Selectors.heading).text must include(WhoAreYouMessages.heading)
         }
 
         "have the correct subheading" in {
-          document.select(Selectors.subheading).text mustBe WhoAreYouMessages.subHeading
+          document.select(Selectors.subheading).text must include(WhoAreYouMessages.subHeading)
         }
 
         "when showAgency is true" should {
