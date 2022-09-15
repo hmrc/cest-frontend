@@ -30,7 +30,7 @@
         scriptElem: Option[Html] = None,
         mode: Mode = NormalMode,
         js: Seq[String] = Seq.empty,
-        css: Option[String] = None,
+        css: Option[String] = Some("offpayrollfrontend-app"),
         backLinkUrl: Option[String] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
