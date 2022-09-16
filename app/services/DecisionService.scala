@@ -21,8 +21,6 @@ import config.featureSwitch.FeatureSwitching
 import connectors.DecisionConnector
 import forms.DownloadPDFCopyFormProvider
 import handlers.ErrorHandler
-
-import javax.inject.{Inject, Singleton}
 import models._
 import models.requests.DataRequest
 import models.sections.setup.WhatDoYouWantToDo.MakeNewDetermination
@@ -43,6 +41,7 @@ import views.html.results.inside.officeHolder.{OfficeHolderAgentView, OfficeHold
 import views.html.results.outside._
 import views.html.results.undetermined._
 
+import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton

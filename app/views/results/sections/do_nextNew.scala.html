@@ -14,15 +14,11 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
-@this(button: GovukButton)
-@(key: String = "site.continue", id: String = "submit")(implicit messages: Messages)
+@this()
 
-<div class="section">
-   @button(
-      Button(
-        content = Text(messages(key)),
-        attributes = Map("id" -> id)
-      )
-   )
+@(content: Html)(implicit messages: Messages)
+
+<div id="doNext">
+  <h2 class="govuk-heading-m">@messages("result.doNext.h2")</h2>
+  @content
 </div>

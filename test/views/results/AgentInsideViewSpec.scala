@@ -23,7 +23,7 @@ import org.jsoup.nodes.Document
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.AgentInsideView
 
-class AgentInsideViewSpec extends ResultViewFixture {
+class AgentInsideViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[AgentInsideView]
   val form = new DeclarationFormProvider()()

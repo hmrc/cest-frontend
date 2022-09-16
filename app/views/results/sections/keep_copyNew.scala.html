@@ -14,15 +14,19 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
-@this(button: GovukButton)
-@(key: String = "site.continue", id: String = "submit")(implicit messages: Messages)
+@import models.requests.DataRequest
+@import models.sections.setup.WhoAreYou.Hirer
 
-<div class="section">
-   @button(
-      Button(
-        content = Text(messages(key)),
-        attributes = Map("id" -> id)
-      )
-   )
-</div>
+@this()
+
+@(isMake: Boolean = true, isUndetermined: Boolean = false)(implicit messages: Messages, request: DataRequest[_])
+
+@if(isMake || request.userType.contains(Hirer)){
+    @if(isUndetermined){
+      <p class="govuk-body">@messages("result.keepCopy.undetermined")</p>
+    } else if(request.userType.contains(Hirer)){
+      <p class="govuk-body">@messages("result.keepCopy.hirer.determined")</p>
+    } else {
+      <p class="govuk-body">@messages("result.keepCopy.worker.determined")</p>
+    }
+}

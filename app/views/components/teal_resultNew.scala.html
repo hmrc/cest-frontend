@@ -14,15 +14,19 @@
  * limitations under the License.
  *@
 
+@import models.requests.DataRequest
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-@this(button: GovukButton)
-@(key: String = "site.continue", id: String = "submit")(implicit messages: Messages)
 
-<div class="section">
-   @button(
-      Button(
-        content = Text(messages(key)),
-        attributes = Map("id" -> id)
-      )
-   )
-</div>
+@this(govukPanel: GovukPanel)
+
+@(message: Html, result: String, subMessage: Option[Html] = None)(implicit request: DataRequest[_])
+
+@defining(s"${request.userType}.$result") { id =>
+
+    @govukPanel(Panel(
+        title = HtmlContent(message),
+        content = subMessage.map (msg => HtmlContent(msg)).getOrElse(Empty),
+        attributes = Map("id" -> id )
+    ))
+
+}
