@@ -17,4 +17,5 @@
 @(linkMsgKey: String, href: String, id: Option[String] = None)(implicit messages: Messages)
 <a @id.map { id => id="@id" }
    href="@href"
+   rel="noreferrer noopener"
    target="_blank">@messages(linkMsgKey) @messages("site.opensInNewWindow")</a>
