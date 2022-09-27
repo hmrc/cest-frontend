@@ -35,7 +35,7 @@
 
 @defining(
     pdfResultDetails.resultMode match {
-        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig, mode = CheckMode)(_)
         case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
