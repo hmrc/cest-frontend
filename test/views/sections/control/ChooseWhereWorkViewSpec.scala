@@ -23,10 +23,11 @@ import models.NormalMode
 import models.sections.control.ChooseWhereWork
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import viewmodels.RadioOption
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.control.ChooseWhereWorkView
 
-class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
+class ChooseWhereWorkViewSpec extends ViewBehavioursNew with FeatureSwitching {
 
   object Selectors extends BaseCSSSelectors
 
@@ -56,7 +57,7 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include(ChooseWhereWorkMessages.OptimisedWorker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -76,7 +77,7 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text must include(ChooseWhereWorkMessages.OptimisedHirer.heading)
       }
 
       "have the correct radio option messages" in {
@@ -96,7 +97,7 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ChooseWhereWorkMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include(ChooseWhereWorkMessages.OptimisedWorker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -112,9 +113,10 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
     "rendered" must {
       "contain radio buttons for the value" in {
         val doc = asDocument(createViewUsingForm(form))
-        for (option <- ChooseWhereWork.options) {
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = false)
-        }
+        assertContainsRadioButton(doc, "value", "value", ChooseWhereWork.WorkerCannotChoose.toString, isChecked = false)
+        assertContainsRadioButton(doc, "value-2", "value", ChooseWhereWork.WorkerChooses.toString, isChecked = false)
+        assertContainsRadioButton(doc, "value-3", "value", ChooseWhereWork.NoLocationRequired.toString, isChecked = false)
+        assertContainsRadioButton(doc, "value-4", "value", ChooseWhereWork.WorkerAgreeWithOthers.toString, isChecked = false)
       }
     }
 
@@ -122,10 +124,10 @@ class ChooseWhereWorkViewSpec extends ViewBehaviours with FeatureSwitching {
       s"rendered with a value of '${option.value}'" must {
         s"have the '${option.value}' radio button selected" in {
           val doc = asDocument(createViewUsingForm(form.bind(Map("value" -> s"${option.value}"))))
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = true)
+          assertContainsRadioButton(doc, idHelper(ChooseWhereWork.options, option), "value", option.value, isChecked = true)
 
           for(unselectedOption <- ChooseWhereWork.options.filterNot(o => o == option)) {
-            assertContainsRadioButton(doc, unselectedOption.id, "value", unselectedOption.value, isChecked = false)
+            assertContainsRadioButton(doc,idHelper(ChooseWhereWork.options, unselectedOption), "value", unselectedOption.value, isChecked = false)
           }
         }
       }

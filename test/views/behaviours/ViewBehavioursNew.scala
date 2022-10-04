@@ -18,6 +18,7 @@ package views.behaviours
 
 import models.AdditionalPdfDetails
 import play.twirl.api.HtmlFormat
+import viewmodels.RadioOption
 import views.ViewSpecBaseNew
 
 trait ViewBehavioursNew extends ViewSpecBaseNew {
@@ -119,4 +120,13 @@ trait ViewBehavioursNew extends ViewSpecBaseNew {
       }
     }
   }
+
+  def idHelper(radioItems: Seq[RadioOption], radioOption: RadioOption): String = {
+    val index = radioItems.indexOf(radioOption)
+    index match {
+      case 0 => s"""value"""
+      case _ => s"""value-${index + 1}"""
+    }
+  }
+
 }
