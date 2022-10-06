@@ -22,7 +22,7 @@ import forms.sections.exit.OfficeHolderFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehavioursNew => YesNoViewBehaviours}
 import views.html.sections.exit.OfficeHolderView
 
 class OfficeHolderViewSpec extends YesNoViewBehaviours {
@@ -49,7 +49,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.OfficeHolderController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -60,7 +60,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OfficeHolderMessages.Worker.heading
+        document.select(Selectors.heading).text must include(OfficeHolderMessages.Worker.heading)
       }
 
       "have the correct page content" in {
@@ -69,7 +69,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct link" in {
-        document.select(Selectors.link).attr("href") mustBe frontendAppConfig.officeHolderUrl
+        document.getElementsContainingText("new tab").attr("href") mustBe frontendAppConfig.officeHolderUrl
       }
 
       "have the correct radio option messages" in {
@@ -87,7 +87,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OfficeHolderMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(OfficeHolderMessages.Hirer.heading)
       }
 
       "have the correct page content" in {
@@ -96,7 +96,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct link" in {
-        document.select(Selectors.link).attr("href") mustBe frontendAppConfig.officeHolderUrl
+        document.getElementsContainingText("new tab").attr("href") mustBe frontendAppConfig.officeHolderUrl
       }
 
       "have the correct radio option messages" in {
@@ -114,7 +114,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OfficeHolderMessages.Worker.heading
+        document.select(Selectors.heading).text must include(OfficeHolderMessages.Worker.heading)
       }
 
       "have the correct page content" in {
@@ -123,7 +123,7 @@ class OfficeHolderViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct link" in {
-        document.select(Selectors.link).attr("href") mustBe frontendAppConfig.officeHolderUrl
+        document.getElementsContainingText("new tab").attr("href") mustBe frontendAppConfig.officeHolderUrl
       }
 
       "have the correct radio option messages" in {
