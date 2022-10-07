@@ -22,11 +22,11 @@ import forms.sections.setup.WhatDoYouWantToDoFormProvider
 import models.NormalMode
 import models.sections.setup.WhatDoYouWantToDo
 import play.api.data.Form
-import views.behaviours.QuestionViewBehaviours
+import views.behaviours.QuestionViewBehavioursNew
 import views.html.sections.setup.WhatDoYouWantToDoView
 
 
-class WhatDoYouWantToDoViewSpec extends QuestionViewBehaviours[WhatDoYouWantToDo] {
+class WhatDoYouWantToDoViewSpec extends QuestionViewBehavioursNew[WhatDoYouWantToDo] {
 
   object Selectors extends BaseCSSSelectors {
     val exit = "#finish-link"
@@ -50,7 +50,7 @@ class WhatDoYouWantToDoViewSpec extends QuestionViewBehaviours[WhatDoYouWantToDo
 
     behave like pageWithBackLink(createView)
 
-    behave like pageWithTextFields(createViewUsingForm, messageKeyPrefix, routes.WhatDoYouWantToDoController.onSubmit(NormalMode).url)
+    behave like pageWithTextFields(createViewUsingForm, messageKeyPrefix)
 
     "when not given a user type" must {
 
@@ -61,7 +61,7 @@ class WhatDoYouWantToDoViewSpec extends QuestionViewBehaviours[WhatDoYouWantToDo
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WhatDoYouWantToDoMessages.heading
+        document.select(Selectors.heading).text must include(WhatDoYouWantToDoMessages.heading)
       }
 
       "have the correct first multi choice answer" in {
@@ -82,7 +82,7 @@ class WhatDoYouWantToDoViewSpec extends QuestionViewBehaviours[WhatDoYouWantToDo
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WhatDoYouWantToDoMessages.heading
+        document.select(Selectors.heading).text must  include(WhatDoYouWantToDoMessages.heading)
       }
 
       "have the correct first multi choice answer" in {
