@@ -19,34 +19,45 @@
 @import controllers.sections.setup.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+@import views.html.components._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        heading: headingNew,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        newTabLink: new_tab_linkNew,
+        panel: GovukPanel)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("workerUsingIntermediary.title")),
+@layout(
+    pageTitle = title(form, tailorMsg("workerUsingIntermediary.title")),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("workerUsingIntermediary.heading"), Some(tailorMsg("workerUsingIntermediary.subHeading")))
 
     @formWithCsrf(action = WorkerUsingIntermediaryController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @pageContent
 
-        @components.input_yes_no(
-            field = form("value"),
-            legend = components.heading(tailorMsg("workerUsingIntermediary.heading"), Some(tailorMsg("workerUsingIntermediary.subHeading")), asLegend = true),
-            otherContent = Some(pageContent),
-            labelClass = Some("visually-hidden")
-        )
+        @radios(field = form("value"), legendKey = tailorMsg("workerUsingIntermediary.heading"))
 
-        @components.submit_button()
+        @submit()
     }
 }
 
 @pageContent = {
-    <p>@messages(tailorMsg("workerUsingIntermediary.p1"))</p>
-    <p>@messages(tailorMsg("workerUsingIntermediary.p2"))</p>
+    <p class="govuk-body">@messages(tailorMsg("workerUsingIntermediary.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("workerUsingIntermediary.p2"))</p>
 }
