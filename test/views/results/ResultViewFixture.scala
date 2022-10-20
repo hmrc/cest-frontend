@@ -66,6 +66,7 @@ trait ResultViewFixture extends ViewBehaviours {
     object AboutThisResult {
       val id = "#aboutThisResult"
       val timestamp = s"$id #timestamp"
+      val decisionServiceVersionP0 = s"$id .decision-service-version h3:nth-of-type(1)"
       val decisionServiceVersionP1 = s"$id .decision-service-version p:nth-of-type(1)"
       val decisionServiceVersionP2 = s"$id .decision-service-version p:nth-of-type(2)"
       val p = (i: Int) => Selectors.p(i, id)
@@ -336,11 +337,16 @@ trait ResultViewFixture extends ViewBehaviours {
   def checkDecisionServiceVersionPresent(implicit document: Document) = {
     "Include a section for the Decision Service Version that" should {
 
-      "have the correct h2" in {
+      "have the correct h3" in {
+        document.select(Selectors.AboutThisResult.decisionServiceVersionP0).text mustBe DecisionVersionMessages.p0
+      }
+
+
+      "have the correct p1" in {
         document.select(Selectors.AboutThisResult.decisionServiceVersionP1).text mustBe DecisionVersionMessages.p1(frontendAppConfig.decisionVersion)
       }
 
-      "have the correct p1" in {
+      "have the correct p2" in {
         document.select(Selectors.AboutThisResult.decisionServiceVersionP2).text mustBe DecisionVersionMessages.p2
       }
     }
