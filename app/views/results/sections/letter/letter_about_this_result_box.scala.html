@@ -23,18 +23,14 @@
     <div class="about-this-result-box">
         <div id="aboutThisResult" class="about-this-result">
             <div class="date-of-result">
-                <h2>@messages("site.letter.aboutThisResult")</h2>
-                <span class="bold">@messages("site.letter.dateOfResult")</span><br>
-                <span id="timestamp">@monthToMessages(timestamp) (UTC)</span>
+                <h2 class="govuk-heading-m">@messages("site.letter.aboutThisResult")</h2>
+                <h3 class="govuk-heading-s">@messages("site.letter.dateOfResult")</h3>
+                <p id="timestamp" class="govuk-body">@monthToMessages(timestamp) (UTC)</p>
             </div>
             <div class="decision-service-version">
-                <p>
-                    <span class="bold">@messages("site.letter.version")</span><br>
-                    @appConfig.decisionVersion
-                </p>
-                <p>
-                    @messages("site.letter.version.disclaimer")
-                </p>
+                <h3 class="govuk-heading-s">@messages("site.letter.version")</h3>
+                <p class="govuk-body">@appConfig.decisionVersion</p>
+                <p class="govuk-body">@messages("site.letter.version.disclaimer")</p>
             </div>
         </div>
     </div>
