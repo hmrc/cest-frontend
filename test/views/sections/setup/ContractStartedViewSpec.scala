@@ -23,10 +23,10 @@ import forms.sections.setup.ContractStartedFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.sections.setup.ContractStartedView
 
-class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
+class ContractStartedViewSpec extends YesNoViewBehavioursNew with FeatureSwitching{
 
   object Selectors extends BaseCSSSelectors
 
@@ -48,7 +48,7 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.ContractStartedController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -61,7 +61,7 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.Worker.heading
+        document.select(Selectors.heading).text must include(ContractStartedOptimisedMessages.Worker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -82,7 +82,7 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(ContractStartedOptimisedMessages.Hirer.heading)
       }
 
       "have the correct radio option messages" in {
@@ -103,7 +103,7 @@ class ContractStartedViewSpec extends YesNoViewBehaviours with FeatureSwitching{
 
       "have the correct heading" in {
 
-        document.select(Selectors.heading).text mustBe ContractStartedOptimisedMessages.NonTailored.heading
+        document.select(Selectors.heading).text must include(ContractStartedOptimisedMessages.NonTailored.heading)
       }
 
       "have the correct radio option messages" in {
