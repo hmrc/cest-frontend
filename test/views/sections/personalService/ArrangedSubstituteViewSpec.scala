@@ -21,10 +21,10 @@ import forms.sections.personalService.ArrangedSubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.personalService.ArrangedSubstituteView
 
-class ArrangedSubstituteViewSpec extends ViewBehaviours {
+class ArrangedSubstituteViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -54,7 +54,7 @@ class ArrangedSubstituteViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ArrangedSubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include(ArrangedSubstituteMessages.Worker.heading)
       }
 
       "have the correct content" in {
@@ -77,7 +77,7 @@ class ArrangedSubstituteViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ArrangedSubstituteMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(ArrangedSubstituteMessages.Hirer.heading)
       }
 
       "have the correct content" in {
@@ -100,7 +100,7 @@ class ArrangedSubstituteViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ArrangedSubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include(ArrangedSubstituteMessages.Worker.heading)
       }
 
       "have the correct content" in {
