@@ -18,12 +18,11 @@ package views.sections.setup
 
 import assets.messages.ContractStartedOptimisedMessages
 import config.featureSwitch.FeatureSwitching
-import controllers.sections.setup.routes
 import forms.sections.setup.ContractStartedFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.setup.ContractStartedView
 
 class ContractStartedViewSpec extends YesNoViewBehavioursNew with FeatureSwitching{

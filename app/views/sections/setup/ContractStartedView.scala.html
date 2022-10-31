@@ -15,16 +15,14 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.setup.routes._
 @import models.Mode
-@import views.ViewUtils._
-@import views.html.templates.layout
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
-@import views.html.components.input_yes_no_new
-@import views.html.components.submit_button_new
-@import views.html.components.headingNew
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+@import views.ViewUtils._
+@import views.html.components.{headingNew, input_yes_no_new, submit_button_new}
+@import views.html.templates.layout
 
 @this(formWithCsrf: FormWithCSRF,
       layout: layout,
