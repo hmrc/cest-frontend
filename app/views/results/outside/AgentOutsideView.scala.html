@@ -26,15 +26,21 @@
 @import results.sections.pdf
 @import models.requests.DataRequest
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF)
+@this(mainTemplate: templates.MainTemplate,
+        layout: templates.layout,
+        printTemplate: templates.PrintTemplateNew,
+        heading: components.headingNew,
+        print_and_save_result: results.sections.letter.print_and_save_result_new,
+        teal_result: components.teal_resultNew,
+        formWithCsrf: FormWithCSRF)
 
 @(form: Form[_],substituteToDoWork: Boolean,clientNotControlWork: Boolean,incurCostNoReclaim: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -42,11 +48,13 @@
     @template {
         @pdfResultDetails.resultMode match {
             case Result => {
+                @heading(messages("agent.result.outside.heading"))
+
                 @pdfResultDetails.additionalPdfDetails.map { details =>
                     @pdf.additional_details(details, pdfResultDetails.timestamp)
                 }
 
-                @components.teal_result(
+                @teal_result(
                     Html(messages("agent.result.outside.heading")),
                     "result.outside"
                 )
@@ -70,21 +78,21 @@
 
 @whyResult = {
 
-    @if(allOutReasons(Agent, substituteToDoWork, clientNotControlWork, incurCostNoReclaim).length == 0){
-        <p>@messages("agent.result.outside.whyResult.businessToBusiness")</p>
+    @if(allOutReasons(Agent, substituteToDoWork, clientNotControlWork, incurCostNoReclaim).isEmpty){
+        <p class="govuk-body">@messages("agent.result.outside.whyResult.businessToBusiness")</p>
     } else if(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim).length == 1){
-        <p>@messages(singleOutReason(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))</p>
-        <p>@messages("agent.result.outside.whyResult.p2")</p>
+        <p class="govuk-body">@messages(singleOutReason(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))</p>
+        <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     } else {
-        <p>@messages("agent.result.outside.whyResult.p1")</p>
+        <p class="govuk-body">@messages("agent.result.outside.whyResult.p1")</p>
         @components.bulleted_list(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))
-        <p>@messages("agent.result.outside.whyResult.p2")</p>
+        <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     }
 }
 
 @doNext = {
-    <p>@messages("agent.result.outside.doNext.p1")</p>
-    <p>
+    <p class="govuk-body">@messages("agent.result.outside.doNext.p1")</p>
+    <p class="govuk-body">
         @messages("agent.result.outside.doNext.p2.text")
         @components.new_window_link("agent.result.outside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
     </p>
