@@ -18,15 +18,14 @@ package views.sections.setup
 
 import assets.messages.NoIntermediaryMessages
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.setup.NoIntermediaryView
 
-class NoIntermediaryViewSpec extends ViewBehaviours {
+class NoIntermediaryViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
-    override val h2 = (i: Int) => s"#content article h2:nth-of-type($i)"
-    val p1 = "#content > article > p:nth-child(3)"
-    val p2 = "#content > article > p:nth-child(4)"
+    val p1 = "#main-content p:nth-child(2)"
+    val p2 = "#main-content p:nth-child(3)"
     val startAgain = "#start-again"
     val understandingOffPayroll = "#understanding-off-payroll"
   }

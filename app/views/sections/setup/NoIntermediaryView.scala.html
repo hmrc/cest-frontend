@@ -15,31 +15,26 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
-@import models.Mode
 @import views.ViewUtils._
-@import models.NormalMode
+@import views.html.components.{headingNew, new_tab_linkNew, submit_button_new}
+@import views.html.templates.layout
 
-@this(mainTemplate: templates.MainTemplate)
+@this(layout: layout, heading: headingNew, newTabLink: new_tab_linkNew, submit: submit_button_new)
 
 @(startAgain: Call)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(title = titleNoForm(tailorMsg("noIntermediaryResult.title")),
-appConfig = appConfig,
-bodyClasses = None) {
+@layout(pageTitle = titleNoForm(tailorMsg("noIntermediaryResult.title")),
+appConfig = appConfig) {
 
-    @components.back_link()(NormalMode)
+    @heading(tailorMsg("noIntermediaryResult.heading"))
 
-    @components.heading(tailorMsg("noIntermediaryResult.heading"))
-
-    <p>
+    <p class="govuk-body">
         @messages(tailorMsg("noIntermediaryResult.p1.text1"))
-        @components.new_window_link(tailorMsg("noIntermediaryResult.p1.link"), appConfig.understandingOffPayrollUrl, Some("understanding-off-payroll"))
+        @newTabLink(tailorMsg("noIntermediaryResult.p1.link"), appConfig.understandingOffPayrollUrl, Some("understanding-off-payroll"))
         @messages(tailorMsg("noIntermediaryResult.p1.text2"))
     </p>
 
-    <p>@messages(tailorMsg("noIntermediaryResult.p2"))</p>
-
-    <a id="start-again" href="@{startAgain.url}" class="button">@messages(tailorMsg("noIntermediaryResult.startAgain"))</a>
-
+    <p class="govuk-body">@messages(tailorMsg("noIntermediaryResult.p2"))</p>
+    
+    @submit(tailorMsg("noIntermediaryResult.startAgain"), "start-again", Some(startAgain.url))
 }

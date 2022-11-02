@@ -16,13 +16,14 @@
 
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @this(button: GovukButton)
-@(key: String = "site.continue", id: String = "submit")(implicit messages: Messages)
+@(key: String = "site.continue", id: String = "submit", href: Option[String] = None)(implicit messages: Messages)
 
 <div class="section">
    @button(
       Button(
         content = Text(messages(key)),
-        attributes = Map("id" -> id)
+        attributes = Map("id" -> id),
+        href = href
       )
    )
 </div>
