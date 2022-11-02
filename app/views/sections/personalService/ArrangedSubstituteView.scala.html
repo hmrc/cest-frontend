@@ -15,39 +15,38 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.personalService.routes._
-@import models.sections.personalService.ArrangedSubstitute
 @import models.Mode
+@import models.sections.personalService.ArrangedSubstitute
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
+@import views.html.components.{headingNew, input_radio_new, submit_button_new}
+@import views.html.templates.layout
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF, layout: layout, heading: headingNew,  errorSummary: GovukErrorSummary, radios: input_radio_new, submit: submit_button_new)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("arrangedSubstitute.title"), Some(tailorMsg("arrangedSubstitute.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("arrangedSubstitute.title"), Some(tailorMsg("arrangedSubstitute.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
-
-    @components.back_link()(mode)
+    mode = mode) {
 
     @formWithCsrf(action = ArrangedSubstituteController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @if(form.errors.nonEmpty) {
+            @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+        }
 
-        @components.input_radio(
-            field = form("value"),
-            legend = components.heading(tailorMsg("arrangedSubstitute.heading"), Some(tailorMsg("arrangedSubstitute.subheading")), asLegend = true),
-            legendClass = Some("visually-hidden"),
-            inputs = ArrangedSubstitute.options,
-            otherContent = Some(content)
-        )
+        @heading(tailorMsg("arrangedSubstitute.heading"), Some(tailorMsg("arrangedSubstitute.subheading")))
 
-        @components.submit_button()
+        <p class="govuk-body">@messages(tailorMsg("arrangedSubstitute.p1"))</p>
+
+        @radios(tailorMsg("arrangedSubstitute.heading"), form("value"), ArrangedSubstitute.options)
+
+        @submit()
     }
 }
 
-@content = {
-    <p>@messages(tailorMsg("arrangedSubstitute.p1"))</p>
-}
