@@ -204,7 +204,7 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
     "Has a section with the Print and Save as PDF options present which" should {
 
       "have the correct heading" in {
-        document.select(Selectors.PrintAndSave.h1).text mustBe PrintAndSaveMessages.heading
+        document.select(Selectors.PrintAndSave.h1).text must include(PrintAndSaveMessages.heading)
       }
 
       "have the print link" in {

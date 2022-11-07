@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.outside.AgentOutsideView
 
-class AgentOutsideViewSpec extends ResultViewFixture {
+class AgentOutsideViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[AgentOutsideView]
 
@@ -106,7 +106,7 @@ class AgentOutsideViewSpec extends ResultViewFixture {
           document.title mustBe title(OutDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe OutDecisionMessages.Agent.heading
+          document.getElementsByClass("hmrc-page-heading").text() must include(OutDecisionMessages.Agent.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OutDecisionMessages.downloadExitMsg
@@ -116,7 +116,7 @@ class AgentOutsideViewSpec extends ResultViewFixture {
           document.title mustBe title(PrintPreviewMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe PrintPreviewMessages.heading
+          document.getElementsByClass("govuk-heading-xl").text() must include(PrintPreviewMessages.heading)
         }
       case ResultPDF =>
         "Have the correct title" in {
