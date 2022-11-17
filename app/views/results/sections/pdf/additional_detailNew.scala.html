@@ -21,7 +21,7 @@
 
 <div id="pdfDetails" class="divider--bottom">
     @timestamp.map { time =>
-        <h2>@messages("result.pdf.time", monthToMessages(time))</h2>
+        <h2 class="govuk-heading-m">@messages("result.pdf.time", monthToMessages(time))</h2>
     }
 
     @additionalPdfDetails.completedBy.map { name =>
@@ -31,7 +31,7 @@
     @additionalPdfDetails.client.map { client =>
         <p class="govuk-body">@messages("result.pdf.client") <strong class="govuk-!-font-size-19 govuk-!-font-weight-bold">@client</strong></p>
     }
-
+    
     @additionalPdfDetails.job.map { job =>
         <p class="govuk-body">@messages("result.pdf.job") <strong class="govuk-!-font-size-19 govuk-!-font-weight-bold">@job</strong></p>
     }
