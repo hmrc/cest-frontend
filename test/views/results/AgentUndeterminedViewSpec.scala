@@ -23,7 +23,7 @@ import org.jsoup.nodes.Document
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.undetermined.AgentUndeterminedView
 
-class AgentUndeterminedViewSpec extends ResultViewFixture {
+class AgentUndeterminedViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[AgentUndeterminedView]
 
