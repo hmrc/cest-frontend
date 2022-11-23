@@ -41,8 +41,6 @@
     pageTitle = title(form, tailorMsg("equipmentExpenses.title"), Some(tailorMsg("equipmentExpenses.subheading"))),
     appConfig = appConfig) {
 
-    @backLink()(mode)
-
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
@@ -50,8 +48,6 @@
     @heading(tailorMsg("equipmentExpenses.title"), Some(tailorMsg("equipmentExpenses.subheading")))
 
     @formWithCsrf(action = EquipmentExpensesController.onSubmit(mode), 'autoComplete -> "off") {
-
-        @components.error_summary(form.errors)
 
         @content
 
