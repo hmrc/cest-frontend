@@ -39,7 +39,8 @@
 
 @layout(
     pageTitle = title(form, tailorMsg("equipmentExpenses.title"), Some(tailorMsg("equipmentExpenses.subheading"))),
-    appConfig = appConfig) {
+    appConfig = appConfig,
+    mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
