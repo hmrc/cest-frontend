@@ -18,20 +18,27 @@
 @import models.Mode
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components.headingNew
+@import views.html.components.submit_button_new
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+
+@this(formWithCsrf: FormWithCSRF,
+        mainTemplate: templates.MainTemplate,
+        govukButton: GovukButton,
+        heading: headingNew,
+        layout: templates.layout,
+        button: submit_button_new)
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
-@mainTemplate(
-    title = titleNoForm("session.expired.title"),
-    appConfig = appConfig,
-    bodyClasses = None,
-    showSignout = false) {
+    @layout(
+        pageTitle = titleNoForm("session.expired.title"),
+        mode = CheckMode,
+        appConfig = appConfig) {
 
-    @components.heading("session.expired.heading")
+        @heading("session.expired.heading")
 
-    <div class="section">
-        <a href="@{controllers.routes.StartAgainController.redirectToDisclaimer.url}" class="button">@messages("session.expired.start_again")</a>
-    </div>
-}
+    @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer.url))
+
+    }

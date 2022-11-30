@@ -17,13 +17,13 @@
 package views.errors
 
 import assets.messages.SessionTimeoutMessages
-import views.behaviours.ViewBehaviours
+import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
 import views.html.errors.SessionExpiredView
 
-class SessionExpiredViewSpec extends ViewBehaviours {
+class SessionExpiredViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
-    val startAgainButton = "a.button"
+    val startAgainButton = "submit"
   }
 
   val view = injector.instanceOf[SessionExpiredView]
@@ -35,7 +35,7 @@ class SessionExpiredViewSpec extends ViewBehaviours {
   }
 
   "Have a link to the IndexController" in {
-    val button = asDocument(createView()).select(Selectors.startAgainButton)
+    val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
     button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer.url
 
     button.text mustBe SessionTimeoutMessages.startAgain
