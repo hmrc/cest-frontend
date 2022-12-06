@@ -19,33 +19,45 @@
 @import controllers.sections.partParcel.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukErrorSummary
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.errorsummary.ErrorSummary
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(
+        formWithCsrf: FormWithCSRF,
+        mainTemplate: templates.MainTemplate,
+        layout: templates.layout,
+        errorSummary: GovukErrorSummary,
+        input_yes_no: components.input_yes_no_new,
+        submit_button: components.submit_button_new,
+        heading: components.headingNew,
+)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("benefits.title"), Some(tailorMsg("benefits.subheading"))),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(
+    pageTitle = title(form, tailorMsg("benefits.title"), Some(tailorMsg("benefits.subheading"))),
+    appConfig = appConfig) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("benefits.title"), Some(tailorMsg("benefits.subheading")))
 
     @formWithCsrf(action = BenefitsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @content
 
-        @components.input_yes_no(
+        @input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("benefits.heading"), Some(tailorMsg("benefits.subheading")), asLegend = true),
-            otherContent = Some(content),
-            labelClass = Some("visually-hidden")
+            legendKey = tailorMsg("benefits.heading")
         )
 
-        @components.submit_button()
+        @submit_button()
     }
 }
 
 @content = {
-    <p>@messages(tailorMsg("benefits.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("benefits.p1"))</p>
 }
