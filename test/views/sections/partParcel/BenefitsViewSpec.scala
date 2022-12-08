@@ -22,10 +22,10 @@ import forms.sections.partAndParcel.BenefitsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.sections.partParcel.BenefitsView
 
-class BenefitsViewSpec extends YesNoViewBehaviours {
+class BenefitsViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +47,7 @@ class BenefitsViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.BenefitsController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,11 +58,11 @@ class BenefitsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe BenefitsMessages.Worker.heading
+        document.select(Selectors.heading).text must include(BenefitsMessages.Worker.heading)
       }
 
       "have the correct bullet points" in {
-        document.select(Selectors.p(1)).text mustBe BenefitsMessages.Worker.p1
+        document.select(Selectors.p(1)).text must include(BenefitsMessages.Worker.p1)
       }
     }
 
@@ -71,15 +71,15 @@ class BenefitsViewSpec extends YesNoViewBehaviours {
       lazy val document = asDocument(createViewWithRequest(hirerFakeRequest))
 
       "have the correct title" in {
-        document.title mustBe title(BenefitsMessages.Hirer.title, Some(SubHeadingMessages.partAndParcel))
+        document.title must include(title(BenefitsMessages.Hirer.title, Some(SubHeadingMessages.partAndParcel)))
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe BenefitsMessages.Hirer.heading
+        document.select(Selectors.heading).text must include(BenefitsMessages.Hirer.heading)
       }
 
       "have the correct bullet points" in {
-        document.select(Selectors.p(1)).text mustBe BenefitsMessages.Hirer.p1
+        document.select(Selectors.p(1)).text must include(BenefitsMessages.Hirer.p1)
       }
     }
 
@@ -92,11 +92,11 @@ class BenefitsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe BenefitsMessages.Worker.heading
+        document.select(Selectors.heading).text must include(BenefitsMessages.Worker.heading)
       }
 
       "have the correct bullet points" in {
-        document.select(Selectors.p(1)).text mustBe BenefitsMessages.Worker.p1
+        document.select(Selectors.p(1)).text must include(BenefitsMessages.Worker.p1)
       }
     }
   }
