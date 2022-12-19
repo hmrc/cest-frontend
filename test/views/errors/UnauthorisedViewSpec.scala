@@ -16,10 +16,10 @@
 
 package views.errors
 
-import views.behaviours.ViewBehaviours
+import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
 import views.html.errors.UnauthorisedView
 
-class UnauthorisedViewSpec extends ViewBehaviours {
+class UnauthorisedViewSpec extends ViewBehavioursNew {
 
   val view = injector.instanceOf[UnauthorisedView]
 

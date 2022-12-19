@@ -17,15 +17,17 @@
 @import config.FrontendAppConfig
 @import views.ViewUtils._
 
-@this(mainTemplate: templates.MainTemplate)
+@this(
+        layout: templates.layout,
+        heading: components.headingNew
+)
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
-@mainTemplate(
-    title = titleNoForm("unauthorised.title"),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(
+    pageTitle = titleNoForm("unauthorised.title"),
+    appConfig = appConfig) {
 
-    @components.heading("unauthorised.heading")
+    @heading("unauthorised.heading")
 
 }
