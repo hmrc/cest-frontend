@@ -18,10 +18,11 @@ package views.sections.setup
 
 import assets.messages.AgencyAdvisoryMessages
 import play.api.mvc.Call
-import views.behaviours.ViewBehaviours
+import play.twirl.api.HtmlFormat
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.setup.AgencyAdvisoryView
 
-class AgencyAdvisoryViewSpec extends ViewBehaviours {
+class AgencyAdvisoryViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
     val finish = "#finish-link"
@@ -33,7 +34,7 @@ class AgencyAdvisoryViewSpec extends ViewBehaviours {
 
   def continueCall = Call("POST", "/foo")
 
-  def createView = () => view(continueCall)(fakeRequest, messages, frontendAppConfig)
+  def createView: () => HtmlFormat.Appendable = () => view(continueCall)(fakeRequest, messages, frontendAppConfig)
 
   "AgencyAdvisory view" must {
     behave like normalPage(createView, messageKeyPrefix, hasSubheading = false)
@@ -46,7 +47,7 @@ class AgencyAdvisoryViewSpec extends ViewBehaviours {
     }
 
     "have the correct heading" in {
-      document.select(Selectors.heading).text mustBe AgencyAdvisoryMessages.heading
+      document.select(Selectors.heading).text must include (AgencyAdvisoryMessages.heading)
     }
 
     "have the correct p1" in {
