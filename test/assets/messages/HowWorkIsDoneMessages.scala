@@ -44,7 +44,7 @@ object HowWorkIsDoneMessages extends BaseMessages {
     val title = heading
     val p1 = "This can include your client instructing, guiding or advising the way the task should be completed."
     val p2 = "This is not relevant if it is highly skilled work. For example, an airline pilot."
-    val p3 = "Read more examples of how the work is done (opens in a new window)."
+    val p3 = "Read more examples of how the work is done (opens in new tab)."
     val yesClientDecides = "Yes"
     val noWorkerDecides = "No, you solely decide"
     val partly = "No, you and your client agree together"
@@ -57,7 +57,7 @@ object HowWorkIsDoneMessages extends BaseMessages {
     val title = heading
     val p1 = "This can include your organisation instructing, guiding or advising the way the task should be completed."
     val p2 = "This is not relevant if it is highly skilled work. For example, an airline pilot."
-    val p3 = "Read more examples of how the work is done (opens in a new window)."
+    val p3 = "Read more examples of how the work is done (opens in new tab)."
     val yesClientDecides = "Yes"
     val noWorkerDecides = "No, the worker solely decides"
     val partly = "No, your organisation and the worker agree together"

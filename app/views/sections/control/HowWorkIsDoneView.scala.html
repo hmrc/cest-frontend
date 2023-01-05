@@ -48,9 +48,9 @@ mode = mode) {
 
     @heading(tailorMsg("howWorkIsDone.title"), Some(tailorMsg("howWorkIsDone.subheading")))
 
-    @otherContent
-
         @formWithCsrf(action = HowWorkIsDoneController.onSubmit(mode), 'autoComplete -> "off") {
+
+        @otherContent
 
         @radios(
             field = form("value"),
