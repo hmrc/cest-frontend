@@ -47,7 +47,7 @@
 
     @formWithCsrf(action = ChooseWhereWorkController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @radios(field = form("value"), legendKey = tailorMsg("extendContract.title"), radioItems = ChooseWhereWork.options)
+        @radios(field = form("value"), legendKey = tailorMsg("chooseWhereWork.title"), radioItems = ChooseWhereWork.options)
 
         @submit()
     }
