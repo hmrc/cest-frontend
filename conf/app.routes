@@ -11,8 +11,6 @@ GET        /language/:lang                              controllers.LanguageSwit
 GET        /service-reset                               controllers.errors.SessionExpiredController.onPageLoad
 POST       /service-reset                               controllers.errors.SessionExpiredController.onSubmit
 
-GET        /unauthorised                                controllers.errors.UnauthorisedController.onPageLoad
-
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
 GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad
