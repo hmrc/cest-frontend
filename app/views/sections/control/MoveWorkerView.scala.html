@@ -46,6 +46,8 @@
 
     @heading(tailorMsg("moveWorker.title"), Some(tailorMsg("moveWorker.subheading")))
 
+    @content
+
     @formWithCsrf(action = MoveWorkerController.onSubmit(mode), 'autoComplete -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("moveWorker.title"), radioItems = MoveWorker.options)
