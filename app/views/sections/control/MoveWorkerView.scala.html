@@ -58,6 +58,6 @@
 @content = {
     <p class="govuk-body">@messages(tailorMsg("moveWorker.p1"))</p>
     <p class="govuk-body"> @messages(tailorMsg("moveWorker.p2"))
-        @components.new_window_link(tailorMsg("moveWorker.p2.link"), appConfig.employmentStatusManualESM0521Url, Some("employmentStatusManualLink")).
+        @link(tailorMsg("moveWorker.p2.link"), appConfig.employmentStatusManualESM0521Url, Some("employmentStatusManualLink")).
     </p>
 }
