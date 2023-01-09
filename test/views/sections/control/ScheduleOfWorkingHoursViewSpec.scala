@@ -19,7 +19,7 @@ package views.sections.control
 import assets.messages.{ScheduleOfWorkingHoursMessages, SubHeadingMessages}
 import forms.sections.control.ScheduleOfWorkingHoursFormProvider
 import models.NormalMode
-import models.sections.control. ScheduleOfWorkingHours
+import models.sections.control.ScheduleOfWorkingHours
 import play.api.data.Form
 import play.api.mvc.Request
 import views.behaviours.ViewBehavioursNew
