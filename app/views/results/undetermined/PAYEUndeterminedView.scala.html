@@ -23,15 +23,29 @@
 @import controllers.routes._
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
+@import views.html.components._
+@import views.html.results.sections._
+@import views.html.templates._
+@import results.sections.pdf._
 
-
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF)
+@this(mainTemplate: templates.MainTemplate,
+                    layout: layout,
+                    printTemplate: templates.PrintTemplate,
+                    additionalDetails: additional_detailNew,
+                    teal_result: teal_resultNew,
+                    do_next: do_nextNew,
+                    why_result: why_resultNew,
+                    download: downloadNew,
+                    newTabLink: new_tab_linkNew,
+                    keepCopy:  keep_copyNew,
+                    contactDetails: contact_details_new,
+                    formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 @defining(
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
         case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
@@ -42,19 +56,19 @@
         @pdfResultDetails.resultMode match {
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @pdf.additional_details(details, pdfResultDetails.timestamp)
+                    @additionalDetails(details, pdfResultDetails.timestamp)
                 }
 
-                @components.teal_result(
+                @teal_result(
                     Html(messages(tailorMsg("result.undetermined.paye.heading"))),
                     "result.undetermined"
                 )
 
                 @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
 
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
 
@@ -71,30 +85,30 @@
 }
 
 @whyResult = {
-    <p>@messages(tailorMsg("result.undetermined.paye.whyResult.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.whyResult.p1"))</p>
 }
 
 @doNext = {
 
     @if(request.userType.contains(Hirer)) {
         @if(workerKnown) {
-            <p>@messages(tailorMsg("result.undetermined.paye.doNext.p1.workerKnown"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.doNext.p1.workerKnown"))</p>
         } else {
-            <p>@messages(tailorMsg("result.undetermined.paye.doNext.p1.workerNotKnown"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.doNext.p1.workerNotKnown"))</p>
         }
     } else {
-        <p>@messages(tailorMsg("result.undetermined.paye.doNext.p1"))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.doNext.p1"))</p>
     }
 
-    <p>
+    <p class="govuk-body">
         @messages(tailorMsg("result.undetermined.paye.doNext.p2.preLink"))
-        @components.new_window_link("site.employmentStatusManual", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+        @newTabLink("site.employmentStatusManual", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
         @messages(tailorMsg("result.undetermined.paye.doNext.p2.postLink"))
     </p>
 
-    <p>@messages(tailorMsg("result.undetermined.paye.doNext.p3"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.doNext.p3"))</p>
 
-    @contact_details()
+    @contactDetails()
 
-    @results.sections.keep_copy(isUndetermined = true)
+    @keepCopy(isUndetermined = true)
 }
