@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.undetermined.PAYEUndeterminedView
 
-class PAYEUndeterminedViewSpec extends ResultViewFixture {
+class PAYEUndeterminedViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[PAYEUndeterminedView]
 
