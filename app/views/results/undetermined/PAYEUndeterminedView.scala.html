@@ -38,7 +38,6 @@
                     download: downloadNew,
                     newTabLink: new_tab_linkNew,
                     keepCopy:  keep_copyNew,
-                    contactDetails: contact_details_new,
                     formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
@@ -108,7 +107,7 @@
 
     <p class="govuk-body">@messages(tailorMsg("result.undetermined.paye.doNext.p3"))</p>
 
-    @contactDetails()
+    @contact_details_new()
 
     @keepCopy(isUndetermined = true)
 }
