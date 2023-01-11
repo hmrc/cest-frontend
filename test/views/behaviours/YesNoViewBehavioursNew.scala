@@ -63,7 +63,9 @@ trait YesNoViewBehavioursNew extends QuestionViewBehavioursNew[Boolean] {
       "rendered with an error" must {
         "show an error summary" in {
           val doc = asDocument(createView(form.withError(error)))
-          assertRenderedById(doc, "error-summary-title")
+          val summaryTitle = doc.getElementsByClass("govuk-error-summary__title")
+
+          summaryTitle.first() != null mustBe true
         }
 
         "show an error in the value field's label" in {
