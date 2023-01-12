@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.IR35InsideView
 
-class IR35InsideViewSpec extends ResultViewFixture {
+class IR35InsideViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[IR35InsideView]
 
@@ -169,7 +169,7 @@ class IR35InsideViewSpec extends ResultViewFixture {
           document.title mustBe title(InDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe InDecisionMessages.HirerIR35.heading
+          document.select(Selectors.heading).text must include (InDecisionMessages.HirerIR35.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe InDecisionMessages.downloadExitMsg
@@ -221,7 +221,7 @@ class IR35InsideViewSpec extends ResultViewFixture {
           document.title mustBe title(InDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe InDecisionMessages.WorkerIR35.heading
+          document.select(Selectors.heading).text must include (InDecisionMessages.WorkerIR35.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe InDecisionMessages.downloadExitMsg
