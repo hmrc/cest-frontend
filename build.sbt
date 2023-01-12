@@ -20,7 +20,7 @@ lazy val scoverageSettings = {
         ScoverageKeys.coverageMinimumStmtTotal := 80,
         ScoverageKeys.coverageFailOnMinimum := true,
         ScoverageKeys.coverageHighlighting := true,
-        parallelExecution in Test := false
+        Test / parallelExecution := false
     )
 }
 
@@ -40,11 +40,11 @@ lazy val microservice = Project(appName, file("."))
     inConfig(IntegrationTest)(Defaults.itSettings),
     libraryDependencies ++= appDependencies,
     retrieveManaged := true,
-    parallelExecution          in Test := true,
-    fork                       in Test := true,
-    Keys.fork                  in IntegrationTest :=  false,
-    unmanagedSourceDirectories in IntegrationTest := (baseDirectory in IntegrationTest)(base => Seq(base / "it")).value,
-    parallelExecution in IntegrationTest := false,
+    Test / parallelExecution := true,
+    Test / fork := true,
+    IntegrationTest / Keys.fork :=  false,
+    IntegrationTest / unmanagedSourceDirectories := (IntegrationTest / baseDirectory)(base => Seq(base / "it")).value,
+    IntegrationTest / parallelExecution := false,
     // ***************
     // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
     scalacOptions += "-P:silencer:pathFilters=views;routes",
