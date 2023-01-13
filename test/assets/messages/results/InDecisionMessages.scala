@@ -41,7 +41,7 @@ object InDecisionMessages extends BaseResultMessages {
     val heading = "Employed for tax purposes for this work"
     val whyResult = "The answers you have given suggest the worker is employed for tax purposes for this work."
     val doNextP1 = "You need to operate PAYE on the worker’s earnings."
-    val doNextP2 = "If this worker is your first employee, you could read this guidance about PAYE and payroll for employers (opens in a new window)."
+    val doNextP2 = "If this worker is your first employee, you could read this guidance about PAYE and payroll for employers (opens in new tab)."
     val workerNotKnown = "Once your organisation knows who the worker is, you may get more information about their working practices. Then you can use this tool again to check if this information will change your determination."
   }
 
