@@ -90,7 +90,7 @@
         <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.doNext.p1"))</p>
         <p class="govuk-body">
             @messages(tailorMsg("result.inside.ir35.doNext.p2.text"))
-            @components.new_window_link(tailorMsg("result.inside.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
+            @newTabLink(tailorMsg("result.inside.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
         </p>
         @if(!workerKnown) {
             <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.doNext.workerNotKnown"))</p>
