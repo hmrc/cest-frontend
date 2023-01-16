@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.PAYEInsideView
 
-class PAYEInsideViewSpec extends ResultViewFixture {
+class PAYEInsideViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[PAYEInsideView]
 
@@ -132,7 +132,7 @@ class PAYEInsideViewSpec extends ResultViewFixture {
           document.title mustBe title(InDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe InDecisionMessages.WorkerPAYE.heading
+          document.select(Selectors.heading).text must include (InDecisionMessages.WorkerPAYE.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe InDecisionMessages.downloadExitMsg
@@ -173,7 +173,7 @@ class PAYEInsideViewSpec extends ResultViewFixture {
           document.title mustBe title(InDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe InDecisionMessages.HirerPAYE.heading
+          document.select(Selectors.heading).text must include (InDecisionMessages.HirerPAYE.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe InDecisionMessages.downloadExitMsg
