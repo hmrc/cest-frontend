@@ -20,29 +20,32 @@
 @import models.Mode
 @import views.ViewUtils._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+      layout: layout,
+      errorSummary: GovukErrorSummary,
+      radios: input_yes_no_new,
+      submit: submit_button_new,
+      heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("materials.title"), Some(tailorMsg("materials.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("materials.title"), Some(tailorMsg("materials.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
-
-    @components.back_link()(mode)
+    mode = mode) {
 
     @formWithCsrf(action = MaterialsController.onSubmit(mode), 'autoComplete -> "off") {
 
         @components.error_summary(form.errors)
 
-        @components.input_yes_no(
+        @radios(
             field = form("value"),
             legend = components.heading(tailorMsg("materials.heading"), Some(tailorMsg("materials.subheading")), asLegend = true),
             otherContent = Some(content),
             labelClass = Some("visually-hidden")
         )
 
-        @components.submit_button()
+        @submit()
     }
 }
 
