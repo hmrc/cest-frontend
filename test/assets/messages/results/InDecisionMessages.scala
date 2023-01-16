@@ -34,7 +34,7 @@ object InDecisionMessages extends BaseResultMessages {
     val checkDoNextP1 = "If this result is different from the one you are checking, download a copy of this result and show it to your client. You should check your answers with them to make sure they are correct."
     val checkDoNextP2 = "If you need more guidance, you can contact HMRC’s Employment Status and Intermediaries helpline."
     val checkDoNextP3 = s"$telephone $telephoneNumber"
-    val checkDoNextP4 = "You could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
+    val checkDoNextP4 = "You could also read Chapter 5 of the Employment Status Manual (opens in new tab)."
   }
 
   object HirerPAYE {
@@ -49,7 +49,7 @@ object InDecisionMessages extends BaseResultMessages {
     val heading = "Off-payroll working rules (IR35) apply"
     val whyResultP1 = "The answers you have given suggest the worker is providing a personal service to your organisation. This means they are classed as employed for tax purposes for this work."
     val doNextP1 = "If your organisation is responsible for paying the worker, you need to operate PAYE on their earnings. If someone else is responsible, you should download a copy of this result and show it to them."
-    val doNextP2 = "You could also read more about the responsibilities of the fee-payer (opens in a new window)."
+    val doNextP2 = "You could also read more about the responsibilities of the fee-payer (opens in new tab)."
     val workerNotKnown = "Once your organisation knows who the worker is, you may get more information about their working practices. Then you can use this tool again to check if this information will change your determination."
   }
 

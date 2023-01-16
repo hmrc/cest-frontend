@@ -22,20 +22,31 @@
 @import results.sections.pdf
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
-
 @import results.sections._
-
 @import controllers.routes._
+@import views.html.components._
+@import views.html.templates._
+@import results.sections.pdf._
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF)
+@this(mainTemplate: templates.MainTemplate,
+      layout: layout,
+      printTemplate: templates.PrintTemplate,
+      additionalDetails: additional_detailNew,
+      teal_result: teal_resultNew,
+      do_next: do_nextNew,
+      why_result: why_resultNew,
+      download: downloadNew,
+      newTabLink: new_tab_linkNew,
+      keepCopy:  keep_copyNew,
+      formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], isMake: Boolean, workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -45,18 +56,18 @@
         @pdfResultDetails.resultMode match {
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @pdf.additional_details(details, pdfResultDetails.timestamp)
+                    @additionalDetails(details, pdfResultDetails.timestamp)
                 }
 
-                @components.teal_result(
+                @teal_result(
                     Html(messages(tailorMsg("result.inside.ir35.heading"))),
                     "result.inside"
                 )
 
                 @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
             case ResultPrintPreview => {
@@ -71,34 +82,34 @@
 }
 
 @whyResult = {
-    <p>@messages(tailorMsg("result.inside.ir35.whyResult.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.whyResult.p1"))</p>
 }
 
 @doNext = {
     @if(request.userType.contains(Hirer)) {
-        <p>@messages(tailorMsg("result.inside.ir35.doNext.p1"))</p>
-        <p>
+        <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.doNext.p1"))</p>
+        <p class="govuk-body">
             @messages(tailorMsg("result.inside.ir35.doNext.p2.text"))
-            @components.new_window_link(tailorMsg("result.inside.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
+            @newTabLink(tailorMsg("result.inside.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
         </p>
         @if(!workerKnown) {
-            <p>@messages(tailorMsg("result.inside.ir35.doNext.workerNotKnown"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.doNext.workerNotKnown"))</p>
         }
     } else {
         @if(isMake) {
-            <p>@messages(tailorMsg("result.inside.ir35.make.doNext.p1"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.make.doNext.p1"))</p>
         } else {
-            <p>@messages(tailorMsg("result.inside.ir35.check.doNext.p1"))</p>
-            <p>@messages(tailorMsg("result.inside.ir35.check.doNext.p2"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.check.doNext.p1"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.inside.ir35.check.doNext.p2"))</p>
 
-            @contact_details()
+            @contact_details_new()
 
-            <p>
+            <p class="govuk-body">
                 @messages(tailorMsg("result.inside.ir35.check.doNext.p3.text"))
-                @components.new_window_link(tailorMsg("result.inside.ir35.check.doNext.p3.link"), appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+                @newTabLink(tailorMsg("result.inside.ir35.check.doNext.p3.link"), appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
             </p>
         }
     }
 
-    @results.sections.keep_copy(isMake)
+    @keepCopy(isMake)
 }
