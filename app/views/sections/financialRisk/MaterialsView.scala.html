@@ -19,6 +19,10 @@
 @import controllers.sections.financialRisk.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
 @this(formWithCsrf: FormWithCSRF,
       layout: layout,
@@ -34,22 +38,26 @@
     appConfig = appConfig,
     mode = mode) {
 
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("materials.title"), Some(tailorMsg("materials.subheading")))
+
     @formWithCsrf(action = MaterialsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+          @content
 
-        @radios(
-            field = form("value"),
-            legend = components.heading(tailorMsg("materials.heading"), Some(tailorMsg("materials.subheading")), asLegend = true),
-            otherContent = Some(content),
-            labelClass = Some("visually-hidden")
-        )
+          @radios(
+              field = form("value"),
+              legendKey = tailorMsg("materials.heading"))
+          )
 
         @submit()
     }
 }
 
 @content = {
-    <p>@messages(tailorMsg("materials.p1"))</p>
-    <p>@messages(tailorMsg("materials.p2"))</p>
+    <p class="govuk-body">@messages(tailorMsg("materials.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("materials.p2"))</p>
 }
