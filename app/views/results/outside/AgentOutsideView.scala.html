@@ -32,7 +32,8 @@
         heading: components.headingNew,
         print_and_save_result: results.sections.letter.print_and_save_result_new,
         teal_result: components.teal_resultNew,
-        formWithCsrf: FormWithCSRF)
+        formWithCsrf: FormWithCSRF,
+        letterLayout: letter_layout)
 
 @(form: Form[_],substituteToDoWork: Boolean,clientNotControlWork: Boolean,incurCostNoReclaim: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -67,10 +68,10 @@
             }
             case ResultPrintPreview => {
                 @print_and_save_result()
-                @letter_layout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
-                @letter_layout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
         }
     }
