@@ -22,10 +22,10 @@ import forms.sections.financialRisk.MaterialsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.sections.financialRisk.MaterialsView
 
-class MaterialsViewSpec extends YesNoViewBehaviours {
+class MaterialsViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +47,7 @@ class MaterialsViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.MaterialsController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +58,7 @@ class MaterialsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MaterialsMessages.Worker.heading
+        document.select(Selectors.heading).text must include (MaterialsMessages.Worker.heading)
       }
 
       "have the correct text" in {
@@ -81,7 +81,7 @@ class MaterialsViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MaterialsMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (MaterialsMessages.Hirer.heading)
       }
 
       "have the correct text" in {
