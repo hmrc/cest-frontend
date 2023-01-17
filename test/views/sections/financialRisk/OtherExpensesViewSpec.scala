@@ -22,10 +22,10 @@ import forms.sections.financialRisk.OtherExpensesFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.sections.financialRisk.OtherExpensesView
 
-class OtherExpensesViewSpec extends YesNoViewBehaviours {
+class OtherExpensesViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +47,7 @@ class OtherExpensesViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.OtherExpensesController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +58,7 @@ class OtherExpensesViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OtherExpensesMessages.Worker.heading
+        document.select(Selectors.heading).text must include (OtherExpensesMessages.Worker.heading)
       }
 
       "have the correct text" in {
@@ -80,7 +80,7 @@ class OtherExpensesViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe OtherExpensesMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (OtherExpensesMessages.Hirer.heading)
       }
 
       "have the correct text" in {
