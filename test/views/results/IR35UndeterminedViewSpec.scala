@@ -26,7 +26,7 @@ import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.undetermined.IR35UndeterminedView
 
 
-class IR35UndeterminedViewSpec extends ResultViewFixture {
+class IR35UndeterminedViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[IR35UndeterminedView]
 
@@ -134,7 +134,7 @@ class IR35UndeterminedViewSpec extends ResultViewFixture {
           document.title mustBe title(UndeterminedDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe UndeterminedDecisionMessages.WorkerIR35.heading
+          document.select(Selectors.heading).text must include (UndeterminedDecisionMessages.WorkerIR35.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe UndeterminedDecisionMessages.downloadExitMsg
@@ -178,7 +178,7 @@ class IR35UndeterminedViewSpec extends ResultViewFixture {
           document.title mustBe title(UndeterminedDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe UndeterminedDecisionMessages.HirerIR35.heading
+          document.select(Selectors.heading).text must include (UndeterminedDecisionMessages.HirerIR35.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe UndeterminedDecisionMessages.downloadExitMsg

@@ -19,13 +19,13 @@ package views.sections.control
 import assets.messages.{MoveWorkerMessages, SubHeadingMessages}
 import forms.sections.control.MoveWorkerFormProvider
 import models.NormalMode
-import models.sections.control.MoveWorker
+import models.sections.control.{HowWorkIsDone, MoveWorker}
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.control.MoveWorkerView
 
-class MoveWorkerViewSpec extends ViewBehaviours {
+class MoveWorkerViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -55,7 +55,7 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include (MoveWorkerMessages.OptimisedWorker.heading)
       }
 
       "have the correct p1" in {
@@ -80,7 +80,7 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text must include (MoveWorkerMessages.OptimisedHirer.heading)
       }
 
       "have the correct p1" in {
@@ -105,7 +105,7 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe MoveWorkerMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include (MoveWorkerMessages.OptimisedWorker.heading)
       }
 
       "have the correct p1" in {
@@ -127,7 +127,7 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       "contain radio buttons for the value" in {
         val doc = asDocument(createViewUsingForm(form))
         for (option <- MoveWorker.options) {
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = false)
+          assertContainsRadioButton(doc, idHelper(MoveWorker.options, option), "value", option.value, isChecked = false)
         }
       }
     }
@@ -136,10 +136,10 @@ class MoveWorkerViewSpec extends ViewBehaviours {
       s"rendered with a value of '${option.value}'" must {
         s"have the '${option.value}' radio button selected" in {
           val doc = asDocument(createViewUsingForm(form.bind(Map("value" -> s"${option.value}"))))
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = true)
+          assertContainsRadioButton(doc, idHelper(MoveWorker.options, option), "value", option.value, isChecked = true)
 
           for(unselectedOption <- MoveWorker.options.filterNot(o => o == option)) {
-            assertContainsRadioButton(doc, unselectedOption.id, "value", unselectedOption.value, isChecked = false)
+            assertContainsRadioButton(doc, idHelper(MoveWorker.options, unselectedOption), "value", unselectedOption.value, isChecked = false)
           }
         }
       }

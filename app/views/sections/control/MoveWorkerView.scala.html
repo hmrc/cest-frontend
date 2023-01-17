@@ -20,36 +20,44 @@
 @import models.sections.control.MoveWorker
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_radio_new,
+        submit: submit_button_new,
+        heading: headingNew,
+        link: new_tab_linkNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("moveWorker.title"), Some(tailorMsg("chooseWhereWork.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("moveWorker.title"), Some(tailorMsg("chooseWhereWork.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("moveWorker.title"), Some(tailorMsg("moveWorker.subheading")))
 
     @formWithCsrf(action = MoveWorkerController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @content
 
-        @components.input_radio(
-            field = form("value"),
-            legend = components.heading(tailorMsg("moveWorker.heading"), Some(tailorMsg("chooseWhereWork.subheading")), asLegend = true),
-            legendClass = Some("visually-hidden"),
-            otherContent = Some(content),
-            inputs = MoveWorker.options
-        )
+        @radios(field = form("value"), legendKey = tailorMsg("moveWorker.title"), radioItems = MoveWorker.options)
 
-        @components.submit_button()
+        @submit()
     }
 }
 @content = {
-    <p>@messages(tailorMsg("moveWorker.p1"))</p>
-    <p> @messages(tailorMsg("moveWorker.p2"))
-        @components.new_window_link(tailorMsg("moveWorker.p2.link"), appConfig.employmentStatusManualESM0521Url, Some("employmentStatusManualLink")).
+    <p class="govuk-body">@messages(tailorMsg("moveWorker.p1"))</p>
+    <p class="govuk-body"> @messages(tailorMsg("moveWorker.p2"))
+        @link(tailorMsg("moveWorker.p2.link"), appConfig.employmentStatusManualESM0521Url, Some("employmentStatusManualLink")).
     </p>
 }

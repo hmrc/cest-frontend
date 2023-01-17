@@ -22,10 +22,10 @@ import models.NormalMode
 import models.sections.control.ScheduleOfWorkingHours
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.control.ScheduleOfWorkingHoursView
 
-class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
+class ScheduleOfWorkingHoursViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -55,7 +55,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include (ScheduleOfWorkingHoursMessages.OptimisedWorker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -75,7 +75,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedHirer.heading
+        document.select(Selectors.heading).text must include (ScheduleOfWorkingHoursMessages.OptimisedHirer.heading)
       }
 
       "have the correct radio option messages" in {
@@ -96,7 +96,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe ScheduleOfWorkingHoursMessages.OptimisedWorker.heading
+        document.select(Selectors.heading).text must include (ScheduleOfWorkingHoursMessages.OptimisedWorker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -114,7 +114,7 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       "contain radio buttons for the value" in {
         val doc = asDocument(createViewUsingForm(form))
         for (option <- ScheduleOfWorkingHours.options) {
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = false)
+          assertContainsRadioButton(doc, idHelper(ScheduleOfWorkingHours.options, option), "value", option.value, isChecked = false)
         }
       }
     }
@@ -123,10 +123,10 @@ class ScheduleOfWorkingHoursViewSpec extends ViewBehaviours {
       s"rendered with a value of '${option.value}'" must {
         s"have the '${option.value}' radio button selected" in {
           val doc = asDocument(createViewUsingForm(form.bind(Map("value" -> s"${option.value}"))))
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = true)
+          assertContainsRadioButton(doc, idHelper(ScheduleOfWorkingHours.options, option), "value", option.value, isChecked = true)
 
           for(unselectedOption <- ScheduleOfWorkingHours.options.filterNot(o => o == option)) {
-            assertContainsRadioButton(doc, unselectedOption.id, "value", unselectedOption.value, isChecked = false)
+            assertContainsRadioButton(doc, idHelper(ScheduleOfWorkingHours.options, unselectedOption), "value", unselectedOption.value, isChecked = false)
           }
         }
       }
