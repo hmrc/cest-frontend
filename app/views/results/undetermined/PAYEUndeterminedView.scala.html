@@ -15,18 +15,17 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
-@import views.ViewUtils._
-@import results.sections._
+@import controllers.routes._
 @import models.requests.DataRequest
 @import models.sections.setup.WhoAreYou.Hirer
-@import controllers.routes._
+@import results.sections._
 @import results.sections.letter._
-@import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
-@import views.html.components._
-@import views.html.results.sections._
-@import views.html.templates._
 @import results.sections.pdf._
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+@import viewmodels.{LetterAnswerSections, Result, ResultPDF, ResultPrintPreview}
+@import views.ViewUtils._
+@import views.html.components._
+@import views.html.templates._
 
 @this(mainTemplate: templates.MainTemplate,
                     layout: layout,
