@@ -19,34 +19,45 @@
 @import controllers.sections.financialRisk.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+      layout: layout,
+      errorSummary: GovukErrorSummary,
+      radios: input_yes_no_new,
+      submit: submit_button_new,
+      heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("materials.title"), Some(tailorMsg("materials.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("materials.title"), Some(tailorMsg("materials.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("materials.title"), Some(tailorMsg("materials.subheading")))
 
     @formWithCsrf(action = MaterialsController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+          @content
 
-        @components.input_yes_no(
-            field = form("value"),
-            legend = components.heading(tailorMsg("materials.heading"), Some(tailorMsg("materials.subheading")), asLegend = true),
-            otherContent = Some(content),
-            labelClass = Some("visually-hidden")
-        )
+          @radios(
+              field = form("value"),
+              legendKey = tailorMsg("materials.heading"))
+          )
 
-        @components.submit_button()
+        @submit()
     }
 }
 
 @content = {
-    <p>@messages(tailorMsg("materials.p1"))</p>
-    <p>@messages(tailorMsg("materials.p2"))</p>
+    <p class="govuk-body">@messages(tailorMsg("materials.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("materials.p2"))</p>
 }
