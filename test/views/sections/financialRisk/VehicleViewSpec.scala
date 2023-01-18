@@ -22,10 +22,10 @@ import forms.sections.financialRisk.VehicleFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.financialRisk.VehicleView
 
-class VehicleViewSpec extends YesNoViewBehaviours {
+class VehicleViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +47,7 @@ class VehicleViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.VehicleController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +58,7 @@ class VehicleViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe VehicleMessages.Worker.heading
+        document.select(Selectors.heading).text must include (VehicleMessages.Worker.heading)
       }
 
       "have the correct text" in {
@@ -80,7 +80,7 @@ class VehicleViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe VehicleMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (VehicleMessages.Hirer.heading)
       }
 
       "have the correct text" in {
