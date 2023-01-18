@@ -17,12 +17,11 @@
 package views.sections.financialRisk
 
 import assets.messages.{OtherExpensesMessages, SubHeadingMessages}
-import controllers.sections.financialRisk.routes
 import forms.sections.financialRisk.OtherExpensesFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.financialRisk.OtherExpensesView
 
 class OtherExpensesViewSpec extends YesNoViewBehavioursNew {
