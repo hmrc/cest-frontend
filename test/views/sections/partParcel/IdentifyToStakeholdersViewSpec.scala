@@ -22,10 +22,10 @@ import models.NormalMode
 import models.sections.partAndParcel.IdentifyToStakeholders
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.partParcel.IdentifyToStakeholdersView
 
-class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
+class IdentifyToStakeholdersViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -55,7 +55,7 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Worker.heading
+        document.select(Selectors.heading).text must include (IdentifyToStakeholdersMessages.Worker.heading)
       }
 
       "have the correct radio options" in {
@@ -75,7 +75,7 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (IdentifyToStakeholdersMessages.Hirer.heading)
       }
 
       "have the correct radio options" in {
@@ -95,7 +95,7 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe IdentifyToStakeholdersMessages.Worker.heading
+        document.select(Selectors.heading).text must include (IdentifyToStakeholdersMessages.Worker.heading)
       }
 
       "have the correct radio options" in {
@@ -112,20 +112,19 @@ class IdentifyToStakeholdersViewSpec extends ViewBehaviours {
       "contain radio buttons for the value" in {
         val doc = asDocument(createViewUsingForm(form))
         for (option <- IdentifyToStakeholders.options) {
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = false)
+          assertContainsRadioButton(doc, idHelper(IdentifyToStakeholders.options, option), "value", option.value, isChecked = false)
         }
       }
     }
-
 
     for(option <- IdentifyToStakeholders.options) {
       s"rendered with a value of '${option.value}'" must {
         s"have the '${option.value}' radio button selected" in {
           val doc = asDocument(createViewUsingForm(form.bind(Map("value" -> s"${option.value}"))))
-          assertContainsRadioButton(doc, option.id, "value", option.value, isChecked = true)
+          assertContainsRadioButton(doc, idHelper(IdentifyToStakeholders.options, option), "value", option.value, isChecked = true)
 
           for(unselectedOption <- IdentifyToStakeholders.options.filterNot(o => o == option)) {
-            assertContainsRadioButton(doc, unselectedOption.id, "value", unselectedOption.value, isChecked = false)
+            assertContainsRadioButton(doc, idHelper(IdentifyToStakeholders.options, unselectedOption), "value", unselectedOption.value, isChecked = false)
           }
         }
       }
