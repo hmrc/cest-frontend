@@ -42,7 +42,7 @@
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
 
-    @heading(tailorMsg("materials.title"), Some(tailorMsg("materials.subheading")))
+    @heading(tailorMsg("materials.heading"), Some(tailorMsg("materials.subheading")))
 
     @formWithCsrf(action = MaterialsController.onSubmit(mode), 'autoComplete -> "off") {
 
@@ -50,7 +50,7 @@
 
           @radios(
               field = form("value"),
-              legendKey = tailorMsg("materials.heading"))
+              legendKey = tailorMsg("materials.heading")
           )
 
         @submit()
