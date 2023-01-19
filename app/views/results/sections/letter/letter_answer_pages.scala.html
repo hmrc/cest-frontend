@@ -17,6 +17,11 @@
 @import viewmodels.LetterAnswerSections
 @import views.html.results.sections.pdf
 @import config.FrontendAppConfig
+@import views.html.results.sections.letter._
+
+@this(
+    letterFooter: letter_footer
+)
 
 @(letterAnswerPages: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
@@ -41,7 +46,7 @@
             </div>
         </td></tr></tbody>
 
-        @letter_footer(pageNumber + 2, letterAnswerPages.numberOfPages)
+        @letterFooter(pageNumber + 2, letterAnswerPages.numberOfPages)
 
     </table>
 </div>

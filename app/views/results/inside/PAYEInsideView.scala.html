@@ -38,7 +38,8 @@
       download: downloadNew,
       newTabLink: new_tab_linkNew,
       keepCopy:  keep_copyNew,
-      formWithCsrf: FormWithCSRF)
+      formWithCsrf: FormWithCSRF,
+        letterLayout: letter_layout)
 
 @(form: Form[_], workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -72,10 +73,10 @@
             }
             case ResultPrintPreview => {
                 @print_and_save_result()
-                @letter_layout(tailorMsg("result.inside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.inside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
-                @letter_layout(tailorMsg("result.inside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.inside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
         }
     }
