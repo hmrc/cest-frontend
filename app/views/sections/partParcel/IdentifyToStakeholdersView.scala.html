@@ -20,29 +20,39 @@
 @import models.sections.partAndParcel.IdentifyToStakeholders
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_radio_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("identifyToStakeholders.title"), Some(tailorMsg("identifyToStakeholders.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("identifyToStakeholders.title"), Some(tailorMsg("identifyToStakeholders.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("identifyToStakeholders.heading"), Some(tailorMsg("identifyToStakeholders.subheading")))
 
     @formWithCsrf(action = IdentifyToStakeholdersController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
-
-        @components.input_radio(
+        @radios(
             field = form("value"),
-            legend = components.heading(tailorMsg("identifyToStakeholders.heading"), Some(tailorMsg("identifyToStakeholders.subheading")), asLegend = true),
-            legendClass = Some("visually-hidden"),
-            inputs = IdentifyToStakeholders.options
+            legendKey = tailorMsg("identifyToStakeholders.heading"),
+            radioItems = IdentifyToStakeholders.options
         )
 
-        @components.submit_button()
+        @submit()
     }
 }
