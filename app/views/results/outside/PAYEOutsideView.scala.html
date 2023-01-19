@@ -26,7 +26,7 @@
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF)
+@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF, letterLayout: letter_layout)
 
 @(form: Form[_], isSubstituteToDoWork: Boolean, isClientNotControlWork: Boolean, isIncurCostNoReclaim: Boolean, workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -59,10 +59,10 @@
             }
             case ResultPrintPreview => {
                 @print_and_save_result()
-                @letter_layout(tailorMsg("result.outside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.outside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
-                @letter_layout(tailorMsg("result.outside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.outside.paye.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
         }
     }

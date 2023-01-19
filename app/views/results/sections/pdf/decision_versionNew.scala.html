@@ -15,14 +15,9 @@
  *@
 
 @this()
+@(version: String)(implicit messages: Messages)
 
-@(page: Int, pages: Int)(implicit messages: Messages)
-
-<tfoot>
-    <tr>
-        <td>
-            <p class="govuk-body">@messages("site.letter.footer", page, pages)</p>
-        </td>
-    </tr>
-</tfoot>
-
+<div id="decisionVersion" class="form-group">
+   <h2 class="govuk-heading-s">@messages("result.pdf.decisionVersion", version)</h2>
+   <p class="govuk-body">@messages("result.pdf.decisionVersion.p1")</p>
+</div>

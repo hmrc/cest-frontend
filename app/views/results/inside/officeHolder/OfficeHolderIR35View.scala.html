@@ -24,7 +24,7 @@
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 @import controllers.routes._
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF)
+@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF, letterLayout: letter_layout)
 
 @(form: Form[_], isMakingDetermination: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -58,10 +58,10 @@
             }
             case ResultPrintPreview => {
                 @print_and_save_result()
-                @letter_layout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
-                @letter_layout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
+                @letterLayout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
         }
     }
