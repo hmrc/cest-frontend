@@ -42,7 +42,7 @@
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
 
-    @heading(tailorMsg("vehicle.title"), Some(tailorMsg("vehicle.subheading")))
+    @heading(tailorMsg("vehicle.heading"), Some(tailorMsg("vehicle.subheading")))
 
     @formWithCsrf(action = VehicleController.onSubmit(mode), 'autoComplete -> "off") {
 
