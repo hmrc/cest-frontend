@@ -17,7 +17,6 @@
 package views.sections.personalService
 
 import assets.messages.{DidPaySubstituteMessages, SubHeadingMessages}
-import controllers.sections.personalService.routes
 import forms.sections.personalService.DidPaySubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
