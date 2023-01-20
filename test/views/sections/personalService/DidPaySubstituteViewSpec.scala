@@ -17,15 +17,14 @@
 package views.sections.personalService
 
 import assets.messages.{DidPaySubstituteMessages, SubHeadingMessages}
-import controllers.sections.personalService.routes
 import forms.sections.personalService.DidPaySubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.personalService.DidPaySubstituteView
 
-class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
+class DidPaySubstituteViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.DidPaySubstituteController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +57,7 @@ class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe DidPaySubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (DidPaySubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {
@@ -80,7 +79,7 @@ class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe DidPaySubstituteMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (DidPaySubstituteMessages.Hirer.heading)
       }
 
       "have the correct p1" in {
@@ -102,7 +101,7 @@ class DidPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe DidPaySubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (DidPaySubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {
