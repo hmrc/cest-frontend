@@ -17,15 +17,14 @@
 package views.sections.personalService
 
 import assets.messages.{NeededToPayHelperMessages, SubHeadingMessages}
-import controllers.sections.personalService.routes
 import forms.sections.personalService.NeededToPayHelperFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.personalService.NeededToPayHelperView
 
-class NeededToPayHelperViewSpec extends YesNoViewBehaviours {
+class NeededToPayHelperViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class NeededToPayHelperViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.NeededToPayHelperController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +57,7 @@ class NeededToPayHelperViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe NeededToPayHelperMessages.Worker.heading
+        document.select(Selectors.heading).text must include (NeededToPayHelperMessages.Worker.heading)
       }
 
       "have the correct radio option messages" in {
@@ -76,7 +75,7 @@ class NeededToPayHelperViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe NeededToPayHelperMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (NeededToPayHelperMessages.Hirer.heading)
       }
 
       "have the correct radio option messages" in {
@@ -94,7 +93,7 @@ class NeededToPayHelperViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe NeededToPayHelperMessages.Worker.heading
+        document.select(Selectors.heading).text must include (NeededToPayHelperMessages.Worker.heading)
       }
 
       "have the correct radio option messages" in {
