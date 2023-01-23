@@ -18,10 +18,10 @@ package views
 
 import assets.messages.BusinessOnOwnAccountSectionChangeWarningMessages
 import play.api.mvc.Call
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.BusinessOnOwnAccountSectionChangeWarningView
 
-class BusinessOnOwnAccountSectionChangeWarningSpec extends ViewBehaviours {
+class BusinessOnOwnAccountSectionChangeWarningSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
