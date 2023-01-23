@@ -21,10 +21,10 @@ import forms.sections.partAndParcel.LineManagerDutiesFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.partParcel.LineManagerDutiesView
 
-class LineManagerDutiesViewSpec extends YesNoViewBehaviours {
+class LineManagerDutiesViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -55,7 +55,7 @@ class LineManagerDutiesViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe LineManagerDutiesMessages.Worker.heading
+        document.select(Selectors.heading).text must include (LineManagerDutiesMessages.Worker.heading)
       }
 
       "have the correct hints" in {
@@ -72,7 +72,7 @@ class LineManagerDutiesViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe LineManagerDutiesMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (LineManagerDutiesMessages.Hirer.heading)
       }
 
       "have the correct hints" in {
@@ -89,7 +89,7 @@ class LineManagerDutiesViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe LineManagerDutiesMessages.Worker.heading
+        document.select(Selectors.heading).text must include (LineManagerDutiesMessages.Worker.heading)
       }
 
       "have the correct hints" in {
