@@ -17,15 +17,14 @@
 package views.sections.personalService
 
 import assets.messages.{RejectSubstituteMessages, SubHeadingMessages}
-import controllers.sections.personalService.routes
 import forms.sections.personalService.RejectSubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.personalService.RejectSubstituteView
 
-class RejectSubstituteViewSpec extends YesNoViewBehaviours {
+class RejectSubstituteViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +46,7 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.RejectSubstituteController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +57,7 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (RejectSubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {
@@ -81,7 +80,7 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (RejectSubstituteMessages.Hirer.heading)
       }
 
       "have the correct p1" in {
@@ -104,7 +103,7 @@ class RejectSubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe RejectSubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (RejectSubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {
