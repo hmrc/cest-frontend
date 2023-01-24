@@ -22,10 +22,10 @@ import forms.sections.personalService.WouldWorkerPaySubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.sections.personalService.WouldWorkerPaySubstituteView
 
-class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehaviours {
+class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
@@ -47,7 +47,7 @@ class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehaviours {
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.WouldWorkerPaySubstituteController.onSubmit(NormalMode).url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "If the user type is of Worker" should {
 
@@ -58,7 +58,7 @@ class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WouldPaySubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (WouldPaySubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {
@@ -80,7 +80,7 @@ class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WouldPaySubstituteMessages.Hirer.heading
+        document.select(Selectors.heading).text must include (WouldPaySubstituteMessages.Hirer.heading)
       }
 
       "have the correct p1" in {
@@ -102,7 +102,7 @@ class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehaviours {
       }
 
       "have the correct heading" in {
-        document.select(Selectors.heading).text mustBe WouldPaySubstituteMessages.Worker.heading
+        document.select(Selectors.heading).text must include (WouldPaySubstituteMessages.Worker.heading)
       }
 
       "have the correct p1" in {

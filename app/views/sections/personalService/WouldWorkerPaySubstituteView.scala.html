@@ -19,33 +19,44 @@
 @import controllers.sections.personalService.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        input_yes_no: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, tailorMsg("wouldWorkerPaySubstitute.title"), Some(tailorMsg("wouldWorkerPaySubstitute.subheading"))),
+@layout(
+    pageTitle = title(form, tailorMsg("wouldWorkerPaySubstitute.title"), Some(tailorMsg("wouldWorkerPaySubstitute.subheading"))),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = mode) {
 
-    @components.back_link()(mode)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading(tailorMsg("wouldWorkerPaySubstitute.heading"), Some(tailorMsg("wouldWorkerPaySubstitute.subheading")))
 
     @formWithCsrf(action = WouldWorkerPaySubstituteController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @p1
 
-        @components.input_yes_no(
+        @input_yes_no(
             field = form("value"),
-            legend = components.heading(tailorMsg("wouldWorkerPaySubstitute.heading"), Some(tailorMsg("wouldWorkerPaySubstitute.subheading")), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(p1)
+            legendKey = tailorMsg("wouldWorkerPaySubstitute.heading")
         )
 
-        @components.submit_button()
+        @submit()
     }
 }
 
 @p1 = {
-    <p>@messages(tailorMsg("wouldWorkerPaySubstitute.hint"))</p>
+    <p class="govuk-body">@messages(tailorMsg("wouldWorkerPaySubstitute.hint"))</p>
 }
