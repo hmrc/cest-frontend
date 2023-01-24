@@ -18,10 +18,10 @@ package views
 
 import assets.messages.PersonalServiceSectionChangeWarningMessages
 import play.api.mvc.Call
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.PersonalServiceSectionChangeWarningView
 
-class PersonalServiceSectionChangeWarningSpec extends ViewBehaviours {
+class PersonalServiceSectionChangeWarningSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors
 
