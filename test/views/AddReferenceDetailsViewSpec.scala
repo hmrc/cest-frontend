@@ -20,10 +20,10 @@ import assets.messages.AddReferenceDetailsMessages
 import forms.AddReferenceDetailsFormProvider
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.YesNoViewBehaviours
+import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
 import views.html.AddReferenceDetailsView
 
-class AddReferenceDetailsViewSpec extends YesNoViewBehaviours {
+class AddReferenceDetailsViewSpec extends YesNoViewBehavioursNew {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
@@ -60,6 +60,10 @@ class AddReferenceDetailsViewSpec extends YesNoViewBehaviours {
 
       "have the correct heading" in {
         document.select(Selectors.heading).text mustBe AddReferenceDetailsMessages.heading
+      }
+
+      "have the correct indent text" in {
+        document.select(Selectors.panel).text mustBe AddReferenceDetailsMessages.panel
       }
 
       "have the correct p1" in {
