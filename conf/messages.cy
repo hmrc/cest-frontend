@@ -758,15 +758,6 @@ addDetails.reference = Gwybodaeth arall (dewisol)
 addDetails.charLimit = Uchafswm o 180 o gymeriadau
 addDetails.fileName = Enw’r ffeil (dewisol)
 
-finishedChecking.title = Rydych wedi gorffen gwirio’r gwaith hwn
-finishedChecking.heading = Rydych wedi gorffen gwirio’r gwaith hwn
-finishedChecking.p1.beforeLink1 = Gallwch nawr
-finishedChecking.p1.link1 = adael
-finishedChecking.p1.beforeLink2 = , neu
-finishedChecking.p1.link2 = ddechrau eto
-finishedChecking.p1.afterLink2 = i wirio statws cyflogaeth rhyw waith arall.
-finishedChecking.downloadAnswers = Lawrlwythwch eich atebion a’ch canlyniad (PDF, o dan {0}kb)
-
 hirer.materials.error.required = Dewiswch ‘Iawn’ os bydd yn rhaid i’r gweithiwr brynu deunyddiau cyn i’ch sefydliad ei dalu
 hirer.materials.title = A fydd yn rhaid i’r gweithiwr brynu deunyddiau cyn i’ch sefydliad ei dalu?
 hirer.materials.subheading = Risg ariannol y gweithiwr

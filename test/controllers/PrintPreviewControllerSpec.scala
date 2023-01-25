@@ -23,11 +23,8 @@ import play.api.libs.json.Json
 import play.api.test.Helpers._
 import play.twirl.api.Html
 import utils.FakeTimestamp
-import views.html.FinishedCheckingView
 
 class PrintPreviewControllerSpec extends ControllerSpecBase {
-
-  val view = injector.instanceOf[FinishedCheckingView]
 
   def testPrintPreviewController(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction,
                                  requireUserType: FakeUserTypeRequiredAction = FakeUserTypeRequiredSuccessAction) = new PrintPreviewController(
@@ -38,7 +35,6 @@ class PrintPreviewControllerSpec extends ControllerSpecBase {
     controllerComponents = messagesControllerComponents,
     decisionService = mockDecisionService,
     checkYourAnswersService = mockCheckYourAnswersService,
-    finishedCheckingView = view,
     encryptionService = mockEncryptionService,
     time = FakeTimestamp,
     errorHandler = errorHandler,
