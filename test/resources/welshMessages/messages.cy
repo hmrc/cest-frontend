@@ -31,6 +31,7 @@ error.browser.title.prefix = Gwall:
 error.required = Mae angen i chi ddewis ateb
 error.summary.title = Mae problem wedi codi
 error.startAgain.title = Aeth rhywbeth o’i le
+error.startAgain.heading = Aeth rhywbeth o’i le
 error.startAgain.p = Rhowch gynnig arall ar gychwyn y twlsyn
 error.startAgain.button = Dechrau eto
 error.summary.prefix = Gwall:
