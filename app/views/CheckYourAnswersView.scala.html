@@ -43,7 +43,7 @@
 
     @formWithCsrf(action = CheckYourAnswersController.onSubmit(), 'autoComplete -> "off") {
 
-        @Accordion(answerSections, sectionToExpand).html
+        @viewmodels.Accordion(answerSections, sectionToExpand).html
 
         <noscript>
             @CheckYourAnswers(answerSections).sections.map(_.html)

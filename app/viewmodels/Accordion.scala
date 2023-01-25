@@ -21,6 +21,7 @@ import models.Section.SectionEnum
 import play.api.i18n.Messages
 import play.api.mvc.Request
 import play.twirl.api.Html
+import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.SummaryList
 
 case class Accordion(sections: Seq[AccordionSection]) {
 
@@ -30,7 +31,7 @@ case class Accordion(sections: Seq[AccordionSection]) {
 
 case class AccordionSection(section: SectionEnum,
                             headingKey: String,
-                            body: Html,
+                            body: SummaryList,
                             expanded: Boolean = false) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
@@ -43,7 +44,7 @@ object Accordion {
     sections = sections.map(section => AccordionSection(
       section.section,
       section.headingKey,
-      CheckYourAnswersSection(section.rows.map(_._1)).html,
+      CheckYourAnswersSection(section.rows.map(_._1)).toSection,
       sectionToExpand.contains(section.section)
     ))
   )

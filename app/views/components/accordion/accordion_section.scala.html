@@ -18,8 +18,9 @@
 @import views.html._
 @import config.FrontendAppConfig
 @import models.Section.SectionEnum
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@(id: String, headerKey: String, body: Html, expanded: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
+@(id: String, headerKey: String, body: SummaryList, expanded: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
 <div data-accordion
      data-accordion-animate

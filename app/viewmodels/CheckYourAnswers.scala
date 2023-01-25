@@ -20,6 +20,11 @@ import config.FrontendAppConfig
 import models.Section.SectionEnum
 import play.api.i18n.Messages
 import play.api.mvc.Request
+import uk.gov.hmrc.govukfrontend.views.Aliases.Value
+import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.{ActionItem, Actions, Key, SummaryListRow}
+
+import scala.reflect.internal.util.NoSourceFile.content
+import uk.gov.hmrc.govukfrontend.views.html.components._
 
 
 case class CheckYourAnswers(sections: Seq[CheckYourAnswersSection])
@@ -28,6 +33,8 @@ case class CheckYourAnswersSection(rows: Seq[CheckYourAnswersRow], section: Opti
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) = {
     views.html.components.checkYourAnswers.cya_section(rows, section, headingKey)
   }
+
+  def toSection(implicit messages: Messages): SummaryList = {SummaryList(rows = rows.map(r => r.toRow))}
 }
 
 case class CheckYourAnswersRow(question: String,
@@ -39,6 +46,25 @@ case class CheckYourAnswersRow(question: String,
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
     views.html.components.checkYourAnswers.cya_row(question, answer, answerIsMessageKey, panelIndent, changeUrl, changeContextMsgKey)
+
+  def toRow(implicit messages: Messages): SummaryListRow =
+    SummaryListRow(
+      key = Key(
+        content = Text(messages(question))
+      ),
+      value = Value(
+        content = if(answerIsMessageKey) Text(messages(answer)) else Text(answer)
+      ),
+      actions = changeUrl.map(url => Actions(
+        items = Seq(
+          ActionItem(
+            href = url,
+            content = Text(messages("site.edit")),
+            visuallyHiddenText = changeContextMsgKey.map { context => messages(s"$context") }
+          )
+        )
+      ))
+    )
 }
 
 object CheckYourAnswers {
