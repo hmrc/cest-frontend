@@ -19,23 +19,28 @@
 @import models.Mode
 @import views.ViewUtils._
 @import models.NormalMode
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(postAction: Call)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = titleNoForm("businessOnOwnAccountSectionChangeWarning.title"),
-    appConfig = appConfig,
-    bodyClasses = None
+@layout(
+    pageTitle = titleNoForm("businessOnOwnAccountSectionChangeWarning.title"),
+    appConfig = appConfig
 ) {
 
-    @components.back_link()(NormalMode)
+    @heading("businessOnOwnAccountSectionChangeWarning.heading")
 
     @formWithCsrf(postAction, 'autoComplete -> "off") {
 
-        @components.heading("businessOnOwnAccountSectionChangeWarning.heading")
-
-        @components.submit_button()
+        <div class="govuk-!-padding-top-5">
+            @submit()
+        </div>
     }
 }
