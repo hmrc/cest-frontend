@@ -21,21 +21,20 @@ import models.Section.SectionEnum
 import play.api.i18n.Messages
 import play.api.mvc.Request
 import play.twirl.api.Html
-import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.SummaryList
 
 case class Accordion(sections: Seq[AccordionSection]) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.accordion.accordion(sections)
+    views.html.components.accordion.accordionNew(sections)
 }
 
 case class AccordionSection(section: SectionEnum,
                             headingKey: String,
-                            body: SummaryList,
+                            body: Html,
                             expanded: Boolean = false) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.accordion.accordion_section(section.toString, headingKey, body, expanded)
+    views.html.components.accordion.accordion_sectionNew(section.toString, headingKey, body, expanded)
 }
 
 object Accordion {
@@ -44,7 +43,7 @@ object Accordion {
     sections = sections.map(section => AccordionSection(
       section.section,
       section.headingKey,
-      CheckYourAnswersSection(section.rows.map(_._1)).toSection,
+      CheckYourAnswersSection(section.rows.map(_._1)).html,
       sectionToExpand.contains(section.section)
     ))
   )

@@ -45,10 +45,6 @@
 
         @viewmodels.Accordion(answerSections, sectionToExpand).html
 
-        <noscript>
-            @CheckYourAnswers(answerSections).sections.map(_.html)
-        </noscript>
-
         <h2 class="govuk-heading-m">@messages("checkYourAnswers.confirm.h2")</h2>
 
         <p class="govuk-body">@messages("checkYourAnswers.confirm.p1")</p>

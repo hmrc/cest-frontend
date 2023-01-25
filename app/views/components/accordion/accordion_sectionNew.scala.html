@@ -22,27 +22,14 @@
 
 @(id: String, headerKey: String, body: Html, expanded: Boolean = false)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-<div data-accordion
-     data-accordion-animate
-     data-accordion-set-hash
-     class="accordion @if(expanded){accordion--expanded}">
-    <div class="accordion__row">
-        <h2 class="accordion__row__left bold-small">
-            <button type="button"
-                    class="accordion__button link--no-underline"
-                    data-accordion-button
-                    id="@id-header"
-                    aria-controls="@id-body"
-                    aria-expanded="@expanded">
-                @messages(headerKey)
-            </button>
-            <span class="accordion__icon" aria-hidden="true"></span>
+<div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="@id-header">@messages(headerKey)</span>
         </h2>
     </div>
-    <div class="accordion__body @if(!expanded){hidden}"
-         id="@id-body"
-         data-accordion-body
-         aria-labelledby="@id-header">
+    <div class="govuk-accordion__section-content"
+         id="@id-body">
         @body
     </div>
 </div>
