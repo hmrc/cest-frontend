@@ -35,9 +35,9 @@
     appConfig = appConfig
 ) {
 
-    @formWithCsrf(postAction, 'autoComplete -> "off") {
+    @heading("businessOnOwnAccountSectionChangeWarning.heading")
 
-        @heading("businessOnOwnAccountSectionChangeWarning.heading")
+    @formWithCsrf(postAction, 'autoComplete -> "off") {
 
         <div class="govuk-!-padding-top-5">
             @submit()
