@@ -74,7 +74,6 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
     )
 
     lazy val document = asDocument(createViewWithData(cyaSections))
-    println(s"\n\n$document\n\n")
 
     "have the correct title" in {
       document.title mustBe title(CheckYourAnswersMessages.title)
@@ -135,7 +134,8 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
 
       "expand the appropriate accordion" in {
         lazy val document = asDocument(createViewWithData(cyaSections, Some(Section.earlyExit)))
-        document.select(Selectors.accordion(2)).hasClass("accordion--expanded") mustBe true
+        println(s"\n\n$document\n\n")
+        document.select(Selectors.accordion(2)).hasClass("govuk-accordion__section--expanded") mustBe true
       }
     }
 
