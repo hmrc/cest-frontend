@@ -17,20 +17,26 @@
 @import config.FrontendAppConfig
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components._
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
-@mainTemplate(
-    title = titleNoForm("error.startAgain.title"),
+@layout(
+    pageTitle = titleNoForm("error.startAgain.title"),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = CheckMode) {
 
-    @components.heading(messages("error.startAgain.title"))
+    @heading("error.startAgain.heading")
 
-    <p>@messages("error.startAgain.p")</p>
+    <p class="govuk-body">@messages("error.startAgain.p")</p>
 
-    @components.button_link("error.startAgain.button", routes.StartAgainController.redirectToDisclaimer.url)
+    @submit("error.startAgain.button", "startAgain", Some(routes.StartAgainController.redirectToDisclaimer.url))
 
 }
