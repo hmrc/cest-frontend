@@ -26,7 +26,6 @@
         name: String,
         field: Field,
         hintKey: Option[String] = None,
-        inline: Boolean = false,
         labelName: Option[String] = None,
         inputClass: String = "",
         autocomplete: Option[String] = None,
@@ -38,7 +37,7 @@
             name = name,
             hint = hintKey.map(h => Hint(content = Text(messages(h)))),
             label = Label(content = Text(labelName.get)),
-            classes = if(inline) "govuk-radios--inline" else inputClass
+            classes = inputClass
         ).withFormField(field)
 )
 
