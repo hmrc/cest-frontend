@@ -20,14 +20,14 @@ import config.featureSwitch.FeatureSwitching
 import config.{FrontendAppConfig, SessionKeys}
 import controllers.actions._
 import handlers.ErrorHandler
-import javax.inject.Inject
 import models.{AdditionalPdfDetails, DecisionResponse, Timestamp}
 import pages.{CustomisePDFPage, Timestamp}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import services.{CheckYourAnswersService, DecisionService, EncryptionService}
 import utils.SessionUtils._
 import viewmodels.ResultPrintPreview
-import views.html.FinishedCheckingView
+
+import javax.inject.Inject
 
 class PrintPreviewController @Inject()(identify: IdentifierAction,
                                        getData: DataRetrievalAction,
@@ -36,7 +36,6 @@ class PrintPreviewController @Inject()(identify: IdentifierAction,
                                        override val controllerComponents: MessagesControllerComponents,
                                        decisionService: DecisionService,
                                        checkYourAnswersService: CheckYourAnswersService,
-                                       finishedCheckingView: FinishedCheckingView,
                                        encryptionService: EncryptionService,
                                        time: Timestamp,
                                        errorHandler: ErrorHandler,
