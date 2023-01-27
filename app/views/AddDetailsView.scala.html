@@ -19,57 +19,65 @@
 @import controllers.routes._
 @import models.Mode
 @import views.ViewUtils._
+@import views.html.components._
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 
-@this(formWithCsrf: FormWithCSRF, mainTemplate: templates.MainTemplate)
+@this(formWithCsrf: FormWithCSRF,
+    layout: layout,
+    errorSummary: GovukErrorSummary,
+    inputText: input_text_new,
+    inputTextArea: input_textarea_new,
+    submit: submit_button_new,
+    heading: headingNew
+)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages,appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form, "addDetails.title"),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(
+    pageTitle = title(form, messages("addDetails.title")),
+    appConfig = appConfig) {
+
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
 
     @formWithCsrf(action = PDFController.onSubmit(mode), 'autoComplete -> "off") {
 
-        @components.back_link()()
+        @heading("addDetails.heading")
 
-        @components.error_summary(form.errors)
-
-        @components.heading("addDetails.heading")
-
-        @components.input_text(
+        @inputText(
+            name ="fileName",
             field = form("fileName"),
-            label = messages("addDetails.fileName"),
-            inputClass = Some("form-control-3-4")
+            labelName = Some(messages("addDetails.fileName"))
         )
 
-        @components.input_text(
+        @inputText(
+            name ="completedBy",
             field = form("completedBy"),
-            label = messages("addDetails.name"),
-            inputClass = Some("form-control-3-4"),
-            autocomplete = Some("name")
+            labelName = Some(messages("addDetails.name"))
         )
 
-        @components.input_text(
+        @inputText(
+            name ="client",
             field = form("client"),
-            label = messages(tailorMsg("addDetails.client")),
-            inputClass = Some("form-control-3-4")
+            labelName = Some(messages(tailorMsg("addDetails.client")))
         )
 
-        @components.input_text(
+        @inputText(
+            name ="job",
             field = form("job"),
-            label = messages("addDetails.job"),
-            inputClass = Some("form-control-3-4")
+            labelName = Some(messages("addDetails.job"))
         )
 
-        @components.input_textarea(
-            field = form("reference"),
-            label = messages("addDetails.reference"),
-            hint = Some(messages("addDetails.charLimit")),
-            bold = false,
-            hintBelow = true
+        @inputTextArea(
+            id = "reference",
+            name = "reference",
+            maxChars = Some(180),
+            labelName = Some(messages("addDetails.reference"))
         )
 
-        @components.submit_button()
+        @submit()
     }
 }

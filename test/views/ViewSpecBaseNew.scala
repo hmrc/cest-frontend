@@ -34,7 +34,8 @@ trait ViewSpecBaseNew extends GuiceAppSpecBase {
     val continueButton = "#main-content form button"
     val hint = (i: Int) => s".govuk-hint:nth-of-type($i)"
     val li = (i: Int) => s"#main-content form > ul > li:nth-child($i)"
-    val label = (i: Int) => s"#main-content form > div:nth-child($i) > label > span"
+    val label = (i: Int) => s"#main-content form > div:nth-child($i) > label"
+    val labelNthChild = (i: Int) => s"#main-content form > div:nth-child($i) > div > label"
     val panel = s"div.govuk-inset-text"
   }
 

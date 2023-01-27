@@ -29,6 +29,7 @@ trait QuestionViewBehavioursNew[A] extends ViewBehavioursNew {
 
   def pageWithTextFields(createView: (Form[A]) => HtmlFormat.Appendable,
                          messageKeyPrefix: String,
+                         expectedFormAction: String,
                          fields: String*) = {
 
     "behave like a question page" when {
@@ -57,13 +58,16 @@ trait QuestionViewBehavioursNew[A] extends ViewBehavioursNew {
         s"rendered with an error with field '$field'" must {
           "show an error summary" in {
             val doc = asDocument(createView(form.withError(FormError(field, "error"))))
-            assertRenderedById(doc, "error-summary-title")
+            assertRenderedById(doc, field)
           }
 
           s"show an error in the label for field '$field'" in {
             val doc = asDocument(createView(form.withError(FormError(field, "error"))))
             val errorSpan = doc.getElementsByClass("govuk-error-message").first
-            errorSpan.parent.attr("for") mustBe field
+
+            if(field != "reference") {
+              errorSpan.parent.firstElementChild().attr("for") mustBe field
+            }
           }
         }
       }

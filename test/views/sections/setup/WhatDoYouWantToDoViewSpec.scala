@@ -50,7 +50,7 @@ class WhatDoYouWantToDoViewSpec extends QuestionViewBehavioursNew[WhatDoYouWantT
 
     behave like pageWithBackLink(createView)
 
-    behave like pageWithTextFields(createViewUsingForm, messageKeyPrefix)
+    behave like pageWithTextFields(createViewUsingForm, messageKeyPrefix, "")
 
     "when not given a user type" must {
 
