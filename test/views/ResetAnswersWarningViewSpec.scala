@@ -17,13 +17,12 @@
 package views
 
 import assets.messages.ResetAnswersMessages
-import controllers.routes
 import forms.ResetAnswersWarningFormProvider
 import play.api.data.Form
-import views.behaviours.{ViewBehaviours, YesNoViewBehaviours}
+import views.behaviours.{ViewBehavioursNew, YesNoViewBehavioursNew}
 import views.html.ResetAnswersWarningView
 
-class ResetAnswersWarningViewSpec extends YesNoViewBehaviours with ViewBehaviours {
+class ResetAnswersWarningViewSpec extends YesNoViewBehavioursNew with ViewBehavioursNew {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
@@ -50,7 +49,7 @@ class ResetAnswersWarningViewSpec extends YesNoViewBehaviours with ViewBehaviour
 
     behave like pageWithBackLink(createView)
 
-    behave like yesNoPage(createViewUsingForm, messageKeyPrefix, routes.ResetAnswersWarningController.onSubmit().url)
+    behave like yesNoPage(createViewUsingForm, messageKeyPrefix)
 
     "have the correct title" in {
 

@@ -24,6 +24,8 @@
         hintKey: Option[String] = None,
         yesHtml: Option[Html] = None,
         noHtml: Option[Html] = None,
+        yesContent: String = "site.yes",
+        noContent: String = "site.no",
         inline: Boolean = true)(implicit messages: Messages
 )
 @radios(
@@ -37,12 +39,12 @@
         )),
         items = Seq(
             RadioItem(
-                content = Text(messages("site.yes")),
+                content = Text(messages(yesContent)),
                 value = Some("true"),
                 conditionalHtml = yesHtml,
             ),
             RadioItem(
-                content = Text(messages("site.no")),
+                content = Text(messages(noContent)),
                 value = Some("false"),
                 conditionalHtml = noHtml,
             )

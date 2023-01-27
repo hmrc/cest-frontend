@@ -19,33 +19,50 @@
 @import views.ViewUtils._
 @import controllers.routes._
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import views.html.components._
 
-
-@this(mainTemplate: templates.MainTemplate, formWithCsrf: FormWithCSRF)
+@this(formWithCsrf: FormWithCSRF,
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        input_yes_no: input_yes_no_new,
+        insetText: GovukInsetText,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_])(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = title(form,messages("resetAnswersWarning.title")),
-    appConfig = appConfig,
-    bodyClasses = None) {
+@layout(
+    pageTitle = title(form,messages("resetAnswersWarning.title")),
+    appConfig = appConfig) {
 
-    @components.back_link()(NormalMode)(messages)
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    }
+
+    @heading("resetAnswersWarning.heading")
 
     @formWithCsrf(action = ResetAnswersWarningController.onSubmit(), 'autoComplete -> "off") {
 
-        @components.error_summary(form.errors)
+        @panel
 
-        @components.input_yes_no(
+        @input_yes_no(
             field = form("value"),
-            legend = components.heading(messages("resetAnswersWarning.heading"), asLegend = true),
-            labelClass = Some("visually-hidden"),
-            otherContent = Some(components.panel_indent(Html(messages("resetAnswersWarning.hint")))),
-            yesMessage = Some(messages("resetAnswersWarning.startAgain")),
-            noMessage = Some(messages("resetAnswersWarning.goBack")),
+            legendKey = "resetAnswersWarning.heading",
+            yesContent = "resetAnswersWarning.startAgain",
+            noContent = "resetAnswersWarning.goBack",
             inline = false
         )
 
-        @components.submit_button()
+        @submit()
     }
   }
+
+@panel = {
+    @insetText(InsetText(
+        content = Text(messages("resetAnswersWarning.hint"))
+    ))
+}
+
