@@ -33,7 +33,7 @@ import play.api.test.Helpers._
 import play.twirl.api.Html
 import uk.gov.hmrc.http.cache.client.CacheMap
 import utils.{FakeTimestamp, MockSourceUtil}
-import views.html.{AddDetailsView, CustomisePDFView}
+import views.html.AddDetailsView
 
 class PDFControllerSpec extends ControllerSpecBase {
 
@@ -49,7 +49,6 @@ class PDFControllerSpec extends ControllerSpecBase {
   val formProvider = new AdditionalPdfDetailsFormProvider()
   val form: Form[AdditionalPdfDetails] = formProvider()
 
-  val customisePdfView: CustomisePDFView = injector.instanceOf[CustomisePDFView]
   val addDetailsView: AddDetailsView = injector.instanceOf[AddDetailsView]
 
   def controller(dataRetrievalAction: DataRetrievalAction = FakeEmptyCacheMapDataRetrievalAction,
@@ -96,7 +95,6 @@ class PDFControllerSpec extends ControllerSpecBase {
     appConfig = frontendAppConfig
   )
 
-  def viewAsString(form: Form[_] = form): String = customisePdfView(frontendAppConfig, form, NormalMode)(fakeRequest, messages).toString
   def optViewAsString(form: Form[_] = form): String = addDetailsView(form, NormalMode)(fakeRequest, messages,frontendAppConfig).toString
 
   val testAnswer = "answer"
