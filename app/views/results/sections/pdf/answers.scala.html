@@ -17,12 +17,14 @@
 @import viewmodels._
 @import config.FrontendAppConfig
 
+@this()
+
 @(answerSections: Seq[Section], pageNumber: Int)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
 
 <div id="userAnswers-page-@pageNumber">
 
-    <h2>@messages("result.pdf.whatYouToldUs")</h2>
+    <h2 class="govuk-heading-m">@messages("result.pdf.whatYouToldUs")</h2>
 
     @for(section <- answerSections){
         @{
@@ -34,7 +36,7 @@
     }
 
     @renderSection(answers: AnswerSection) = {
-        <h3 id="@{answers.section}-heading" class="section-heading">@messages(answers.headingKey)</h3>
+        <h3 id="@{answers.section}-heading" class="section-heading govuk-heading-s">@messages(answers.headingKey)</h3>
         <div id="@{answers.section}" class="form-group">
         @for(answer <- answers.rows) {
             @{
@@ -51,8 +53,8 @@
 
     @renderSingleAnswer(answer: SingleAnswerRow, panelIndent: Boolean = false) = {
         <div class="answer--container divider--bottom @if(panelIndent){panel-indent}">
-            <div class="answer--question"><p><strong>@messages(answer.label)</strong></p></div>
-            <div class="answer--answer"><p>@messages(answer.answer)</p></div>
+            <div class="answer--question"><p class="govuk-body"><strong>@messages(answer.label)</strong></p></div>
+            <div class="answer--answer"><p class="govuk-body">@messages(answer.answer)</p></div>
         </div>
     }
 </div>

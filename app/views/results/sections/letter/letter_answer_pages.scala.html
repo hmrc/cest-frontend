@@ -15,13 +15,14 @@
  *@
 
 @import viewmodels.LetterAnswerSections
-@import views.html.results.sections.pdf
 @import config.FrontendAppConfig
 @import views.html.results.sections.letter._
+@import views.html.results.sections.pdf._
 
 @this(
     letterHeader: letter_header,
-    letterFooter: letter_footer
+    letterFooter: letter_footer,
+    pdfAnswers: answers
 )
 
 @(letterAnswerPages: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
@@ -39,7 +40,7 @@
                     <div class="column-full">
                         <div class="grid-row letter">
                             <div class="column-full">
-                                @pdf.answers(sectionAnswers, pageNumber)
+                                @pdfAnswers(sectionAnswers, pageNumber)
                             </div>
                         </div>
                     </div>
