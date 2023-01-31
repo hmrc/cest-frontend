@@ -20,6 +20,7 @@
 @import views.html.results.sections.letter._
 
 @this(
+    letterHeader: letter_header,
     letterFooter: letter_footer
 )
 
@@ -30,7 +31,7 @@
 <div class="print-document page">
     <table>
 
-        @letter_header()
+        @letterHeader()
 
         <tbody><tr><td>
             <div class="content">

@@ -16,11 +16,17 @@
 
 @import viewmodels._
 @import config.FrontendAppConfig
-@import views.html.results.sections.letter._
+@import views.html.results.sections._
 
 @this(
+    letterHeader: letter_header,
     letterFooter: letter_footer,
-    letterAnswerPages: letter_answer_pages
+    letterAnswerPages: letter_answer_pages,
+    letterResult: letter_result,
+    letterAboutThisResultBox: letter_about_this_result_box,
+    whyResultTemplate: why_resultNew,
+    doNextTemplate: do_nextNew,
+    letterAdditionalDetails: letter_additional_details
 )
 
 
@@ -30,7 +36,7 @@
     <div class="print-document page">
         <table>
 
-            @letter_header()
+            @letterHeader()
 
             <tbody>
                 <tr>
@@ -40,12 +46,12 @@
 
                                 <div class="column-full">
                                     @pdfResultDetails.additionalPdfDetails.map { details =>
-                                        @letter_additional_details(details)
+                                        @letterAdditionalDetails(details)
                                     }
                                 </div>
 
                                 <div id="result" class="column-full">
-                                    @letter_result(resultMsgKey)
+                                    @letterResult(resultMsgKey)
                                 </div>
 
                                 <div class="column-full">
@@ -54,17 +60,17 @@
                                         <div class="column-two-thirds form-group">
 
                                             <div class="form-group">
-                                                @results.sections.why_result(whyResult)
+                                                @whyResultTemplate(whyResult)
                                             </div>
 
                                             <div class="form-group">
-                                                @results.sections.do_next(doNext)
+                                                @doNextTemplate(doNext)
                                             </div>
                                         </div>
 
 
                                         @pdfResultDetails.timestamp.map { timestamp =>
-                                            @letter_about_this_result_box(timestamp)
+                                            @letterAboutThisResultBox(timestamp)
                                         }
 
                                     </div>

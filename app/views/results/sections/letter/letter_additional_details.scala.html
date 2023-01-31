@@ -16,6 +16,9 @@
 
 @import config.FrontendAppConfig
 @import views.ViewUtils._
+
+@this()
+
 @(additionalPdfDetails: AdditionalPdfDetails)(implicit messages: Messages,appConfig: FrontendAppConfig,request: Request[_])
 
 <h2>@messages("site.letter.forYourRecords")</h2>
