@@ -21,15 +21,15 @@
 
 @(additionalPdfDetails: AdditionalPdfDetails)(implicit messages: Messages,appConfig: FrontendAppConfig,request: Request[_])
 
-<h2>@messages("site.letter.forYourRecords")</h2>
+<h2 class="govuk-heading-m">@messages("site.letter.forYourRecords")</h2>
 
-<div class="grid-row letter form-group" id="pdfDetails">
+<div class="govuk-grid-row letter govuk-form-group" id="pdfDetails">
 
-    <div class="column-one-half">
+    <div class="govuk-grid-column-one-half">
 
         @additionalPdfDetails.completedBy.map { name =>
             <p id="customisedBy">
-                <strong class="bold">@messages("result.pdf.customisedBy")</strong>
+                <span class="govuk-!-font-weight-bold">@messages("result.pdf.customisedBy")</span>
                 <br>
                 @name
             </p>
@@ -37,7 +37,7 @@
 
         @additionalPdfDetails.client.map { client =>
             <p id="clientName">
-                <strong class="bold">@messages(tailorMsg("result.pdf.client"))</strong>
+                <strong class="govuk-!-font-weight-bold">@messages(tailorMsg("result.pdf.client"))</strong>
                 <br>
                 @client
             </p>
@@ -45,17 +45,17 @@
 
         @additionalPdfDetails.job.map { job =>
             <p id="jobTitle">
-                <strong class="bold">@messages("result.pdf.job")</strong>
+                <strong class="govuk-!-font-weight-bold">@messages("result.pdf.job")</strong>
                 <br>
                 @job
             </p>
         }
     </div>
 
-    <div class="column-one-half">
+    <div class="govuk-grid-column-one-half">
         @additionalPdfDetails.reference.map { reference =>
             <p id="referenceDetails">
-                <strong class="bold-small">@messages("result.pdf.reference")</strong>
+                <strong class="govuk-!-font-size-19 govuk-!-font-weight-bold">@messages("result.pdf.reference")</strong>
                 <br>
                 @reference
             </p>

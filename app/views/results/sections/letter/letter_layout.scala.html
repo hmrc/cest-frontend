@@ -42,28 +42,28 @@
                 <tr>
                     <td>
                         <div class="content">
-                            <div class="grid-row main-content">
+                            <div class="govuk-grid-row main-content">
 
-                                <div class="column-full">
+                                <div class="govuk-grid-column-full">
                                     @pdfResultDetails.additionalPdfDetails.map { details =>
                                         @letterAdditionalDetails(details)
                                     }
                                 </div>
 
-                                <div id="result" class="column-full">
+                                <div id="result" class="govuk-grid-column-full">
                                     @letterResult(resultMsgKey)
                                 </div>
 
-                                <div class="column-full">
+                                <div class="govuk-grid-column-full">
 
-                                    <div class="grid-row letter form-group">
-                                        <div class="column-two-thirds form-group">
+                                    <div class="govuk-grid-row letter govuk-form-group">
+                                        <div class="govuk-grid-column-two-thirds govuk-form-group">
 
-                                            <div class="form-group">
+                                            <div class="govuk-form-group">
                                                 @whyResultTemplate(whyResult)
                                             </div>
 
-                                            <div class="form-group">
+                                            <div class="govuk-form-group">
                                                 @doNextTemplate(doNext)
                                             </div>
                                         </div>
