@@ -23,7 +23,7 @@
 
    <div class="govuk-grid-row">
     <div id="printAndSave" class="govuk-grid-column-full">
-      <p class="govuk-form-group govuk-body" id="download">
+      <p class="govuk-form-group govuk-body" id="download"
         <a class="govuk-link" id="printLink" href="#" onclick="window.print();">
           @messages("site.letter.print")
         </a>
@@ -35,7 +35,7 @@
 
       <p class="govuk-body">@messages("site.letter.copyOf.onceYouHave")</p>
 
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9"
         <li>
           <a class="govuk-link" id="exitLink" href="@routes.ExitSurveyController.redirectToExitSurvey">@messages("site.letter.copyOf.exit")</a>
         </li>
@@ -46,4 +46,3 @@
     </div>
   </div>
 </div>
-
