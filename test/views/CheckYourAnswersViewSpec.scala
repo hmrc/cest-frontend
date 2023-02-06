@@ -23,6 +23,7 @@ import play.twirl.api.Html
 import viewmodels.{AnswerRow, AnswerSection}
 import views.behaviours.ViewBehavioursNew
 import views.html.CheckYourAnswersView
+import views.html.components.accordion.accordion
 
 class CheckYourAnswersViewSpec extends ViewBehavioursNew {
 
@@ -33,7 +34,7 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
     override val h2 = (i: Int) => s"h2:nth-of-type($i)"
-    val accordion = (i: Int) => s".govuk-accordion__section:nth-of-type($i)"
+    val accordion = (i: Int) => s"div.govuk-accordion__section:nth-of-type($i)"
     val accordionHeader = (i: Int) => s"${accordion(i)} > .govuk-accordion__section-header"
     val sectionQuestion = (i: Int, x: Int) => s"${accordion(i)} > .govuk-accordion__section-content div:nth-of-type($x) dt.govuk-summary-list__key"
     val sectionAnswer = (i: Int, x: Int) => s"${accordion(i)} > .govuk-accordion__section-content div:nth-of-type($x) dd.govuk-summary-list__value"
@@ -135,7 +136,12 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
       "expand the appropriate accordion" in {
         lazy val document = asDocument(createViewWithData(cyaSections, Some(Section.earlyExit)))
         println(s"\n\n$document\n\n")
-        document.select(Selectors.accordion(2)).hasClass("govuk-accordion__section--expanded") mustBe true
+        println(s"\n\n${document.cssSelector()}\n\n")
+       // document.select("#accordion-default > div:nth-child(2)").hasClass("govuk-accordion__section--expanded") mustBe true
+       document.select(Selectors.accordion(2)).hasClass("govuk-accordion__section--expanded") mustBe true
+      //  document.select("#earlyExit-section").hasClass("govuk-accordion__section--expanded") mustBe true
+       // assertElementHasClass(document,"earlyExit-section","govuk-accordion__section--expanded") mustBe true
+       // assertContainsValue(document, "#accordion-default > div:nth-child(2)", "govuk-accordion__section--expanded") mustBe true
       }
     }
 

@@ -22,7 +22,7 @@
 
 @(id: String, headerKey: String, body: Html, expanded: Boolean)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-<div class="govuk-accordion__section">
+<div class="govuk-accordion__section" id="@id-section">
     <div class="govuk-accordion__section-header">
         <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="@id-header">@messages(headerKey)</span>
