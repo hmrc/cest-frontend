@@ -25,6 +25,7 @@ trait ViewSpecBase extends GuiceAppSpecBase {
 
   trait BaseCSSSelectors {
     val heading = "#content h1"
+    val govUkTemplateHeading = "#print-and-save-result h1"
     val subheading = "#content header span.heading-secondary"
     val p = (i: Int) => s"#content form p:nth-of-type($i)"
     val h2 = (i: Int) => s"#content form h2:nth-of-type($i)"

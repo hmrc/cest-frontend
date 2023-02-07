@@ -140,7 +140,7 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
           document.title mustBe title(PrintPreviewMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe PrintPreviewMessages.heading
+          document.select(Selectors.govUkTemplateHeading).text mustBe PrintPreviewMessages.heading
         }
       case ResultPDF =>
         "Have the correct title" in {
@@ -195,7 +195,7 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
           document.title mustBe title(PrintPreviewMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe PrintPreviewMessages.heading
+          document.select(Selectors.govUkTemplateHeading).text mustBe PrintPreviewMessages.heading
         }
       case ResultPDF =>
         "Have the correct title" in {

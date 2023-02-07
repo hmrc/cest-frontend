@@ -18,12 +18,12 @@
 
 @()(implicit messages: Messages)
 
-<div class="full-width" id="print-and-save-result">
+<div id="print-and-save-result">
   <h1 class="govuk-heading-xl">@messages("site.letter.h1")</h1>
 
-   <div class="grid-row">
-    <div id="printAndSave" class="column-full">
-      <p class="form-group govuk-body" id="download">
+   <div class="govuk-grid-row">
+    <div id="printAndSave" class="govuk-grid-column-full">
+      <p class="govuk-form-group govuk-body" id="download">
         <a class="govuk-link" id="printLink" href="#" onclick="window.print();">
           @messages("site.letter.print")
         </a>

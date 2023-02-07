@@ -16,9 +16,11 @@
 
 @import viewmodels._
 @import config.FrontendAppConfig
+@import views.html.templates._
 @import views.html.results.sections._
 
 @this(
+    layout:layout,
     letterHeader: letter_header,
     letterFooter: letter_footer,
     letterAnswerPages: letter_answer_pages,
@@ -31,6 +33,7 @@
 
 
 @(resultMsgKey: String, whyResult: Html, doNext: Html, userAnswers: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
+
 
 <div class="print-pages">
     <div class="print-document page">
@@ -85,5 +88,6 @@
         </table>
     </div>
 
-    @letterAnswerPages(userAnswers)
+    @letterAnswerPages(LetterAnswerSections(userAnswers.sections ++ userAnswers.sections))
+
 </div>

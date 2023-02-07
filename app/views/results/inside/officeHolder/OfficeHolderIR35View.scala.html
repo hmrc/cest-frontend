@@ -21,10 +21,16 @@
 @import models.sections.setup.WhoAreYou.Hirer
 @import results.sections._
 @import results.sections.letter._
+@import results.sections.pdf._
+@import views.html.templates._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 @import controllers.routes._
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF, letterLayout: letter_layout)
+@this(layout: layout, mainTemplate: templates.MainTemplate, print_and_save_result_new : print_and_save_result_new,
+printTemplate: templates.PrintTemplateNew,
+formWithCsrf: FormWithCSRF,
+additional_details_new: additional_detailNew,
+letterLayout: letter_layout)
 
 @(form: Form[_], isMakingDetermination: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -32,7 +38,7 @@
 
     pdfResultDetails.resultMode match {
         case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -42,7 +48,7 @@
         @pdfResultDetails.resultMode match {
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @pdf.additional_details(details, pdfResultDetails.timestamp)
+                   @additional_details_new(details, pdfResultDetails.timestamp)
                 }
 
                 @components.teal_result(
@@ -57,7 +63,7 @@
                 }
             }
             case ResultPrintPreview => {
-                @print_and_save_result()
+                @print_and_save_result_new()
                 @letterLayout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
