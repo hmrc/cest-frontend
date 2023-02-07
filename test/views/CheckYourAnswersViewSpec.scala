@@ -19,6 +19,7 @@ package views
 import assets.messages.CheckYourAnswersMessages
 import models.Section
 import models.Section.SectionEnum
+import org.checkerframework.checker.units.qual.s
 import play.twirl.api.Html
 import viewmodels.{AnswerRow, AnswerSection}
 import views.behaviours.ViewBehavioursNew
@@ -136,12 +137,13 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
       "expand the appropriate accordion" in {
         lazy val document = asDocument(createViewWithData(cyaSections, Some(Section.earlyExit)))
         println(s"\n\n$document\n\n")
-        println(s"\n\n${document.cssSelector()}\n\n")
+       // println(s"\n\n${document.cssSelector()}\n\n")
        // document.select("#accordion-default > div:nth-child(2)").hasClass("govuk-accordion__section--expanded") mustBe true
        document.select(Selectors.accordion(2)).hasClass("govuk-accordion__section--expanded") mustBe true
+     //   document.select(Selectors.accordion(2)).attr("aria-label", "2. Worker’s duties , Hide this section")
       //  document.select("#earlyExit-section").hasClass("govuk-accordion__section--expanded") mustBe true
        // assertElementHasClass(document,"earlyExit-section","govuk-accordion__section--expanded") mustBe true
-       // assertContainsValue(document, "#accordion-default > div:nth-child(2)", "govuk-accordion__section--expanded") mustBe true
+       // assertContainsValue(document, "#earlyExit-section > div > h2 > button", "2. Worker’s duties , Hide this section") mustBe true
       }
     }
 
