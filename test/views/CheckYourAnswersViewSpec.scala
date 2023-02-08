@@ -132,21 +132,6 @@ class CheckYourAnswersViewSpec extends ViewBehavioursNew {
       }
     }
 
-    "if supplied with a section to expand" should {
-
-      "expand the appropriate accordion" in {
-        lazy val document = asDocument(createViewWithData(cyaSections, Some(Section.earlyExit)))
-        println(s"\n\n$document\n\n")
-       // println(s"\n\n${document.cssSelector()}\n\n")
-       // document.select("#accordion-default > div:nth-child(2)").hasClass("govuk-accordion__section--expanded") mustBe true
-       document.select(Selectors.accordion(2)).hasClass("govuk-accordion__section--expanded") mustBe true
-     //   document.select(Selectors.accordion(2)).attr("aria-label", "2. Worker’s duties , Hide this section")
-      //  document.select("#earlyExit-section").hasClass("govuk-accordion__section--expanded") mustBe true
-       // assertElementHasClass(document,"earlyExit-section","govuk-accordion__section--expanded") mustBe true
-       // assertContainsValue(document, "#earlyExit-section > div > h2 > button", "2. Worker’s duties , Hide this section") mustBe true
-      }
-    }
-
     "have the correct h2" in {
       document.select(Selectors.h2(1)).text must include(CheckYourAnswersMessages.h2)
     }
