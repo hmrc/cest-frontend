@@ -30,14 +30,14 @@
         scriptElem: Option[Html] = None,
         mode: Mode = NormalMode,
         js: Seq[String] = Seq.empty,
-        css: Option[String] = Some("offpayrollfrontend-app"),
+        css: Seq[StyleSheet] = Seq(StyleSheet("offpayrollfrontend-app")),
         backLinkUrl: Option[String] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
     <meta name="format-detection" content="telephone=no" />
     @css.map { x =>
-        <link rel="stylesheet" href='@routes.Assets.versioned(s"stylesheets/$x.css")' />
+        <link rel="stylesheet" href='@routes.Assets.versioned(s"stylesheets/${x.path}.css")' media="${x.media}" />
     }
     @hmrcTimeoutDialogHelper(
         signOutUrl = controllers.errors.routes.SessionExpiredController.onPageLoad.url,

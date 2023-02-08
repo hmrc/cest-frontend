@@ -28,7 +28,7 @@
     <div class="govuk-grid-column-one-half">
 
         @additionalPdfDetails.completedBy.map { name =>
-            <p id="customisedBy">
+            <p class="govuk-body" id="customisedBy">
                 <span class="govuk-!-font-weight-bold">@messages("result.pdf.customisedBy")</span>
                 <br>
                 @name
@@ -36,7 +36,7 @@
         }
 
         @additionalPdfDetails.client.map { client =>
-            <p id="clientName">
+            <p class="govuk-body" id="clientName">
                 <strong class="govuk-!-font-weight-bold">@messages(tailorMsg("result.pdf.client"))</strong>
                 <br>
                 @client
@@ -44,7 +44,7 @@
         }
 
         @additionalPdfDetails.job.map { job =>
-            <p id="jobTitle">
+            <p class="govuk-body" id="jobTitle">
                 <strong class="govuk-!-font-weight-bold">@messages("result.pdf.job")</strong>
                 <br>
                 @job
@@ -54,12 +54,11 @@
 
     <div class="govuk-grid-column-one-half">
         @additionalPdfDetails.reference.map { reference =>
-            <p id="referenceDetails">
-                <strong class="govuk-!-font-size-19 govuk-!-font-weight-bold">@messages("result.pdf.reference")</strong>
+            <p class="govuk-body" id="referenceDetails">
+                <strong class="govuk-!-font-weight-bold">@messages("result.pdf.reference")</strong>
                 <br>
                 @reference
             </p>
         }
     </div>
 </div>
-

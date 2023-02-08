@@ -25,12 +25,18 @@
 @import views.html.templates._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 @import controllers.routes._
+@import views.html.components._
+@import views.html.templates._
+@import results.sections.pdf._
 
 @this(layout: layout, mainTemplate: templates.MainTemplate, print_and_save_result_new : print_and_save_result_new,
-printTemplate: templates.PrintTemplateNew,
-formWithCsrf: FormWithCSRF,
-additional_details_new: additional_detailNew,
-letterLayout: letter_layout)
+        printTemplate: templates.PrintTemplateNew,
+        formWithCsrf: FormWithCSRF,
+        additional_details_new: additional_detailNew,
+        letterLayout: letter_layout,
+        do_next: do_nextNew,
+        why_result: why_resultNew,
+        download: downloadNew)
 
 @(form: Form[_], isMakingDetermination: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -38,7 +44,7 @@ letterLayout: letter_layout)
 
     pdfResultDetails.resultMode match {
         case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -57,9 +63,9 @@ letterLayout: letter_layout)
                 )
 
                 @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
             case ResultPrintPreview => {
@@ -74,27 +80,27 @@ letterLayout: letter_layout)
 }
 
 @whyResult = {
-    <p>@messages(tailorMsg("result.officeHolder.ir35.whyResult.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.whyResult.p1"))</p>
 }
 
 @doNext = {
 
     @if(request.userType.contains(Hirer)) {
-        <p>@messages(tailorMsg("result.officeHolder.ir35.doNext.p1"))</p>
-        <p>
+        <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.doNext.p1"))</p>
+        <p class="govuk-body">
             @messages(tailorMsg("result.officeHolder.ir35.doNext.p2.preLink"))
             @components.new_window_link(tailorMsg("result.officeHolder.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
         </p>
     } else {
         @if(isMakingDetermination) {
-            <p>@messages(tailorMsg("result.officeHolder.ir35.make.doNext.p1"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.make.doNext.p1"))</p>
         } else {
-            <p>@messages(tailorMsg("result.officeHolder.ir35.check.doNext.p1"))</p>
-            <p>@messages(tailorMsg("result.officeHolder.ir35.check.doNext.p2"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.check.doNext.p1"))</p>
+            <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.check.doNext.p2"))</p>
 
-            @contact_details()
+            @contact_details_new()
 
-            <p>
+            <p class="govuk-body">
                 @messages(tailorMsg("result.officeHolder.ir35.check.doNext.p3.preLink"))
                 @components.new_window_link(tailorMsg("result.officeHolder.ir35.check.doNext.p3.link"), appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
             </p>
