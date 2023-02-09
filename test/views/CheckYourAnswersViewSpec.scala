@@ -19,12 +19,10 @@ package views
 import assets.messages.CheckYourAnswersMessages
 import models.Section
 import models.Section.SectionEnum
-import org.checkerframework.checker.units.qual.s
 import play.twirl.api.Html
 import viewmodels.{AnswerRow, AnswerSection}
 import views.behaviours.ViewBehavioursNew
 import views.html.CheckYourAnswersView
-import views.html.components.accordion.accordion
 
 class CheckYourAnswersViewSpec extends ViewBehavioursNew {
 
