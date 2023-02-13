@@ -63,7 +63,7 @@ site.confirm_continue = Cadarnhau i gael canlyniad
 site.service_name = Gwirio statws cyflogaeth ar gyfer treth
 site.service_name.camel = Gwirio Statws Cyflogaeth ar Gyfer Treth
 site.home = Hafan
-site.hmrc = Cyllid a Thollau EM
+site.hmrc = Cyllid a Thollau EF
 site.govuk = GOV.UK
 site.employmentStatusManual = Canllaw Statws Cyflogaeth
 site.telephone = Ffôn:
@@ -82,7 +82,7 @@ site.letter.copyOf.startAgain = gwirio statws cyflogaeth gwaith arall
 site.letter.aboutThisResult = Ynglŷn â’r canlyniad hwn
 site.letter.dateOfResult = Dyddiad y canlyniad:
 site.letter.version = Gwasanaeth Penderfynu, fersiwn:
-site.letter.version.disclaimer = Bydd CThEM yn glynu wrth eich canlyniad oni bai bod arferion gwaith wedi newid ac, os ydynt wedi newid, dylech ddefnyddio’r gwasanaeth hwn eto i adlewyrchu’r newidiadau hynny.
+site.letter.version.disclaimer = Bydd CThEF yn glynu wrth eich canlyniad oni bai bod arferion gwaith wedi newid ac, os ydynt wedi newid, dylech ddefnyddio’r gwasanaeth hwn eto i adlewyrchu’r newidiadau hynny.
 site.letter.footer = Tudalen {0} o {1}
 site.section.prefix = Teitl yr adran hon yw
 
@@ -507,9 +507,9 @@ hirer.didPaySubstitute.p1 = Mae hyn yn cynnwys taliadau a wneir gan y gweithiwr 
 
 aboutYourResult.title = Ymwadiad
 aboutYourResult.heading = Ymwadiad
-aboutYourResult.p1 = Bydd CThEM yn glynu wrth y canlyniad a gewch o’r twlsyn hwn.
+aboutYourResult.p1 = Bydd CThEF yn glynu wrth y canlyniad a gewch o’r twlsyn hwn.
 aboutYourResult.p2 = Ni fyddai hyn yn wir os cafodd yr wybodaeth a roddwyd gennych ei gwirio a chanfuwyd ei bod yn anghywir.
-aboutYourResult.p3 = Hefyd, ni fydd CThEM yn glynu wrth ganlyniadau a gyflawnir drwy drefniadau ffug sydd wedi’u cynllunio i sicrhau canlyniad penodol o’r gwasanaeth. Byddai hyn yn cael ei drin fel tystiolaeth o ddiffyg cydymffurfio bwriadol, sy’n gallu dwyn cosbau cysylltiedig uwch.
+aboutYourResult.p3 = Hefyd, ni fydd CThEF yn glynu wrth ganlyniadau a gyflawnir drwy drefniadau ffug sydd wedi’u cynllunio i sicrhau canlyniad penodol o’r gwasanaeth. Byddai hyn yn cael ei drin fel tystiolaeth o ddiffyg cydymffurfio bwriadol, sy’n gallu dwyn cosbau cysylltiedig uwch.
 
 agencyAdvisory.title = Mynd yn eich blaen fel y gweithiwr i wirio penderfyniad
 agencyAdvisory.heading = Mynd yn eich blaen fel y gweithiwr i wirio penderfyniad
@@ -596,7 +596,7 @@ worker.result.officeHolder.ir35.heading = Mae rheolau gweithio oddi ar y gyflogr
 worker.result.officeHolder.ir35.whyResult.p1 = Yn yr adran ‘Dyletswyddau’r gweithiwr’, ateboch y byddwch yn cyflawni dyletswyddau deiliad swydd. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
 worker.result.officeHolder.ir35.make.doNext.p1 = Gwnaethoch roi gwybod i ni eich bod yn darparu’ch gwasanaethau drwy gyfryngwr, megis cwmni cyfyngedig, partneriaeth neu gorff anghorfforedig. Mae’n rhaid i’ch cyfryngwr weithredu TWE ar eich enillion.
 worker.result.officeHolder.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.result.officeHolder.ir35.check.doNext.p2 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM
+worker.result.officeHolder.ir35.check.doNext.p2 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF
 worker.result.officeHolder.ir35.check.doNext.p3.preLink = Gallech hefyd ddarllen pennod 5 o’r
 worker.result.officeHolder.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
 
@@ -635,13 +635,13 @@ hirer.result.undetermined.paye.doNext.p1.workerKnown = Yn gyntaf, dylech lawrlwy
 hirer.result.undetermined.paye.doNext.p1.workerNotKnown = Unwaith y bydd eich sefydliad yn gwybod pwy yw’r gweithiwr, efallai y cewch ragor o wybodaeth am ei arferion gwaith. Yna gallwch ddefnyddio’r twlsyn hwn eto i wirio a fydd yr wybodaeth hon yn newid eich penderfyniad.
 hirer.result.undetermined.paye.doNext.p2.preLink = Gallwch hefyd ddarllen arweiniad yn y
 hirer.result.undetermined.paye.doNext.p2.postLink = Bydd hyn yn rhoi rhagor o wybodaeth i chi ynghylch pennu statws cyflogaeth gweithiwr at ddibenion treth.
-hirer.result.undetermined.paye.doNext.p3 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+hirer.result.undetermined.paye.doNext.p3 = Os oes angen rhagor o arweiniad arnoch, dylech gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 
 worker.result.inside.ir35.heading = Mae rheolau gweithio oddi ar y gyflogres (IR35) yn berthnasol
 worker.result.inside.ir35.whyResult.p1 = Mae’r atebion a roddwyd gennych yn awgrymu eich bod yn cynnig gwasanaeth personol i’ch cleient. Golyga hyn y cewch eich trin fel petaech yn gyflogedig at ddibenion treth ar gyfer y gwaith hwn.
 worker.result.inside.ir35.make.doNext.p1 = Gwnaethoch roi gwybod i ni eich bod yn darparu’ch gwasanaethau drwy gyfryngwr, megis cwmni cyfyngedig, partneriaeth neu gorff anghorfforedig. Mae’n rhaid i’ch cyfryngwr weithredu TWE ar eich enillion.
 worker.result.inside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.result.inside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.inside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 worker.result.inside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
 worker.result.inside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
 ## ------------------
@@ -653,7 +653,7 @@ worker.result.undetermined.ir35.whyResult.p1 = Nid yw’n glir o’ch atebion a 
 worker.result.undetermined.ir35.doNext.p1 = Yn gyntaf, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos i’ch cleient. Gwiriwch eich atebion gydag ef i wneud yn siŵr eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
 worker.result.undetermined.ir35.doNext.p2.preLink = Gallwch hefyd ddarllen arweiniad yn y
 worker.result.undetermined.ir35.doNext.p2.postLink = Bydd hyn yn rhoi rhagor o wybodaeth i chi ynghylch pennu’ch statws cyflogaeth at ddibenion treth.
-worker.result.undetermined.ir35.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.undetermined.ir35.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 
 ## ------------------
 
@@ -667,7 +667,7 @@ worker.result.outside.ir35.whyResult.incurCostNoReclaim = bydd yn rhaid i chi ne
 worker.result.outside.ir35.whyResult.p2 = Mae hyn yn awgrymu eich bod yn gweithio ar sail busnes i fusnes.
 worker.result.outside.ir35.make.doNext.p1 = Lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’r sefydliad sy’n eich cyflogi. Mae angen i’r sefydliad dalu’ch enillion yn llawn, heb ddidynnu Treth Incwm a chyfraniadau Yswiriant Gwladol.
 worker.result.outside.ir35.check.doNext.p1 = Os yw’r canlyniad hwn yn wahanol i’r un rydych yn ei wirio, lawrlwythwch gopi o’r canlyniad hwn a’i ddangos i’ch cleient. Dylech wirio’ch atebion gydag ef i wneud yn siŵr eu bod yn gywir.
-worker.result.outside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.outside.ir35.check.doNext.p2 = Os oes angen rhagor o arweiniad arnoch, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 worker.result.outside.ir35.check.doNext.p3.text = Gallech hefyd ddarllen pennod 5 o’r
 worker.result.outside.ir35.check.doNext.p3.link = Canllaw Statws Cyflogaeth.
 worker.result.outside.ir35.whyResult.substituteToDoWorkOnlyReason = Yn ôl eich atebion, mae’ch cleient wedi derbyn, neu byddai’n derbyn, eilydd.
@@ -724,7 +724,7 @@ hirer.result.undetermined.ir35.doNext.p1.workerKnown = Yn gyntaf, dylech lawrlwy
 hirer.result.undetermined.ir35.doNext.p1.workerNotKnown = Unwaith y bydd eich sefydliad yn gwybod pwy yw’r gweithiwr, efallai y cewch ragor o wybodaeth am ei arferion gwaith. Yna gallwch ddefnyddio’r twlsyn hwn eto i wirio a fydd yr wybodaeth hon yn newid eich penderfyniad.
 hirer.result.undetermined.ir35.doNext.p2.preLink = Gallwch hefyd ddarllen arweiniad yn y
 hirer.result.undetermined.ir35.doNext.p2.postLink = Bydd hyn yn rhoi rhagor o wybodaeth i chi ynghylch pennu statws cyflogaeth gweithiwr at ddibenion treth.
-hirer.result.undetermined.ir35.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+hirer.result.undetermined.ir35.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 
 ## PAYE Worker
 ## ------------------
@@ -739,13 +739,13 @@ worker.result.undetermined.paye.whyResult.p1 = Nid yw’n glir o’ch atebion a 
 worker.result.undetermined.paye.doNext.p1 = Yn gyntaf, dylech lawrlwytho copi o’r canlyniad hwn a’i ddangos i’ch cleient. Gwiriwch eich atebion gydag ef i wneud yn siŵr eu bod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig.
 worker.result.undetermined.paye.doNext.p2.preLink = Gallwch hefyd ddarllen arweiniad yn y
 worker.result.undetermined.paye.doNext.p2.postLink = Bydd hyn yn rhoi rhagor o wybodaeth i chi ynghylch pennu’ch statws cyflogaeth at ddibenion treth.
-worker.result.undetermined.paye.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEM.
+worker.result.undetermined.paye.doNext.p3 = Os oes angen rhagor o help arnoch ynghylch sut i ateb y cwestiynau o fewn y twlsyn, gallwch gysylltu â Gwasanaeth Cwsmeriaid Cymraeg CThEF.
 
 downloadPDFCopy.error.required = Dewiswch ‘Iawn’ i lawrlwytho’r canlyniad hwn
 addReferenceDetails.error.required = Dewiswch ‘Iawn’ os ydych am ychwanegu rhywfaint o fanylion at y ddogfen hon
 addReferenceDetails.title = A ydych am ychwanegu rhywfaint o fanylion at y ddogfen hon?
 addReferenceDetails.heading = A ydych am ychwanegu rhywfaint o fanylion at y ddogfen hon?
-addReferenceDetails.yourRecordsOnly = Cewch ddogfen sy’n dangos dyddiad heddiw a’r amser cwblhau, ynghyd â’ch atebion a’ch canlyniad. Mae hyn ar gyfer eich cofnodion yn unig, ni fydd CThEM yn cadw’r manylion hyn.
+addReferenceDetails.yourRecordsOnly = Cewch ddogfen sy’n dangos dyddiad heddiw a’r amser cwblhau, ynghyd â’ch atebion a’ch canlyniad. Mae hyn ar gyfer eich cofnodion yn unig, ni fydd CThEF yn cadw’r manylion hyn.
 addReferenceDetails.example = Er enghraifft, gwybodaeth am y contract, teitl y swydd neu’r adran sy’n hurio.
 
 addDetails.title = Ychwanegu manylion
@@ -831,7 +831,7 @@ result.pdf.whatYouToldUs = Yr hyn a roesoch wybod i ni amdano
 worker.result.pdf.client = Enw’r cleient
 hirer.result.pdf.client = Enw’ch sefydliad
 result.pdf.decisionVersion =  Gwasanaeth Penderfynu, fersiwn: {0}
-result.pdf.decisionVersion.p1 = Bydd CThEM yn glynu wrth y canlyniad hwn cyn belled â’i fod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig. Os bydd yr arferion gwaith hyn yn newid, dylech ddefnyddio’r twlsyn hwn eto.
+result.pdf.decisionVersion.p1 = Bydd CThEF yn glynu wrth y canlyniad hwn cyn belled â’i fod yn adlewyrchu’r arferion gwaith gwirioneddol neu ddisgwyliedig. Os bydd yr arferion gwaith hyn yn newid, dylech ddefnyddio’r twlsyn hwn eto.
 
 personalServiceSectionChangeWarning.title = Drwy newid eich atebion yn yr adran hon, mae’n bosibl y bydd yn rhaid i chi ateb cwestiynau ychwanegol
 personalServiceSectionChangeWarning.heading = Drwy newid eich atebion yn yr adran hon, mae’n bosibl y bydd yn rhaid i chi ateb cwestiynau ychwanegol
@@ -1054,7 +1054,7 @@ hirer.workerKnown.subheading = Contractau’r gweithiwr
 hirer.workerKnown.heading = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y gwaith hwn?
 hirer.workerKnown.title = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y gwaith hwn?
 hirer.workerKnown.checkYourAnswersLabel = A yw’ch sefydliad yn gwybod pwy fydd yn gwneud y gwaith hwn?
-hirer.workerKnown.p1 = Os nad ydych yn gwybod pwy yw’r gweithiwr, ni fydd angen i chi ateb unrhyw gwestiynau pellach. Byddwch yn dal i gael penderfyniad y bydd CThEM yn glynu wrtho.
+hirer.workerKnown.p1 = Os nad ydych yn gwybod pwy yw’r gweithiwr, ni fydd angen i chi ateb unrhyw gwestiynau pellach. Byddwch yn dal i gael penderfyniad y bydd CThEF yn glynu wrtho.
 hirer.workerKnown.p2 = Dylech ddefnyddio’r offeryn hwn eto os yw’r gweithiwr yn anghytuno â’r penderfyniad. Yna, gofynnir cwestiynau ychwanegol i chi am y gweithiwr.
 
 ### SimilarWorkOtherClients Page
