@@ -106,7 +106,7 @@ class AgentOutsideViewSpec extends ResultViewFixtureNew {
           document.title mustBe title(OutDecisionMessages.title)
         }
         "Have the correct heading" in {
-          document.getElementsByClass("hmrc-page-heading").text() must include(OutDecisionMessages.Agent.heading)
+          document.getElementsByTag("h1").text() must include(OutDecisionMessages.Agent.heading)
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OutDecisionMessages.downloadExitMsg

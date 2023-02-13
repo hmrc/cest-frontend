@@ -15,16 +15,15 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
-@import views.ViewUtils._
-@import models.ResultType.Agent
-@import results.sections.letter._
-@import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 @import controllers.routes._
-@import results.sections.pdf
+@import models.ResultType.Agent
 @import models.requests.DataRequest
-@import results.sections.pdf
-@import models.requests.DataRequest
+@import results.sections.letter._
+@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
+@import viewmodels.{LetterAnswerSections, Result, ResultPDF, ResultPrintPreview}
+@import views.ViewUtils._
+@import views.html.components.new_tab_linkNew
+@import results.sections.{do_nextNew, downloadNew, keep_copyNew, pdf, why_resultNew}
 
 @this(mainTemplate: templates.MainTemplate,
         layout: templates.layout,
@@ -32,8 +31,14 @@
         heading: components.headingNew,
         print_and_save_result: results.sections.letter.print_and_save_result_new,
         teal_result: components.teal_resultNew,
+        do_next: do_nextNew,
+        why_result: why_resultNew,
+        download: downloadNew,
+        newTabLink: new_tab_linkNew,
+        keepCopy: keep_copyNew,
         formWithCsrf: FormWithCSRF,
         letterLayout: letter_layout)
+
 
 @(form: Form[_],substituteToDoWork: Boolean,clientNotControlWork: Boolean,incurCostNoReclaim: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -49,8 +54,6 @@
     @template {
         @pdfResultDetails.resultMode match {
             case Result => {
-                @heading(messages("agent.result.outside.heading"))
-
                 @pdfResultDetails.additionalPdfDetails.map { details =>
                     @pdf.additional_details(details, pdfResultDetails.timestamp)
                 }
@@ -61,9 +64,9 @@
                 )
 
                 @formWithCsrf(ResultController.onSubmit(), 'autoComplete -> "off") {
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
             case ResultPrintPreview => {
@@ -86,7 +89,7 @@
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     } else {
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p1")</p>
-        @components.bulleted_list(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))
+        @components.bulleted_listNew(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     }
 }
@@ -95,8 +98,8 @@
     <p class="govuk-body">@messages("agent.result.outside.doNext.p1")</p>
     <p class="govuk-body">
         @messages("agent.result.outside.doNext.p2.text")
-        @components.new_window_link("agent.result.outside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+        @newTabLink("agent.result.outside.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
     </p>
 
-    @results.sections.keep_copy(isMake = false)
+    @keepCopy(isMake = false)
 }
