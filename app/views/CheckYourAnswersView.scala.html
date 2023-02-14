@@ -35,9 +35,19 @@
 
 @(answerSections: Seq[AnswerSection], sectionToExpand: Option[SectionEnum])(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
+@scriptElement = {
+<script
+
+
+        src='@routes.Assets.versioned("javascripts/test.js")'>
+
+    </script>
+}
+
 @layout(
     pageTitle = titleNoForm("checkYourAnswers.title"),
     appConfig = appConfig,
+    scriptElem = Some(scriptElement),
     mode = NormalMode) {
 
     @heading("checkYourAnswers.heading")
