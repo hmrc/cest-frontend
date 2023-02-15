@@ -88,8 +88,8 @@ site.section.prefix = Teitl yr adran hon yw
 
 site.accordion.openAll = Agor pob un
 site.accordion.closeAll = Cau pob un
-site.accordion.openSection = Sioe
-site.accordion.closeSection = Cuddio
+site.accordion.openSection = Agor
+site.accordion.closeSection = Cau
 
 feedback.before = Mae hwn yn wasanaeth newydd - bydd eich
 feedback.link = adborth
