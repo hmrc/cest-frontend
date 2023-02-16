@@ -23,7 +23,6 @@
 
 
 <div id="userAnswers-page-@pageNumber">
-
     <h2 class="govuk-heading-m">@messages("result.pdf.whatYouToldUs")</h2>
 
     @for(section <- answerSections){
@@ -38,23 +37,31 @@
     @renderSection(answers: AnswerSection) = {
         <h3 id="@{answers.section}-heading" class="section-heading govuk-heading-s">@messages(answers.headingKey)</h3>
         <div id="@{answers.section}" class="govuk-form-group">
-        @for(answer <- answers.rows) {
-            @{
-                answer._1 match {
-                    case a: SingleAnswerRow => renderSingleAnswer(a)
-                    case a: MultiAnswerRow => for(subAnswer <- a.answers) {
-                        renderSingleAnswer(subAnswer, panelIndent = true)
+            <dl class="govuk-summary-list govuk-summary-list--no-border">
+                @for(answer <- answers.rows) {
+                    @{
+                        answer._1 match {
+                            case a: SingleAnswerRow => renderSingleAnswer(a)
+                            case a: MultiAnswerRow => for(subAnswer <- a.answers) {
+                                renderSingleAnswer(subAnswer, panelIndent = true)
+                            }
+                        }
                     }
                 }
-            }
-        }
+            </dl>
         </div>
     }
 
+
+
     @renderSingleAnswer(answer: SingleAnswerRow, panelIndent: Boolean = false) = {
-        <div class="answer--container divider--bottom @if(panelIndent){panel-indent}">
-            <div class="answer--question"><p class="govuk-body"><strong>@messages(answer.label)</strong></p></div>
-            <div class="answer--answer"><p class="govuk-body">@messages(answer.answer)</p></div>
-        </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          @messages(answer.label)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          @messages(answer.answer)
+        </dd>
+      </div>
     }
 </div>

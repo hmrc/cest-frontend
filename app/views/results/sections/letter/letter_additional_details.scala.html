@@ -23,42 +23,49 @@
 
 <h2 class="govuk-heading-m">@messages("site.letter.forYourRecords")</h2>
 
-<div class="govuk-grid-row letter govuk-form-group" id="pdfDetails">
+<dl class="govuk-summary-list govuk-summary-list--no-border" id="pdfDetails">
+    @additionalPdfDetails.completedBy.map { name =>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages("result.pdf.customisedBy")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              @name
+            </dd>
+        </div>
+    }
 
-    <div class="govuk-grid-column-one-half">
+    @additionalPdfDetails.client.map { client =>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages(tailorMsg("result.pdf.client"))
+            </dt>
+            <dd class="govuk-summary-list__value">
+              @client
+            </dd>
+        </div>
+    }
+    @additionalPdfDetails.job.map { job =>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages("result.pdf.job")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              @job
+            </dd>
+        </div>
+    }
 
-        @additionalPdfDetails.completedBy.map { name =>
-            <p class="govuk-body" id="customisedBy">
-                <span class="govuk-!-font-weight-bold">@messages("result.pdf.customisedBy")</span>
-                <br>
-                @name
-            </p>
-        }
+    @additionalPdfDetails.reference.map { reference =>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages("result.pdf.reference")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              @reference
+            </dd>
+        </div>
+    }
 
-        @additionalPdfDetails.client.map { client =>
-            <p class="govuk-body" id="clientName">
-                <strong class="govuk-!-font-weight-bold">@messages(tailorMsg("result.pdf.client"))</strong>
-                <br>
-                @client
-            </p>
-        }
+</dl>
 
-        @additionalPdfDetails.job.map { job =>
-            <p class="govuk-body" id="jobTitle">
-                <strong class="govuk-!-font-weight-bold">@messages("result.pdf.job")</strong>
-                <br>
-                @job
-            </p>
-        }
-    </div>
-
-    <div class="govuk-grid-column-one-half">
-        @additionalPdfDetails.reference.map { reference =>
-            <p class="govuk-body" id="referenceDetails">
-                <strong class="govuk-!-font-weight-bold">@messages("result.pdf.reference")</strong>
-                <br>
-                @reference
-            </p>
-        }
-    </div>
-</div>

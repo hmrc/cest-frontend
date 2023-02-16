@@ -34,57 +34,38 @@
 @(resultMsgKey: String, whyResult: Html, doNext: Html, userAnswers: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 
-<div class="print-pages">
     <div class="print-document page">
-        <table>
 
-            @letterHeader()
+            <div class="print-only">
+                @letterHeader()
+            </div>
 
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="content">
-                            <div class="govuk-grid-row main-content">
+        <div class="content">
+            <div class="main-content">
 
-                                <div class="govuk-grid-column-full">
-                                    @pdfResultDetails.additionalPdfDetails.map { details =>
-                                        @letterAdditionalDetails(details)
-                                    }
-                                </div>
+                @pdfResultDetails.additionalPdfDetails.map { details =>
+                    @letterAdditionalDetails(details)
+                }
 
-                                <div id="result" class="govuk-grid-column-full">
-                                    @letterResult(resultMsgKey)
-                                </div>
+                @letterResult(resultMsgKey)
 
-                                <div class="govuk-grid-column-full">
+                <div class="govuk-form-group">
+                    @whyResultTemplate(whyResult)
+                </div>
 
-                                    <div class="govuk-grid-row letter govuk-form-group">
-                                        <div class="govuk-grid-column-two-thirds govuk-form-group">
-
-                                            <div class="govuk-form-group">
-                                                @whyResultTemplate(whyResult)
-                                            </div>
-
-                                            <div class="govuk-form-group">
-                                                @doNextTemplate(doNext)
-                                            </div>
-                                        </div>
+                <div class="govuk-form-group">
+                    @doNextTemplate(doNext)
+                </div>
 
 
-                                        @pdfResultDetails.timestamp.map { timestamp =>
-                                            @letterAboutThisResultBox(timestamp)
-                                        }
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                @pdfResultDetails.timestamp.map { timestamp =>
+                    @letterAboutThisResultBox(timestamp)
+                }
+
+            </div>
+        </div>
     </div>
 
     @letterAnswerPages(LetterAnswerSections(userAnswers.sections))
 
-</div>

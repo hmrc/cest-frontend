@@ -21,10 +21,10 @@
 
 @if(isMake || request.userType.contains(Hirer)){
     @if(isUndetermined){
-      <p>@messages("result.keepCopy.undetermined")</p>
+      <p class="govuk-body">@messages("result.keepCopy.undetermined")</p>
     } else if(request.userType.contains(Hirer)){
-      <p>@messages("result.keepCopy.hirer.determined")</p>
+      <p class="govuk-body">@messages("result.keepCopy.hirer.determined")</p>
     } else {
-      <p>@messages("result.keepCopy.worker.determined")</p>
+      <p class="govuk-body">@messages("result.keepCopy.worker.determined")</p>
     }
 }
