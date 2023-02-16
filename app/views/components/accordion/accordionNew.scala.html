@@ -21,6 +21,13 @@
 
 @(sections: Seq[AccordionSection])(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+<div class="govuk-accordion" data-module="govuk-accordion"
+     data-i18n.show-section="@messages("site.accordion.openSection")"
+     data-i18n.hide-section="@messages("site.accordion.closeSection")"
+     data-i18n.show-all-sections="@messages("site.accordion.openAll")"
+     data-i18n.hide-all-sections="@messages("site.accordion.closeAll")"
+     data-i18n.show-section-aria-label="@messages("site.accordion.showSection")"
+     data-i18n.hide-section-aria-label="@messages("site.accordion.hideSection")"
+     id="accordion-default">
     @sections.map(accordion => accordion.html)
 </div>
