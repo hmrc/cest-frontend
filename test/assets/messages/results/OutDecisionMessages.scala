@@ -99,7 +99,7 @@ object OutDecisionMessages extends BaseResultMessages {
     val whyResultB4 = "the worker is providing services as a business"
     val whyResultP2 = "This suggests the worker is working on a business to business basis."
     val doNextP1 = "If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct."
-    val doNextP2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
+    val doNextP2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in new tab)."
     val whyResulReason1 = "Your answers told us the worker’s client has accepted, or would accept, a substitute."
     val whyResulReason2 = "Your answers told us the worker’s client does not have control over this work."
     val whyResulReason3 = "Your answers told us the worker or their business will have to fund costs before their client pays them."
