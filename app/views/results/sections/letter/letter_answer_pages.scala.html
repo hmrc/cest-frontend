@@ -26,11 +26,10 @@
 
 @(letterAnswerPages: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-@for((sectionAnswers, pageNumber) <- letterAnswerPages.pages.zipWithIndex) {
+<h2 class="govuk-heading-m">@messages("result.pdf.whatYouToldUs")</h2>
 
-<div class="print-document page">
+@for((sectionAnswers, pageNumber) <- letterAnswerPages.pages.zipWithIndex) {
     @pdfAnswers(sectionAnswers, pageNumber)
-</div>
 
 }
 
