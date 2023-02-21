@@ -17,12 +17,11 @@
 package views.sections.personalService
 
 import assets.messages.{SubHeadingMessages, WouldPaySubstituteMessages}
-import controllers.sections.personalService.routes
 import forms.sections.personalService.WouldWorkerPaySubstituteFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.personalService.WouldWorkerPaySubstituteView
 
 class WouldWorkerPaySubstituteViewSpec extends YesNoViewBehavioursNew {

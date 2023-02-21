@@ -25,7 +25,7 @@ import play.twirl.api.Html
 case class Accordion(sections: Seq[AccordionSection]) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.accordion.accordion(sections)
+    views.html.components.accordion.accordionNew(sections)
 }
 
 case class AccordionSection(section: SectionEnum,
@@ -34,7 +34,7 @@ case class AccordionSection(section: SectionEnum,
                             expanded: Boolean = false) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.accordion.accordion_section(section.toString, headingKey, body, expanded)
+    views.html.components.accordion.accordion_sectionNew(section.toString, headingKey, body, expanded)
 }
 
 object Accordion {

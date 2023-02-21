@@ -21,39 +21,41 @@
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import models.NormalMode
 @import models.Section.SectionEnum
+@import views.html.templates.layout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components._
 
 
-@this(mainTemplate: templates.MainTemplate, formWithCsrf: FormWithCSRF)
+@this(formWithCsrf: FormWithCSRF,
+      layout: layout,
+      submit: submit_button_new,
+      heading: headingNew,
+      bulleted: bulleted_listNew,
+     )
 
 @(answerSections: Seq[AnswerSection], sectionToExpand: Option[SectionEnum])(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@mainTemplate(
-    title = titleNoForm("checkYourAnswers.title"),
+@layout(
+    pageTitle = titleNoForm("checkYourAnswers.title"),
     appConfig = appConfig,
-    bodyClasses = None) {
+    mode = NormalMode) {
 
-    @components.back_link()(NormalMode)
+    @heading("checkYourAnswers.heading")
 
     @formWithCsrf(action = CheckYourAnswersController.onSubmit(), 'autoComplete -> "off") {
 
-        @components.heading("checkYourAnswers.heading")
+        @viewmodels.Accordion(answerSections, sectionToExpand).html
 
-        @Accordion(answerSections, sectionToExpand).html
+        <h2 class="govuk-heading-m">@messages("checkYourAnswers.confirm.h2")</h2>
 
-        <noscript>
-            @CheckYourAnswers(answerSections).sections.map(_.html)
-        </noscript>
+        <p class="govuk-body">@messages("checkYourAnswers.confirm.p1")</p>
 
-        <h2>@messages("checkYourAnswers.confirm.h2")</h2>
-
-        <p>@messages("checkYourAnswers.confirm.p1")</p>
-
-        @components.bulleted_list(Seq(
+        @bulleted(Seq(
             messages("checkYourAnswers.confirm.bullet1"),
             messages("checkYourAnswers.confirm.bullet2"),
             messages("checkYourAnswers.confirm.bullet3")
         ))
 
-        @components.submit_button("site.confirm_continue")
+        @submit("site.confirm_continue")
     }
   }

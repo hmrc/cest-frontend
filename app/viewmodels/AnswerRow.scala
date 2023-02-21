@@ -34,7 +34,7 @@ case class SingleAnswerRow(label: String,
                            changeContextMsgKey: Option[String]) extends AnswerRow with FeatureSwitching {
 
   override def answerHtml(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): Html =
-      views.html.components.checkYourAnswers.cya_row(label, answer, answerIsMessageKey, panelIndent = false, changeUrl, changeContextMsgKey)
+      views.html.components.checkYourAnswers.cya_rowNew(label, answer, answerIsMessageKey, panelIndent = false, changeUrl, changeContextMsgKey)
 }
 
 case class MultiAnswerRow(label: String,
