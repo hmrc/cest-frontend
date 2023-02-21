@@ -90,8 +90,8 @@ site.accordion.openAll = Agor pob un
 site.accordion.closeAll = Cau pob un
 site.accordion.openSection = Agor
 site.accordion.closeSection = Cau
-site.accordion.showSection = Show this section Welsh
-site.accordion.hideSection = Hide this section Welsh
+site.accordion.showSection = Dangos yr adran hon
+site.accordion.hideSection = Cuddio’r adran hon
 
 feedback.before = Mae hwn yn wasanaeth newydd - bydd eich
 feedback.link = adborth
