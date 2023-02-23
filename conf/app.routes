@@ -11,6 +11,9 @@ GET        /language/:lang                              controllers.LanguageSwit
 GET        /service-reset                               controllers.errors.SessionExpiredController.onPageLoad
 POST       /service-reset                               controllers.errors.SessionExpiredController.onSubmit
 
+GET        /allow-cookies                               controllers.errors.AllowCookiesController.onPageLoad
+POST       /allow-cookies                               controllers.errors.AllowCookiesController.onSubmit
+
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
 GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad
