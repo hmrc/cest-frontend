@@ -13,7 +13,7 @@ POST       /service-reset                               controllers.errors.Sessi
 
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
-GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad
+GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad(c: Option[String] ?= None)
 POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit
 
 GET        /who-are-you                                 controllers.sections.setup.WhoAreYouController.onPageLoad(mode: Mode = NormalMode)

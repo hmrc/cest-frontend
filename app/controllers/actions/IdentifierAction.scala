@@ -34,6 +34,7 @@ class SessionIdentifierAction @Inject()(config: FrontendAppConfig,
   override def parser: BodyParser[AnyContent] = controllerComponents.parsers.defaultBodyParser
 
   override def invokeBlock[A](request: Request[A], block: IdentifierRequest[A] => Future[Result]): Future[Result] = {
+    println("HitIdentified")
     hc(request).sessionId match {
       case Some(session) => block(IdentifierRequest(request, session.value))
       case None => Future.successful(Redirect(controllers.errors.routes.SessionExpiredController.onPageLoad))

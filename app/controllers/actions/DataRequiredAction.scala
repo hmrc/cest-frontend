@@ -28,10 +28,17 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
   override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
+    println("HitDataRequired")
     request.userAnswers match {
       case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad)))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
+  }
+
+  def test: Future[Either[Result, Nothing]] = c.isDefined match {
+    case false => Future.successful(Right(Redirect(controllers.routes.IndexController.onPageLoad)))
+    case _ => Future.successful(Left(Redirect(controllers.routes.PlaceholderController.onPageLoad)))
+
   }
 }
 
