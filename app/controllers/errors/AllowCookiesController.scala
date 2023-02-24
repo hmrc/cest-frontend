@@ -21,7 +21,7 @@ import controllers.BaseController
 import controllers.actions.IdentifierAction
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import views.html.errors.SessionExpiredView
+import views.html.errors.AllowCookiesView
 
 import javax.inject.{Inject, Singleton}
 
@@ -29,11 +29,11 @@ import javax.inject.{Inject, Singleton}
 class AllowCookiesController @Inject()(val appConfig: FrontendAppConfig,
                                        identify: IdentifierAction,
                                        override val controllerComponents: MessagesControllerComponents,
-                                       expiredView: SessionExpiredView
+                                       cookiesView: AllowCookiesView
                                         ) extends BaseController with I18nSupport {
 
   def onPageLoad: Action[AnyContent] = Action { implicit request =>
-    Ok(expiredView(appConfig))
+    Ok(cookiesView(appConfig))
   }
 
   def onSubmit: Action[AnyContent] = Action { implicit request =>
