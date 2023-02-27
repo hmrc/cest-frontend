@@ -65,6 +65,6 @@ class SetupNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Na
   )
 
   override def nextPage(page: Page, mode: Mode): UserAnswers => Call = {
-    setupRouteMap.getOrElse(page, _ => IndexController.onPageLoad)
+    setupRouteMap.getOrElse(page, _ => IndexController.onPageLoad())
   }
 }
