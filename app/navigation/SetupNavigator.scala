@@ -32,7 +32,7 @@ import play.api.mvc.Call
 @Singleton
 class SetupNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Navigator with FeatureSwitching {
 
-  private def setupRouteMap(c: Option[String] = None): Map[Page, UserAnswers => Call] = Map(
+  private def setupRouteMap(c: Option[String]): Map[Page, UserAnswers => Call] = Map(
     //Initialisation Section
     IndexPage -> (_ => setupRoutes.AboutYourResultController.onPageLoad(c)),
 
