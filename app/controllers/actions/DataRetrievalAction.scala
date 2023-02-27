@@ -30,7 +30,7 @@ class DataRetrievalActionImpl @Inject()(val dataCacheConnector: DataCacheConnect
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
   override protected def transform[A](request: IdentifierRequest[A]): Future[OptionalDataRequest[A]] = {
-    println("HitDataRetrieved")
+    println(s" *** HitDataRetrieved $${request.queryString} - ${request.uri}")
     dataCacheConnector.fetch(request.identifier).map {
       case None => OptionalDataRequest(request.request, request.identifier, None)
       case Some(data) => OptionalDataRequest(request.request, request.identifier, Some(UserAnswers(data)))

@@ -28,11 +28,10 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
   override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
-    println("HitDataRequired")
-    println(request.queryString)
-    println(s"URL: ${request.uri}")
+    val c: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
+    println(s" *** HitDataRequired c = $c")
     request.userAnswers match {
-     // case None if c.isDefined => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad)))
+      case None if c.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.SessionExpiredController.onPageLoad)))
       case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
