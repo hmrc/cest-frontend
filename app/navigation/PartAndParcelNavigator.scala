@@ -38,7 +38,7 @@ class PartAndParcelNavigator @Inject()(businessOnOwnAccountNavigator: BusinessOn
 
   private def nextSection(userAnswers: UserAnswers) = businessOnOwnAccountNavigator.startPage(userAnswers)
 
-  override def nextPage(page: Page, mode: Mode): UserAnswers => Call = mode match {
+  override def nextPage(page: Page, mode: Mode, c: Option[String] = None): UserAnswers => Call = mode match {
     case NormalMode => routeMap.getOrElse(page, _ => IndexController.onPageLoad())
     case CheckMode => _ => CheckYourAnswersController.onPageLoad(Some(Section.partAndParcel))
   }

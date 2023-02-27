@@ -41,8 +41,8 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
                                           implicit val appConfig: FrontendAppConfig)
   extends BaseNavigationController with FeatureSwitching {
 
-  def onPageLoad: Action[AnyContent] = {
-    println("HitAboutYourResult")
+  def onPageLoad(c: Option[String] = None): Action[AnyContent] = {
+    println(s" ***** HitAboutYourResult c=$c")
     (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(routes.AboutYourResultController.onSubmit))
   }
