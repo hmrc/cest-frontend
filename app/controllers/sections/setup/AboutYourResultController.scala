@@ -48,12 +48,13 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
   }
   }
 
-  def test: Action[AnyContent] = {
+  def test(c: Option[String], test: Boolean): Action[AnyContent] = {
     println("HitAboutYourResult")
-    (identify andThen getData andThen requireData) match {
-      case c.isDefined => implicit request => Ok(view(routes.PlaceholdersController.onSubmit))
-      case _ => implicit request => Ok(view(routes.AboutYourResultController.onSubmit))
-    }}
+    (identify andThen getData andThen requireData) {implicit request =>
+    test match {
+ //     case c.isDefined => Ok(view(routes.PlaceholderController.onSubmit))
+      case _ => Ok(view(routes.AboutYourResultController.onSubmit))
+    }}}
 
 
   def onSubmit: Action[AnyContent] = {

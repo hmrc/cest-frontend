@@ -69,7 +69,7 @@ webChatClient: WebChatClient)
 
 @headerNavLinks = {
     <li>
-        <a href="@routes.IndexController.onPageLoad.url">@messages("site.home")</a>
+        <a href="@routes.IndexController.onPageLoad().url">@messages("site.home")</a>
     </li>
 }
 
@@ -91,7 +91,7 @@ webChatClient: WebChatClient)
                   message: '@messages("timeout.text")',
                   timeout: @appConfig.timeoutPeriod,
                   countdown: @appConfig.timeoutCountdown,
-                  keepAliveUrl: '@controllers.routes.IndexController.onPageLoad.url',
+                  keepAliveUrl: '@controllers.routes.IndexController.onPageLoad().url',
                   keepAliveButtonText: '@messages("timeout.keep_alive")',
                   signOutUrl: '@controllers.errors.routes.SessionExpiredController.onPageLoad.url',
                   signOutButtonText: '@messages("timeout.delete_answers")'

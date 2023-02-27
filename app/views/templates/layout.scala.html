@@ -41,7 +41,7 @@
     }
     @hmrcTimeoutDialogHelper(
         signOutUrl = controllers.errors.routes.SessionExpiredController.onPageLoad.url,
-        keepAliveUrl = Some(controllers.routes.IndexController.onPageLoad.url),
+        keepAliveUrl = Some(controllers.routes.IndexController.onPageLoad().url),
         message = Some(messages("timeout.text")),
         keepAliveButtonText = Some(messages("timeout.keep_alive")),
         signOutButtonText = Some(messages("timeout.delete_answers")),
@@ -78,7 +78,7 @@
 @hmrcLayout(
     pageTitle = Some(pageTitle),
     isWelshTranslationAvailable = true,
-    serviceUrl = Some(routes.IndexController.onPageLoad.url),
+    serviceUrl = Some(routes.IndexController.onPageLoad().url),
     backLinkUrl = backLink,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
