@@ -48,6 +48,10 @@ session.expired.title = This session has been closed as it was inactive for more
 session.expired.heading = This session has been closed as it was inactive for more than 15 minutes. For your security, we have deleted your answers.
 session.expired.start_again = Start again
 
+allow.cookies.title = There has been a problem.
+allow.cookies.heading = There has been a problem.
+allow.cookies.p1 = You need to change your browser settings to allow cookies to be used and then start again.
+allow.cookies.start_again = Start again
 
 site.back = Back
 
