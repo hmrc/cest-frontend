@@ -31,7 +31,7 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
     val cookieIndicator: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
     println(s" *** HitDataRequired c = $cookieIndicator")
     request.userAnswers match {
-      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.SessionExpiredController.onPageLoad)))
+      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad)))
       case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
