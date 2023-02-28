@@ -22,7 +22,7 @@ import controllers.actions.IdentifierAction
 import play.api.test.Helpers._
 import views.html.errors.SessionExpiredView
 
-class SessionExpiredControllerSpec extends ControllerSpecBase {
+class AllowCookiesControllerSpec extends ControllerSpecBase {
 
   val identify = injector.instanceOf[IdentifierAction]
   val dataCacheConnector = injector.instanceOf[DataCacheConnector]
@@ -34,7 +34,7 @@ class SessionExpiredControllerSpec extends ControllerSpecBase {
     messagesControllerComponents,
     expiredView)
 
-  "SessionExpiredController.onPageLoad" must {
+  "AllowCookiesController.onPageLoad" must {
 
     lazy val result = controller.onPageLoad()(fakeRequest)
 

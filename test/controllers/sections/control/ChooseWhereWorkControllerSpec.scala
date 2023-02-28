@@ -118,7 +118,7 @@ class ChooseWhereWorkControllerSpec extends ControllerSpecBase with MockDataCach
       val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
 
     }
 
@@ -127,7 +127,7 @@ class ChooseWhereWorkControllerSpec extends ControllerSpecBase with MockDataCach
       val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
 
     }
   }
