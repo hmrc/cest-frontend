@@ -47,7 +47,7 @@ class ExitNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Nav
       }))
   }
 
-  override def nextPage(page: Page, mode: Mode, c: Option[String] = None): UserAnswers => Call = {
+  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None): UserAnswers => Call = {
     officeHolderRouteMap(mode).getOrElse(page, _ => IndexController.onPageLoad())
   }
 }
