@@ -1,8 +1,8 @@
 # microservice specific routes
 ->         /hmrc-frontend                               hmrcfrontend.Routes
 
-GET        /                                            controllers.IndexController.onPageLoad(c: Option[String] ?= None)
-GET        /setup                                       controllers.IndexController.onPageLoad(c: Option[String] ?= None)
+GET        /                                            controllers.IndexController.onPageLoad(cookieIndicator: Option[String] ?= None)
+GET        /setup                                       controllers.IndexController.onPageLoad(cookieIndicator: Option[String] ?= None)
 
 GET        /assets/*file                                controllers.Assets.versioned(path="/public", file: Asset)
 
@@ -11,12 +11,12 @@ GET        /language/:lang                              controllers.LanguageSwit
 GET        /service-reset                               controllers.errors.SessionExpiredController.onPageLoad
 POST       /service-reset                               controllers.errors.SessionExpiredController.onSubmit
 
-GET        /allow-cookies                               controllers.errors.AllowCookiesController.onPageLoad
+GET        /allow-cookies                               controllers.errors.AllowCookiesController.onPageLoad(lang: Option[String] ?= None)
 POST       /allow-cookies                               controllers.errors.AllowCookiesController.onSubmit
 
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
-GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad(c: Option[String] ?= None)
+GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad(cookieIndicator: Option[String] ?= None)
 POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit
 
 GET        /who-are-you                                 controllers.sections.setup.WhoAreYouController.onPageLoad(mode: Mode = NormalMode)

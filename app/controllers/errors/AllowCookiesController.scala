@@ -22,6 +22,8 @@ import controllers.actions.IdentifierAction
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import views.html.errors.AllowCookiesView
+import services.languageMap
+import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.En
 
 import javax.inject.{Inject, Singleton}
 
@@ -32,8 +34,9 @@ class AllowCookiesController @Inject()(val appConfig: FrontendAppConfig,
                                        cookiesView: AllowCookiesView
                                         ) extends BaseController with I18nSupport {
 
-  def onPageLoad: Action[AnyContent] = Action { implicit request =>
-    Ok(cookiesView(appConfig))
+  def onPageLoad(lang: Option[String] = None): Action[AnyContent] = Action { implicit request =>
+    val messages = controllerComponents.messagesApi.preferred(Seq(languageMap(lang.getOrElse(En.code))))
+    Ok(cookiesView(appConfig, s"${appConfig.govUkStartPageUrl}", lang)(request, messages))
   }
 
   def onSubmit: Action[AnyContent] = Action { implicit request =>

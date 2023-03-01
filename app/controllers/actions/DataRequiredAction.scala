@@ -18,24 +18,36 @@ package controllers.actions
 
 import com.google.inject.Inject
 import models.requests.{DataRequest, OptionalDataRequest}
+import org.checkerframework.checker.units.qual.A
 import play.api.mvc.Results.Redirect
 import play.api.mvc.{ActionRefiner, MessagesControllerComponents, Result}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControllerComponents) extends DataRequiredAction {
+abstract class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControllerComponents) extends DataRequiredAction {
 
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
-  override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
+//  override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
+//    val cookieIndicator: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
+//    println(s" *** HitDataRequired c = $cookieIndicator")
+//    request.userAnswers match {
+//      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad(s"${lang.fold("")(l => s"?lang=$l")}"))))
+//      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
+//      case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
+//    }
+//  }
+
+  def test[A](request: OptionalDataRequest[A], lang: Option[String]): Future[Either[Result, DataRequest[A]]] = {
     val cookieIndicator: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
     println(s" *** HitDataRequired c = $cookieIndicator")
     request.userAnswers match {
-      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad)))
+      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad(Some(s"${lang.fold("")(l => s"?lang=$l")}")))))
       case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
   }
+
 }
 
 trait DataRequiredAction extends ActionRefiner[OptionalDataRequest, DataRequest]
