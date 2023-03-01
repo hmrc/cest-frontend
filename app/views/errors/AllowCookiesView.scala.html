@@ -21,6 +21,7 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import views.html.components.headingNew
 @import views.html.components.submit_button_new
+@import services._
 
 
 @this(formWithCsrf: FormWithCSRF,
@@ -30,17 +31,23 @@
         layout: templates.layout,
         button: submit_button_new)
 
-@(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
+@(appConfig: FrontendAppConfig, buttonTarget: String, lang: Option[String])(implicit request: Request[_], messages: Messages)
+
+@langParam = @{lang.fold("")(l => s"?lang=$l")}
+
+@langOrEnglishDefault = @{lang.fold(English.code)(l => l)}
 
     @layout(
         pageTitle = titleNoForm("allow.cookies.title"),
         mode = CheckMode,
         appConfig = appConfig) {
 
-        @heading("allow.cookies.heading")
+    @components.allowCookiesLanguageSwitch(langOrEnglishDefault)
 
-        <p class="govuk-body">@messages("allow.cookies.p1")</p>
+    <h1 class="govuk-heading-xl">@messages("allow.cookies.heading")</h1>
+    <p>@messages("allow.cookies.p1")</p>
 
-    @button(messages("allow.cookies.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer.url))
-
+    <a id="startAgain" href="@buttonTarget@langParam" role="button" class="govuk-button" data-module="govuk-button">
+       @messages("allow.cookies.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer.url
+    </a>
     }
