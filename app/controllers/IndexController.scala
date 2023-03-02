@@ -44,7 +44,7 @@ class IndexController @Inject()(override val navigator: SetupNavigator,
     (identify andThen getData).async { implicit request =>
     val userAnswers = request.userAnswers.fold(UserAnswers(new CacheMap(request.internalId, Map())))(x => x)
     cache.save(userAnswers.cacheMap).map(
-      _ => Redirect(navigator.nextPage(IndexPage, NormalMode, cookieIndicator)(userAnswers))
+      _ => Redirect(navigator.nextPage(IndexPage, NormalMode, cookieIndicator, lang)(userAnswers))
     )
   }
   }

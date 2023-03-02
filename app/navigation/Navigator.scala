@@ -22,6 +22,6 @@ import play.api.mvc.Call
 
 abstract class Navigator {
 
-  def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None): UserAnswers => Call
+  def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None, lang: Option[String] = None): UserAnswers => Call
 
 }

@@ -44,6 +44,6 @@ class CYANavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Navi
     CustomisePDFPage -> (_ => PrintPreviewController.onPageLoad())
   )
 
-  override def nextPage(page: Page, mode: Mode = NormalMode, cookieIndicator: Option[String] = None): UserAnswers => Call = routeMap.getOrElse(page, _ => IndexController.onPageLoad())
+  override def nextPage(page: Page, mode: Mode = NormalMode, cookieIndicator: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = routeMap.getOrElse(page, _ => IndexController.onPageLoad())
 
 }

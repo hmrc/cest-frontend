@@ -64,7 +64,7 @@ class SetupNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Na
     ContractStartedPage -> (_ => exitRoutes.OfficeHolderController.onPageLoad(NormalMode))
   )
 
-  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None): UserAnswers => Call = {
-    setupRouteMap(cookieIndicator).getOrElse(page, _ => IndexController.onPageLoad(cookieIndicator))
+  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = {
+    setupRouteMap(cookieIndicator).getOrElse(page, _ => IndexController.onPageLoad(cookieIndicator, lang))
   }
 }
