@@ -39,7 +39,7 @@ class FinancialRiskNavigator @Inject()(implicit appConfig: FrontendAppConfig) ex
     PutRightAtOwnCostPage -> (_ => partParcelRoutes.BenefitsController.onPageLoad(NormalMode))
   )
 
-  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None): UserAnswers => Call = mode match {
+  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = mode match {
     case NormalMode => routeMap.getOrElse(page, _ => IndexController.onPageLoad())
     case CheckMode => _ => CheckYourAnswersController.onPageLoad(Some(Section.financialRisk))
   }

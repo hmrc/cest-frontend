@@ -28,12 +28,13 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
 
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
-  override protected def refine[A](request: OptionalDataRequest[A], lang: Option[String]): Future[Either[Result, DataRequest[A]]] = {
+  override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
     val cookieIndicator: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
+    val lang: Option[String] = request.queryString.get("lang").map(s => s.headOption.getOrElse(""))
     println(s" *** HitDataRequired c = $cookieIndicator")
     request.userAnswers match {
       case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad(Some(s"${lang.fold("")(l => s"?lang=$l")}")))))
-      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1"), lang))))
+      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
   }
