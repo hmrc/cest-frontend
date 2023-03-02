@@ -14,7 +14,7 @@ html {
 /* Global print stylesheet */
 /* reset everything */
 * {
-  background: transparent;
+  background: transparent !important;
   color: black;
   text-shadow: none;
   filter: none;
@@ -75,3 +75,14 @@ body footer,
 .visuallyhidden,
 #skiplink-container {
   display: none !important; }
+
+/* Hide things that don't need to show on the printed page */
+.hmrc-language-select,
+.govuk-back-link {
+  display: none;
+}
+
+.print-header {
+    display: block;
+    margin-bottom: 2cm;
+}
