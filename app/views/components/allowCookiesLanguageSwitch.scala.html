@@ -16,53 +16,48 @@
 
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{En, Cy}
 
-@(lang: String)
+@(lang: String)(implicit request: Request[_], messages: Messages)
+
+@switchLanguage = @{if (lang == En.code) Cy.code else En.code}
+
+<nav class="hmrc-language-select" aria-label="@messages("allow.cookies.lang-switch-aria-label")">
+    <ul class="hmrc-language-select__list">
 
 @if(lang == En.code) {
-<nav class="hmrc-language-select" aria-label="Language switcher">
-    <ul class="hmrc-language-select__list">
+    <li class="hmrc-language-select__list-item">
+      <span aria-current="true">@messages("language.english")</span>
+    </li>
 
-        <li class="hmrc-language-select__list-item">
-            <span aria-current="true">English</span>
-        </li>
-
-        <li class="hmrc-language-select__list-item">
-            <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad(Some(Cy.code)).url"
-               hreflang="cy"
-               lang="cy"
-               rel="alternate"
-               class="govuk-link"
-               data-journey-click="link - click:lang-select:Cymraeg">
-                <span class="govuk-visually-hidden">Newid yr iaith ir Gymraeg</span>
-                <span aria-hidden="true">Cymraeg</span>
-            </a>
-        </li>
-
-    </ul>
-</nav>
+    <li class="hmrc-language-select__list-item">
+      <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad(Some(switchLanguage)).url"
+         hreflang="@switchLanguage"
+         lang="@switchLanguage"
+         rel="alternate"
+         class="govuk-link"
+         data-journey-click="link - click:lang-select:@messages("language.cymraeg")">
+        <span class="govuk-visually-hidden">@messages("allow.cookies.lang-switch-hidden")</span>
+        <span aria-hidden="true">@messages("language.cymraeg")</span>
+      </a>
+    </li>
 } else {
-<nav class="hmrc-language-select" aria-label="Switcher iaith">
-    <ul class="hmrc-language-select__list">
+    <li class="hmrc-language-select__list-item">
+      <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad().url"
+         hreflang="@switchLanguage"
+         lang="@switchLanguage"
+         rel="alternate"
+         class="govuk-link"
+         data-journey-click="link - click:lang-select:@messages("language.english")">
+        <span class="govuk-visually-hidden">@messages("allow.cookies.lang-switch-hidden")</span>
+        <span aria-hidden="true">@messages("language.english")</span>
+      </a>
+    </li>
 
-        <li class="hmrc-language-select__list-item">
-            <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad().url"
-               hreflang="en"
-               lang="en"
-               rel="alternate"
-               class="govuk-link"
-               data-journey-click="link - click:lang-select:English">
-                <span class="govuk-visually-hidden">Change the language to English</span>
-                <span aria-hidden="true">English</span>
-            </a>
-        </li>
-
-        <li class="hmrc-language-select__list-item">
-            <span aria-current="true">Cymraeg</span>
-        </li>
-
-    </ul>
-</nav>
+    <li class="hmrc-language-select__list-item">
+      <span aria-current="true">@messages("language.cymraeg")</span>
+    </li>
 }
+  </ul>
+</nav>
 
 @{
 //$COVERAGE-OFF$

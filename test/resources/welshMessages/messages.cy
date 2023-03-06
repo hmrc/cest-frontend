@@ -52,6 +52,9 @@ allow.cookies.title = Mae problem wedi codi.
 allow.cookies.heading = Mae problem wedi codi.
 allow.cookies.p1 = Mae angen i chi newid gosodiadau eich porwr i ganiatáu i gwcis gael eu defnyddio ac yna dechrau eto.
 allow.cookies.start_again = Dechrau eto
+allow.cookies.lang-switch-aria-label = Switcher iaith
+allow.cookies.lang-switch-selectable = English
+allow.cookies.lang-switch-hidden = Change the language to English
 
 site.back = Yn ôl
 
