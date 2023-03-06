@@ -31,7 +31,8 @@
         mode: Mode = NormalMode,
         js: Seq[String] = Seq.empty,
         css: Seq[StyleSheet] = Seq(StyleSheet("offpayrollfrontend-app")),
-        backLinkUrl: Option[String] = None
+        backLinkUrl: Option[String] = None,
+        isWelshAvailable: Boolean = true
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -77,7 +78,7 @@
 
 @hmrcLayout(
     pageTitle = Some(pageTitle),
-    isWelshTranslationAvailable = true,
+    isWelshTranslationAvailable = isWelshAvailable,
     serviceUrl = Some(routes.IndexController.onPageLoad().url),
     backLinkUrl = backLink,
     additionalHeadBlock = Some(headContent),

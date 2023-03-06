@@ -40,14 +40,16 @@
     @layout(
         pageTitle = titleNoForm("allow.cookies.title"),
         mode = CheckMode,
-        appConfig = appConfig) {
+        appConfig = appConfig,
+        isWelshAvailable = false) {
 
     @components.allowCookiesLanguageSwitch(langOrEnglishDefault)
 
     <h1 class="govuk-heading-xl">@messages("allow.cookies.heading")</h1>
     <p>@messages("allow.cookies.p1")</p>
 
-    <a id="startAgain" href="@buttonTarget@langParam" role="button" class="govuk-button" data-module="govuk-button">
-       @messages("allow.cookies.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer.url
+    <p><a id="startAgain" href="@buttonTarget@langParam" role="button" class="govuk-button" data-module="govuk-button">
+       @messages("allow.cookies.start_again")
     </a>
+    </p>
     }

@@ -19,11 +19,10 @@ package controllers.errors
 import config.FrontendAppConfig
 import controllers.BaseController
 import controllers.actions.IdentifierAction
-import play.api.i18n.I18nSupport
+import play.api.i18n.{I18nSupport, Lang}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import views.html.errors.AllowCookiesView
-import services.languageMap
-import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.En
+import services.{English, languageMap}
 
 import javax.inject.{Inject, Singleton}
 
@@ -35,7 +34,8 @@ class AllowCookiesController @Inject()(val appConfig: FrontendAppConfig,
                                         ) extends BaseController with I18nSupport {
 
   def onPageLoad(lang: Option[String] = None): Action[AnyContent] = Action { implicit request =>
-    val messages = controllerComponents.messagesApi.preferred(Seq(languageMap(lang.getOrElse(En.code))))
+    val language: Lang = languageMap.get(lang.getOrElse(English.code)).getOrElse(English)
+    val messages = controllerComponents.messagesApi.preferred(Seq(language))
     Ok(cookiesView(appConfig, s"${appConfig.govUkStartPageUrl}", lang)(request, messages))
   }
 

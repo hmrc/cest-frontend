@@ -56,6 +56,9 @@ allow.cookies.lang-switch-aria-label = Language switcher
 allow.cookies.lang-switch-selectable = Cymraeg
 allow.cookies.lang-switch-hidden = Newid yr iaith ir Gymraeg
 
+language.cymraeg = Cymraeg
+language.english = English
+
 site.back = Back
 
 site.edit = Change
