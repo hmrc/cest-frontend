@@ -18,7 +18,6 @@ package controllers.actions
 
 import com.google.inject.Inject
 import models.requests.{DataRequest, OptionalDataRequest}
-import org.checkerframework.checker.units.qual.A
 import play.api.mvc.Results.Redirect
 import play.api.mvc.{ActionRefiner, MessagesControllerComponents, Result}
 
