@@ -24,12 +24,7 @@
 @import services._
 
 
-@this(formWithCsrf: FormWithCSRF,
-        mainTemplate: templates.MainTemplate,
-        govukButton: GovukButton,
-        heading: headingNew,
-        layout: templates.layout,
-        button: submit_button_new)
+@this(layout: templates.layout)
 
 @(appConfig: FrontendAppConfig, buttonTarget: String, lang: Option[String])(implicit request: Request[_], messages: Messages)
 
@@ -41,12 +36,13 @@
         pageTitle = titleNoForm("allow.cookies.title"),
         mode = CheckMode,
         appConfig = appConfig,
-        isWelshAvailable = false) {
+        isWelshAvailable = false,
+        doLanguageSwitch = true) {
 
-    @components.allowCookiesLanguageSwitch(langOrEnglishDefault)
+<!--    @components.allowCookiesLanguageSwitch(langOrEnglishDefault)-->
 
     <h1 class="govuk-heading-xl">@messages("allow.cookies.heading")</h1>
-    <p>@messages("allow.cookies.p1")</p>
+    <p class="govuk-body">@messages("allow.cookies.p1")</p>
 
     <p><a id="startAgain" href="@buttonTarget@langParam" role="button" class="govuk-button" data-module="govuk-button">
        @messages("allow.cookies.start_again")
