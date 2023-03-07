@@ -48,15 +48,15 @@ trait ResultViewFixture extends ViewBehaviours {
       val exit = "#exitLink"
       val startAgain = "#startAgainLink"
       val p = (i: Int) => Selectors.p(i, id)
-      val printHeading = ".print-document__information-box span"
+      val printHeading = ".print-document__information-box h2"
     }
 
     object AdditionalPDF {
       val id = "#pdfDetails"
-      val customisedBy = "#customisedBy"
-      val client = "#clientName"
-      val jobTitle = "#jobTitle"
-      val reference = "#referenceDetails"
+      val customisedBy = "#pdfDetails > div:nth-child(1)"
+      val client = "#pdfDetails > div:nth-child(2)"
+      val jobTitle = "#pdfDetails > div:nth-child(3)"
+      val reference = "#pdfDetails > div:nth-child(4)"
     }
 
     object Result {

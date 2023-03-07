@@ -100,7 +100,6 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
       "If the user is Making a Determination" should {
 
         implicit lazy val document = asDocument(createView(workerFakeDataRequest, isMakingDetermination = true, testPrintPreviewResultDetails))
-
         workerPageChecks(ResultPrintPreview, isMakingDetermination = true)
         letterPrintPreviewPageChecks
       }
