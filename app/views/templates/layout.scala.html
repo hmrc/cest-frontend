@@ -22,7 +22,8 @@
 @import uk.gov.hmrc.webchat.client.WebChatClient
 @import views.html.helper.CSPNonce
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
-@import views.html.components.allowCookiesLanguageSwitch
+@import views.html.components.urlLanguageSwitch
+@import services._
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
 
@@ -35,6 +36,7 @@
         backLinkUrl: Option[String] = None,
         isWelshAvailable: Boolean = true,
         doLanguageSwitch: Boolean = false,
+        lang: Option[String] = None,
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -53,6 +55,12 @@
     )
 }
 
+@beforeContent = {
+    @if(doLanguageSwitch == true) {
+        @urlLanguageSwitch(lang.fold(English.code)(l => l))
+    }
+}
+
 @backLink = @{
     if(mode == CheckMode) {
         None
@@ -61,12 +69,6 @@
             case Some(a) => Some(a)
             case _ => Some("javascript:history.back()")
         }
-    }
-}
-
-@languageSwitch = @{
-    if (doLanguageSwitch == true) {
-        allowCookiesLanguageSwitch
     }
 }
 
@@ -89,6 +91,7 @@
     isWelshTranslationAvailable = isWelshAvailable,
     serviceUrl = Some(routes.IndexController.onPageLoad().url),
     backLinkUrl = backLink,
+    beforeContentBlock = Some(beforeContent),
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
