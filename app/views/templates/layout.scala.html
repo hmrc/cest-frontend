@@ -24,6 +24,8 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
 @import views.html.components.urlLanguageSwitch
 @import services._
+@import controllers.errors.AllowCookiesController
+@import views.html.errors.AllowCookiesView
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
 
@@ -36,7 +38,7 @@
         backLinkUrl: Option[String] = None,
         isWelshAvailable: Boolean = true,
         doLanguageSwitch: Boolean = false,
-        lang: Option[String] = None,
+        language: Option [String] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -56,8 +58,8 @@
 }
 
 @beforeContent = {
-    @if(doLanguageSwitch == true) {
-        @urlLanguageSwitch(lang.fold(English.code)(l => l))
+    @if(doLanguageSwitch == true){
+        @urlLanguageSwitch(language.fold(English.code)(l => l))
     }
 }
 

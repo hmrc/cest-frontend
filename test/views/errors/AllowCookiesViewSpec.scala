@@ -17,6 +17,7 @@
 package views.errors
 
 import messages.AllowCookiesMessages
+import play.api.routing.Router.empty.routes
 import views.behaviours.ViewBehavioursNew
 import views.html.errors.AllowCookiesView
 
@@ -28,7 +29,7 @@ class AllowCookiesViewSpec extends ViewBehavioursNew {
 
   val view = injector.instanceOf[AllowCookiesView]
 
-  def createView = () => view(frontendAppConfig)(fakeRequest, messages)
+  def createView = () => view(frontendAppConfig, frontendAppConfig.govUkStartPageUrl, Some("lang"))(fakeRequest, messages)
 
   "Allow Cookies view" must {
     behave like normalPage(createView, "allow.cookies", hasSubheading = false)
@@ -36,7 +37,7 @@ class AllowCookiesViewSpec extends ViewBehavioursNew {
 
   "Have a link to the IndexController" in {
     val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
-    button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer.url
+    button.attr("href") must include (controllers.routes.StartAgainController.redirectToDisclaimer.url)
 
     button.text mustBe AllowCookiesMessages.startAgain
   }

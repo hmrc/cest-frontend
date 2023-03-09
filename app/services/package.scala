@@ -22,5 +22,6 @@ package object services {
   val English: Lang = Lang(En.code)
   val Welsh: Lang = Lang(Cy.code)
   val languageMap: Map[String, Lang] = Map(En.code -> services.English, Cy.code -> services.Welsh)
+  def language (languageCode: String): Lang = languageMap.get(languageCode).getOrElse(English)
 
 }
