@@ -32,14 +32,14 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
     val lang: Option[String] = request.queryString.get("lang").map(s => s.headOption.getOrElse(""))
     println(s" *** HitDataRequired c = $cookieIndicator")
     request.userAnswers match {
-      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.AllowCookiesController.onPageLoad(languageChanger(lang)))))
-      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1"), languageChanger(lang)))))
+      case None if cookieIndicator.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.CookiesBlockedController.onPageLoad(languageChanger(lang)))))
+      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1")))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
   }
 
   def languageChanger(lang: Option[String]): Option[String] = {
-    lang.fold[Option[String]](None)(l => Some(s"?lang=$l"))
+    lang.fold[Option[String]](None)(l => Some(s"?lang=${services.language(l)}"))
   }
 
 }

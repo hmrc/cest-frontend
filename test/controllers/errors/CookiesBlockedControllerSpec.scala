@@ -22,7 +22,7 @@ import controllers.actions.IdentifierAction
 import play.api.test.Helpers._
 import views.html.errors.SessionExpiredView
 
-class AllowCookiesControllerSpec extends ControllerSpecBase {
+class CookiesBlockedControllerSpec extends ControllerSpecBase {
 
   val identify = injector.instanceOf[IdentifierAction]
   val dataCacheConnector = injector.instanceOf[DataCacheConnector]

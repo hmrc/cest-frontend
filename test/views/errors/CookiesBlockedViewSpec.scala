@@ -19,15 +19,15 @@ package views.errors
 import messages.AllowCookiesMessages
 import play.api.routing.Router.empty.routes
 import views.behaviours.ViewBehavioursNew
-import views.html.errors.AllowCookiesView
+import views.html.errors.CookiesBlockedView
 
-class AllowCookiesViewSpec extends ViewBehavioursNew {
+class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
     val startAgainButton = "submit"
   }
 
-  val view = injector.instanceOf[AllowCookiesView]
+  val view = injector.instanceOf[CookiesBlockedView]
 
   def createView = () => view(frontendAppConfig, frontendAppConfig.govUkStartPageUrl, Some("lang"))(fakeRequest, messages)
 

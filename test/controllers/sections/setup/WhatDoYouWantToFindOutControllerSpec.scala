@@ -104,7 +104,7 @@ class WhatDoYouWantToFindOutControllerSpec extends ControllerSpecBase {
       val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(NormalMode)(fakeRequest)
 
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
 
     }
 
@@ -114,7 +114,7 @@ class WhatDoYouWantToFindOutControllerSpec extends ControllerSpecBase {
       val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(NormalMode)(postRequest)
 
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
 
     }
   }

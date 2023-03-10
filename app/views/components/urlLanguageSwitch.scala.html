@@ -29,7 +29,7 @@
     </li>
 
     <li class="hmrc-language-select__list-item">
-      <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad(Some(switchLanguage)).url"
+      <a href="@controllers.errors.routes.CookiesBlockedController.onPageLoad(Some(switchLanguage)).url"
          hreflang="@switchLanguage"
          lang="@switchLanguage"
          rel="alternate"
@@ -41,7 +41,7 @@
     </li>
 } else {
     <li class="hmrc-language-select__list-item">
-      <a href="@controllers.errors.routes.AllowCookiesController.onPageLoad().url"
+      <a href="@controllers.errors.routes.CookiesBlockedController.onPageLoad().url"
          hreflang="@switchLanguage"
          lang="@switchLanguage"
          rel="alternate"

@@ -24,8 +24,6 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
 @import views.html.components.urlLanguageSwitch
 @import services._
-@import controllers.errors.AllowCookiesController
-@import views.html.errors.AllowCookiesView
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
 
@@ -36,9 +34,7 @@
         js: Seq[String] = Seq.empty,
         css: Seq[StyleSheet] = Seq(StyleSheet("offpayrollfrontend-app")),
         backLinkUrl: Option[String] = None,
-        isWelshAvailable: Boolean = true,
-        doLanguageSwitch: Boolean = false,
-        language: Option [String] = None
+        beforeContent: Option[Html] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -55,12 +51,6 @@
         timeout = Some(appConfig.timeoutPeriod),
         countdown = Some(appConfig.timeoutCountdown)
     )
-}
-
-@beforeContent = {
-    @if(doLanguageSwitch == true){
-        @urlLanguageSwitch(language.fold(English.code)(l => l))
-    }
 }
 
 @backLink = @{
@@ -90,10 +80,10 @@
 
 @hmrcLayout(
     pageTitle = Some(pageTitle),
-    isWelshTranslationAvailable = isWelshAvailable,
+    isWelshTranslationAvailable = beforeContent.isEmpty,
     serviceUrl = Some(routes.IndexController.onPageLoad().url),
     backLinkUrl = backLink,
-    beforeContentBlock = Some(beforeContent),
+    beforeContentBlock = beforeContent,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,
