@@ -48,8 +48,8 @@ session.expired.title = Mae’r sesiwn hon wedi dod i ben am iddi fod yn segur a
 session.expired.heading = Mae’r sesiwn hon wedi dod i ben am iddi fod yn segur am fwy na 15 munud. Er eich diogelwch, rydym wedi dileu’ch atebion.
 session.expired.start_again = Dechrau eto
 
-cookies.blocked.title = Mae problem wedi codi.
-cookies.blocked.heading = Mae problem wedi codi.
+cookies.blocked.title = Mae problem wedi codi
+cookies.blocked.heading = Mae problem wedi codi
 cookies.blocked.p1 = Mae angen i chi newid gosodiadau eich porwr i ganiatáu i gwcis gael eu defnyddio ac yna dechrau eto.
 cookies.blocked.start_again = Dechrau eto
 cookies.blocked.lang-switch-aria-label = Switcher iaith

@@ -17,22 +17,36 @@
 package views.errors
 
 import messages.AllowCookiesMessages
+import play.api.i18n.{Lang, Messages, MessagesApi}
 import play.api.routing.Router.empty.routes
+import play.twirl.api.Html
 import views.behaviours.ViewBehavioursNew
 import views.html.errors.CookiesBlockedView
 
 class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
-    val startAgainButton = "submit"
+    val startAgainButton = "startAgain"
   }
 
+  private trait Test {
+    def messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
+
+}
   val view = injector.instanceOf[CookiesBlockedView]
 
-  def createView = () => view(frontendAppConfig, frontendAppConfig.govUkStartPageUrl, Some("lang"))(fakeRequest, messages)
+  private trait EnTest extends Test {
+    implicit def messages: Messages = messagesApi.preferred(Seq(Lang("en")))
+  }
+
+  private trait CyTest extends Test {
+    implicit def messages: Messages = messagesApi.preferred(Seq(Lang("cy")))
+  }
+
+  def createView = () => view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)(fakeRequest, messages)
 
   "Allow Cookies view" must {
-    behave like normalPage(createView, "allow.cookies", hasSubheading = false)
+    behave like normalPage(createView, "cookies.blocked", hasSubheading = false)
   }
 
   "Have a link to the IndexController" in {
@@ -41,4 +55,47 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
     button.text mustBe AllowCookiesMessages.startAgain
   }
+
+
+  "Session blocked Page" must {
+
+    "Should display English by default" in new EnTest {
+
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)
+      val doc = asDocument(html)
+
+      val heading = doc.getElementsByClass("govuk-heading-xl")
+      heading.text mustBe "There has been a problem"
+
+      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer.url
+    }
+
+    "Should display English with url param lang switch" in new EnTest {
+
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("en"))
+      val doc = asDocument(html)
+
+      val heading = doc.getElementsByClass("govuk-heading-xl")
+      heading.text mustBe "There has been a problem"
+
+      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=en")
+    }
+
+    "Should display Welsh with url param lang switch" in new CyTest {
+
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))
+      val doc = asDocument(html)
+
+      val heading = doc.getElementsByClass("govuk-heading-xl")
+      heading.text mustBe "Mae problem wedi codi"
+
+      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=cy")
+    }
+
+  }
+
+
 }
