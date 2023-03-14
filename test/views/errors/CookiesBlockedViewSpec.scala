@@ -59,7 +59,7 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
   "Session blocked Page" must {
 
-    "Should display English by default" in new EnTest {
+    "Display English by default" in new EnTest {
 
       val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)
       val doc = asDocument(html)
@@ -67,11 +67,11 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
       val heading = doc.getElementsByClass("govuk-heading-xl")
       heading.text mustBe "There has been a problem"
 
-      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      val button = doc.getElementById(Selectors.startAgainButton)
       button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer.url
     }
 
-    "Should display English with url param lang switch" in new EnTest {
+    "Display English with url param lang switch" in new EnTest {
 
       val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("en"))
       val doc = asDocument(html)
@@ -79,11 +79,11 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
       val heading = doc.getElementsByClass("govuk-heading-xl")
       heading.text mustBe "There has been a problem"
 
-      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      val button = doc.getElementById(Selectors.startAgainButton)
       button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=en")
     }
 
-    "Should display Welsh with url param lang switch" in new CyTest {
+    "Display Welsh with url param lang switch" in new CyTest {
 
       val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))
       val doc = asDocument(html)
@@ -91,7 +91,8 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
       val heading = doc.getElementsByClass("govuk-heading-xl")
       heading.text mustBe "Mae problem wedi codi"
 
-      val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
+      val button = doc.getElementById(Selectors.startAgainButton)
+
       button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=cy")
     }
 
