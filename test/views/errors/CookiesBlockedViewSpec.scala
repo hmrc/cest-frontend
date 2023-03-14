@@ -18,7 +18,6 @@ package views.errors
 
 import messages.AllowCookiesMessages
 import play.api.i18n.{Lang, Messages, MessagesApi}
-import play.api.routing.Router.empty.routes
 import play.twirl.api.Html
 import views.behaviours.ViewBehavioursNew
 import views.html.errors.CookiesBlockedView

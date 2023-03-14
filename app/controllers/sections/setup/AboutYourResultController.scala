@@ -42,14 +42,12 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
   extends BaseNavigationController with FeatureSwitching {
 
   def onPageLoad(cookieIndicator: Option[String] = None, lang: Option[String] = None): Action[AnyContent] = {
-    println(s" ***** HitAboutYourResult c=$cookieIndicator")
     (identify andThen getData andThen requireData) { implicit request =>
     Ok(view(routes.AboutYourResultController.onSubmit))
   }
   }
 
   def onSubmit: Action[AnyContent] = {
-    println("HitAboutYourResultSubmit")
     (identify andThen getData andThen requireData) { implicit request =>
     Redirect(navigator.nextPage(AboutYourResultPage, NormalMode)(request.userAnswers))
   }
