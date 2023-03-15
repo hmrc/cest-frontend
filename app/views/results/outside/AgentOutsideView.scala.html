@@ -22,7 +22,7 @@
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import viewmodels.{LetterAnswerSections, Result, ResultPDF, ResultPrintPreview}
 @import views.ViewUtils._
-@import views.html.components.new_tab_linkNew
+@import views.html.components._
 @import results.sections.{do_nextNew, downloadNew, keep_copyNew, pdf, why_resultNew}
 
 @this(mainTemplate: templates.MainTemplate,
@@ -37,7 +37,8 @@
         newTabLink: new_tab_linkNew,
         keepCopy: keep_copyNew,
         formWithCsrf: FormWithCSRF,
-        letterLayout: letter_layout)
+        letterLayout: letter_layout,
+        bulleted: bulleted_listNew)
 
 
 @(form: Form[_],substituteToDoWork: Boolean,clientNotControlWork: Boolean,incurCostNoReclaim: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
@@ -89,7 +90,7 @@
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     } else {
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p1")</p>
-        @components.bulleted_listNew(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))
+        @bulleted(allOutReasons(Agent, substituteToDoWork, clientNotControlWork,incurCostNoReclaim))
         <p class="govuk-body">@messages("agent.result.outside.whyResult.p2")</p>
     }
 }

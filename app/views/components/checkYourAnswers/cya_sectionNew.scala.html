@@ -14,12 +14,15 @@
  * limitations under the License.
  *@
 
-@this()
+@import viewmodels._
+@import config.FrontendAppConfig
 
-@(messageKeys: Seq[String])(implicit messages: Messages)
+@(rows: Seq[CheckYourAnswersRow], headingKey: Option[String] = None)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
-<ul class="govuk-list govuk-list--bullet print-bullet">
-    @for(bullet <- messageKeys) {
-        <li>@messages(bullet)</li>
-    }
-</ul>
+@headingKey.map { heading =>
+  <h2 class="govuk-heading-m">@messages(heading)</h2>
+}
+
+<dl class="govuk-summary-list">
+    @rows.map(_.html)
+</dl>

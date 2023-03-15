@@ -26,7 +26,7 @@ case class CheckYourAnswers(sections: Seq[CheckYourAnswersSection])
 
 case class CheckYourAnswersSection(rows: Seq[CheckYourAnswersRow], section: Option[SectionEnum] = None, headingKey: Option[String] = None) {
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) = {
-    views.html.components.checkYourAnswers.cya_section(rows, section, headingKey)
+    views.html.components.checkYourAnswers.cya_sectionNew(rows, headingKey)
   }
 }
 
@@ -38,7 +38,7 @@ case class CheckYourAnswersRow(question: String,
                                 changeContextMsgKey: Option[String]) {
 
   def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.checkYourAnswers.cya_row(question, answer, answerIsMessageKey, panelIndent, changeUrl, changeContextMsgKey)
+    views.html.components.checkYourAnswers.cya_rowNew(question, answer, answerIsMessageKey, panelIndent, changeUrl, changeContextMsgKey)
 }
 
 object CheckYourAnswers {

@@ -21,10 +21,10 @@ import models.Section
 import models.Section.SectionEnum
 import play.twirl.api.Html
 import viewmodels.{AnswerRow, AnswerSection}
-import views.behaviours.ViewBehaviours
+import views.behaviours.ViewBehavioursNew
 import views.html.CheckYourAnswersView
 
-class CheckYourAnswersViewSpec extends ViewBehaviours {
+class CheckYourAnswersViewSpec extends ViewBehavioursNew {
 
   override def beforeEach(): Unit = {
     super.beforeEach()
@@ -33,10 +33,10 @@ class CheckYourAnswersViewSpec extends ViewBehaviours {
 
   object Selectors extends BaseCSSSelectors {
     override val h2 = (i: Int) => s"h2:nth-of-type($i)"
-    val accordion = (i: Int) => s".accordion:nth-of-type($i)"
-    val accordionHeader = (i: Int) => s"${accordion(i)} > .accordion__row button"
-    val sectionQuestion = (i: Int, x: Int) => s"${accordion(i)} > .accordion__body div:nth-of-type($x) dt.cya-question"
-    val sectionAnswer = (i: Int, x: Int) => s"${accordion(i)} > .accordion__body div:nth-of-type($x) dd.cya-answer"
+    val accordion = (i: Int) => s"div.govuk-accordion__section:nth-of-type($i)"
+    val accordionHeader = (i: Int) => s"${accordion(i)} > .govuk-accordion__section-header"
+    val sectionQuestion = (i: Int, x: Int) => s"${accordion(i)} > .govuk-accordion__section-content div:nth-of-type($x) dt.govuk-summary-list__key"
+    val sectionAnswer = (i: Int, x: Int) => s"${accordion(i)} > .govuk-accordion__section-content div:nth-of-type($x) dd.govuk-summary-list__value"
   }
 
   val messageKeyPrefix = "checkYourAnswers"
@@ -80,7 +80,7 @@ class CheckYourAnswersViewSpec extends ViewBehaviours {
     }
 
     "have the correct heading" in {
-      document.select(Selectors.heading).text mustBe CheckYourAnswersMessages.heading
+      document.select(Selectors.heading).text must include (CheckYourAnswersMessages.heading)
     }
 
     "have the 1st accordion section" which {
@@ -127,14 +127,6 @@ class CheckYourAnswersViewSpec extends ViewBehaviours {
         "have the correct 1st cya answer" in {
           document.select(Selectors.sectionAnswer(2, 1)).text mustBe "answer2"
         }
-      }
-    }
-
-    "if supplied with a section to expand" should {
-
-      "expand the appropriate accordion" in {
-        lazy val document = asDocument(createViewWithData(cyaSections, Some(Section.earlyExit)))
-        document.select(Selectors.accordion(2)).hasClass("accordion--expanded") mustBe true
       }
     }
 
