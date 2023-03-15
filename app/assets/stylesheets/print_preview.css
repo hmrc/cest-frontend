@@ -214,6 +214,10 @@
     .report-error {
         display: none;
     }
+
+    .hmrc-report-technical-issue {
+        display: none;
+    }
 }
 
 tfoot {

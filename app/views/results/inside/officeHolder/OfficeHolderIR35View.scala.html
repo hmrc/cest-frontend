@@ -36,6 +36,7 @@
         letterLayout: letter_layout,
         do_next: do_nextNew,
         why_result: why_resultNew,
+        tealResult: teal_resultNew,
         download: downloadNew)
 
 @(form: Form[_], isMakingDetermination: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
@@ -43,7 +44,7 @@
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
@@ -57,7 +58,7 @@
                    @additional_details_new(details, pdfResultDetails.timestamp)
                 }
 
-                @components.teal_result(
+                @tealResult(
                     Html(messages(tailorMsg("result.officeHolder.ir35.heading"))),
                     "result.inside"
                 )

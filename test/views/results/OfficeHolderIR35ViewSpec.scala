@@ -128,9 +128,11 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
         "Have the correct title" in {
           document.title mustBe title(OfficeHolderMessages.title)
         }
+
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe OfficeHolderMessages.Worker.IR35.heading
+          document.select("[id*='personDoingWork']").first().text mustBe OfficeHolderMessages.Worker.IR35.heading
         }
+
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OfficeHolderMessages.downloadExitMsg
         }
@@ -184,7 +186,7 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
           document.title mustBe title(OfficeHolderMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe OfficeHolderMessages.Hirer.IR35.heading
+          document.select("[id*='endClient']").first().text mustBe OfficeHolderMessages.Hirer.IR35.heading
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OfficeHolderMessages.downloadExitMsg
