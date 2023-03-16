@@ -15,7 +15,7 @@ html {
 /* reset everything */
 * {
   background: transparent !important;
-  color: black;
+  color: black !important;
   text-shadow: none;
   filter: none;
   -ms-filter: none; }
