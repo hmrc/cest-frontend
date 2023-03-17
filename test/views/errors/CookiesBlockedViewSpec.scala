@@ -16,7 +16,7 @@
 
 package views.errors
 
-import messages.AllowCookiesMessages
+import messages.CookiesBlockedMessages
 import play.api.i18n.{Lang, Messages, MessagesApi}
 import play.twirl.api.Html
 import views.behaviours.ViewBehavioursNew
@@ -52,7 +52,7 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
     val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
     button.attr("href") must include (controllers.routes.StartAgainController.redirectToDisclaimer.url)
 
-    button.text mustBe AllowCookiesMessages.startAgain
+    button.text mustBe CookiesBlockedMessages.startAgain
   }
 
 

@@ -20,21 +20,21 @@ import connectors.DataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions.IdentifierAction
 import play.api.test.Helpers._
-import views.html.errors.SessionExpiredView
+import views.html.errors.CookiesBlockedView
 
 class CookiesBlockedControllerSpec extends ControllerSpecBase {
 
   val identify = injector.instanceOf[IdentifierAction]
   val dataCacheConnector = injector.instanceOf[DataCacheConnector]
-  val expiredView = injector.instanceOf[SessionExpiredView]
+  val cookiesView = injector.instanceOf[CookiesBlockedView]
 
-  val controller = new SessionExpiredController(
+  val controller = new CookiesBlockedController(
     frontendAppConfig,
     identify,
     messagesControllerComponents,
-    expiredView)
+    cookiesView)
 
-  "AllowCookiesController.onPageLoad" must {
+  "CookiesBlockedController.onPageLoad" must {
 
     lazy val result = controller.onPageLoad()(fakeRequest)
 
@@ -43,11 +43,37 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
     }
 
     "return the correct view for a GET" in {
-      contentAsString(result) mustBe expiredView(frontendAppConfig)(fakeRequest, messages).toString
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)(fakeRequest, messages).toString
     }
   }
 
-  "SessionExpiredController.onSubmit" must {
+  "CookiesBlockedController.onPageLoad(Some(en))" must {
+
+    lazy val result = controller.onPageLoad(Some("en"))(fakeRequest)
+
+    "return 200 for a GET" in {
+      status(result) mustBe OK
+    }
+
+    "return the correct view for a GET" in {
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("en"))(fakeRequest, messages).toString
+    }
+  }
+
+  "CookiesBlockedController.onPageLoad(Some(cy))" must {
+
+    lazy val result = controller.onPageLoad(Some("cy"))(fakeRequest)
+
+    "return 200 for a GET" in {
+      status(result) mustBe OK
+    }
+
+    "return the correct view for a GET" in {
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))(fakeRequest, messages).toString
+    }
+  }
+
+  "CookiesBlockedController.onSubmit" must {
 
     lazy val result = controller.onSubmit()(fakeRequest)
 

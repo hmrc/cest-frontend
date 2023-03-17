@@ -64,6 +64,6 @@ class PersonalServiceNavigator @Inject()(implicit appConfig: FrontendAppConfig) 
     case CheckMode => CheckYourAnswersController.onPageLoad(Some(Section.personalService))
   }
 
-  override def nextPage(page: Page, mode: Mode, cookieIndicator: Option[String] = None, lang: Option[String] = None): UserAnswers => Call =
+  override def nextPage(page: Page, mode: Mode, cookiesBlocked: Option[String] = None, lang: Option[String] = None): UserAnswers => Call =
     routeMap(mode).getOrElse(page, _ => IndexController.onPageLoad())
 }

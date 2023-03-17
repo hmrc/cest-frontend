@@ -18,7 +18,7 @@ package messages
 
 import assets.messages.BaseMessages
 
-object AllowCookiesMessages extends BaseMessages {
+object CookiesBlockedMessages extends BaseMessages {
 
   val startAgain = "Start again"
 
