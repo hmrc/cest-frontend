@@ -19,6 +19,7 @@ package controllers.errors
 import connectors.DataCacheConnector
 import controllers.ControllerSpecBase
 import controllers.actions.IdentifierAction
+import play.api.i18n.{Lang, Messages}
 import play.api.test.Helpers._
 import views.html.errors.CookiesBlockedView
 
@@ -64,12 +65,14 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
 
     lazy val result = controller.onPageLoad(Some("cy"))(fakeRequest)
 
+    val welshMessages: Messages = messagesApi.preferred(Seq(Lang("cy")))
+
     "return 200 for a GET" in {
       status(result) mustBe OK
     }
 
     "return the correct view for a GET" in {
-      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))(fakeRequest, messages).toString
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))(fakeRequest, welshMessages).toString
     }
   }
 

@@ -39,11 +39,11 @@ class IndexController @Inject()(override val navigator: SetupNavigator,
                                 implicit val appConfig: FrontendAppConfig)
   extends BaseNavigationController with FeatureSwitching {
 
-  def onPageLoad(cookiesBlocked: Option[String] = None, lang: Option[String] = None): Action[AnyContent] = {
+  def onPageLoad(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] = {
     (identify andThen getData).async { implicit request =>
     val userAnswers = request.userAnswers.fold(UserAnswers(new CacheMap(request.internalId, Map())))(x => x)
     cache.save(userAnswers.cacheMap).map(
-      _ => Redirect(navigator.nextPage(IndexPage, NormalMode, cookiesBlocked, lang)(userAnswers))
+      _ => Redirect(navigator.nextPage(IndexPage, NormalMode, c, lang)(userAnswers))
     )
   }
   }

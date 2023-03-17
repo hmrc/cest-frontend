@@ -105,5 +105,5 @@ class BusinessOnOwnAccountNavigator @Inject()(implicit appConfig: FrontendAppCon
     case CheckMode => CheckYourAnswersController.onPageLoad(Some(Section.businessOnOwnAccount))
   }
 
-  override def nextPage(page: Page, mode: Mode, cookiesBlocked: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = routeMap(mode).getOrElse(page, _ => IndexController.onPageLoad())
+  override def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = routeMap(mode).getOrElse(page, _ => IndexController.onPageLoad())
 }
