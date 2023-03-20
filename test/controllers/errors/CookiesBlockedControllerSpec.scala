@@ -44,7 +44,7 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
     }
 
     "return the correct view for a GET" in {
-      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)(fakeRequest, messages).toString
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, None)(fakeRequest, messages).toString
     }
   }
 
@@ -57,7 +57,7 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
     }
 
     "return the correct view for a GET" in {
-      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("en"))(fakeRequest, messages).toString
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, Some("en"))(fakeRequest, messages).toString
     }
   }
 
@@ -72,7 +72,7 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
     }
 
     "return the correct view for a GET" in {
-      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))(fakeRequest, welshMessages).toString
+      contentAsString(result) mustBe cookiesView(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, Some("cy"))(fakeRequest, welshMessages).toString
     }
   }
 

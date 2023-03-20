@@ -40,7 +40,7 @@ class NoIntermediaryControllerSpec extends ControllerSpecBase {
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString = view(controllers.routes.StartAgainController.redirectToDisclaimer
+  def viewAsString = view(controllers.routes.StartAgainController.redirectToDisclaimer()
 )(fakeRequest, messages, frontendAppConfig).toString
 
   "NoIntermediaryController" must {

@@ -35,7 +35,7 @@ class CookiesBlockedController @Inject()(val appConfig: FrontendAppConfig,
 
   def onPageLoad(lang: Option[String] = None): Action[AnyContent] = Action { implicit request =>
     val messages = controllerComponents.messagesApi.preferred(Seq(lang.fold(English)(l => services.language(l))))
-    Ok(cookiesView(appConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, lang)(request, messages))
+    Ok(cookiesView(appConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, lang)(request, messages))
   }
 
   def onSubmit: Action[AnyContent] = Action { implicit request =>

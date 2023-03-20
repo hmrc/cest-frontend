@@ -42,7 +42,7 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
     implicit def messages: Messages = messagesApi.preferred(Seq(Lang("cy")))
   }
 
-  def createView = () => view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)(fakeRequest, messages)
+  def createView = () => view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, None)(fakeRequest, messages)
 
   "Allow Cookies view" must {
     behave like normalPage(createView, "cookies.blocked", hasSubheading = false)
@@ -50,7 +50,7 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
   "Have a link to the IndexController" in {
     val button = asDocument(createView()).getElementById(Selectors.startAgainButton)
-    button.attr("href") must include (controllers.routes.StartAgainController.redirectToDisclaimer.url)
+    button.attr("href") must include (controllers.routes.StartAgainController.redirectToDisclaimer().url)
 
     button.text mustBe CookiesBlockedMessages.startAgain
   }
@@ -60,31 +60,31 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
     "Display English by default" in new EnTest {
 
-      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, None)
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, None)
       val doc = asDocument(html)
 
       val heading = doc.getElementsByClass("govuk-heading-xl")
       heading.text mustBe "There has been a problem"
 
       val button = doc.getElementById(Selectors.startAgainButton)
-      button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer.url
+      button.attr("href") mustBe controllers.routes.StartAgainController.redirectToDisclaimer().url
     }
 
     "Display English with url param lang switch" in new EnTest {
 
-      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("en"))
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, Some("en"))
       val doc = asDocument(html)
 
       val heading = doc.getElementsByClass("govuk-heading-xl")
       heading.text mustBe "There has been a problem"
 
       val button = doc.getElementById(Selectors.startAgainButton)
-      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=en")
+      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer().url + "?lang=en")
     }
 
     "Display Welsh with url param lang switch" in new CyTest {
 
-      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer.url, Some("cy"))
+      val html: Html = view(frontendAppConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, Some("cy"))
       val doc = asDocument(html)
 
       val heading = doc.getElementsByClass("govuk-heading-xl")
@@ -92,7 +92,7 @@ class CookiesBlockedViewSpec extends ViewBehavioursNew {
 
       val button = doc.getElementById(Selectors.startAgainButton)
 
-      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer.url + "?lang=cy")
+      button.attr("href") mustBe (controllers.routes.StartAgainController.redirectToDisclaimer().url + "?lang=cy")
     }
 
   }

@@ -39,6 +39,6 @@
 
         @heading("session.expired.heading")
 
-    @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer.url))
+    @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer().url))
 
     }

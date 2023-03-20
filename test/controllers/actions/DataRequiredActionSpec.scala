@@ -17,19 +17,20 @@
 package controllers.actions
 
 import base.GuiceAppSpecBase
-import connectors.DataCacheConnector
-import connectors.mocks.MockDataCacheConnector
-import models.requests.{DataRequest, IdentifierRequest, OptionalDataRequest}
+import models.requests.{DataRequest, OptionalDataRequest}
 import org.scalatest.concurrent.ScalaFutures
 import play.api.mvc.Result
-import uk.gov.hmrc.http.cache.client.CacheMap
+import play.api.mvc.Results.Redirect
 
 import scala.concurrent.Future
 
-class DataRequiredActionSpec extends GuiceAppSpecBase with MockDataCacheConnector with ScalaFutures {
+class DataRequiredActionSpec extends GuiceAppSpecBase with ScalaFutures {
 
-  class Harness extends DataRequiredActionImpl(messagesControllerComponents) {
+  object Harness extends DataRequiredActionImpl(messagesControllerComponents) {
     def callRefine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = refine(request)
+    def callLanguageChanger(lang: Option[String]): Option[String] = languageChanger(lang)
+    val callLang =
+    val callCookiesBlocked =
   }
 
 
@@ -37,25 +38,23 @@ class DataRequiredActionSpec extends GuiceAppSpecBase with MockDataCacheConnecto
     "cookies are blocked and the flag is not defined" must {
       "redirect to the next page and define the flag" in {
 
-        val action = new Harness
+        val futureResult = Harness.callRefine(new OptionalDataRequest(fakeRequest, "id", None))
+        val expectedResult = Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1"))))
 
-        val futureResult = action.callRefine(new OptionalDataRequest(fakeRequest, "id", None))
-
-        whenReady(futureResult) { result =>
-          result.userAnswers.isEmpty mustBe true
+        whenReady(futureResult) { actualResult =>
+          actualResult mustBe expectedResult
         }
       }
     }
 
     "cookies are blocked and the flag is defined" must {
       "redirect to the blocked cookies view" in {
-        mockFetch("id")(Some(CacheMap("id", Map())))
-        val action = new Harness(mockDataCacheConnector)
 
-        val futureResult = action.callTransform(new IdentifierRequest(fakeRequest, "id"))
+        val futureResult = Harness.callRefine(new OptionalDataRequest(fakeRequest, "id", None))
+        val expectedResult = Left(Redirect(controllers.routes.CookiesBlockedController.onPageLoad()))
 
-        whenReady(futureResult) { result =>
-          result.userAnswers.isDefined mustBe true
+        whenReady(futureResult) { actualResult =>
+          actualResult mustBe expectedResult
         }
       }
     }
