@@ -46,7 +46,7 @@
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
@@ -71,10 +71,12 @@
                 }
             }
             case ResultPrintPreview => {
+                MOHAN MOHAN22
                 @print_and_save_result()
                 @letterLayout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
+                MOHAN MOHAN33
                 @letterLayout("agent.result.outside.heading", whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
         }

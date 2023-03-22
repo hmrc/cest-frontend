@@ -65,7 +65,7 @@ class OfficeHolderAgentViewSpec extends ResultViewFixture {
           document.title mustBe title(OfficeHolderMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe OfficeHolderMessages.Agent.heading
+          document.select("[id*='placingAgency']").first().text mustBe OfficeHolderMessages.Agent.heading
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OfficeHolderMessages.downloadExitMsg
@@ -75,7 +75,7 @@ class OfficeHolderAgentViewSpec extends ResultViewFixture {
           document.title mustBe title(PrintPreviewMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.heading).text mustBe PrintPreviewMessages.heading
+          document.select(Selectors.govUkTemplateHeading).text mustBe PrintPreviewMessages.heading
         }
       case ResultPDF =>
         "Have the correct title" in {
