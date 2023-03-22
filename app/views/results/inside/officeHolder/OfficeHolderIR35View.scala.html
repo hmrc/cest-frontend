@@ -21,23 +21,24 @@
 @import models.sections.setup.WhoAreYou.Hirer
 @import results.sections._
 @import results.sections.letter._
-@import results.sections.pdf._
-@import views.html.templates._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 @import controllers.routes._
 @import views.html.components._
 @import views.html.templates._
 @import results.sections.pdf._
 
-@this(layout: layout, mainTemplate: templates.MainTemplate, print_and_save_result_new : print_and_save_result_new,
-        printTemplate: templates.PrintTemplateNew,
-        formWithCsrf: FormWithCSRF,
+@this(layout: layout,
+        printTemplate: PrintTemplateNew,
         additional_details_new: additional_detailNew,
-        letterLayout: letter_layout,
+        tealResult: teal_resultNew,
         do_next: do_nextNew,
         why_result: why_resultNew,
-        tealResult: teal_resultNew,
-        download: downloadNew)
+        download: downloadNew,
+        newTabLink: new_tab_linkNew,
+        keepCopy: keep_copyNew,
+        letterLayout: letter_layout,
+        print_and_save_result: print_and_save_result_new,
+        formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], isMakingDetermination: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -70,7 +71,7 @@
                 }
             }
             case ResultPrintPreview => {
-                @print_and_save_result_new()
+                @print_and_save_result()
                 @letterLayout(tailorMsg("result.officeHolder.ir35.heading"), whyResult, doNext, LetterAnswerSections(pdfResultDetails.answerSections))
             }
             case ResultPDF => {
@@ -90,7 +91,7 @@
         <p class="govuk-body">@messages(tailorMsg("result.officeHolder.ir35.doNext.p1"))</p>
         <p class="govuk-body">
             @messages(tailorMsg("result.officeHolder.ir35.doNext.p2.preLink"))
-            @components.new_window_link(tailorMsg("result.officeHolder.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
+            @newTabLink(tailorMsg("result.officeHolder.ir35.doNext.p2.link"), appConfig.feePayerResponsibilitiesUrl, Some("feePayerResponsibilitiesLink")).
         </p>
     } else {
         @if(isMakingDetermination) {
@@ -103,10 +104,10 @@
 
             <p class="govuk-body">
                 @messages(tailorMsg("result.officeHolder.ir35.check.doNext.p3.preLink"))
-                @components.new_window_link(tailorMsg("result.officeHolder.ir35.check.doNext.p3.link"), appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+                @newTabLink(tailorMsg("result.officeHolder.ir35.check.doNext.p3.link"), appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
             </p>
         }
     }
 
-    @results.sections.keep_copy(isMake = isMakingDetermination)
+    @keepCopy(isMake = isMakingDetermination)
 }
