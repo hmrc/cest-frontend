@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.officeHolder.OfficeHolderAgentView
 
-class OfficeHolderAgentViewSpec extends ResultViewFixture {
+class OfficeHolderAgentViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[OfficeHolderAgentView]
 
@@ -65,7 +65,7 @@ class OfficeHolderAgentViewSpec extends ResultViewFixture {
           document.title mustBe title(OfficeHolderMessages.title)
         }
         "Have the correct heading" in {
-          document.select("[id*='placingAgency']").first().text mustBe OfficeHolderMessages.Agent.heading
+          document.select(Selectors.heading).text mustBe OfficeHolderMessages.Agent.heading
         }
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OfficeHolderMessages.downloadExitMsg
@@ -75,7 +75,7 @@ class OfficeHolderAgentViewSpec extends ResultViewFixture {
           document.title mustBe title(PrintPreviewMessages.title)
         }
         "Have the correct heading" in {
-          document.select(Selectors.govUkTemplateHeading).text mustBe PrintPreviewMessages.heading
+          document.select(Selectors.heading).text mustBe PrintPreviewMessages.heading
         }
       case ResultPDF =>
         "Have the correct title" in {
