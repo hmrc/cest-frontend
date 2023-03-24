@@ -33,8 +33,8 @@ class StartAgainController @Inject()(identify: IdentifierAction,
     Redirect(appConfig.govUkStartPageUrl).withNewSession
   }
 
-  def redirectToDisclaimer(lang: Option[String] = None): Action[AnyContent] = identify { implicit request =>
-    Redirect(routes.IndexController.onPageLoad(lang)).withNewSession
+  def redirectToDisclaimer(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] = identify { implicit request =>
+    Redirect(routes.IndexController.onPageLoad(c, lang)).withNewSession
   }
 
   def somethingWentWrong: Action[AnyContent] = identify { implicit request =>

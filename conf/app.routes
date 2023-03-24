@@ -17,7 +17,7 @@ POST       /cookies-blocked                             controllers.errors.Cooki
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
 GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad(c: Option[String] ?= None, lang: Option[String] ?= None)
-POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit
+POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit(c: Option[String] ?= None, lang: Option[String] ?= None)
 
 GET        /who-are-you                                 controllers.sections.setup.WhoAreYouController.onPageLoad(mode: Mode = NormalMode)
 POST       /who-are-you                                 controllers.sections.setup.WhoAreYouController.onSubmit(mode: Mode = NormalMode)
@@ -168,7 +168,7 @@ POST       /change-substitutes-and-helpers              controllers.PersonalServ
 
 GET        /start-again                                 controllers.StartAgainController.redirectToGovUk
 
-GET        /redirect-to-disclaimer                      controllers.StartAgainController.redirectToDisclaimer(lang: Option[String] ?= None)
+GET        /redirect-to-disclaimer                      controllers.StartAgainController.redirectToDisclaimer(c: Option[String] ?= None, lang: Option[String] ?= None)
 GET        /something-went-wrong                        controllers.StartAgainController.somethingWentWrong
 
 GET        /no-similar-work                             controllers.sections.businessOnOwnAccount.MultipleContractsController.onPageLoad(mode: Mode = NormalMode)

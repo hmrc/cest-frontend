@@ -32,9 +32,9 @@ import play.api.mvc.Call
 @Singleton
 class SetupNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Navigator with FeatureSwitching {
 
-  private def setupRouteMap(c: Option[String]): Map[Page, UserAnswers => Call] = Map(
+  private def setupRouteMap(c: Option[String], lang: Option[String]): Map[Page, UserAnswers => Call] = Map(
     //Initialisation Section
-    IndexPage -> (_ => setupRoutes.AboutYourResultController.onPageLoad(c)),
+    IndexPage -> (_ => setupRoutes.AboutYourResultController.onPageLoad(c, lang)),
 
     //Setup Section
     AboutYourResultPage -> (_ => setupRoutes.WhatDoYouWantToFindOutController.onPageLoad(NormalMode)),
@@ -65,6 +65,6 @@ class SetupNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends Na
   )
 
   override def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = {
-    setupRouteMap(c).getOrElse(page, _ => IndexController.onPageLoad(c, lang))
+    setupRouteMap(c, lang).getOrElse(page, _ => IndexController.onPageLoad(c, lang))
   }
 }

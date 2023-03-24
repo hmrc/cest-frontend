@@ -43,12 +43,12 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
 
   def onPageLoad(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] =
     (identify andThen getData andThen requireData) { implicit request =>
-    Ok(view(routes.AboutYourResultController.onSubmit))
+    Ok(view(routes.AboutYourResultController.onSubmit(c, lang)))
   }
 
 
-  def onSubmit: Action[AnyContent] =
+  def onSubmit(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] =
     (identify andThen getData andThen requireData) { implicit request =>
-    Redirect(navigator.nextPage(AboutYourResultPage, NormalMode)(request.userAnswers))
+    Redirect(navigator.nextPage(AboutYourResultPage, NormalMode, c, lang)(request.userAnswers))
   }
 }

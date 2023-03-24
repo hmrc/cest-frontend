@@ -46,11 +46,11 @@ class AboutYourResultControllerSpec extends ControllerSpecBase {
     "return OK and the correct view for a GET" in {
       val result = controller().onPageLoad()(fakeRequest)
       status(result) mustBe OK
-      contentAsString(result) mustBe view(routes.AboutYourResultController.onSubmit)(fakeRequest, messages, frontendAppConfig).toString
+      contentAsString(result) mustBe view(routes.AboutYourResultController.onSubmit())(fakeRequest, messages, frontendAppConfig).toString
     }
 
     "redirect to the next page when valid data is submitted" in {
-      val result = controller().onSubmit(fakeRequest)
+      val result = controller().onSubmit()(fakeRequest)
       status(result) mustBe SEE_OTHER
       redirectLocation(result) mustBe Some(onwardRoute.url)
     }
@@ -62,7 +62,7 @@ class AboutYourResultControllerSpec extends ControllerSpecBase {
     }
 
     "redirect to Index Controller for a POST if no existing data is found" in {
-      val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(fakeRequest)
+      val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit()(fakeRequest)
       status(result) mustBe SEE_OTHER
       redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
     }
@@ -76,7 +76,7 @@ class AboutYourResultControllerSpec extends ControllerSpecBase {
     "return OK and the correct view for a GET if url param marker is found however there user answers are available" in {
       val result = controller().onPageLoad()(requestWithCookiesUrlParam)
       status(result) mustBe OK
-      contentAsString(result) mustBe view(routes.AboutYourResultController.onSubmit)(requestWithCookiesUrlParam, messages, frontendAppConfig).toString
+      contentAsString(result) mustBe view(routes.AboutYourResultController.onSubmit())(requestWithCookiesUrlParam, messages, frontendAppConfig).toString
     }
   }
 }

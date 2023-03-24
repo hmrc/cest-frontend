@@ -34,7 +34,7 @@ class RoutesSpec extends SpecBase {
     "Have the correct routes for the About Your Result page" in {
       setupRoutes.AboutYourResultController.onPageLoad().url mustBe fullPath("/disclaimer")
 
-      setupRoutes.AboutYourResultController.onSubmit.url mustBe fullPath("/disclaimer")
+      setupRoutes.AboutYourResultController.onSubmit().url mustBe fullPath("/disclaimer")
     }
 
     "Have the correct routes for the Agency Advisory page" in {
