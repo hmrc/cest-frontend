@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.officeHolder.OfficeHolderIR35View
 
-class OfficeHolderIR35ViewSpec extends ResultViewFixture {
+class OfficeHolderIR35ViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[OfficeHolderIR35View]
 
@@ -100,7 +100,6 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
       "If the user is Making a Determination" should {
 
         implicit lazy val document = asDocument(createView(workerFakeDataRequest, isMakingDetermination = true, testPrintPreviewResultDetails))
-
         workerPageChecks(ResultPrintPreview, isMakingDetermination = true)
         letterPrintPreviewPageChecks
       }
@@ -129,9 +128,11 @@ class OfficeHolderIR35ViewSpec extends ResultViewFixture {
         "Have the correct title" in {
           document.title mustBe title(OfficeHolderMessages.title)
         }
+
         "Have the correct heading" in {
           document.select(Selectors.heading).text mustBe OfficeHolderMessages.Worker.IR35.heading
         }
+
         "Have the correct Download section" in {
           document.select(Selectors.Download.p(1)).text mustBe OfficeHolderMessages.downloadExitMsg
         }

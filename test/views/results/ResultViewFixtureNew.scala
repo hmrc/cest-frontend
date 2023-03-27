@@ -48,7 +48,7 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
       val exit = "#exitLink"
       val startAgain = "#startAgainLink"
       val p = (i: Int) => Selectors.p(i, id)
-      val printHeading = ".print-document__information-box span"
+      val printHeading = ".print-document__information-box"
     }
 
     object AdditionalPDF {
@@ -66,8 +66,8 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
     object AboutThisResult {
       val id = "#aboutThisResult"
       val timestamp = s"$id #timestamp"
-      val decisionServiceVersionP1 = s"$id .decision-service-version p:nth-of-type(1)"
-      val decisionServiceVersionP2 = s"$id .decision-service-version p:nth-of-type(2)"
+      val decisionServiceVersionP1 = s"$id .date-of-result #decisionServiceVersion dd"
+      val decisionServiceVersionP2 = s"$id .date-of-result p"
       val p = (i: Int) => Selectors.p(i, id)
     }
 
@@ -86,7 +86,7 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
     }
 
     object WhatYouToldUs {
-      val id = "#userAnswers-page-0"
+      val id = "#whatYouToldUs"
       val h2 = Selectors.h2(id)
       val setupSection = s"#${Section.setup}-heading"
       val earlyExitSection = s"#${Section.earlyExit}-heading"
@@ -279,7 +279,7 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
     "Include a section containing the users answers" should {
 
       "have the correct heading" in {
-        document.select(Selectors.WhatYouToldUs.h2).first.text mustBe UserAnswersMessages.h2
+        document.select(Selectors.WhatYouToldUs.id).text mustBe UserAnswersMessages.h2
       }
 
       "have a section for the first set of answers that" should {

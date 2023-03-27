@@ -20,37 +20,16 @@
 @import views.html.results.sections.pdf._
 
 @this(
-    letterFooter: letter_footer,
+    letterHeader: letter_header,
     pdfAnswers: answers
 )
 
 @(letterAnswerPages: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
+<h2 class="govuk-heading-m" id="whatYouToldUs">@messages("result.pdf.whatYouToldUs")</h2>
+
 @for((sectionAnswers, pageNumber) <- letterAnswerPages.pages.zipWithIndex) {
-
-<div class="print-document page">
-    <table>
-
-        @letter_header()
-
-        <tbody><tr><td>
-            <div class="content">
-                <div class="grid-row main-content">
-                    <div class="column-full">
-                        <div class="grid-row letter">
-                            <div class="column-full">
-                                @pdfAnswers(sectionAnswers, pageNumber)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td></tr></tbody>
-
-        @letterFooter(pageNumber + 2, letterAnswerPages.numberOfPages)
-
-    </table>
-</div>
+    @pdfAnswers(sectionAnswers, pageNumber)
 
 }
 

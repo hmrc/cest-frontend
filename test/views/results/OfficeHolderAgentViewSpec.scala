@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.officeHolder.OfficeHolderAgentView
 
-class OfficeHolderAgentViewSpec extends ResultViewFixture {
+class OfficeHolderAgentViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[OfficeHolderAgentView]
 

@@ -14,11 +14,11 @@
  * limitations under the License.
  *@
 
+@this()
+
 @(msgKey: String)(implicit messages: Messages)
 
 <div class="print-document__information-box">
-    <span class="bold-medium">
-        @messages(msgKey)
-    </span>
+    <h2 class="govuk-heading-l">@messages(msgKey)</h2>
 </div>
 

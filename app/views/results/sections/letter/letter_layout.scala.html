@@ -16,68 +16,56 @@
 
 @import viewmodels._
 @import config.FrontendAppConfig
-@import views.html.results.sections.letter._
+@import views.html.templates._
+@import views.html.results.sections._
 
 @this(
-    letterFooter: letter_footer,
-    letterAnswerPages: letter_answer_pages
+    layout:layout,
+    letterHeader: letter_header,
+    letterAnswerPages: letter_answer_pages,
+    letterResult: letter_result,
+    letterAboutThisResultBox: letter_about_this_result_box,
+    whyResultTemplate: why_resultNew,
+    doNextTemplate: do_nextNew,
+    letterAdditionalDetails: letter_additional_details
 )
 
 
 @(resultMsgKey: String, whyResult: Html, doNext: Html, userAnswers: LetterAnswerSections)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
-<div class="print-pages">
-    <div class="print-document page">
-        <table>
 
-            @letter_header()
+    <div>
 
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="content">
-                            <div class="grid-row main-content">
+            <div class="print-only">
+                @letterHeader()
+            </div>
 
-                                <div class="column-full">
-                                    @pdfResultDetails.additionalPdfDetails.map { details =>
-                                        @letter_additional_details(details)
-                                    }
-                                </div>
+        <div class="content">
+            <div class="main-content">
 
-                                <div id="result" class="column-full">
-                                    @letter_result(resultMsgKey)
-                                </div>
+                @pdfResultDetails.additionalPdfDetails.map { details =>
+                    @letterAdditionalDetails(details)
+                }
 
-                                <div class="column-full">
+                @letterResult(resultMsgKey)
 
-                                    <div class="grid-row letter form-group">
-                                        <div class="column-two-thirds form-group">
+                <div class="govuk-form-group">
+                    @whyResultTemplate(whyResult)
+                </div>
 
-                                            <div class="form-group">
-                                                @results.sections.why_result(whyResult)
-                                            </div>
-
-                                            <div class="form-group">
-                                                @results.sections.do_next(doNext)
-                                            </div>
-                                        </div>
+                <div class="govuk-form-group">
+                    @doNextTemplate(doNext)
+                </div>
 
 
-                                        @pdfResultDetails.timestamp.map { timestamp =>
-                                            @letter_about_this_result_box(timestamp)
-                                        }
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+                @pdfResultDetails.timestamp.map { timestamp =>
+                    @letterAboutThisResultBox(timestamp)
+                }
 
-            @letterFooter(1, userAnswers.numberOfPages)
-        </table>
+            </div>
+        </div>
     </div>
 
-    @letterAnswerPages(userAnswers)
-</div>
+    @letterAnswerPages(LetterAnswerSections(userAnswers.sections))
+

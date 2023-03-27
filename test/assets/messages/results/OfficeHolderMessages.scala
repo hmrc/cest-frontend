@@ -32,7 +32,7 @@ object OfficeHolderMessages extends BaseResultMessages {
       val doNext_check_p1 = "If this result is different from the one you are checking, download a copy of this result and show it to your client. You should check your answers with them to make sure they are correct."
       val doNext_check_p2 = "If you need more guidance, you can contact HMRC’s Employment Status and Intermediaries helpline."
       val doNext_check_p3 = s"$telephone $telephoneNumber"
-      val doNext_check_p5 = "You could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
+      val doNext_check_p5 = "You could also read Chapter 5 of the Employment Status Manual (opens in new tab)."
     }
   }
 
@@ -49,7 +49,7 @@ object OfficeHolderMessages extends BaseResultMessages {
       val heading = "Off-payroll working rules (IR35) apply"
       val whyResult_p1 = "In the ‘Worker’s Duties’ section, you answered that the worker will perform office holder duties. This means they are classed as employed for tax purposes for this work."
       val doNext_p1 = "If your organisation is responsible for paying the worker, you need to operate PAYE on their earnings. If someone else is responsible, you should download a copy of this result and show it to them."
-      val doNext_p2 = "You could also read more about the responsibilities of the fee-payer (opens in a new window)."
+      val doNext_p2 = "You could also read more about the responsibilities of the fee-payer (opens in new tab)."
     }
   }
 
@@ -58,6 +58,6 @@ object OfficeHolderMessages extends BaseResultMessages {
     val whyResult_p1 = "You have completed the tool as if you are the worker."
     val whyResult_p2 = "In the ‘Worker’s Duties’ section, you answered that they will act in an official position for your client. This means they are classed as employed for tax purposes for this work."
     val doNext_p1 = "If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct."
-    val doNext_p2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
+    val doNext_p2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in new tab)."
   }
 }

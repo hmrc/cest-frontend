@@ -17,21 +17,31 @@
 @import viewmodels.Timestamp._
 @import config.FrontendAppConfig
 
+@this()
+
 @(timestamp: String)(implicit messages: Messages, appConfig: FrontendAppConfig)
 
-<div class="column-one-third">
-    <div class="about-this-result-box">
-        <div id="aboutThisResult" class="about-this-result">
-            <div class="date-of-result">
-                <h2 class="govuk-heading-m">@messages("site.letter.aboutThisResult")</h2>
-                <h3 class="govuk-heading-s">@messages("site.letter.dateOfResult")</h3>
-                <p id="timestamp" class="govuk-body">@monthToMessages(timestamp) (UTC)</p>
-            </div>
-            <div class="decision-service-version">
-                <h3 class="govuk-heading-s">@messages("site.letter.version")</h3>
-                <p class="govuk-body">@appConfig.decisionVersion</p>
-                <p class="govuk-body">@messages("site.letter.version.disclaimer")</p>
-            </div>
-        </div>
+<div id="aboutThisResult">
+    <div class="date-of-result">
+        <h2 class="govuk-heading-m">@messages("site.letter.aboutThisResult")</h2>
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages("site.letter.dateOfResult")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span id="timestamp">@monthToMessages(timestamp) (UTC)</span>
+            </dd>
+          </div>
+          <div id="decisionServiceVersion" class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              @messages("site.letter.version")
+            </dt>
+            <dd class="govuk-summary-list__value">
+              @appConfig.decisionVersion
+            </dd>
+          </div>
+        </dl>
+        <p class="govuk-body">@messages("site.letter.version.disclaimer")</p>
     </div>
 </div>

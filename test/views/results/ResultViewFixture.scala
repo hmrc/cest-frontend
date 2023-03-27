@@ -48,15 +48,15 @@ trait ResultViewFixture extends ViewBehaviours {
       val exit = "#exitLink"
       val startAgain = "#startAgainLink"
       val p = (i: Int) => Selectors.p(i, id)
-      val printHeading = ".print-document__information-box span"
+      val printHeading = ".print-document__information-box h2"
     }
 
     object AdditionalPDF {
       val id = "#pdfDetails"
-      val customisedBy = "#customisedBy"
-      val client = "#clientName"
-      val jobTitle = "#jobTitle"
-      val reference = "#referenceDetails"
+      val customisedBy = "#pdfDetails > div:nth-child(1)"
+      val client = "#pdfDetails > div:nth-child(2)"
+      val jobTitle = "#pdfDetails > div:nth-child(3)"
+      val reference = "#pdfDetails > div:nth-child(4)"
     }
 
     object Result {
@@ -66,9 +66,9 @@ trait ResultViewFixture extends ViewBehaviours {
     object AboutThisResult {
       val id = "#aboutThisResult"
       val timestamp = s"$id #timestamp"
-      val decisionServiceVersionP0 = s"$id .decision-service-version h3:nth-of-type(1)"
-      val decisionServiceVersionP1 = s"$id .decision-service-version p:nth-of-type(1)"
-      val decisionServiceVersionP2 = s"$id .decision-service-version p:nth-of-type(2)"
+      val decisionServiceVersionP0 = s"$id .date-of-result #decisionServiceVersion dt"
+      val decisionServiceVersionP1 = s"$id .date-of-result #decisionServiceVersion dd"
+      val decisionServiceVersionP2 = s"$id .date-of-result p"
       val p = (i: Int) => Selectors.p(i, id)
     }
 
@@ -280,7 +280,7 @@ trait ResultViewFixture extends ViewBehaviours {
     "Include a section containing the users answers" should {
 
       "have the correct heading" in {
-        document.select(Selectors.WhatYouToldUs.h2).first.text mustBe UserAnswersMessages.h2
+        document.select("#whatYouToldUs").first.text mustBe UserAnswersMessages.h2
       }
 
       "have a section for the first set of answers that" should {
@@ -340,7 +340,6 @@ trait ResultViewFixture extends ViewBehaviours {
       "have the correct h3" in {
         document.select(Selectors.AboutThisResult.decisionServiceVersionP0).text mustBe DecisionVersionMessages.p0
       }
-
 
       "have the correct p1" in {
         document.select(Selectors.AboutThisResult.decisionServiceVersionP1).text mustBe DecisionVersionMessages.p1(frontendAppConfig.decisionVersion)
