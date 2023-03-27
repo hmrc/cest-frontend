@@ -17,7 +17,6 @@
 @import config.FrontendAppConfig
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
-@import results.sections.pdf
 @import models.sections.setup.WhoAreYou.Hirer
 @import models.requests.DataRequest
 @import results.sections.letter._
@@ -47,7 +46,7 @@
 
     pdfResultDetails.resultMode match {
         case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
