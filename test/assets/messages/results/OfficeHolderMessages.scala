@@ -58,6 +58,6 @@ object OfficeHolderMessages extends BaseResultMessages {
     val whyResult_p1 = "You have completed the tool as if you are the worker."
     val whyResult_p2 = "In the ‘Worker’s Duties’ section, you answered that they will act in an official position for your client. This means they are classed as employed for tax purposes for this work."
     val doNext_p1 = "If this result is different from the one you are checking, download a copy of this result and show it to your worker’s client. You should check your answers with them to make sure they are correct."
-    val doNext_p2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in a new window)."
+    val doNext_p2 = "If you need more guidance, you could also read Chapter 5 of the Employment Status Manual (opens in new tab)."
   }
 }

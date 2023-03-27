@@ -34,7 +34,9 @@
         do_next: do_nextNew,
         why_result: why_resultNew,
         tealResult: teal_resultNew,
-        download: downloadNew)
+        download: downloadNew,
+        newTabLink: new_tab_linkNew,
+        keepCopy: keep_copyNew)
 
 @(form: Form[_])(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -86,8 +88,8 @@
     <p class="govuk-body">@messages("agent.result.officeHolder.doNext.p1")</p>
     <p class="govuk-body">
         @messages("agent.result.officeHolder.doNext.p2.preLink")
-        @components.new_window_link("agent.result.officeHolder.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
+        @newTabLink("agent.result.officeHolder.doNext.p2.link", appConfig.employmentStatusManualChapter5Url, Some("employmentStatusManualLink")).
     </p>
 
-    @results.sections.keep_copy(isMake = false)
+    @keepCopy(isMake = false)
 }
