@@ -20,7 +20,6 @@
 @import models.requests.DataRequest
 @import models.sections.setup.WhoAreYou.{Worker, Hirer}
 @import models.ResultType.IR35
-@import results.sections.pdf
 @import results.sections._
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
@@ -37,6 +36,7 @@
         why_result: why_resultNew,
         download: downloadNew,
         newTabLink: new_tab_linkNew,
+        bulleted: bulleted_listNew,
         keepCopy: keep_copyNew,
         letterLayout: letter_layout,
         print_and_save_result: print_and_save_result_new,
@@ -48,7 +48,7 @@
 
     pdfResultDetails.resultMode match {
         case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -92,7 +92,7 @@
         <p class="govuk-body">@messages(tailorMsg("result.outside.ir35.whyResult.p2"))</p>
     } else {
         <p class="govuk-body">@messages(tailorMsg("result.outside.ir35.whyResult.p1"))</p>
-        @bulleted_list(allOutReasons(IR35, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))
+        @bulleted(allOutReasons(IR35, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))
         <p class="govuk-body">@messages(tailorMsg("result.outside.ir35.whyResult.p2"))</p>
     }
 }
