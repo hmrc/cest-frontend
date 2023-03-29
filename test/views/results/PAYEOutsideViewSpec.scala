@@ -25,9 +25,9 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.outside.PAYEOutsideView
 
-class PAYEOutsideViewSpec extends ResultViewFixture {
+class PAYEOutsideViewSpec extends ResultViewFixtureNew {
 
-  val view = injector.instanceOf[PAYEOutsideView]
+  val view: PAYEOutsideView = injector.instanceOf[PAYEOutsideView]
 
   val form = new DeclarationFormProvider()()
 
@@ -45,7 +45,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
       "display all reasons when all reasons are given" should {
 
-        implicit lazy val document = asDocument(createView(workerFakeDataRequest, testNoPdfResultDetails))
+        implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, testNoPdfResultDetails))
 
         workerPageChecks(Result)
         pdfPageChecks(isPdfView = false)
@@ -55,25 +55,26 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
         "only substituteToDoWork reason is given" should {
 
-          implicit lazy val document = asDocument(createView(workerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false))
+          implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false))
           workerSingleReasonChecks(reasonMessage = OutDecisionMessages.WorkerPAYE.whyResultReason1)
         }
 
         "only clientNotControlWork reason is given" should {
 
-          implicit lazy val document = asDocument(createView(workerFakeDataRequest, isSubstituteToDoWork = false, isIncurCostNoReclaim = false))
+          implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, isSubstituteToDoWork = false, isIncurCostNoReclaim = false))
           workerSingleReasonChecks(reasonMessage = OutDecisionMessages.WorkerPAYE.whyResultReason2)
         }
 
         "only incurCostNoReclaim reason is given" should {
 
-          implicit lazy val document = asDocument(createView(workerFakeDataRequest, isSubstituteToDoWork = false, isClientNotControlWork = false))
+          implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, isSubstituteToDoWork = false, isClientNotControlWork = false))
           workerSingleReasonChecks(reasonMessage = OutDecisionMessages.WorkerPAYE.whyResultReason3)
         }
       }
 
       "when no other reasons are given" should {
-        implicit lazy val document = asDocument(createView(workerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false, isSubstituteToDoWork = false))
+        implicit lazy val document: Document = asDocument(
+          createView(workerFakeDataRequest, isClientNotControlWork = false,isIncurCostNoReclaim = false, isSubstituteToDoWork = false))
 
         "only display business to business reason" in {
           document.select(Selectors.WhyResult.h2).text mustBe OutDecisionMessages.whyResultHeading
@@ -86,7 +87,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
       "display all reasons when all reasons are given" should {
 
-        implicit lazy val document = asDocument(createView(hirerFakeDataRequest, testNoPdfResultDetails))
+        implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, testNoPdfResultDetails))
 
         hirerPageChecks(Result)
         pdfPageChecks(isPdfView = false)
@@ -96,31 +97,32 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
         "only substituteToDoWork reason is given" should {
 
-          implicit lazy val document = asDocument(createView(hirerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false))
+          implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false))
           hirerSingleReasonChecks(reasonMessage = OutDecisionMessages.HirerPAYE.whyResultReason1)
         }
 
         "only clientNotControlWork reason is given" should {
 
-          implicit lazy val document = asDocument(createView(hirerFakeDataRequest, isSubstituteToDoWork = false, isIncurCostNoReclaim = false))
+          implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, isSubstituteToDoWork = false, isIncurCostNoReclaim = false))
           hirerSingleReasonChecks(reasonMessage = OutDecisionMessages.HirerPAYE.whyResultReason2)
         }
 
         "only incurCostNoReclaim reason is given" should {
 
-          implicit lazy val document = asDocument(createView(hirerFakeDataRequest, isSubstituteToDoWork = false, isClientNotControlWork = false))
+          implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, isSubstituteToDoWork = false, isClientNotControlWork = false))
           hirerSingleReasonChecks(reasonMessage = OutDecisionMessages.HirerPAYE.whyResultReason3)
         }
       }
 
       "if the Worker is NOT known" should {
-        implicit lazy val document = asDocument(createView(hirerFakeDataRequest, testNoPdfResultDetails, workerKnown = false))
+        implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, testNoPdfResultDetails, workerKnown = false))
 
         hirerPageChecks(Result, workerKnown = false)
       }
 
       "when no other reasons are given" should {
-        implicit lazy val document = asDocument(createView(hirerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false, isSubstituteToDoWork = false))
+        implicit lazy val document: Document = asDocument(
+          createView(hirerFakeDataRequest, isClientNotControlWork = false, isIncurCostNoReclaim = false, isSubstituteToDoWork = false))
 
         "only display business to business reason" in {
           document.select(Selectors.WhyResult.h2).text mustBe OutDecisionMessages.whyResultHeading
@@ -134,7 +136,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
     "If the WhoAreYou is Worker" should {
 
-      implicit lazy val document = asDocument(createView(workerFakeDataRequest, testPdfResultDetails))
+      implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, testPdfResultDetails))
 
       workerPageChecks(ResultPDF)
       pdfPageChecks(isPdfView = true, isHirer = false)
@@ -142,7 +144,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
     "If the WhoAreYou is Hirer" should {
 
-      implicit lazy val document = asDocument(createView(hirerFakeDataRequest, testPdfResultDetails))
+      implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, testPdfResultDetails))
 
       hirerPageChecks(ResultPDF)
       pdfPageChecks(isPdfView = true)
@@ -153,7 +155,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
     "If the WhoAreYou is Worker" should {
 
-      implicit lazy val document = asDocument(createView(workerFakeDataRequest, testPrintPreviewResultDetails))
+      implicit lazy val document: Document = asDocument(createView(workerFakeDataRequest, testPrintPreviewResultDetails))
 
       workerPageChecks(ResultPrintPreview)
       pdfPageChecks(isPdfView = true, isHirer = false)
@@ -161,7 +163,7 @@ class PAYEOutsideViewSpec extends ResultViewFixture {
 
     "If the WhoAreYou is Hirer" should {
 
-      implicit lazy val document = asDocument(createView(hirerFakeDataRequest, testPrintPreviewResultDetails))
+      implicit lazy val document: Document = asDocument(createView(hirerFakeDataRequest, testPrintPreviewResultDetails))
 
       hirerPageChecks(ResultPrintPreview)
       pdfPageChecks(isPdfView = true)
