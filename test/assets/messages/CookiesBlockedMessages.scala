@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package navigation
+package messages
 
-import models.{Mode, UserAnswers}
-import pages.Page
-import play.api.mvc.Call
+import assets.messages.BaseMessages
 
-abstract class Navigator {
+object CookiesBlockedMessages extends BaseMessages {
 
-  def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String] = None): UserAnswers => Call
+  val startAgain = "Start again"
 
 }

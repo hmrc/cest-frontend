@@ -33,7 +33,7 @@
 
 
     <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p1")
-        <a class="govuk-link" id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer.url}">@messages("newPageNotFoundErrorMessage.link")</a>
+        <a class="govuk-link" id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer().url}">@messages("newPageNotFoundErrorMessage.link")</a>
         @messages("newPageNotFoundErrorMessage.p2")
     </p>
 

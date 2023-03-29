@@ -40,7 +40,7 @@ class IntermediaryControllerSpec extends ControllerSpecBase {
     navigator = FakeSetupNavigator
   )
 
-  def viewAsString = view(controllers.routes.StartAgainController.redirectToDisclaimer
+  def viewAsString = view(controllers.routes.StartAgainController.redirectToDisclaimer()
 )(fakeRequest, messages, frontendAppConfig).toString
 
   "IntermediaryController" must {
@@ -56,7 +56,7 @@ class IntermediaryControllerSpec extends ControllerSpecBase {
 
       val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(fakeRequest)
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
 
     }
 
