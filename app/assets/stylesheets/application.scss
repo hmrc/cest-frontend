@@ -1,5 +1,5 @@
-$govuk-assets-path: "/ated/assets/lib/govuk-frontend/govuk/assets/";
-$hmrc-assets-path: "/ated/assets/lib/hmrc-frontend/hmrc/";
+$govuk-assets-path: "/check-employment-status-for-tax/assets/lib/govuk-frontend/govuk/assets/";
+$hmrc-assets-path: "/check-employment-status-for-tax/assets/lib/hmrc-frontend/hmrc/";
 
-@import "lib/govuk-frontend/govuk/base";
+@import "lib/govuk-frontend/govuk/all";
 @import "lib/hmrc-frontend/hmrc/all";
