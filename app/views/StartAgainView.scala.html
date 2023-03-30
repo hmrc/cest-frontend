@@ -37,6 +37,6 @@
 
     <p class="govuk-body">@messages("error.startAgain.p")</p>
 
-    @submit("error.startAgain.button", "startAgain", Some(routes.StartAgainController.redirectToDisclaimer.url))
+    @submit("error.startAgain.button", "startAgain", Some(routes.StartAgainController.redirectToDisclaimer().url))
 
 }

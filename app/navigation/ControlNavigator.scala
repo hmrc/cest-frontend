@@ -37,8 +37,8 @@ class ControlNavigator @Inject()(implicit appConfig: FrontendAppConfig) extends 
     ChooseWhereWorkPage -> (_ => financialRiskRoutes.EquipmentExpensesController.onPageLoad(NormalMode))
   )
 
-  override def nextPage(page: Page, mode: Mode): UserAnswers => Call = mode match {
-    case NormalMode => routeMap.getOrElse(page, _ => IndexController.onPageLoad)
+  override def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String]): UserAnswers => Call = mode match {
+    case NormalMode => routeMap.getOrElse(page, _ => IndexController.onPageLoad())
     case CheckMode => _ => CheckYourAnswersController.onPageLoad(Some(Section.control))
 
 

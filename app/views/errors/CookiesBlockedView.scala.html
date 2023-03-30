@@ -21,24 +21,28 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import views.html.components.headingNew
 @import views.html.components.submit_button_new
+@import services._
 
 
-@this(formWithCsrf: FormWithCSRF,
-        mainTemplate: templates.MainTemplate,
-        govukButton: GovukButton,
-        heading: headingNew,
-        layout: templates.layout,
-        button: submit_button_new)
+@this(layout: templates.layout)
 
-@(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
+@(appConfig: FrontendAppConfig, buttonTarget: String, lang: Option[String])(implicit request: Request[_], messages: Messages)
+
+@langParam = @{lang.fold("")(l => s"?lang=$l")}
+
+@langOrEnglishDefault = @{lang.fold(English.code)(l => l)}
 
     @layout(
-        pageTitle = titleNoForm("session.expired.title"),
+        pageTitle = titleNoForm("cookies.blocked.title"),
         mode = CheckMode,
-        appConfig = appConfig) {
+        appConfig = appConfig,
+        beforeContent = Some(components.urlLanguageSwitch(langOrEnglishDefault))) {
 
-        @heading("session.expired.heading")
+    <h1 class="govuk-heading-xl">@messages("cookies.blocked.heading")</h1>
+    <p class="govuk-body">@messages("cookies.blocked.p1")</p>
 
-    @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer().url))
-
+    <p><a id="startAgain" href="@buttonTarget@langParam" role="button" class="govuk-button" data-module="govuk-button">
+       @messages("cookies.blocked.start_again")
+    </a>
+    </p>
     }
