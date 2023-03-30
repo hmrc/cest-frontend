@@ -28,19 +28,18 @@
 @import views.html.templates._
 @import results.sections.pdf._
 
-
-@this(mainTemplate: templates.MainTemplate,
-      layout: layout,
-      printTemplate: templates.PrintTemplate,
-      additionalDetails: additional_detailNew,
-      teal_result: teal_resultNew,
-      do_next: do_nextNew,
-      why_result: why_resultNew,
-      download: downloadNew,
-      newTabLink: new_tab_linkNew,
-      keepCopy:  keep_copyNew,
-      formWithCsrf: FormWithCSRF,
-        letterLayout: letter_layout)
+@this(layout: layout,
+        printTemplate: PrintTemplateNew,
+        additionalDetails: additional_detailNew,
+        teal_result: teal_resultNew,
+        do_next: do_nextNew,
+        why_result: why_resultNew,
+        download: downloadNew,
+        newTabLink: new_tab_linkNew,
+        keepCopy: keep_copyNew,
+        letterLayout: letter_layout,
+        print_and_save_result: print_and_save_result_new,
+        formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
@@ -48,7 +47,7 @@
 
     pdfResultDetails.resultMode match {
         case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"))(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
