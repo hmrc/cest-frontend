@@ -20,21 +20,34 @@
 @import models.requests.DataRequest
 @import models.sections.setup.WhoAreYou.{Worker, Hirer}
 @import models.ResultType.PAYE
-@import results.sections.pdf
-@import models.requests.DataRequest
 @import controllers.routes._
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
+@import results.sections._
+@import views.html.components._
+@import views.html.templates._
+@import results.sections.pdf._
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF, letterLayout: letter_layout)
+@this(layout: layout,
+        printTemplate: PrintTemplateNew,
+        additionalDetails: additional_detailNew,
+        teal_result: teal_resultNew,
+        do_next: do_nextNew,
+        why_result: why_resultNew,
+        download: downloadNew,
+        bulleted: bulleted_listNew,
+        keepCopy: keep_copyNew,
+        letterLayout: letter_layout,
+        print_and_save_result: print_and_save_result_new,
+        formWithCsrf: FormWithCSRF)
 
 @(form: Form[_], isSubstituteToDoWork: Boolean, isClientNotControlWork: Boolean, isIncurCostNoReclaim: Boolean, workerKnown: Boolean)(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 
@@ -45,16 +58,16 @@
         @pdfResultDetails.resultMode match {
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @pdf.additional_details(details, pdfResultDetails.timestamp)
+                    @additionalDetails(details, pdfResultDetails.timestamp)
                 }
-                @components.teal_result(
+                @teal_result(
                     Html(messages(tailorMsg("result.outside.paye.heading"))),
                     "result.outside"
                 )
                 @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
             case ResultPrintPreview => {
@@ -71,22 +84,22 @@
 @whyResult = {
 
     @if(allOutReasons(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim).length == 0){
-        <p>@messages(tailorMsg("result.outside.paye.whyResult.businessToBusiness"))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.outside.paye.whyResult.businessToBusiness"))</p>
     } else if(allOutReasons(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim).length == 1){
-        <p>@messages(singleOutReason(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))</p>
-        <p>@messages(tailorMsg("result.outside.paye.whyResult.p2"))</p>
+        <p class="govuk-body">@messages(singleOutReason(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.outside.paye.whyResult.p2"))</p>
     } else {
-        <p>@messages(tailorMsg("result.outside.paye.whyResult.p1"))</p>
-        @components.bulleted_list(allOutReasons(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))
-        <p>@messages(tailorMsg("result.outside.paye.whyResult.p2"))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.outside.paye.whyResult.p1"))</p>
+        @bulleted(allOutReasons(PAYE, isSubstituteToDoWork,isClientNotControlWork,isIncurCostNoReclaim))
+        <p class="govuk-body">@messages(tailorMsg("result.outside.paye.whyResult.p2"))</p>
     }
 }
 
 @doNext = {
-    <p>@messages(tailorMsg("result.outside.paye.doNext.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.outside.paye.doNext.p1"))</p>
     @if(request.userType.contains(Hirer) && !workerKnown) {
-        <p>@messages(tailorMsg("result.outside.paye.doNext.workerNotKnown"))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.outside.paye.doNext.workerNotKnown"))</p>
     }
 
-    @results.sections.keep_copy()
+    @keepCopy()
 }

@@ -1,0 +1,65 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{En, Cy}
+
+@(lang: String)(implicit request: Request[_], messages: Messages)
+
+@switchLanguage = @{if (lang == En.code) Cy.code else En.code}
+
+<nav class="hmrc-language-select" aria-label="@messages("allow.cookies.lang-switch-aria-label")">
+    <ul class="hmrc-language-select__list">
+
+@if(lang == En.code) {
+    <li class="hmrc-language-select__list-item">
+      <span aria-current="true">@messages("language.english")</span>
+    </li>
+
+    <li class="hmrc-language-select__list-item">
+      <a href="@controllers.errors.routes.CookiesBlockedController.onPageLoad(Some(switchLanguage)).url"
+         hreflang="@switchLanguage"
+         lang="@switchLanguage"
+         rel="alternate"
+         class="govuk-link"
+         data-journey-click="link - click:lang-select:@messages("language.cymraeg")">
+        <span class="govuk-visually-hidden">@messages("allow.cookies.lang-switch-hidden")</span>
+        <span aria-hidden="true">@messages("language.cymraeg")</span>
+      </a>
+    </li>
+} else {
+    <li class="hmrc-language-select__list-item">
+      <a href="@controllers.errors.routes.CookiesBlockedController.onPageLoad().url"
+         hreflang="@switchLanguage"
+         lang="@switchLanguage"
+         rel="alternate"
+         class="govuk-link"
+         data-journey-click="link - click:lang-select:@messages("language.english")">
+        <span class="govuk-visually-hidden">@messages("allow.cookies.lang-switch-hidden")</span>
+        <span aria-hidden="true">@messages("language.english")</span>
+      </a>
+    </li>
+
+    <li class="hmrc-language-select__list-item">
+      <span aria-current="true">@messages("language.cymraeg")</span>
+    </li>
+}
+  </ul>
+</nav>
+
+@{
+//$COVERAGE-OFF$
+}
+

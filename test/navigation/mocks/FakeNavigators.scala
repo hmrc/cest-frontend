@@ -25,7 +25,7 @@ import play.api.mvc.Call
 object FakeNavigators extends GuiceAppSpecBase {
 
   trait FakeNavigator extends Navigator {
-    override def nextPage(page: Page, mode: Mode): UserAnswers => Call = _ => Call("POST", "/foo")
+    override def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String] = None): UserAnswers => Call = _ => Call("POST", "/foo")
   }
 
   object FakeSetupNavigator extends SetupNavigator()(frontendAppConfig) with FakeNavigator

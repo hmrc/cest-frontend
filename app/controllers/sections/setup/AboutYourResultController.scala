@@ -41,11 +41,14 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
                                           implicit val appConfig: FrontendAppConfig)
   extends BaseNavigationController with FeatureSwitching {
 
-  def onPageLoad: Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
-    Ok(view(routes.AboutYourResultController.onSubmit))
+  def onPageLoad(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] =
+    (identify andThen getData andThen requireData) { implicit request =>
+    Ok(view(routes.AboutYourResultController.onSubmit(c, lang)))
   }
 
-  def onSubmit: Action[AnyContent] = (identify andThen getData andThen requireData) { implicit request =>
-    Redirect(navigator.nextPage(AboutYourResultPage, NormalMode)(request.userAnswers))
+
+  def onSubmit(c: Option[String] = None, lang: Option[String] = None): Action[AnyContent] =
+    (identify andThen getData andThen requireData) { implicit request =>
+    Redirect(navigator.nextPage(AboutYourResultPage, NormalMode, c, lang)(request.userAnswers))
   }
 }
