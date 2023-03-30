@@ -28,11 +28,20 @@ class DataRequiredActionImpl @Inject()(val controllerComponents: MessagesControl
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext
 
   override protected def refine[A](request: OptionalDataRequest[A]): Future[Either[Result, DataRequest[A]]] = {
+    val cookiesBlocked: Option[String] = request.queryString.get("c").map(s => s.headOption.getOrElse(""))
+    val lang: Option[String] = request.queryString.get("lang").map(s => s.headOption.getOrElse(""))
     request.userAnswers match {
-      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad)))
+      case None if cookiesBlocked.isDefined && lang.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.CookiesBlockedController.onPageLoad(lang))))
+      case None if cookiesBlocked.isDefined => Future.successful(Left(Redirect(controllers.errors.routes.CookiesBlockedController.onPageLoad(languageChanger(lang)))))
+      case None => Future.successful(Left(Redirect(controllers.routes.IndexController.onPageLoad(Some("1"), lang))))
       case Some(data) => Future.successful(Right(DataRequest(request.request, request.internalId, data)))
     }
   }
+
+  def languageChanger(lang: Option[String]): Option[String] = {
+    lang.fold[Option[String]](None)(l => Some(s"?lang=${services.language(l)}"))
+  }
+
 }
 
 trait DataRequiredAction extends ActionRefiner[OptionalDataRequest, DataRequest]

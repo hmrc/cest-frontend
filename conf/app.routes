@@ -1,8 +1,8 @@
 # microservice specific routes
 ->         /hmrc-frontend                               hmrcfrontend.Routes
 
-GET        /                                            controllers.IndexController.onPageLoad
-GET        /setup                                       controllers.IndexController.onPageLoad
+GET        /                                            controllers.IndexController.onPageLoad(c: Option[String] ?= None, lang: Option[String] ?= None)
+GET        /setup                                       controllers.IndexController.onPageLoad(c: Option[String] ?= None, lang: Option[String] ?= None)
 
 GET        /assets/*file                                controllers.Assets.versioned(path="/public", file: Asset)
 
@@ -11,10 +11,13 @@ GET        /language/:lang                              controllers.LanguageSwit
 GET        /service-reset                               controllers.errors.SessionExpiredController.onPageLoad
 POST       /service-reset                               controllers.errors.SessionExpiredController.onSubmit
 
+GET        /cookies-blocked                             controllers.errors.CookiesBlockedController.onPageLoad(lang: Option[String] ?= None)
+POST       /cookies-blocked                             controllers.errors.CookiesBlockedController.onSubmit
+
 GET        /exit-survey                                 controllers.ExitSurveyController.redirectToExitSurvey
 
-GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad
-POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit
+GET        /disclaimer                                  controllers.sections.setup.AboutYourResultController.onPageLoad(c: Option[String] ?= None, lang: Option[String] ?= None)
+POST       /disclaimer                                  controllers.sections.setup.AboutYourResultController.onSubmit(c: Option[String] ?= None, lang: Option[String] ?= None)
 
 GET        /who-are-you                                 controllers.sections.setup.WhoAreYouController.onPageLoad(mode: Mode = NormalMode)
 POST       /who-are-you                                 controllers.sections.setup.WhoAreYouController.onSubmit(mode: Mode = NormalMode)
@@ -165,7 +168,7 @@ POST       /change-substitutes-and-helpers              controllers.PersonalServ
 
 GET        /start-again                                 controllers.StartAgainController.redirectToGovUk
 
-GET        /redirect-to-disclaimer                      controllers.StartAgainController.redirectToDisclaimer
+GET        /redirect-to-disclaimer                      controllers.StartAgainController.redirectToDisclaimer(c: Option[String] ?= None, lang: Option[String] ?= None)
 GET        /something-went-wrong                        controllers.StartAgainController.somethingWentWrong
 
 GET        /no-similar-work                             controllers.sections.businessOnOwnAccount.MultipleContractsController.onPageLoad(mode: Mode = NormalMode)

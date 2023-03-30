@@ -25,7 +25,7 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.outside.IR35OutsideView
 
-class IR35OutsideViewSpec extends ResultViewFixture {
+class IR35OutsideViewSpec extends ResultViewFixtureNew {
 
   val view = injector.instanceOf[IR35OutsideView]
 

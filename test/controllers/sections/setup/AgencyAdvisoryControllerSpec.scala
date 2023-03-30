@@ -72,7 +72,7 @@ class AgencyAdvisoryControllerSpec extends ControllerSpecBase {
 
       val result = controller(FakeDontGetDataDataRetrievalAction).onPageLoad(fakeRequest)
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
 
     }
 
@@ -80,7 +80,7 @@ class AgencyAdvisoryControllerSpec extends ControllerSpecBase {
 
       val result = controller(FakeDontGetDataDataRetrievalAction).onSubmit(fakeRequest)
       status(result) mustBe SEE_OTHER
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad(Some("1")).url)
 
     }
   }

@@ -19,20 +19,23 @@ package controllers.errors
 import config.FrontendAppConfig
 import controllers.BaseController
 import controllers.actions.IdentifierAction
-import javax.inject.{Inject, Singleton}
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import views.html.errors.SessionExpiredView
+import views.html.errors.CookiesBlockedView
+import services.English
+
+import javax.inject.{Inject, Singleton}
 
 @Singleton
-class SessionExpiredController @Inject()(val appConfig: FrontendAppConfig,
+class CookiesBlockedController @Inject()(val appConfig: FrontendAppConfig,
                                          identify: IdentifierAction,
                                          override val controllerComponents: MessagesControllerComponents,
-                                         expiredView: SessionExpiredView
+                                         cookiesView: CookiesBlockedView
                                         ) extends BaseController with I18nSupport {
 
-  def onPageLoad: Action[AnyContent] = Action { implicit request =>
-    Ok(expiredView(appConfig))
+  def onPageLoad(lang: Option[String] = None): Action[AnyContent] = Action { implicit request =>
+    val messages = controllerComponents.messagesApi.preferred(Seq(lang.fold(English)(l => services.language(l))))
+    Ok(cookiesView(appConfig, controllers.routes.StartAgainController.redirectToDisclaimer().url, lang)(request, messages))
   }
 
   def onSubmit: Action[AnyContent] = Action { implicit request =>

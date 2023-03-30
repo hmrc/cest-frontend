@@ -34,11 +34,11 @@ class IntermediaryViewSpec extends ViewBehavioursNew {
 
   val view = injector.instanceOf[IntermediaryView]
 
-  def createView = () => view(controllers.routes.StartAgainController.redirectToDisclaimer
+  def createView = () => view(controllers.routes.StartAgainController.redirectToDisclaimer()
 )(workerFakeRequest, messages, frontendAppConfig)
 
   def createViewWithRequest =
-    (req: Request[_]) => view(controllers.routes.StartAgainController.redirectToDisclaimer
+    (req: Request[_]) => view(controllers.routes.StartAgainController.redirectToDisclaimer()
 )(req, messages, frontendAppConfig)
 
 
