@@ -35,7 +35,7 @@ class SessionActionSpec extends GuiceAppSpecBase {
         val controller = new Harness(sessionAction)
         val result = controller.onPageLoad()(FakeRequest())
         status(result) mustBe SEE_OTHER
-        redirectLocation(result).get must startWith(controllers.routes.IndexController.onPageLoad.url)
+        redirectLocation(result).get must startWith(controllers.routes.IndexController.onPageLoad().url)
 
       }
     }

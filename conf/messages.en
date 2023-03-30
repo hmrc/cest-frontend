@@ -48,6 +48,16 @@ session.expired.title = This session has been closed as it was inactive for more
 session.expired.heading = This session has been closed as it was inactive for more than 15 minutes. For your security, we have deleted your answers.
 session.expired.start_again = Start again
 
+cookies.blocked.title = There has been a problem
+cookies.blocked.heading = There has been a problem
+cookies.blocked.p1 = You need to change your browser settings to allow cookies to be used and then start again.
+cookies.blocked.start_again = Start again
+cookies.blocked.lang-switch-aria-label = Language switcher
+cookies.blocked.lang-switch-selectable = Cymraeg
+cookies.blocked.lang-switch-hidden = Newid yr iaith ir Gymraeg
+
+language.cymraeg = Cymraeg
+language.english = English
 
 site.back = Back
 

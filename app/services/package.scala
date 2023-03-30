@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package navigation
+import play.api.i18n.Lang
+import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{Cy, En}
 
-import models.{Mode, UserAnswers}
-import pages.Page
-import play.api.mvc.Call
+package object services {
 
-abstract class Navigator {
-
-  def nextPage(page: Page, mode: Mode, c: Option[String] = None, lang: Option[String] = None): UserAnswers => Call
+  val English: Lang = Lang(En.code)
+  val Welsh: Lang = Lang(Cy.code)
+  val languageMap: Map[String, Lang] = Map(En.code -> services.English, Cy.code -> services.Welsh)
+  def language (languageCode: String): Lang = languageMap.get(languageCode).getOrElse(English)
 
 }

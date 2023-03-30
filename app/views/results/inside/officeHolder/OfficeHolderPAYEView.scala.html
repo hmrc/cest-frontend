@@ -17,22 +17,36 @@
 @import config.FrontendAppConfig
 @import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
-@import results.sections.pdf
 @import models.sections.setup.WhoAreYou.Hirer
 @import models.requests.DataRequest
 @import results.sections.letter._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
+@import results.sections._
 @import controllers.routes._
+@import views.html.components._
+@import views.html.templates._
+@import results.sections.pdf._
 
-@this(mainTemplate: templates.MainTemplate, printTemplate: templates.PrintTemplate, formWithCsrf: FormWithCSRF, letterLayout: letter_layout)
+@this(layout: layout,
+        printTemplate: PrintTemplateNew,
+        additionalDetails: additional_detailNew,
+        teal_result: teal_resultNew,
+        do_next: do_nextNew,
+        why_result: why_resultNew,
+        download: downloadNew,
+        newTabLink: new_tab_linkNew,
+        keepCopy: keep_copyNew,
+        letterLayout: letter_layout,
+        print_and_save_result: print_and_save_result_new,
+        formWithCsrf: FormWithCSRF)
 
 @(form: Form[_])(implicit request: DataRequest[_], messages: Messages, appConfig: FrontendAppConfig, pdfResultDetails: PDFResultDetails)
 
 @defining(
 
     pdfResultDetails.resultMode match {
-        case Result => mainTemplate(title(form, "result.title"), appConfig = appConfig)(_)
-        case ResultPrintPreview => mainTemplate(title(form, "site.letter.h1"), appConfig = appConfig, css = Some("print_preview"), articleLayout = false)(_)
+        case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
+        case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
         case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
@@ -43,18 +57,18 @@
 
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @pdf.additional_details(details, pdfResultDetails.timestamp)
+                    @additional_details(details, pdfResultDetails.timestamp)
                 }
 
-                @components.teal_result(
+                @teal_result(
                     Html(messages(tailorMsg("result.officeHolder.paye.heading"))),
                     "result.inside"
                 )
 
                 @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
-                    @results.sections.why_result(whyResult)
-                    @results.sections.do_next(doNext)
-                    @results.sections.download()
+                    @why_result(whyResult)
+                    @do_next(doNext)
+                    @download()
                 }
             }
             case ResultPrintPreview => {
@@ -69,19 +83,19 @@
 }
 
 @whyResult = {
-    <p>@messages(tailorMsg("result.officeHolder.paye.whyResult.p1"))</p>
+    <p class="govuk-body">@messages(tailorMsg("result.officeHolder.paye.whyResult.p1"))</p>
 }
 
 @doNext = {
     @if(request.userType.contains(Hirer)) {
-        <p>@messages(tailorMsg("result.officeHolder.paye.doNext.p1"))</p>
-        <p>
+        <p class="govuk-body">@messages(tailorMsg("result.officeHolder.paye.doNext.p1"))</p>
+        <p class="govuk-body">
             @messages(tailorMsg("result.officeHolder.paye.doNext.p2.preLink"))
-            @components.new_window_link(tailorMsg("result.officeHolder.paye.doNext.p2.link"), appConfig.payeForEmployersUrl, Some("payeForEmployersLink")).
+            @newTabLink(tailorMsg("result.officeHolder.paye.doNext.p2.link"), appConfig.payeForEmployersUrl, Some("payeForEmployersLink")).
         </p>
     } else {
-        <p>@messages(tailorMsg("result.officeHolder.paye.doNext.p1"))</p>
+        <p class="govuk-body">@messages(tailorMsg("result.officeHolder.paye.doNext.p1"))</p>
     }
 
-    @results.sections.keep_copy()
+    @keepCopy()
 }

@@ -22,6 +22,8 @@
 @import uk.gov.hmrc.webchat.client.WebChatClient
 @import views.html.helper.CSPNonce
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
+@import views.html.components.urlLanguageSwitch
+@import services._
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
 
@@ -31,7 +33,8 @@
         mode: Mode = NormalMode,
         js: Seq[String] = Seq.empty,
         css: Seq[StyleSheet] = Seq(StyleSheet("offpayrollfrontend-app")),
-        backLinkUrl: Option[String] = None
+        backLinkUrl: Option[String] = None,
+        beforeContent: Option[Html] = None
 )(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
 @headContent = {
@@ -41,7 +44,7 @@
     }
     @hmrcTimeoutDialogHelper(
         signOutUrl = controllers.errors.routes.SessionExpiredController.onPageLoad.url,
-        keepAliveUrl = Some(controllers.routes.IndexController.onPageLoad.url),
+        keepAliveUrl = Some(controllers.routes.IndexController.onPageLoad().url),
         message = Some(messages("timeout.text")),
         keepAliveButtonText = Some(messages("timeout.keep_alive")),
         signOutButtonText = Some(messages("timeout.delete_answers")),
@@ -77,9 +80,10 @@
 
 @hmrcLayout(
     pageTitle = Some(pageTitle),
-    isWelshTranslationAvailable = true,
-    serviceUrl = Some(routes.IndexController.onPageLoad.url),
+    isWelshTranslationAvailable = beforeContent.isEmpty,
+    serviceUrl = Some(routes.IndexController.onPageLoad().url),
     backLinkUrl = backLink,
+    beforeContentBlock = beforeContent,
     additionalHeadBlock = Some(headContent),
     additionalScriptsBlock = Some(scriptElement),
     nonce = CSPNonce.get,

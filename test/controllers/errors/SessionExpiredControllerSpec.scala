@@ -56,7 +56,7 @@ class SessionExpiredControllerSpec extends ControllerSpecBase {
     }
 
     "redirect to the correct url" in {
-      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad.url)
+      redirectLocation(result) mustBe Some(controllers.routes.IndexController.onPageLoad().url)
 
     }
   }
