@@ -25,9 +25,9 @@ import play.twirl.api.Html
 import viewmodels.{Result, ResultMode, ResultPDF, ResultPrintPreview}
 import views.html.results.inside.officeHolder.OfficeHolderPAYEView
 
-class OfficeHolderPAYEViewSpec extends ResultViewFixture {
+class OfficeHolderPAYEViewSpec extends ResultViewFixtureNew {
 
-  val view = injector.instanceOf[OfficeHolderPAYEView]
+  val view: OfficeHolderPAYEView = injector.instanceOf[OfficeHolderPAYEView]
 
   val form = new DeclarationFormProvider()()
 
