@@ -15,7 +15,6 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.financialRisk.routes._
 @import models.Mode
 @import views.ViewUtils._
@@ -29,9 +28,7 @@
         submit_button: components.submit_button_new,
         heading: components.headingNew,
         errorSummary: GovukErrorSummary,
-        layout: templates.layout
-)
-
+        layout: templates.layout)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 

@@ -15,21 +15,20 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.partParcel.routes._
 @import models.Mode
 @import views.ViewUtils._
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukErrorSummary
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.errorsummary.ErrorSummary
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @this(formWithCsrf: FormWithCSRF,
         layout: templates.layout,
         errorSummary: GovukErrorSummary,
         input_yes_no: components.input_yes_no_new,
         submit_button: components.submit_button_new,
-        heading: components.headingNew,
-)
+        heading: components.headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 

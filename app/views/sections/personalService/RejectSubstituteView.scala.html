@@ -15,7 +15,6 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.personalService.routes._
 @import models.Mode
 @import views.ViewUtils._
@@ -25,11 +24,11 @@
 @import views.html.components._
 
 @this(formWithCsrf: FormWithCSRF,
-      layout: layout,
-      errorSummary: GovukErrorSummary,
-      radios: input_yes_no_new,
-      submit: submit_button_new,
-      heading: headingNew)
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        radios: input_yes_no_new,
+        submit: submit_button_new,
+        heading: headingNew)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
