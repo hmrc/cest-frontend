@@ -16,18 +16,17 @@
 
 @import config.FrontendAppConfig
 @import views.ViewUtils._
+@import views.html.templates.layout
 @import play.mvc.Http.Status.NOT_FOUND
 
 
-@this(govukWrapper: GovukWrapperTemplate)
+@this(layout: layout)
 
 @(pageTitle: String, heading: String, message: String, appConfig: FrontendAppConfig, status: Option[Int] = None)(implicit request: Request[_], messages: Messages)
 
-@contentHeader = {
-  <h1 class="govuk-heading-l">@messages(heading)</h1>
-}
-
 @mainContent = {
+
+   <h1 class="govuk-heading-l">@messages(heading)</h1>
 
    @if(status.contains(NOT_FOUND)){
     <p class="govuk-body">@messages("common.standardPageNotFoundErrorMessageContent1")</p>
@@ -38,4 +37,4 @@
    }
 }
 
-@govukWrapper(appConfig = appConfig, title = titleNoForm(pageTitle), contentHeader = Some(contentHeader), mainBody = mainContent)
+@layout(appConfig = appConfig, pageTitle = titleNoForm(pageTitle))(contentBlock = mainContent)
