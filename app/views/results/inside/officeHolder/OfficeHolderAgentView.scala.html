@@ -15,8 +15,8 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 @import controllers.routes._
 @import results.sections._
 @import models.requests.DataRequest
@@ -26,7 +26,8 @@
 @import views.html.templates._
 @import viewmodels.{LetterAnswerSections, Result, ResultMode, ResultPDF, ResultPrintPreview}
 
-@this(layout: layout, printTemplate: templates.PrintTemplateNew,
+@this(layout: layout,
+        printTemplate: PrintTemplateNew,
         print_and_save_result_new : print_and_save_result_new,
         formWithCsrf: FormWithCSRF,
         additional_details_new: additional_detailNew,

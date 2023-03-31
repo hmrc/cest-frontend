@@ -21,15 +21,15 @@
 @import results.sections._
 @import results.sections.letter._
 @import results.sections.pdf._
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import viewmodels.{LetterAnswerSections, Result, ResultPDF, ResultPrintPreview}
 @import views.ViewUtils._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 @import views.html.components._
 @import views.html.templates._
 
 @this(layout: templates.layout,
-        printTemplate: templates.PrintTemplateNew,
-        print_and_save_result: results.sections.letter.print_and_save_result_new,
+        printTemplate: PrintTemplateNew,
+        print_and_save_result: print_and_save_result_new,
         tealResult: teal_resultNew,
         do_next: do_nextNew,
         why_result: why_resultNew,

@@ -18,19 +18,18 @@
 @import models.Mode
 @import models.sections.setup.WhoAreYou
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import views.ViewUtils._
 @import views.html.components.{headingNew, input_radio_new, submit_button_new}
 @import views.html.templates.layout
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @this(formWithCsrf: FormWithCSRF,
-layout: layout,
-errorSummary: GovukErrorSummary,
-heading: headingNew,
-radios: input_radio_new,
-submit: submit_button_new,
-panel: GovukPanel)
+        layout: layout,
+        errorSummary: GovukErrorSummary,
+        heading: headingNew,
+        radios: input_radio_new,
+        submit: submit_button_new,
+        panel: GovukPanel)
 
 @(postAction: Call, form: Form[_], mode: Mode, showAgency: Boolean = true)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 

@@ -15,7 +15,6 @@
  *@
 
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.play.views.html.helpers.FormWithCSRF
 @import controllers.sections.financialRisk.routes._
 @import models.Mode
 @import views.ViewUtils._
@@ -23,17 +22,13 @@
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(
-        formWithCsrf: FormWithCSRF,
-        mainTemplate: templates.MainTemplate,
+@this(formWithCsrf: FormWithCSRF,
         backLink: components.back_link_new,
         input_yes_no: components.input_yes_no_new,
         submit_button: components.submit_button_new,
         heading: components.headingNew,
         errorSummary: GovukErrorSummary,
-        layout: templates.layout
-)
-
+        layout: templates.layout)
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 

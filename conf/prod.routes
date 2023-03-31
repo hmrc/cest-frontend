@@ -1,7 +1,4 @@
 # Add all the application routes to the app.routes file
-->         /check-employment-status-for-tax             app.Routes
-
-->         /                          health.Routes
-->     	   /template                  template.Routes
-
-GET        /admin/metrics             @com.kenshoo.play.metrics.MetricsController.metrics
+->         /check-employment-status-for-tax     app.Routes
+->         /                                    health.Routes
+GET        /admin/metrics                       @com.kenshoo.play.metrics.MetricsController.metrics
