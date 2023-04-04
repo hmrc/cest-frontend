@@ -29,7 +29,7 @@
 
 @this(layout: layout,
         printTemplate: PrintTemplateNew,
-        additionalDetails: additional_detailNew,
+        additional_details_new: additional_detailNew,
         teal_result: teal_resultNew,
         do_next: do_nextNew,
         why_result: why_resultNew,
@@ -57,7 +57,7 @@
 
             case Result => {
                 @pdfResultDetails.additionalPdfDetails.map { details =>
-                    @additional_details(details, pdfResultDetails.timestamp)
+                    @additional_details_new(details, pdfResultDetails.timestamp)
                 }
 
                 @teal_result(
