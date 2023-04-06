@@ -1,6 +1,5 @@
 import play.sbt.routes.RoutesKeys
 import uk.gov.hmrc.DefaultBuildSettings.{addTestReportOption, _}
-import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin._
 import uk.gov.hmrc.versioning.SbtGitVersioning.autoImport.majorVersion
 
 val appName: String = "cest-frontend"
@@ -29,7 +28,6 @@ lazy val microservice = Project(appName, file("."))
   .settings(majorVersion := 1)
   .configs(IntegrationTest)
   .settings(scalaSettings: _*)
-  .settings(publishingSettings: _*)
   .settings(defaultSettings(): _*)
   .settings(scalaVersion := "2.12.12")
   .settings(scalacOptions += "-Ywarn-unused:-explicits,-implicits")
