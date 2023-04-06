@@ -21,13 +21,15 @@
 @import config.FrontendAppConfig
 
 @this(radios: GovukRadios)
+
 @(
-        legendKey: String,
-        field: Field,
-        radioItems: Seq[RadioOption],
-        hintKey: Option[String] = None,
-        inline: Boolean = false
+    legendKey: String,
+    field: Field,
+    radioItems: Seq[RadioOption],
+    hintKey: Option[String] = None,
+    inline: Boolean = false
 )(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
+
 @radios(
     Radios(
         hint = hintKey.map(h => Hint(content = Text(messages(h)))),
@@ -47,4 +49,3 @@
         classes = if(inline) "govuk-radios--inline" else ""
     ).withFormField(field)
 )
-

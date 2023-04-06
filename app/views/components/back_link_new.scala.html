@@ -16,7 +16,9 @@
 
 @import models.Mode
 @import uk.gov.hmrc.govukfrontend.views.html.components._
+
 @this(govukBackLink: GovukBackLink)
+
 @(url: String = "javascript:history.back()")(mode: Mode = NormalMode)(implicit messages: Messages)
 
  @if(mode == NormalMode) {

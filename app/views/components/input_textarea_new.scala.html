@@ -22,15 +22,15 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcCharacterCount
 
 @this(inputTextArea: HmrcCharacterCount)
+
 @(
-        id: String = "",
-        name: String,
-        labelName: Option[String] = None,
-        hintKey: Option[String] = None,
-        maxChars: Option[Int],
-        inputTextAreaClass: String = "",
-        )(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig
-)
+    id: String = "",
+    name: String,
+    labelName: Option[String] = None,
+    hintKey: Option[String] = None,
+    maxChars: Option[Int],
+    inputTextAreaClass: String = ""
+)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
     @inputTextArea(
         CharacterCount(
@@ -42,4 +42,3 @@
             classes = inputTextAreaClass
         )
     )
-

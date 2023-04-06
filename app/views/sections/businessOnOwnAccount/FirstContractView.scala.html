@@ -32,7 +32,10 @@
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@layout(pageTitle = title(form, tailorMsg("firstContract.title"), Some(tailorMsg("firstContract.subheading"))), appConfig = appConfig, mode = mode) {
+@layout(
+    pageTitle = title(form, tailorMsg("firstContract.title"), Some(tailorMsg("firstContract.subheading"))),
+    appConfig = appConfig,
+    mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
@@ -47,5 +50,3 @@
         @submit()
     }
 }
-
-

@@ -21,7 +21,6 @@
 @import views.html.components.headingNew
 @import views.html.components.submit_button_new
 
-
 @this(formWithCsrf: FormWithCSRF,
         govukButton: GovukButton,
         heading: headingNew,
@@ -37,6 +36,5 @@
 
         @heading("session.expired.heading")
 
-    @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer().url))
-
+        @button(messages("session.expired.start_again"), href = Some(controllers.routes.StartAgainController.redirectToDisclaimer().url))
     }

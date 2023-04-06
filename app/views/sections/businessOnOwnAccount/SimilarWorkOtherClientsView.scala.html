@@ -32,7 +32,10 @@
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@layout(pageTitle = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))), appConfig = appConfig, mode = mode) {
+@layout(
+    pageTitle = title(form, tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading"))),
+    appConfig = appConfig,
+    mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
@@ -49,8 +52,5 @@
         @radios(field = form("value"), legendKey = tailorMsg("similarWorkOtherClients.title"))
 
         @submit()
-
     }
 }
-
-

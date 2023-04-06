@@ -32,7 +32,10 @@
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@layout(pageTitle = title(form, "hirer.workerKnown.title", Some("hirer.workerKnown.subheading")), appConfig = appConfig, mode = mode) {
+@layout(
+    pageTitle = title(form, "hirer.workerKnown.title", Some("hirer.workerKnown.subheading")),
+    appConfig = appConfig,
+    mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
@@ -51,8 +54,5 @@
         )
 
         @submit()
-
     }
 }
-
-

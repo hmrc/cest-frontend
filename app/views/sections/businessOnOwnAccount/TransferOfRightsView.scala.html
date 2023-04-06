@@ -32,7 +32,10 @@
 
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages, appConfig: FrontendAppConfig)
 
-@layout(pageTitle = title(form, tailorMsg("transferOfRights.title"), Some(tailorMsg("transferOfRights.subheading"))), appConfig = appConfig, mode = mode) {
+@layout(
+    pageTitle = title(form, tailorMsg("transferOfRights.title"), Some(tailorMsg("transferOfRights.subheading"))),
+    appConfig = appConfig,
+    mode = mode) {
 
     @if(form.errors.nonEmpty) {
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
@@ -47,6 +50,5 @@
         @radios(field = form("value"), legendKey = tailorMsg("transferOfRights.title"))
 
         @submit()
-
     }
 }

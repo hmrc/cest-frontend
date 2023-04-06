@@ -19,6 +19,7 @@
 @import uk.gov.hmrc.govukfrontend.views.Implicits.RichRadios
 
 @this(radios: GovukRadios)
+
 @(
     field: Field,
     legendKey: String,
@@ -47,5 +48,3 @@
         classes = if(inline) "govuk-radios--inline" else ""
     ).withFormField(field).withHeadingAndSectionCaption(Text(messages(legendKey)), Text(messages(subHeadingKey)))
 )
-
-
