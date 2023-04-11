@@ -17,8 +17,10 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukWarningText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.warningtext.WarningText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
+
 @this(warning: GovukWarningText)
 @(content: Html)(implicit messages: Messages)
+
 @warning(
     WarningText(
         iconFallbackText = messages("site.warning"),
