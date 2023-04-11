@@ -39,7 +39,7 @@
     mode = mode) {
 
 @if(form.errors.nonEmpty) {
-@errorSummary(ErrorSummary().withFormErrorsAsText(form))
+    @errorSummary(ErrorSummary().withFormErrorsAsText(form))
 }
 
 @heading(tailorMsg("chooseWhereWork.title"), Some(tailorMsg("chooseWhereWork.subheading")))

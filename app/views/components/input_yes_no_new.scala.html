@@ -18,16 +18,18 @@
 @import uk.gov.hmrc.govukfrontend.views.Implicits.RichRadios
 
 @this(radios: GovukRadios)
+
 @(
-        legendKey: String,
-        field: Field,
-        hintKey: Option[String] = None,
-        yesHtml: Option[Html] = None,
-        noHtml: Option[Html] = None,
-        yesContent: String = "site.yes",
-        noContent: String = "site.no",
-        inline: Boolean = true)(implicit messages: Messages
-)
+    legendKey: String,
+    field: Field,
+    hintKey: Option[String] = None,
+    yesHtml: Option[Html] = None,
+    noHtml: Option[Html] = None,
+    yesContent: String = "site.yes",
+    noContent: String = "site.no",
+    inline: Boolean = true
+)(implicit messages: Messages)
+
 @radios(
     Radios(
         hint = hintKey.map(h => Hint(content = Text(messages(h)))),
@@ -52,4 +54,3 @@
         classes = if(inline) "govuk-radios--inline" else ""
     ).withFormField(field)
 )
-

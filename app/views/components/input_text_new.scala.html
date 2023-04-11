@@ -21,16 +21,17 @@
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.label.Label
 
 @this(inputText: GovukInput)
+
 @(
-        id: String = "",
-        name: String,
-        field: Field,
-        hintKey: Option[String] = None,
-        labelName: Option[String] = None,
-        inputClass: String = "",
-        autocomplete: Option[String] = None,
-        )(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig
-)
+    id: String = "",
+    name: String,
+    field: Field,
+    hintKey: Option[String] = None,
+    labelName: Option[String] = None,
+    inputClass: String = "",
+    autocomplete: Option[String] = None
+)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
+
 @inputText(
         Input(
             id = id,
@@ -40,4 +41,3 @@
             classes = inputClass
         ).withFormField(field)
 )
-

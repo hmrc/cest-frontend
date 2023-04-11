@@ -26,19 +26,18 @@
 
 @(appConfig: FrontendAppConfig)(implicit request: Request[_], messages: Messages)
 
-@layout(
-    pageTitle = titleNoForm("newPageNotFoundErrorMessage.title"),
-    appConfig = appConfig,
-    mode = CheckMode) {
+    @layout(
+        pageTitle = titleNoForm("newPageNotFoundErrorMessage.title"),
+        appConfig = appConfig,
+        mode = CheckMode) {
 
-    @heading("newPageNotFoundErrorMessage.heading")
+        @heading("newPageNotFoundErrorMessage.heading")
 
 
-    <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p1")
-        <a class="govuk-link" id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer().url}">@messages("newPageNotFoundErrorMessage.link")</a>
-        @messages("newPageNotFoundErrorMessage.p2")
-    </p>
+        <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p1")
+            <a class="govuk-link" id="start" href="@{controllers.routes.StartAgainController.redirectToDisclaimer().url}">@messages("newPageNotFoundErrorMessage.link")</a>
+            @messages("newPageNotFoundErrorMessage.p2")
+        </p>
 
-    <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p3")</p>
-
-}
+        <p class="govuk-body">@messages("newPageNotFoundErrorMessage.p3")</p>
+    }
