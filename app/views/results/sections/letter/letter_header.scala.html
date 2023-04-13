@@ -23,7 +23,7 @@
 <div class="header-space">
     <div class="govuk-grid-row print-header">
         <div class="govuk-grid-column-one-half">
-            @hmrcBanner(Banner())
+            @hmrcBanner(Banner(if(messages.lang.code == "cy") Cy else En))
         </div>
         <div class="govuk-grid-column-one-half">
             <h3 class="govuk-heading-s print-header__heading">
