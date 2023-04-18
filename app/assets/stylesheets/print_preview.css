@@ -193,7 +193,7 @@
            padding: 10mm;
            box-shadow: none;
            zoom: 100%;
-      }
+   }
 
     #print-and-save-result {
         display: none;
@@ -221,6 +221,19 @@
 
     .hmrc-report-technical-issue {
         display: none;
+    }
+
+    /* Added entries to make printed output more consistent across browsers*/
+    .govuk-summary-list__actions, .govuk-summary-list__key, .govuk-summary-list__value {
+        display: table-cell;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        width: 20%;
+    }
+
+    .govuk-summary-list__row {
+        display: table-row;
     }
 }
 
