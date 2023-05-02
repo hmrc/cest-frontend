@@ -20,7 +20,7 @@
 @import models.Section.SectionEnum
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@(id: String, headerKey: String, body: Html, expanded: Boolean)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
+@(id: String, headerKey: String, body: Html, expanded: Boolean, index: Int)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig)
 
 <div class="govuk-accordion__section" id="@id-section">
     <div class="govuk-accordion__section-header">
@@ -29,7 +29,7 @@
         </h2>
     </div>
     <div class="govuk-accordion__section-content"
-         id="@id-body">
+         id="accordion-default-content-@index">
         @body
     </div>
 </div>

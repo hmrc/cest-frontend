@@ -20,7 +20,6 @@
 @import play.api.mvc.Request
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcLayout, HmrcReportTechnicalIssueHelper}
 @import uk.gov.hmrc.webchat.client.WebChatClient
-@import views.html.helper.CSPNonce
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
 @import views.html.components.urlLanguageSwitch
 @import services._
@@ -85,6 +84,5 @@
     backLinkUrl = backLink,
     beforeContentBlock = beforeContent,
     additionalHeadBlock = Some(headContent),
-    additionalScriptsBlock = Some(scriptElement),
-    nonce = CSPNonce.get,
+    additionalScriptsBlock = Some(scriptElement)
 )(content)

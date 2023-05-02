@@ -29,5 +29,5 @@
      data-i18n.show-section-aria-label="@messages("site.accordion.showSection")"
      data-i18n.hide-section-aria-label="@messages("site.accordion.hideSection")"
      id="accordion-default">
-    @sections.map(accordion => accordion.html)
+    @sections.zipWithIndex.map(accordion => accordion._1.html(accordion._2 + 1))
 </div>

@@ -25,8 +25,8 @@ class AboutYourResultViewSpec extends ViewBehavioursNew {
 
   object Selectors extends BaseCSSSelectors {
     val p1 = "#main-content > div > div > form > p"
-    val p2 = "#main-content > div > div > form > div.govuk-warning-text > strong > p:nth-child(2)"
-    val p3 = "#main-content > div > div > form > div.govuk-warning-text > strong > p:nth-child(3)"
+    val p2 = "#main-content > div > div > form > div.govuk-warning-text > strong > span.line"
+    val p3 = "#main-content > div > div > form > div.govuk-warning-text > strong > span:nth-child(3)"
   }
 
   val messageKeyPrefix = "aboutYourResult"
