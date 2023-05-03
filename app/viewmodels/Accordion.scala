@@ -20,7 +20,7 @@ import config.FrontendAppConfig
 import models.Section.SectionEnum
 import play.api.i18n.Messages
 import play.api.mvc.Request
-import play.twirl.api.Html
+import play.twirl.api.{Html, HtmlFormat}
 
 case class Accordion(sections: Seq[AccordionSection]) {
 
@@ -33,8 +33,8 @@ case class AccordionSection(section: SectionEnum,
                             body: Html,
                             expanded: Boolean = false) {
 
-  def html(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig) =
-    views.html.components.accordion.accordion_sectionNew(section.toString, headingKey, body, expanded)
+  def html(index: Int)(implicit messages: Messages, request: Request[_], appConfig: FrontendAppConfig): HtmlFormat.Appendable =
+    views.html.components.accordion.accordion_sectionNew(section.toString, headingKey, body, expanded, index)
 }
 
 object Accordion {

@@ -2,3 +2,8 @@
 @import 'partials/_accordion';
 @import 'partials/_palette';
 @import 'partials/_focus';
+
+.line:after {
+    content: '\a\a';
+    white-space: pre;
+}
