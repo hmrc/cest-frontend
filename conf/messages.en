@@ -893,11 +893,11 @@ worker.equipmentExpenses.checkYourAnswersLabel = Will you have to buy equipment 
 worker.equipmentExpenses.p1 = This can include heavy machinery or high-cost specialist equipment used for this work. This does not include laptops, tablets and phones.
 worker.equipmentExpenses.p2 = Vehicle costs are covered in the next question.
 
-pdfDetails.fileName.error.maxLength = The file name must be {0} characters or less
-pdfDetails.completedBy.error.maxLength = The name must be {0} characters or less
-pdfDetails.client.error.maxLength = The client name must be {0} characters or less
-pdfDetails.job.error.maxLength = The contract or role title must be {0} characters or less
-pdfDetails.reference.error.maxLength = The reference must be {0} characters or less
+pdfDetails.fileName.error.maxLength = File name must be {0} characters or less
+pdfDetails.completedBy.error.maxLength = Name must be {0} characters or less
+pdfDetails.client.error.maxLength = Client name must be {0} characters or less
+pdfDetails.job.error.maxLength = Contract or role title must be {0} characters or less
+pdfDetails.reference.error.maxLength = Other information must be {0} characters or less
 
 result.pdf.time = Date of result: {0} (UTC)
 result.pdf.customisedBy = Your name
