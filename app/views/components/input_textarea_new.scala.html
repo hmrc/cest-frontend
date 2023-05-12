@@ -18,14 +18,14 @@
 @import _root_.views.ViewUtils._
 @import config.FrontendAppConfig
 @import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
-@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.CharacterCount
-@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcCharacterCount
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits.RichCharacterCount
 
-@this(inputTextArea: HmrcCharacterCount)
+@this(inputTextArea: GovukCharacterCount)
 
 @(
     id: String = "",
     name: String,
+    field: Field,
     labelName: Option[String] = None,
     hintKey: Option[String] = None,
     maxChars: Option[Int],
@@ -40,5 +40,5 @@
             label = Label(content = Text(labelName.get)),
             maxLength = maxChars,
             classes = inputTextAreaClass
-        )
+        ).withFormField(field)
     )
