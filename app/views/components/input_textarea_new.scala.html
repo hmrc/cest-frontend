@@ -17,10 +17,11 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import _root_.views.ViewUtils._
 @import config.FrontendAppConfig
-@import uk.gov.hmrc.hmrcfrontend.views.Implicits.RichErrorSummary
-@import uk.gov.hmrc.govukfrontend.views.html.components.implicits.RichCharacterCount
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcCharacterCount
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.CharacterCount
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.implicits.RichCharacterCount
 
-@this(inputTextArea: GovukCharacterCount)
+@this(inputTextArea: HmrcCharacterCount)
 
 @(
     id: String = "",
