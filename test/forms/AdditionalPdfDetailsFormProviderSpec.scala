@@ -61,7 +61,7 @@ class AdditionalPdfDetailsFormProviderSpec extends GuiceAppSpecBase with StringF
         "job" -> "Testing this out vbscript:",
         "reference" -> "Testing this out vbscript:"))
 
-      result.value mustBe Some(AdditionalPdfDetails(Some("Testing this out "), Some("Testing this out "),
+      result.value mustBe Some(AdditionalPdfDetails(None, Some("Testing this out "), Some("Testing this out "),
         Some("Testing this out "), Some("Testing this out ")))
 
     }

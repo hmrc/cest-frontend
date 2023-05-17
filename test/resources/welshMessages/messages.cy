@@ -903,8 +903,8 @@ hirer.result.outside.paye.whyResult.businessToBusiness = Mae’r atebion a roddw
 pdfDetails.fileName.error.maxLength = Mae’n rhaid i enw’r ffeil fod yn {0} o gymeriadau neu lai
 pdfDetails.completedBy.error.maxLength = Mae’n rhaid i’r enw fod yn {0} o gymeriadau neu lai
 pdfDetails.client.error.maxLength = Mae’n rhaid i enw’r cleient fod yn {0} o gymeriadau neu lai
-pdfDetails.job.error.maxLength = Mae’n rhaid i’r contract neu deitl y swydd fod yn {0} o gymeriadau neu lai
-pdfDetails.reference.error.maxLength = Mae’n rhaid i’r cyfeirnod fod yn {0} o gymeriadau neu lai
+pdfDetails.job.error.maxLength = Mae’n rhaid i deitl y contract neu’r swydd fod yn {0} o gymeriadau neu lai
+pdfDetails.reference.error.maxLength = Mae’n rhaid i’r wybodaeth arall fod yn {0} o gymeriadau neu lai
 
 resetAnswersWarning.title = I newid ateb yn yr adran hon, bydd yn rhaid i chi ailgychwyn y twlsyn. Bydd hyn yn dileu’ch atebion.
 resetAnswersWarning.heading = I newid ateb yn yr adran hon, bydd yn rhaid i chi ailgychwyn y twlsyn. Bydd hyn yn dileu’ch atebion.
