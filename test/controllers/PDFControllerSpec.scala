@@ -253,11 +253,11 @@ class PDFControllerSpec extends ControllerSpecBase {
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
 
-        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(None, Some("answer"))))
+        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(completedBy = Some("answer"))))
         val getRelevantData = FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
 
-        mockEncryptDetails(AdditionalPdfDetails(None, Some("answer")))
-        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(None, Some("answer")))
+        mockEncryptDetails(AdditionalPdfDetails(completedBy = Some("answer")))
+        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(completedBy = Some("answer")))
         mockConstructAnswers(DataRequest(postRequest,"id",answers),AdditionalPdfDetails)(answers)
 
         mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
@@ -269,13 +269,13 @@ class PDFControllerSpec extends ControllerSpecBase {
 
       "show the PDF view with a default timestamp" in {
 
-        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(None, Some("answer"))))
+        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(completedBy = Some("answer"))))
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
 
-        mockEncryptDetails(AdditionalPdfDetails(None, Some("answer")))
+        mockEncryptDetails(AdditionalPdfDetails(completedBy = Some("answer")))
 
-        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(None, Some("answer")))
+        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(completedBy = Some("answer")))
         mockConstructAnswers(DataRequest(postRequest,"id",answers),AdditionalPdfDetails)(answers)
 
         mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
@@ -302,11 +302,11 @@ class PDFControllerSpec extends ControllerSpecBase {
 
         val postRequest = fakeRequest.withFormUrlEncodedBody(("completedBy", testAnswer))
 
-        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(None, Some("answer"))))
+        val validData = Map(CustomisePDFPage.toString -> Json.toJson(AdditionalPdfDetails(completedBy = Some("answer"))))
         val getRelevantData = FakeGeneralDataRetrievalAction(Some(CacheMap(cacheMapId, validData)))
 
-        mockEncryptDetails(AdditionalPdfDetails(None, Some("answer")))
-        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(None, Some("answer")))
+        mockEncryptDetails(AdditionalPdfDetails(completedBy = Some("answer")))
+        val answers = userAnswers.set(CustomisePDFPage,AdditionalPdfDetails(completedBy = Some("answer")))
         mockConstructAnswers(DataRequest(postRequest,"id",answers),AdditionalPdfDetails)(answers)
         mockSave(CacheMap(cacheMapId, validData))(CacheMap(cacheMapId, validData))
 
