@@ -30,11 +30,11 @@ class AdditionalPdfDetailsFormProvider extends Constraints with FeatureSwitching
   def apply()(implicit appConfig: FrontendAppConfig): Form[AdditionalPdfDetails] =
       Form(
         mapping(
+          "fileName" -> optional(text).verifying(referenceCheckConstraints(maxFieldLength, "fileName")),
           "completedBy" -> optional(text).verifying(referenceCheckConstraints(maxFieldLength, "completedBy")),
           "client" -> optional(text).verifying(referenceCheckConstraints(maxFieldLength, "client")),
           "job" -> optional(text).verifying(referenceCheckConstraints(maxFieldLength, "job")),
-          "reference" -> optional(text).verifying(referenceCheckConstraints(maxFieldReferenceLength, "reference")),
-          "fileName" -> optional(text).verifying(referenceCheckConstraints(maxFieldLength, "fileName"))
+          "reference" -> optional(text).verifying(referenceCheckConstraints(maxFieldReferenceLength, "reference"))
         )(AdditionalPdfDetails.apply)(AdditionalPdfDetails.unapply).transform[AdditionalPdfDetails](
           details => details.copy(
             completedBy = details.completedBy.map(completedBy => filter(completedBy)),

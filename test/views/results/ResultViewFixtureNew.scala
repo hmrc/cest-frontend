@@ -115,7 +115,7 @@ trait ResultViewFixtureNew extends ViewBehavioursNew {
   val testJobTitle = "Plumber"
   val testReference = "Boiler man"
 
-  val testAdditionalPdfDetails = AdditionalPdfDetails(Some(testName), Some(testClient), Some(testJobTitle), Some(testReference), Some(fileName))
+  val testAdditionalPdfDetails = AdditionalPdfDetails(Some(fileName), Some(testName), Some(testClient), Some(testJobTitle), Some(testReference))
   implicit val testNoPdfResultDetails = PDFResultDetails(Result)
   lazy val testPdfResultDetails = PDFResultDetails(resultMode = ResultPDF, Some(testAdditionalPdfDetails), Some(timestamp), answers)
   lazy val testPrintPreviewResultDetails = PDFResultDetails(resultMode = ResultPrintPreview, Some(testAdditionalPdfDetails), Some(timestamp), answers)
