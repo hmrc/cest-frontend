@@ -27,7 +27,7 @@ import models.Mode
 import navigation.ControlNavigator
 import pages.sections.control.ScheduleOfWorkingHoursPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.control.ScheduleOfWorkingHoursView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class ScheduleOfWorkingHoursController @Inject()(identify: IdentifierAction,
                                                  formProvider: ScheduleOfWorkingHoursFormProvider,
                                                  override val controllerComponents: MessagesControllerComponents,
                                                  view: ScheduleOfWorkingHoursView,
-                                                 checkYourAnswersService: CheckYourAnswersService,
                                                  override val compareAnswerService: CompareAnswerService,
                                                  override val dataCacheConnector: DataCacheConnector,
                                                  override val navigator: ControlNavigator,

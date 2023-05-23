@@ -27,7 +27,7 @@ import models.Mode
 import navigation.ControlNavigator
 import pages.sections.control.MoveWorkerPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.control.MoveWorkerView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class MoveWorkerController @Inject()(identify: IdentifierAction,
                                      formProvider: MoveWorkerFormProvider,
                                      override val controllerComponents: MessagesControllerComponents,
                                      view: MoveWorkerView,
-                                     checkYourAnswersService: CheckYourAnswersService,
                                      override val compareAnswerService: CompareAnswerService,
                                      override val dataCacheConnector: DataCacheConnector,
                                      override val navigator: ControlNavigator,

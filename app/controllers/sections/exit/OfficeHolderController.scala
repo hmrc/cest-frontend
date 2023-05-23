@@ -27,7 +27,7 @@ import models.{CheckMode, Mode, NormalMode}
 import navigation.ExitNavigator
 import pages.sections.exit.OfficeHolderPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.exit.OfficeHolderView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class OfficeHolderController @Inject()(identify: IdentifierAction,
                                        formProvider: OfficeHolderFormProvider,
                                        override val controllerComponents: MessagesControllerComponents,
                                        view: OfficeHolderView,
-                                       checkYourAnswersService: CheckYourAnswersService,
                                        override val compareAnswerService: CompareAnswerService,
                                        override val dataCacheConnector: DataCacheConnector,
                                        override val navigator: ExitNavigator,

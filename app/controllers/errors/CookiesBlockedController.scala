@@ -18,7 +18,6 @@ package controllers.errors
 
 import config.FrontendAppConfig
 import controllers.BaseController
-import controllers.actions.IdentifierAction
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import views.html.errors.CookiesBlockedView
@@ -28,7 +27,6 @@ import javax.inject.{Inject, Singleton}
 
 @Singleton
 class CookiesBlockedController @Inject()(val appConfig: FrontendAppConfig,
-                                         identify: IdentifierAction,
                                          override val controllerComponents: MessagesControllerComponents,
                                          cookiesView: CookiesBlockedView
                                         ) extends BaseController with I18nSupport {

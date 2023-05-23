@@ -49,7 +49,6 @@ class ScheduleOfWorkingHoursControllerSpec extends ControllerSpecBase with MockD
     controllerComponents = messagesControllerComponents,
     appConfig = frontendAppConfig,
     view = view,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeControlNavigator
