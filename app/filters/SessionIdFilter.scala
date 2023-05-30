@@ -23,8 +23,6 @@ import com.google.inject.Inject
 import play.api.http.HeaderNames
 import play.api.mvc._
 import uk.gov.hmrc.http.{SessionKeys, HeaderNames => HMRCHeaderNames}
-import play.api.mvc.SessionCookieBaker
-
 import scala.concurrent.{ExecutionContext, Future}
 
 class SessionIdFilter (

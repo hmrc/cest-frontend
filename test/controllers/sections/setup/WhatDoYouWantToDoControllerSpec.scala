@@ -47,7 +47,6 @@ class WhatDoYouWantToDoControllerSpec extends ControllerSpecBase {
       WhatDoYouWantToDoFormProvider = formProvider,
       controllerComponents = messagesControllerComponents,
       whatDoYouWantToDoView = view,
-      checkYourAnswersService = mockCheckYourAnswersService,
       compareAnswerService = mockCompareAnswerService,
       dataCacheConnector = mockDataCacheConnector,
       navigator = FakeSetupNavigator,

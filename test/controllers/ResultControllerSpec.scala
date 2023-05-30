@@ -68,7 +68,6 @@ class ResultControllerSpec extends ControllerSpecBase with MockDecisionService w
     FakeTimestamp,
     mockCompareAnswerService,
     mockDecisionService,
-    mockCheckYourAnswersService,
     errorHandler,
     frontendAppConfig
   )

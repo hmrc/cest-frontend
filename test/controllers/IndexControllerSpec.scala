@@ -33,7 +33,6 @@ class IndexControllerSpec extends ControllerSpecBase {
         getData = FakeEmptyCacheMapDataRetrievalAction,
         cache = mockDataCacheConnector,
         controllerComponents = messagesControllerComponents,
-        checkYourAnswersService = mockCheckYourAnswersService,
         compareAnswerService = mockCompareAnswerService,
         dataCacheConnector = mockDataCacheConnector
       )
@@ -59,7 +58,6 @@ class IndexControllerSpec extends ControllerSpecBase {
         getData = FakeDontGetDataDataRetrievalAction,
         cache = mockDataCacheConnector,
         controllerComponents = messagesControllerComponents,
-        checkYourAnswersService = mockCheckYourAnswersService,
         compareAnswerService = mockCompareAnswerService,
         dataCacheConnector = mockDataCacheConnector
       )

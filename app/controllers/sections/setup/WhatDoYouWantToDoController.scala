@@ -29,7 +29,7 @@ import navigation.SetupNavigator
 import pages.sections.setup.WhatDoYouWantToDoPage
 import play.api.data.Form
 import play.api.mvc._
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.setup.WhatDoYouWantToDoView
 
 import scala.concurrent.Future
@@ -41,7 +41,6 @@ class WhatDoYouWantToDoController @Inject()(identify: IdentifierAction,
                                             WhatDoYouWantToDoFormProvider: WhatDoYouWantToDoFormProvider,
                                             override val controllerComponents: MessagesControllerComponents,
                                             whatDoYouWantToDoView: WhatDoYouWantToDoView,
-                                            checkYourAnswersService: CheckYourAnswersService,
                                             override val compareAnswerService: CompareAnswerService,
                                             override val dataCacheConnector: DataCacheConnector,
                                             override val navigator: SetupNavigator,

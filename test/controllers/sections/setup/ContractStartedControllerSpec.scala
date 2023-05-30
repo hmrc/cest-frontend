@@ -46,7 +46,6 @@ class ContractStartedControllerSpec extends ControllerSpecBase with MockAuditCon
     formProvider = formProvider,
     controllerComponents = messagesControllerComponents,
     view = view,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeSetupNavigator,

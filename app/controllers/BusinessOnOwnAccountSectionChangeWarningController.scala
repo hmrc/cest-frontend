@@ -27,7 +27,6 @@ import models.CheckMode
 import pages._
 import pages.sections.businessOnOwnAccount._
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.CheckYourAnswersService
 import views.html.BusinessOnOwnAccountSectionChangeWarningView
 
 class BusinessOnOwnAccountSectionChangeWarningController @Inject()(identify: IdentifierAction,
@@ -36,7 +35,6 @@ class BusinessOnOwnAccountSectionChangeWarningController @Inject()(identify: Ide
                                                                    requireUserType: UserTypeRequiredAction,
                                                                    override val controllerComponents: MessagesControllerComponents,
                                                                    view: BusinessOnOwnAccountSectionChangeWarningView,
-                                                                   checkYourAnswersService: CheckYourAnswersService,
                                                                    dataCacheConnector: DataCacheConnector,
                                                                    errorHandler: ErrorHandler,
                                                                    implicit val appConfig: FrontendAppConfig)

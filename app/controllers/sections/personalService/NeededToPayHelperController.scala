@@ -27,7 +27,7 @@ import models.Mode
 import navigation.PersonalServiceNavigator
 import pages.sections.personalService.NeededToPayHelperPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.personalService.NeededToPayHelperView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class NeededToPayHelperController @Inject()(identify: IdentifierAction,
                                             formProvider: NeededToPayHelperFormProvider,
                                             view: NeededToPayHelperView,
                                             override val controllerComponents: MessagesControllerComponents,
-                                            checkYourAnswersService: CheckYourAnswersService,
                                             override val compareAnswerService: CompareAnswerService,
                                             override val dataCacheConnector: DataCacheConnector,
                                             override val navigator: PersonalServiceNavigator,

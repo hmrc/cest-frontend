@@ -37,7 +37,6 @@ class PersonalServiceSectionChangeWarningControllerSpec extends ControllerSpecBa
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     dataCacheConnector = mockDataCacheConnector,
     errorHandler = app.injector.instanceOf[ErrorHandler]
   )

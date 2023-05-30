@@ -49,7 +49,6 @@ class ArrangedSubstituteControllerSpec extends ControllerSpecBase with MockDataC
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakePersonalServiceNavigator

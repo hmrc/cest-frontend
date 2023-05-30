@@ -26,7 +26,7 @@ import models.NormalMode
 import navigation.SetupNavigator
 import pages.sections.setup.AboutYourResultPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.setup.AboutYourResultView
 
 class AboutYourResultController @Inject()(override val navigator: SetupNavigator,
@@ -35,7 +35,6 @@ class AboutYourResultController @Inject()(override val navigator: SetupNavigator
                                           requireData: DataRequiredAction,
                                           override val controllerComponents: MessagesControllerComponents,
                                           view: AboutYourResultView,
-                                          checkYourAnswersService: CheckYourAnswersService,
                                           override val compareAnswerService: CompareAnswerService,
                                           override val dataCacheConnector: DataCacheConnector,
                                           implicit val appConfig: FrontendAppConfig)

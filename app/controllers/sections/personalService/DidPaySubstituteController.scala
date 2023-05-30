@@ -27,7 +27,7 @@ import models.Mode
 import navigation.PersonalServiceNavigator
 import pages.sections.personalService.DidPaySubstitutePage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.personalService.DidPaySubstituteView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class DidPaySubstituteController @Inject()(identify: IdentifierAction,
                                            formProvider: DidPaySubstituteFormProvider,
                                            override val controllerComponents: MessagesControllerComponents,
                                            view: DidPaySubstituteView,
-                                           checkYourAnswersService: CheckYourAnswersService,
                                            override val compareAnswerService: CompareAnswerService,
                                            override val dataCacheConnector: DataCacheConnector,
                                            override val navigator: PersonalServiceNavigator,

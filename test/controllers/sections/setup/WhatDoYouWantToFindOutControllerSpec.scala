@@ -45,7 +45,6 @@ class WhatDoYouWantToFindOutControllerSpec extends ControllerSpecBase {
       whatDoYouWantToFindOutFormProvider = formProvider,
       controllerComponents = messagesControllerComponents,
       whatDoYouWantToFindOutView = view,
-      checkYourAnswersService = mockCheckYourAnswersService,
       compareAnswerService = mockCompareAnswerService,
       dataCacheConnector = mockDataCacheConnector,
       navigator = FakeSetupNavigator,

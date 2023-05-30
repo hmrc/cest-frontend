@@ -26,7 +26,7 @@ import models.NormalMode
 import navigation.SetupNavigator
 import pages.sections.setup.AgencyAdvisoryPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.setup.AgencyAdvisoryView
 
 class AgencyAdvisoryController @Inject()(override val navigator: SetupNavigator,
@@ -36,7 +36,6 @@ class AgencyAdvisoryController @Inject()(override val navigator: SetupNavigator,
                                          requireUserType: UserTypeRequiredAction,
                                          override val controllerComponents: MessagesControllerComponents,
                                          view: AgencyAdvisoryView,
-                                         checkYourAnswersService: CheckYourAnswersService,
                                          override val compareAnswerService: CompareAnswerService,
                                          override val dataCacheConnector: DataCacheConnector,
                                          implicit val appConfig: FrontendAppConfig) extends BaseNavigationController with FeatureSwitching {

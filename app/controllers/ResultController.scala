@@ -27,7 +27,7 @@ import models.{NormalMode, Timestamp}
 import navigation.CYANavigator
 import pages.{ResultPage, Timestamp}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService, DecisionService}
+import services.{CompareAnswerService, DecisionService}
 import utils.SessionUtils._
 
 class ResultController @Inject()(identify: IdentifierAction,
@@ -42,7 +42,6 @@ class ResultController @Inject()(identify: IdentifierAction,
                                  time: Timestamp,
                                  override val compareAnswerService: CompareAnswerService,
                                  decisionService: DecisionService,
-                                 checkYourAnswersService: CheckYourAnswersService,
                                  errorHandler: ErrorHandler,
                                  implicit val appConfig: FrontendAppConfig) extends BaseNavigationController with FeatureSwitching {
 

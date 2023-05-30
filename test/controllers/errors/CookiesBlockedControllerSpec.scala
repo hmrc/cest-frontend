@@ -31,7 +31,6 @@ class CookiesBlockedControllerSpec extends ControllerSpecBase {
 
   val controller = new CookiesBlockedController(
     frontendAppConfig,
-    identify,
     messagesControllerComponents,
     cookiesView)
 
