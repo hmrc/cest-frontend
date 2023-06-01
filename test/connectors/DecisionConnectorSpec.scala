@@ -16,7 +16,6 @@
 
 package connectors
 
-import _root_.utils.MockDateTimeUtil
 import base.{GuiceAppSpecBase, MockServicesConfig}
 import connectors.mocks.MockHttp
 import models.ResultEnum.{SELF_EMPLOYED, UNKNOWN}
