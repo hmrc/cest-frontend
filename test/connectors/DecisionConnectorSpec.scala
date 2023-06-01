@@ -47,7 +47,7 @@ class DecisionConnectorSpec extends GuiceAppSpecBase with MockHttp with MockServ
     override def timestamp(time: Option[String]): String = s"01 January 2019, 00:00:00"
   }
 
-  object TestDecisionConnector extends DecisionConnector(mockHttp, servicesConfig, frontendAppConfig, MockDateTimeUtil, FakeTimestamp)
+  object TestDecisionConnector extends DecisionConnector(mockHttp, servicesConfig, FakeTimestamp)
 
   val emptyInterviewModel: Interview = Interview(
     "12345"
