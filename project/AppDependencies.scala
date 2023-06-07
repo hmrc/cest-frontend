@@ -23,6 +23,7 @@ object AppDependencies {
     "org.scalatestplus"            %% "scalatestplus-mockito"       % "1.0.0-M2",
     "org.scalatestplus"            %% "scalacheck-1-15"             % "3.2.11.0",
     "org.jsoup"                    %  "jsoup"                       % "1.16.1",
+    "org.scalamock"                %% "scalamock"                   % "5.2.0",
     "com.github.tomakehurst"       %  "wiremock-standalone"         % wireMockStandAloneVersion,
     "com.fasterxml.jackson.module" %% "jackson-module-scala"        % "2.15.2"
 

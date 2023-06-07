@@ -23,6 +23,7 @@ import javax.inject.Inject
 import play.api.data.Form
 import play.api.mvc._
 import views.html.ResetAnswersWarningView
+import play.api.i18n.I18nSupport
 
 class ResetAnswersWarningController @Inject()(identify: IdentifierAction,
                                               getData: DataRetrievalAction,
@@ -30,7 +31,7 @@ class ResetAnswersWarningController @Inject()(identify: IdentifierAction,
                                               formProvider: ResetAnswersWarningFormProvider,
                                               override val controllerComponents: MessagesControllerComponents,
                                               view: ResetAnswersWarningView,
-                                              implicit val appConfig: FrontendAppConfig) extends BaseController {
+                                              implicit val appConfig: FrontendAppConfig) extends BaseController with I18nSupport {
 
   val form: Form[Boolean] = formProvider()
 
