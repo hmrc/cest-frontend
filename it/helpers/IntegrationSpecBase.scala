@@ -4,7 +4,7 @@ import config.featureSwitch.FeatureSwitching
 import org.jsoup.Jsoup
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
-import org.scalatest._
+import org.scalatest.{TestSuite, BeforeAndAfterEach, BeforeAndAfterAll}
 import org.scalatest.concurrent.{Eventually, IntegrationPatience, ScalaFutures}
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
 import play.api.Application
@@ -18,7 +18,7 @@ trait IntegrationSpecBase extends AnyWordSpec with Matchers with TestSuite with 
 
   def titleOf(response: WSResponse): String = Jsoup.parse(response.body).title
 
-  implicit lazy val cookies: Seq[WSCookie] = whenReady(getRequest("/disclaimer", true))(_.cookies)
+  implicit lazy val cookies: Seq[WSCookie] = whenReady(getRequest("/disclaimer", true))(_.cookies.toSeq)
 
   override implicit lazy val app: Application = new GuiceApplicationBuilder()
     .configure(Map(

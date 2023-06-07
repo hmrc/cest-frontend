@@ -20,11 +20,14 @@ import com.google.inject.Inject
 import config.FrontendAppConfig
 import config.featureSwitch.{FeatureSwitching, WelshLanguage}
 import play.api.i18n.Lang
+import play.api.i18n.I18nSupport
 import play.api.mvc._
+import uk.gov.hmrc.hmrcfrontend.controllers.routes
 import utils.RefererUtil.asRelativeUrl
+import controllers.
 
 class LanguageSwitchController @Inject()(override val controllerComponents: MessagesControllerComponents,
-                                         implicit val appConfig: FrontendAppConfig) extends BaseController with FeatureSwitching {
+                                         implicit val appConfig: FrontendAppConfig) extends BaseController with FeatureSwitching with I18nSupport {
 
   private def fallbackURL: String = routes.IndexController.onPageLoad().url
 
