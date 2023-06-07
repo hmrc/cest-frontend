@@ -86,3 +86,21 @@ body footer,
     display: block;
     margin-bottom: 1cm;
 }
+
+@page {
+    margin-top: 0.5cm;
+    margin-bottom: 1cm;
+}
+
+@page :first {
+    margin-top: 0;
+}
+
+.header-space .govuk-grid-column-one-half {
+    display: block;
+    width: 100%;
+}
+
+.header-space .govuk-grid-column-one-half:first-child {
+    margin-bottom: 0.5cm;
+}
