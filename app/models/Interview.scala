@@ -189,7 +189,7 @@ object Interview extends JsonObjectSugar with FeatureSwitching {
       exclusiveContract = exclusiveContract(),
       transferRights = transferRights(),
       multipleEngagements = multipleEngagements(),
-      significantWorkingTime = significantWorkingTime,
+      significantWorkingTime = significantWorkingTime(),
       seriesOfContracts = seriesOfContracts()
     )
   }

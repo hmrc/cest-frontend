@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("vehicle.heading"), Some(tailorMsg("vehicle.subheading")))
 
-    @formWithCsrf(action = VehicleController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = VehicleController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @content
 

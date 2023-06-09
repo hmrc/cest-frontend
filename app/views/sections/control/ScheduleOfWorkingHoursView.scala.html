@@ -44,7 +44,7 @@
 
     @heading(tailorMsg("scheduleOfWorkingHours.title"), Some(tailorMsg("scheduleOfWorkingHours.subheading")))
 
-    @formWithCsrf(action = ScheduleOfWorkingHoursController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = ScheduleOfWorkingHoursController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("scheduleOfWorkingHours.title"), radioItems = ScheduleOfWorkingHours.options)
 

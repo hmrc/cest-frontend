@@ -33,7 +33,7 @@
     pageTitle = titleNoForm("personalServiceSectionChangeWarning.title"),
     appConfig = appConfig) {
 
-    @formWithCsrf(postAction, 'autoComplete -> "off") {
+    @formWithCsrf(postAction, Symbol("autoComplete") -> "off") {
 
         @heading("personalServiceSectionChangeWarning.heading")
 

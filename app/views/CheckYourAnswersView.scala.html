@@ -41,7 +41,7 @@
 
     @heading("checkYourAnswers.heading")
 
-    @formWithCsrf(action = CheckYourAnswersController.onSubmit(), 'autoComplete -> "off") {
+    @formWithCsrf(action = CheckYourAnswersController.onSubmit(), Symbol("autoComplete") -> "off") {
 
         @viewmodels.Accordion(answerSections, sectionToExpand).html
 

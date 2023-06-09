@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("howWorkerIsPaid.title"), Some(tailorMsg("howWorkerIsPaid.subheading")))
 
-    @formWithCsrf(action = HowWorkerIsPaidController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = HowWorkerIsPaidController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(
             field = form("value"),

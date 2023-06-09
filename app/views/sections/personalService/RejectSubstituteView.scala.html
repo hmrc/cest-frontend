@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("rejectSubstitute.heading"), Some(tailorMsg("rejectSubstitute.subheading")))
 
-    @formWithCsrf(action = RejectSubstituteController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = RejectSubstituteController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @content
 

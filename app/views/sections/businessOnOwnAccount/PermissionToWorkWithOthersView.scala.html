@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("permissionToWorkWithOthers.title"), Some(tailorMsg("permissionToWorkWithOthers.subheading")))
 
-    @formWithCsrf(action = PermissionToWorkWithOthersController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = PermissionToWorkWithOthersController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("permissionToWorkWithOthers.title"))
 

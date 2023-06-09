@@ -34,7 +34,7 @@
         appConfig = appConfig,
         mode = NormalMode) {
 
-    @formWithCsrf(postAction, 'autoComplete -> "off") {
+    @formWithCsrf(postAction, Symbol("autoComplete") -> "off") {
 
         @heading("agencyAdvisory.heading")
 

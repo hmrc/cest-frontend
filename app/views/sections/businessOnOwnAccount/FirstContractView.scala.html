@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("firstContract.title"), Some(tailorMsg("firstContract.subheading")))
 
-    @formWithCsrf(action = FirstContractController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = FirstContractController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("firstContract.title"))
 

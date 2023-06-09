@@ -41,7 +41,7 @@
 
   @heading("whatDoYouWantToDo.title", Some("whatDoYouWantToDo.subheading"))
 
-  @formWithCsrf(action = WhatDoYouWantToDoController.onSubmit(mode), 'autoComplete -> "off") {
+  @formWithCsrf(action = WhatDoYouWantToDoController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
     @radios(field = form("value"), legendKey = tailorMsg("extendContract.title"), radioItems = WhatDoYouWantToDo.options)
 

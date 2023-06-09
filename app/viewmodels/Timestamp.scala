@@ -39,7 +39,7 @@ object Timestamp {
     months.flatMap {
       month =>
         if (dateTime.contains(month)) {
-          Some(dateTime.replaceAllLiterally(month, messages(s"date.$month")))
+          Some(dateTime.replace(month, messages(s"date.$month")))
         } else {
           None
         }

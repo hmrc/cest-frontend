@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("materials.heading"), Some(tailorMsg("materials.subheading")))
 
-    @formWithCsrf(action = MaterialsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = MaterialsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
           @content
 

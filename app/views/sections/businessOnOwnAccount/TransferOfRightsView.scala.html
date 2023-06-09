@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("transferOfRights.title"), Some(tailorMsg("transferOfRights.subheading")))
 
-    @formWithCsrf(action = TransferOfRightsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = TransferOfRightsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("transferOfRights.p1"))</p>
 

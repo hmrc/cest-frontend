@@ -44,7 +44,7 @@
 
     @heading(tailorMsg("majorityOfWorkingTime.title"), Some(tailorMsg("majorityOfWorkingTime.subheading")))
 
-    @formWithCsrf(action = MajorityOfWorkingTimeController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = MajorityOfWorkingTimeController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("majorityOfWorkingTime.p1"))</p>
         <p class="govuk-body">@messages(tailorMsg("majorityOfWorkingTime.p2"))

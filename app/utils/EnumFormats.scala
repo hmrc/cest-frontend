@@ -21,7 +21,7 @@ import play.api.libs.json._
 import scala.language.implicitConversions
 
 trait EnumFormats {
-  def enumRead[E <: Enumeration](enum: E): Reads[E#Value] = new Reads[E#Value] {
+  def enumRead[E <: Enumeration](`enum`: E): Reads[E#Value] = new Reads[E#Value] {
     def reads(json: JsValue): JsResult[E#Value] = json match {
       case JsString(s) => {
         try {
@@ -38,7 +38,7 @@ trait EnumFormats {
     def writes(v: E#Value): JsValue = JsString(v.toString)
   }
 
-  implicit def enumFormat[E <: Enumeration](enum: E): Format[E#Value] = {
+  implicit def enumFormat[E <: Enumeration](`enum`: E): Format[E#Value] = {
     Format(enumRead(enum), enumWrite)
   }
 }

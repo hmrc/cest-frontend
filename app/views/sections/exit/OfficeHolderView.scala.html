@@ -46,7 +46,7 @@
 
     @heading(tailorMsg("officeHolder.title"), Some(tailorMsg("officeHolder.subheading")))
 
-    @formWithCsrf(action = OfficeHolderController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = OfficeHolderController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @pageContent
 

@@ -45,7 +45,7 @@
 
     @heading(tailorMsg("howWorkIsDone.title"), Some(tailorMsg("howWorkIsDone.subheading")))
 
-        @formWithCsrf(action = HowWorkIsDoneController.onSubmit(mode), 'autoComplete -> "off") {
+        @formWithCsrf(action = HowWorkIsDoneController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @otherContent
 

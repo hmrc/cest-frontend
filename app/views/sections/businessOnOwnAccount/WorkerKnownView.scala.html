@@ -43,7 +43,7 @@
 
     @heading("hirer.workerKnown.title", Some("hirer.workerKnown.subheading"))
 
-    @formWithCsrf(action = WorkerKnownController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = WorkerKnownController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("workerKnown.p1"))</p>
         <p class="govuk-body">@messages(tailorMsg("workerKnown.p2"))</p>

@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("followOnContract.title"), Some(tailorMsg("followOnContract.subheading")))
 
-    @formWithCsrf(action = FollowOnContractController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = FollowOnContractController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("followOnContract.p1"))</p>
 
