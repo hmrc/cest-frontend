@@ -105,7 +105,8 @@ class DecisionService @Inject()(decisionConnector: DecisionConnector,
       answerSections
     )
 
-    decision.result match {
+    // unchecked tag added to suppress false positive non-exhaustive pattern match warning
+    (decision.result: @unchecked) match {
       case ResultEnum.INSIDE_IR35 | ResultEnum.EMPLOYED => Right(routeInside)
       case ResultEnum.OUTSIDE_IR35 | ResultEnum.SELF_EMPLOYED => Right(routeOutside)
       case ResultEnum.UNKNOWN => Right(routeUndetermined)
