@@ -128,7 +128,7 @@ class DecisionServiceSpec extends GuiceAppSpecBase with MockDecisionConnector
         mockAuditEvent("cestDecisionResult", AuditResult(userAnswers, decisionResponse))
 
         whenReady(service.decide) { res =>
-          res.right.get.result mustBe ResultEnum.INSIDE_IR35
+          res.toOption.get.result mustBe ResultEnum.INSIDE_IR35
         }
       }
     }
@@ -143,7 +143,7 @@ class DecisionServiceSpec extends GuiceAppSpecBase with MockDecisionConnector
         mockDecide(Interview(userAnswers))(Left(ErrorResponse(INTERNAL_SERVER_ERROR, s"HTTP exception returned from decision API")))
 
         whenReady(service.decide) { res =>
-          res.left.get mustBe an[ErrorResponse]
+          res.swap.getOrElse(Nil) mustBe an[ErrorResponse]
         }
       }
     }
