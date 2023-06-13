@@ -17,7 +17,6 @@
 package views.sections.exit
 
 import assets.messages.{OfficeHolderMessages, SubHeadingMessages}
-import controllers.sections.exit.routes
 import forms.sections.exit.OfficeHolderFormProvider
 import models.NormalMode
 import play.api.data.Form

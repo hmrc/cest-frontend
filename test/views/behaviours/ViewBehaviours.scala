@@ -16,7 +16,6 @@
 
 package views.behaviours
 
-import models.AdditionalPdfDetails
 import play.twirl.api.HtmlFormat
 import views.ViewSpecBase
 

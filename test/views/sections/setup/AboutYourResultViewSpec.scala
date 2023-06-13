@@ -18,7 +18,7 @@ package views.sections.setup
 
 import assets.messages.AboutYourResultMessages
 import play.api.mvc.Call
-import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.setup.AboutYourResultView
 
 class AboutYourResultViewSpec extends ViewBehavioursNew {

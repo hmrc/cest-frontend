@@ -57,9 +57,9 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WhatDoYouWantToFindOutPage)
-            result.left.get must contain(WhoAreYouPage)
-            result.left.get must contain(ContractStartedPage)
+            result.swap.getOrElse(Nil) must contain(WhatDoYouWantToFindOutPage)
+            result.swap.getOrElse(Nil) must contain(WhoAreYouPage)
+            result.swap.getOrElse(Nil) must contain(ContractStartedPage)
           }
 
           "User is Hirer and Intermediary is missed" in {
@@ -72,7 +72,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WorkerUsingIntermediaryPage)
+            result.swap.getOrElse(Nil) must contain(WorkerUsingIntermediaryPage)
           }
 
           "User is Worker and WantToDo is missing" in {
@@ -85,7 +85,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WhatDoYouWantToDoPage)
+            result.swap.getOrElse(Nil) must contain(WhatDoYouWantToDoPage)
           }
 
           "User is Worker and Making a new Determination; Intermediary is missing" in {
@@ -99,7 +99,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WorkerUsingIntermediaryPage)
+            result.swap.getOrElse(Nil) must contain(WorkerUsingIntermediaryPage)
           }
         }
       }
@@ -121,7 +121,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(OfficeHolderPage)
+            result.swap.getOrElse(Nil) must contain(OfficeHolderPage)
           }
         }
       }
@@ -144,7 +144,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(RejectSubstitutePage)
+            result.swap.getOrElse(Nil) must contain(RejectSubstitutePage)
           }
 
           "WouldWorkerPaySubstitute is not answered, contract has not started yet AND RejectSubstitute is false" in {
@@ -163,7 +163,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WouldWorkerPaySubstitutePage)
+            result.swap.getOrElse(Nil) must contain(WouldWorkerPaySubstitutePage)
           }
 
           "ArrangedSubstitute is not answered when contract started" in {
@@ -180,7 +180,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(ArrangedSubstitutePage)
+            result.swap.getOrElse(Nil) must contain(ArrangedSubstitutePage)
           }
 
           "DidWorkerPaySubstitute is not answered when contract started AND client agreed to substitution" in {
@@ -199,7 +199,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(DidPaySubstitutePage)
+            result.swap.getOrElse(Nil) must contain(DidPaySubstitutePage)
           }
 
           "NeededToPayHelper is not answered when contract started AND client agreed to substitution AND worker did not pay substitute" in {
@@ -219,7 +219,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(NeededToPayHelperPage)
+            result.swap.getOrElse(Nil) must contain(NeededToPayHelperPage)
           }
 
           "NeededToPayHelper is not answered when contract started AND client NOT agreed to substitution" in {
@@ -238,7 +238,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(NeededToPayHelperPage)
+            result.swap.getOrElse(Nil) must contain(NeededToPayHelperPage)
           }
 
           "RejectSubstitute is not answered when contract started AND no substitution happened" in {
@@ -257,7 +257,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(RejectSubstitutePage)
+            result.swap.getOrElse(Nil) must contain(RejectSubstitutePage)
           }
 
           "NeededToPayHelper is not answered when contract started AND no substitution happened AND RejectSubstitute is true" in {
@@ -277,7 +277,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(NeededToPayHelperPage)
+            result.swap.getOrElse(Nil) must contain(NeededToPayHelperPage)
           }
 
           "WouldWorkerPaySubstitute is not answered when contract started AND no substitution happened AND RejectSubstitute is false" in {
@@ -297,7 +297,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(WouldWorkerPaySubstitutePage)
+            result.swap.getOrElse(Nil) must contain(WouldWorkerPaySubstitutePage)
           }
 
           "NeededToPayHelper is not answered when contract started AND no substitution happened AND RejectSubstitute is false AND WouldPaySubstitute is false" in {
@@ -318,7 +318,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(NeededToPayHelperPage)
+            result.swap.getOrElse(Nil) must contain(NeededToPayHelperPage)
           }
         }
       }
@@ -346,10 +346,10 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(MoveWorkerPage)
-            result.left.get must contain(HowWorkIsDonePage)
-            result.left.get must contain(ScheduleOfWorkingHoursPage)
-            result.left.get must contain(ChooseWhereWorkPage)
+            result.swap.getOrElse(Nil) must contain(MoveWorkerPage)
+            result.swap.getOrElse(Nil) must contain(HowWorkIsDonePage)
+            result.swap.getOrElse(Nil) must contain(ScheduleOfWorkingHoursPage)
+            result.swap.getOrElse(Nil) must contain(ChooseWhereWorkPage)
           }
         }
       }
@@ -382,12 +382,12 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(MaterialsPage)
-            result.left.get must contain(VehiclePage)
-            result.left.get must contain(OtherExpensesPage)
-            result.left.get must contain(EquipmentExpensesPage)
-            result.left.get must contain(HowWorkerIsPaidPage)
-            result.left.get must contain(PutRightAtOwnCostPage)
+            result.swap.getOrElse(Nil) must contain(MaterialsPage)
+            result.swap.getOrElse(Nil) must contain(VehiclePage)
+            result.swap.getOrElse(Nil) must contain(OtherExpensesPage)
+            result.swap.getOrElse(Nil) must contain(EquipmentExpensesPage)
+            result.swap.getOrElse(Nil) must contain(HowWorkerIsPaidPage)
+            result.swap.getOrElse(Nil) must contain(PutRightAtOwnCostPage)
           }
         }
       }
@@ -427,9 +427,9 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(BenefitsPage)
-            result.left.get must contain(LineManagerDutiesPage)
-            result.left.get must contain(IdentifyToStakeholdersPage)
+            result.swap.getOrElse(Nil) must contain(BenefitsPage)
+            result.swap.getOrElse(Nil) must contain(LineManagerDutiesPage)
+            result.swap.getOrElse(Nil) must contain(IdentifyToStakeholdersPage)
           }
         }
       }
@@ -472,11 +472,11 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
               lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
               result.isLeft mustBe true
-              result.left.get must contain(MultipleContractsPage)
-              result.left.get must contain(OwnershipRightsPage)
-              result.left.get must contain(PreviousContractPage)
-              result.left.get must contain(MajorityOfWorkingTimePage)
-              result.left.get must contain(SimilarWorkOtherClientsPage)
+              result.swap.getOrElse(Nil) must contain(MultipleContractsPage)
+              result.swap.getOrElse(Nil) must contain(OwnershipRightsPage)
+              result.swap.getOrElse(Nil) must contain(PreviousContractPage)
+              result.swap.getOrElse(Nil) must contain(MajorityOfWorkingTimePage)
+              result.swap.getOrElse(Nil) must contain(SimilarWorkOtherClientsPage)
             }
           }
 
@@ -514,7 +514,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(PermissionToWorkWithOthersPage)
+            result.swap.getOrElse(Nil) must contain(PermissionToWorkWithOthersPage)
           }
 
           "RightsOfWork is missing when OwnershipRights is true" in {
@@ -553,7 +553,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(RightsOfWorkPage)
+            result.swap.getOrElse(Nil) must contain(RightsOfWorkPage)
           }
 
           "TransferRights is missing when RightsOfWork is false" in {
@@ -593,7 +593,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(TransferOfRightsPage)
+            result.swap.getOrElse(Nil) must contain(TransferOfRightsPage)
           }
 
           "FirstContract is missing when PreviousContract is false" in {
@@ -635,7 +635,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(FirstContractPage)
+            result.swap.getOrElse(Nil) must contain(FirstContractPage)
           }
 
           "FollowOnContract is missing when PreviousContract is true" in {
@@ -677,7 +677,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(FollowOnContractPage)
+            result.swap.getOrElse(Nil) must contain(FollowOnContractPage)
           }
 
           "FirstContract is missing when PreviousContract is true and FollowOnContract is false" in {
@@ -720,7 +720,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(FirstContractPage)
+            result.swap.getOrElse(Nil) must contain(FirstContractPage)
           }
 
           "ExtendContract is missing when FirstContract" in {
@@ -764,7 +764,7 @@ class CheckYourAnswersValidationServiceSpec extends GuiceAppSpecBase {
             lazy val result = CheckYourAnswersService.isValid(userAnswers)
 
             result.isLeft mustBe true
-            result.left.get must contain(ExtendContractPage)
+            result.swap.getOrElse(Nil) must contain(ExtendContractPage)
           }
         }
       }

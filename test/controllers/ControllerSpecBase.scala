@@ -29,7 +29,6 @@ import play.api.mvc.{Call, Result}
 import services.mocks._
 import uk.gov.hmrc.http.cache.client.CacheMap
 import akka.actor.ActorSystem
-import akka.stream.Materializer
 import play.api.test.Injecting
 import scala.concurrent.Future
 

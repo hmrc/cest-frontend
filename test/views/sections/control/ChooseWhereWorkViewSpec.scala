@@ -23,7 +23,6 @@ import models.NormalMode
 import models.sections.control.ChooseWhereWork
 import play.api.data.Form
 import play.api.mvc.Request
-import viewmodels.RadioOption
 import views.behaviours.ViewBehavioursNew
 import views.html.sections.control.ChooseWhereWorkView
 

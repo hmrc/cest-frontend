@@ -17,7 +17,6 @@
 package views.sections.financialRisk
 
 import assets.messages.{SubHeadingMessages, VehicleMessages}
-import controllers.sections.financialRisk.routes
 import forms.sections.financialRisk.VehicleFormProvider
 import models.NormalMode
 import play.api.data.Form

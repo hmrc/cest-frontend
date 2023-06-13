@@ -37,7 +37,7 @@ import views.html.AddDetailsView
 
 class PDFControllerSpec extends ControllerSpecBase {
 
-  override def beforeEach: Unit = {
+  override def beforeEach(): Unit = {
     super.beforeEach()
     enable(PrintPDF)
   }

@@ -17,12 +17,11 @@
 package views.sections.partParcel
 
 import assets.messages.{BenefitsMessages, SubHeadingMessages}
-import controllers.sections.partParcel.routes
 import forms.sections.partAndParcel.BenefitsFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.sections.partParcel.BenefitsView
 
 class BenefitsViewSpec extends YesNoViewBehavioursNew {

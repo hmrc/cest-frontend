@@ -21,7 +21,7 @@ import config.featureSwitch.FeatureSwitching
 import forms.sections.setup.WhoAreYouFormProvider
 import models.NormalMode
 import play.api.mvc.{Call, Request}
-import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.setup.WhoAreYouView
 
 class WhoAreYouViewSpec extends ViewBehavioursNew with FeatureSwitching {

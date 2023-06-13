@@ -17,7 +17,6 @@
 package views.sections.setup
 
 import assets.messages.WhatDoYouWantToDoMessages
-import controllers.sections.setup.routes
 import forms.sections.setup.WhatDoYouWantToDoFormProvider
 import models.NormalMode
 import models.sections.setup.WhatDoYouWantToDo
