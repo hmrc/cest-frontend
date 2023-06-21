@@ -49,7 +49,6 @@ class MoveWorkerControllerSpec extends ControllerSpecBase with MockDataCacheConn
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeControlNavigator

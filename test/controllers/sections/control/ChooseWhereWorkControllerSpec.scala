@@ -50,7 +50,6 @@ class ChooseWhereWorkControllerSpec extends ControllerSpecBase with MockDataCach
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeControlNavigator

@@ -27,7 +27,7 @@ import models.Mode
 import navigation.PartAndParcelNavigator
 import pages.sections.partParcel.IdentifyToStakeholdersPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.partParcel.IdentifyToStakeholdersView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class IdentifyToStakeholdersController @Inject()(identify: IdentifierAction,
                                                  formProvider: IdentifyToStakeholdersFormProvider,
                                                  override val controllerComponents: MessagesControllerComponents,
                                                  view: IdentifyToStakeholdersView,
-                                                 checkYourAnswersService: CheckYourAnswersService,
                                                  override val compareAnswerService: CompareAnswerService,
                                                  override val dataCacheConnector: DataCacheConnector,
                                                  override val navigator: PartAndParcelNavigator,

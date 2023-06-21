@@ -26,7 +26,7 @@ import models.Mode
 import navigation.FinancialRiskNavigator
 import pages.sections.financialRisk.MaterialsPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.financialRisk.MaterialsView
 
 import scala.concurrent.Future
@@ -40,7 +40,6 @@ class MaterialsController @Inject()(override val dataCacheConnector: DataCacheCo
                                     formProvider: MaterialsFormProvider,
                                     override val controllerComponents: MessagesControllerComponents,
                                     view: MaterialsView,
-                                    checkYourAnswersService: CheckYourAnswersService,
                                     override val compareAnswerService: CompareAnswerService,
                                     implicit val appConfig: FrontendAppConfig)
   extends BaseNavigationController {

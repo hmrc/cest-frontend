@@ -29,7 +29,7 @@ import navigation.SetupNavigator
 import pages.sections.setup.WhatDoYouWantToFindOutPage
 import play.api.data.Form
 import play.api.mvc._
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.setup.WhatDoYouWantToFindOutView
 
 import scala.concurrent.Future
@@ -40,7 +40,6 @@ class WhatDoYouWantToFindOutController @Inject()(identify: IdentifierAction,
                                                  whatDoYouWantToFindOutFormProvider: WhatDoYouWantToFindOutFormProvider,
                                                  override val controllerComponents: MessagesControllerComponents,
                                                  whatDoYouWantToFindOutView: WhatDoYouWantToFindOutView,
-                                                 checkYourAnswersService: CheckYourAnswersService,
                                                  override val compareAnswerService: CompareAnswerService,
                                                  override val dataCacheConnector: DataCacheConnector,
                                                  override val navigator: SetupNavigator,

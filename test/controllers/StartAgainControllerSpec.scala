@@ -29,8 +29,7 @@ class StartAgainControllerSpec extends ControllerSpecBase {
     identify = FakeIdentifierAction,
     controllerComponents = messagesControllerComponents,
     appConfig = frontendAppConfig,
-    view = startAgainView,
-    checkYourAnswersService = mockCheckYourAnswersService
+    view = startAgainView
   )
 
   "StartAgainController.redirectToExitSurvey" should {

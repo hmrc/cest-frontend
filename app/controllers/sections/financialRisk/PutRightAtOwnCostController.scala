@@ -27,7 +27,7 @@ import models.Mode
 import navigation.FinancialRiskNavigator
 import pages.sections.financialRisk.PutRightAtOwnCostPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.financialRisk.PutRightAtOwnCostView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class PutRightAtOwnCostController @Inject()(identify: IdentifierAction,
                                             formProvider: PutRightAtOwnCostFormProvider,
                                             override val controllerComponents: MessagesControllerComponents,
                                             view: PutRightAtOwnCostView,
-                                            checkYourAnswersService: CheckYourAnswersService,
                                             override val compareAnswerService: CompareAnswerService,
                                             override val dataCacheConnector: DataCacheConnector,
                                             override val navigator: FinancialRiskNavigator,

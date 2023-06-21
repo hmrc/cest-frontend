@@ -27,7 +27,6 @@ import models.CheckMode
 import pages.sections.personalService._
 import pages.{Page, PersonalServiceSectionChangeWarningPage}
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.CheckYourAnswersService
 import views.html.PersonalServiceSectionChangeWarningView
 
 class PersonalServiceSectionChangeWarningController @Inject()(identify: IdentifierAction,
@@ -35,7 +34,6 @@ class PersonalServiceSectionChangeWarningController @Inject()(identify: Identifi
                                                               requireData: DataRequiredAction,
                                                               override val controllerComponents: MessagesControllerComponents,
                                                               view: PersonalServiceSectionChangeWarningView,
-                                                              checkYourAnswersService: CheckYourAnswersService,
                                                               dataCacheConnector: DataCacheConnector,
                                                               errorHandler: ErrorHandler,
                                                               implicit val appConfig: FrontendAppConfig)

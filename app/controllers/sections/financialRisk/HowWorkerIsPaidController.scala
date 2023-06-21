@@ -27,7 +27,7 @@ import models.Mode
 import navigation.FinancialRiskNavigator
 import pages.sections.financialRisk.HowWorkerIsPaidPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.financialRisk.HowWorkerIsPaidView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class HowWorkerIsPaidController @Inject()(identify: IdentifierAction,
                                           formProvider: HowWorkerIsPaidFormProvider,
                                           override val controllerComponents: MessagesControllerComponents,
                                           view: HowWorkerIsPaidView,
-                                          checkYourAnswersService: CheckYourAnswersService,
                                           override val compareAnswerService: CompareAnswerService,
                                           override val dataCacheConnector: DataCacheConnector,
                                           override val navigator: FinancialRiskNavigator,

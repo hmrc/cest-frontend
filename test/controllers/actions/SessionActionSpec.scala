@@ -31,7 +31,7 @@ class SessionActionSpec extends GuiceAppSpecBase {
   "Session Action" when {
     "there's no active session" must {
       "redirect to the Index Page page" in {
-        val sessionAction = new SessionIdentifierAction(frontendAppConfig, messagesControllerComponents)
+        val sessionAction = new SessionIdentifierAction(messagesControllerComponents)
         val controller = new Harness(sessionAction)
         val result = controller.onPageLoad()(FakeRequest())
         status(result) mustBe SEE_OTHER
@@ -41,7 +41,7 @@ class SessionActionSpec extends GuiceAppSpecBase {
     }
     "there's an active session" must {
       "perform the action" in {
-        val sessionAction = new SessionIdentifierAction(frontendAppConfig, messagesControllerComponents)
+        val sessionAction = new SessionIdentifierAction(messagesControllerComponents)
         val controller = new Harness(sessionAction)
         val result = controller.onPageLoad()(fakeRequest)
         status(result) mustBe 200

@@ -27,7 +27,7 @@ import models.Mode
 import navigation.ControlNavigator
 import pages.sections.control.HowWorkIsDonePage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.control.HowWorkIsDoneView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class HowWorkIsDoneController @Inject()(identify: IdentifierAction,
                                         formProvider: HowWorkIsDoneFormProvider,
                                         override val controllerComponents: MessagesControllerComponents,
                                         view: HowWorkIsDoneView,
-                                        checkYourAnswersService: CheckYourAnswersService,
                                         override val compareAnswerService: CompareAnswerService,
                                         override val dataCacheConnector: DataCacheConnector,
                                         override val navigator: ControlNavigator,

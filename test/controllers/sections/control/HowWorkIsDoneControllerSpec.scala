@@ -49,7 +49,6 @@ class HowWorkIsDoneControllerSpec extends ControllerSpecBase with MockDataCacheC
     controllerComponents = messagesControllerComponents,
     appConfig = frontendAppConfig,
     view = view,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeControlNavigator

@@ -27,7 +27,7 @@ import models.{AuditJourneyStart, Mode}
 import navigation.SetupNavigator
 import pages.sections.setup.ContractStartedPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import uk.gov.hmrc.play.audit.http.connector.AuditConnector
 import views.html.sections.setup.ContractStartedView
 
@@ -40,7 +40,6 @@ class ContractStartedController @Inject()(identify: IdentifierAction,
                                           formProvider: ContractStartedFormProvider,
                                           override val controllerComponents: MessagesControllerComponents,
                                           view: ContractStartedView,
-                                          checkYourAnswersService: CheckYourAnswersService,
                                           override val compareAnswerService: CompareAnswerService,
                                           override val dataCacheConnector: DataCacheConnector,
                                           override val navigator: SetupNavigator,

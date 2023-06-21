@@ -27,7 +27,7 @@ import models.Mode
 import navigation.PartAndParcelNavigator
 import pages.sections.partParcel.LineManagerDutiesPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.partParcel.LineManagerDutiesView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class LineManagerDutiesController @Inject()(identify: IdentifierAction,
                                             formProvider: LineManagerDutiesFormProvider,
                                             override val controllerComponents: MessagesControllerComponents,
                                             view: LineManagerDutiesView,
-                                            checkYourAnswersService: CheckYourAnswersService,
                                             override val compareAnswerService: CompareAnswerService,
                                             override val dataCacheConnector: DataCacheConnector,
                                             override val navigator: PartAndParcelNavigator,

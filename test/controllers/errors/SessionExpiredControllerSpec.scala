@@ -30,7 +30,6 @@ class SessionExpiredControllerSpec extends ControllerSpecBase {
 
   val controller = new SessionExpiredController(
     frontendAppConfig,
-    identify,
     messagesControllerComponents,
     expiredView)
 

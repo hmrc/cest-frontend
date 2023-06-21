@@ -35,7 +35,6 @@ class AgencyAdvisoryControllerSpec extends ControllerSpecBase {
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakeSetupNavigator

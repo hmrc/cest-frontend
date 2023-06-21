@@ -17,7 +17,6 @@
 package controllers.actions
 
 import com.google.inject.Inject
-import config.FrontendAppConfig
 import models.requests.IdentifierRequest
 import play.api.mvc._
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendBaseController
@@ -26,8 +25,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 trait IdentifierAction extends ActionBuilder[IdentifierRequest, AnyContent] with ActionFunction[Request, IdentifierRequest]
 
-class SessionIdentifierAction @Inject()(config: FrontendAppConfig,
-                                        val controllerComponents: MessagesControllerComponents
+class SessionIdentifierAction @Inject()(val controllerComponents: MessagesControllerComponents
                                        ) extends FrontendBaseController with IdentifierAction {
 
   override implicit protected def executionContext: ExecutionContext = controllerComponents.executionContext

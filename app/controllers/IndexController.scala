@@ -25,7 +25,7 @@ import models.{NormalMode, UserAnswers}
 import navigation.SetupNavigator
 import pages.IndexPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import uk.gov.hmrc.http.cache.client.CacheMap
 
 class IndexController @Inject()(override val navigator: SetupNavigator,
@@ -33,7 +33,6 @@ class IndexController @Inject()(override val navigator: SetupNavigator,
                                 getData: DataRetrievalAction,
                                 cache: DataCacheConnector,
                                 override val controllerComponents: MessagesControllerComponents,
-                                checkYourAnswersService: CheckYourAnswersService,
                                 override val compareAnswerService: CompareAnswerService,
                                 override val dataCacheConnector: DataCacheConnector,
                                 implicit val appConfig: FrontendAppConfig)

@@ -47,7 +47,6 @@ class WouldWorkerPaySubstituteControllerSpec extends ControllerSpecBase with Moc
     controllerComponents = messagesControllerComponents,
     view = view,
     appConfig = frontendAppConfig,
-    checkYourAnswersService = mockCheckYourAnswersService,
     compareAnswerService = mockCompareAnswerService,
     dataCacheConnector = mockDataCacheConnector,
     navigator = FakePersonalServiceNavigator

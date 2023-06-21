@@ -27,7 +27,7 @@ import models.Mode
 import navigation.PartAndParcelNavigator
 import pages.sections.partParcel.BenefitsPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.partParcel.BenefitsView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class BenefitsController @Inject()(identify: IdentifierAction,
                                    formProvider: BenefitsFormProvider,
                                    override val controllerComponents: MessagesControllerComponents,
                                    view: BenefitsView,
-                                   checkYourAnswersService: CheckYourAnswersService,
                                    override val compareAnswerService: CompareAnswerService,
                                    override val dataCacheConnector: DataCacheConnector,
                                    override val navigator: PartAndParcelNavigator,

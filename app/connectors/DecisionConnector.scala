@@ -16,7 +16,6 @@
 
 package connectors
 
-import config.FrontendAppConfig
 import config.featureSwitch.FeatureSwitching
 import connectors.httpParsers.DecisionHttpParser.DecisionReads
 import javax.inject.Inject
@@ -27,14 +26,11 @@ import play.mvc.Http.Status._
 import uk.gov.hmrc.http.HeaderCarrier
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 import uk.gov.hmrc.http.HttpClient
-import utils.DateTimeUtil
 
 import scala.concurrent.{ExecutionContext, Future}
 
 class DecisionConnector @Inject()(httpClient: HttpClient,
                                   servicesConfig: ServicesConfig,
-                                  conf: FrontendAppConfig,
-                                  dateTimeUtil: DateTimeUtil,
                                   timestamp: Timestamp) extends FeatureSwitching with Logging {
 
   lazy val baseUrl: String = servicesConfig.baseUrl("cest-decision")

@@ -27,7 +27,7 @@ import models.Mode
 import navigation.ControlNavigator
 import pages.sections.control.ChooseWhereWorkPage
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import services.{CheckYourAnswersService, CompareAnswerService}
+import services.CompareAnswerService
 import views.html.sections.control.ChooseWhereWorkView
 
 import scala.concurrent.Future
@@ -39,7 +39,6 @@ class ChooseWhereWorkController @Inject()(identify: IdentifierAction,
                                           formProvider: ChooseWhereWorkFormProvider,
                                           override val controllerComponents: MessagesControllerComponents,
                                           view: ChooseWhereWorkView,
-                                          checkYourAnswersService: CheckYourAnswersService,
                                           override val compareAnswerService: CompareAnswerService,
                                           override val dataCacheConnector: DataCacheConnector,
                                           override val navigator: ControlNavigator,
