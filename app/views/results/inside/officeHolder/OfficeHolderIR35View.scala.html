@@ -28,6 +28,7 @@
 @import results.sections.pdf._
 
 @this(layout: layout,
+        printTemplate: templates.PrintTemplateNew,
         additional_details_new: additional_detailNew,
         tealResult: teal_resultNew,
         do_next: do_nextNew,
@@ -46,7 +47,7 @@
     pdfResultDetails.resultMode match {
         case Result => layout(title(form, "result.title"), appConfig = appConfig)(_)
         case ResultPrintPreview => layout(title(form, "site.letter.h1"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
-        case ResultPDF => layout(title(form, "result.title"), appConfig = appConfig, css = Seq(StyleSheet("print_preview"), StyleSheet("govuk_template_print", "print")))(_)
+        case ResultPDF => printTemplate(title(form, "result.title"), appConfig = appConfig)(_)
     }
 ){ template =>
 
