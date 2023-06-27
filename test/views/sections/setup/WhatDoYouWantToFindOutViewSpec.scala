@@ -22,7 +22,7 @@ import forms.sections.setup.WhatDoYouWantToFindOutFormProvider
 import models.NormalMode
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
+import views.behaviours.ViewBehavioursNew
 import views.html.sections.setup.WhatDoYouWantToFindOutView
 
 class WhatDoYouWantToFindOutViewSpec extends ViewBehavioursNew with FeatureSwitching {

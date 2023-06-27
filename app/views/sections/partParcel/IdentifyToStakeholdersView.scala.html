@@ -44,7 +44,7 @@
 
     @heading(tailorMsg("identifyToStakeholders.heading"), Some(tailorMsg("identifyToStakeholders.subheading")))
 
-    @formWithCsrf(action = IdentifyToStakeholdersController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = IdentifyToStakeholdersController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(
             field = form("value"),

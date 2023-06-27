@@ -20,7 +20,7 @@ import assets.messages.AddReferenceDetailsMessages
 import forms.AddReferenceDetailsFormProvider
 import play.api.data.Form
 import play.api.mvc.Request
-import views.behaviours.{YesNoViewBehaviours, YesNoViewBehavioursNew}
+import views.behaviours.YesNoViewBehavioursNew
 import views.html.AddReferenceDetailsView
 
 class AddReferenceDetailsViewSpec extends YesNoViewBehavioursNew {

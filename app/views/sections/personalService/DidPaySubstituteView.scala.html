@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("didPaySubstitute.heading"), Some(tailorMsg("didPaySubstitute.subheading")))
 
-    @formWithCsrf(action = DidPaySubstituteController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = DidPaySubstituteController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @p1
 

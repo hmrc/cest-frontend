@@ -42,7 +42,7 @@
 
     @heading(tailorMsg("benefits.title"), Some(tailorMsg("benefits.subheading")))
 
-    @formWithCsrf(action = BenefitsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = BenefitsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @content
 

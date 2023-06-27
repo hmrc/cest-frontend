@@ -44,7 +44,7 @@
     @heading(tailorMsg("similarWorkOtherClients.title"), Some(tailorMsg("similarWorkOtherClients.subheading")))
 
 
-    @formWithCsrf(action = SimilarWorkOtherClientsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = SimilarWorkOtherClientsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p1"))</p>
         <p class="govuk-body">@messages(tailorMsg("similarWorkOtherClients.p2"))</p>

@@ -42,7 +42,7 @@
         @errorSummary(ErrorSummary().withFormErrorsAsText(form))
     }
 
-    @formWithCsrf(action = PDFController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = PDFController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @heading("addDetails.heading")
 

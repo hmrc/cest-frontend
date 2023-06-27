@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("rightsOfWork.title"), Some(tailorMsg("rightsOfWork.subheading")))
 
-    @formWithCsrf(action = RightsOfWorkController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = RightsOfWorkController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("rightsOfWork.p1"))</p>
 

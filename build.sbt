@@ -7,7 +7,6 @@ val appName: String = "cest-frontend"
 lazy val appDependencies : Seq[ModuleID] = AppDependencies()
 lazy val plugins : Seq[Plugins] = Seq(play.sbt.PlayScala)
 lazy val playSettings : Seq[Setting[_]] = Seq.empty
-val silencerVersion = "1.7.1"
 
 lazy val scoverageSettings = {
     import scoverage.ScoverageKeys
@@ -29,7 +28,7 @@ lazy val microservice = Project(appName, file("."))
   .configs(IntegrationTest)
   .settings(scalaSettings: _*)
   .settings(defaultSettings(): _*)
-  .settings(scalaVersion := "2.12.12")
+  .settings(scalaVersion := "2.13.8")
   .settings(scalacOptions += "-Ywarn-unused:-explicits,-implicits")
   .settings(playSettings ++ scoverageSettings: _*)
   .settings(
@@ -44,12 +43,8 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / unmanagedSourceDirectories := (IntegrationTest / baseDirectory)(base => Seq(base / "it")).value,
     IntegrationTest / parallelExecution := false,
     // ***************
-    // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
-    scalacOptions += "-P:silencer:pathFilters=views;routes",
-    libraryDependencies ++= Seq(
-        compilerPlugin("com.github.ghik" % "silencer-plugin" % silencerVersion cross CrossVersion.full),
-        "com.github.ghik" % "silencer-lib" % silencerVersion % Provided cross CrossVersion.full
-    )
+    scalacOptions += "-Wconf:src=routes/.*:s",
+    scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s",
     // ***************
   )
   .settings(

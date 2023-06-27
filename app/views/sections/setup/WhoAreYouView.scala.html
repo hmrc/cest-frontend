@@ -44,7 +44,7 @@
 
     @heading("whoAreYou.heading", Some("whoAreYou.subheading"))
 
-    @formWithCsrf(postAction, 'autoComplete -> "off") {
+    @formWithCsrf(postAction, Symbol("autoComplete") -> "off") {
 
         @radios("whoAreYou.heading", form("value"), WhoAreYou.options(showAgency))
 

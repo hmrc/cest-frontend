@@ -33,7 +33,7 @@
 
 @layout(pageTitle = titleNoForm("aboutYourResult.title"), appConfig = appConfig, backLinkUrl = Some(appConfig.govUkStartPageUrl)) {
 
-    @formWithCsrf(postAction, 'autoComplete -> "off") {
+    @formWithCsrf(postAction, Symbol("autoComplete") -> "off") {
 
         @heading("aboutYourResult.heading")
 

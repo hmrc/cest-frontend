@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("neededToPayHelper.heading"), Some(tailorMsg("neededToPayHelper.subheading")))
 
-    @formWithCsrf(action = NeededToPayHelperController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = NeededToPayHelperController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @input_yes_no(
             field = form("value"),

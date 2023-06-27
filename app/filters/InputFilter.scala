@@ -37,7 +37,8 @@ trait InputFilter {
 
   def filter(input: String): String = {
     @tailrec
-    def applyFilters(filters: Seq[Pattern], sanitizedOutput: String): String = filters match {
+    // unchecked tag added to suppress false positive non-exhaustive pattern match warning
+    def applyFilters(filters: Seq[Pattern], sanitizedOutput: String): String = (filters: @unchecked) match {
       case Nil => sanitizedOutput
       case filter :: tail => applyFilters(tail, filter.matcher(sanitizedOutput).replaceAll(""))
     }

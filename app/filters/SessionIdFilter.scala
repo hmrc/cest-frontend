@@ -34,7 +34,7 @@ class SessionIdFilter (
                       ) extends Filter {
 
   @Inject
-  def this(mat: Materializer, ec: ExecutionContext, cb: SessionCookieBaker, che: CookieHeaderEncoding) {
+  def this(mat: Materializer, ec: ExecutionContext, cb: SessionCookieBaker, che: CookieHeaderEncoding) = {
     this(mat, UUID.randomUUID(), ec, cb, che)
   }
 
@@ -46,7 +46,7 @@ class SessionIdFilter (
 
       val cookies: String = {
         val session: Session = rh.session + (SessionKeys.sessionId -> sessionId)
-        val cookies: Traversable[Cookie] = rh.cookies ++ Seq(cookieBaker.encodeAsCookie(session))
+        val cookies: Iterable[Cookie] = rh.cookies ++ Seq(cookieBaker.encodeAsCookie(session))
         cookieHeaderEncoding.encodeCookieHeader(cookies.toSeq)
       }
 

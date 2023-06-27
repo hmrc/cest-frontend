@@ -44,7 +44,7 @@
 
 @heading(tailorMsg("chooseWhereWork.title"), Some(tailorMsg("chooseWhereWork.subheading")))
 
-    @formWithCsrf(action = ChooseWhereWorkController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = ChooseWhereWorkController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("chooseWhereWork.title"), radioItems = ChooseWhereWork.options)
 

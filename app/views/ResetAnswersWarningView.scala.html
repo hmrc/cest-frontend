@@ -43,7 +43,7 @@
 
     @heading("resetAnswersWarning.heading")
 
-    @formWithCsrf(action = ResetAnswersWarningController.onSubmit(), 'autoComplete -> "off") {
+    @formWithCsrf(action = ResetAnswersWarningController.onSubmit(), Symbol("autoComplete") -> "off") {
 
         @panel
 

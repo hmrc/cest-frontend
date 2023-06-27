@@ -45,7 +45,7 @@
 
     @heading(tailorMsg("workerUsingIntermediary.heading"), Some(tailorMsg("workerUsingIntermediary.subHeading")))
 
-    @formWithCsrf(action = WorkerUsingIntermediaryController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = WorkerUsingIntermediaryController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @pageContent
 

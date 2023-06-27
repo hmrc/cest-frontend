@@ -19,11 +19,11 @@ package services
 import javax.inject.{Inject, Singleton}
 import models.AdditionalPdfDetails
 import play.api.Configuration
-import uk.gov.hmrc.crypto.{Crypted, CryptoWithKeysFromConfig, PlainText}
+import uk.gov.hmrc.crypto.{Crypted, PlainText, SymmetricCryptoFactory, Decrypter, Encrypter}
 
 @Singleton
 class EncryptionService @Inject()(config: Configuration) {
-  lazy val crypto = new CryptoWithKeysFromConfig("encryption", config.underlying)
+  lazy val crypto: Encrypter with Decrypter = SymmetricCryptoFactory.aesCryptoFromConfig("encryption", config.underlying)
 
   def encryptDetails(details: AdditionalPdfDetails): AdditionalPdfDetails = {
 

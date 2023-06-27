@@ -45,7 +45,7 @@
 
     <p class="govuk-body">@messages(tailorMsg("ownershipRights.p1"))</p>
 
-    @formWithCsrf(action = OwnershipRightsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = OwnershipRightsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(field = form("value"), legendKey = tailorMsg("ownershipRights.title"))
 

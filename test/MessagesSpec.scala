@@ -29,11 +29,11 @@ class MessagesSpec extends GuiceAppSpecBase {
   val sanitize: Iterator[String] => List[String] = _.filterNot(_.isEmpty).filterNot(_.contains("#")).toList
   val getKey: String => String = _.split("=").head.trim
 
-  lazy val expectedWelshMessages = sanitize(Source.fromFile(expectedWelshFileName).getLines)
-  lazy val actualWelshMessages = sanitize(Source.fromFile(welshFileName).getLines)
-  lazy val actualEnglishMessages = sanitize(Source.fromFile(englishFileName).getLines)
+  lazy val expectedWelshMessages = sanitize(Source.fromFile(expectedWelshFileName).getLines())
+  lazy val actualWelshMessages = sanitize(Source.fromFile(welshFileName).getLines())
+  lazy val actualEnglishMessages = sanitize(Source.fromFile(englishFileName).getLines())
 
-  lazy val englishKeys = sanitize(Source.fromFile(englishFileName).getLines map getKey)
+  lazy val englishKeys = sanitize(Source.fromFile(englishFileName).getLines() map getKey)
   lazy val welshKeys = actualWelshMessages map getKey
 
   "Welsh file" should {

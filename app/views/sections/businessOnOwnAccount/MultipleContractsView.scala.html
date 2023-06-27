@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("multipleContracts.title"), Some(tailorMsg("multipleContracts.subheading")))
 
-    @formWithCsrf(action = MultipleContractsController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = MultipleContractsController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         <p class="govuk-body">@messages(tailorMsg("multipleContracts.p1"))</p>
 

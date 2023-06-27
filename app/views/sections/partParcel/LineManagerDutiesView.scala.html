@@ -43,7 +43,7 @@
 
     @heading(tailorMsg("lineManagerDuties.heading"), Some(tailorMsg("lineManagerDuties.subheading")))
 
-    @formWithCsrf(action = LineManagerDutiesController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = LineManagerDutiesController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @content
 

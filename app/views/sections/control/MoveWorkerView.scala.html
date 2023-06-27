@@ -45,7 +45,7 @@
 
     @heading(tailorMsg("moveWorker.title"), Some(tailorMsg("moveWorker.subheading")))
 
-    @formWithCsrf(action = MoveWorkerController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = MoveWorkerController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @content
 

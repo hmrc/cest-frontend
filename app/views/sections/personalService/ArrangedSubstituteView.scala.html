@@ -38,7 +38,7 @@
     appConfig = appConfig,
     mode = mode) {
 
-    @formWithCsrf(action = ArrangedSubstituteController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = ArrangedSubstituteController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @if(form.errors.nonEmpty) {
             @errorSummary(ErrorSummary().withFormErrorsAsText(form))

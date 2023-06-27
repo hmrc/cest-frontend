@@ -44,7 +44,7 @@
 
     @heading(tailorMsg("putRightAtOwnCost.heading"), Some(tailorMsg("putRightAtOwnCost.subheading")))
 
-    @formWithCsrf(action = PutRightAtOwnCostController.onSubmit(mode), 'autoComplete -> "off") {
+    @formWithCsrf(action = PutRightAtOwnCostController.onSubmit(mode), Symbol("autoComplete") -> "off") {
 
         @radios(
             field = form("value"),

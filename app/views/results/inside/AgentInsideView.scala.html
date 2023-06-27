@@ -64,7 +64,7 @@
                     "result.inside"
                 )
 
-                @formWithCsrf(ResultController.onSubmit, 'autoComplete -> "off") {
+                @formWithCsrf(ResultController.onSubmit(), Symbol("autoComplete") -> "off") {
                     @why_result(whyResult)
                     @do_next(doNext)
                     @download()

@@ -17,7 +17,7 @@
 package views.errors
 
 import assets.messages.SessionTimeoutMessages
-import views.behaviours.{ViewBehaviours, ViewBehavioursNew}
+import views.behaviours.ViewBehavioursNew
 import views.html.errors.SessionExpiredView
 
 class SessionExpiredViewSpec extends ViewBehavioursNew {

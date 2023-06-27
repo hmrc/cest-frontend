@@ -63,7 +63,7 @@ class SessionRepository @Inject()(component: MongoComponent, appConfig: Frontend
     Mdc.preservingMdc(
       collection
         .findOneAndReplace(equal("id",cm.id), DatedCacheMap(cm), FindOneAndReplaceOptions().upsert(true))
-        .toFutureOption
+        .toFutureOption()
     ).map {
       case Some(_) => true
       case _ => false
