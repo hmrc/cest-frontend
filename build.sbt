@@ -43,7 +43,6 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / unmanagedSourceDirectories := (IntegrationTest / baseDirectory)(base => Seq(base / "it")).value,
     IntegrationTest / parallelExecution := false,
     // ***************
-    // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
     scalacOptions += "-Wconf:src=routes/.*:s",
     scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s",
     // ***************
