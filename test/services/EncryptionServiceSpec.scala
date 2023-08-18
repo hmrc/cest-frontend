@@ -25,8 +25,8 @@ class EncryptionServiceSpec extends GuiceAppSpecBase with MockFactory {
   val service = new EncryptionService(app.configuration)
 
   val strToEncrypt = "EncryptThisPleaseKindSir-vice"
-  val encryptedStr = "Ve6PtNjJmYtYegZJDXDeXDXxYrMijtUVoeZhIFMbe0s="
-
+  val previouEncryptedStr = "Ve6PtNjJmYtYegZJDXDeXDXxYrMijtUVoeZhIFMbe0s="
+  val encryptedStr = "tHyM5uD8oYHH5vepkywHprdqAe9XLtsCh17KZXl492M="
 
   "The encryption service" must {
     "encrypt values" in {
@@ -37,17 +37,29 @@ class EncryptionServiceSpec extends GuiceAppSpecBase with MockFactory {
       service.decrypt(encryptedStr) mustBe strToEncrypt
     }
 
+    "decrypt values using previous key" in {
+      service.decrypt(previouEncryptedStr) mustBe strToEncrypt
+    }
+
     "encrypt the details model" in {
       service.encryptDetails(AdditionalPdfDetails(
         None, Some("Rick Owens"), Some("Raf Simons"), Some("Hedi Slimane"), Some("Rei Kawakubo")
       )) mustBe AdditionalPdfDetails(
-        None, Some("tjEQZVSmigsNSJcsI/Xy9A=="), Some("ZXJbXujAt/Lh+f0vayILrw=="), Some("rCISmCPHS+D5KPhUb3nPCQ=="), Some("yNeVHPtiCjVRn6CWIolgcg==")
+        None, Some("/Aa9xvxegb0RN1Qmvff0HQ=="), Some("9hTCVAN4EqbkBOdumrtYAw=="), Some("JsBicCYZacLIDrY6xN21Bw=="), Some("HavGZXrrMH0bxg3zFr1PHw==")
       )
     }
 
     "decrypt the details model" in {
       service.decryptDetails(AdditionalPdfDetails(
-        None, Some("tjEQZVSmigsNSJcsI/Xy9A=="), Some("ZXJbXujAt/Lh+f0vayILrw=="), Some("rCISmCPHS+D5KPhUb3nPCQ=="), Some("yNeVHPtiCjVRn6CWIolgcg==")
+        None, Some("/Aa9xvxegb0RN1Qmvff0HQ=="), Some("9hTCVAN4EqbkBOdumrtYAw=="), Some("JsBicCYZacLIDrY6xN21Bw=="), Some("HavGZXrrMH0bxg3zFr1PHw==")
+      )) mustBe AdditionalPdfDetails(
+        None, Some("Rick Owens"), Some("Raf Simons"), Some("Hedi Slimane"), Some("Rei Kawakubo")
+      )
+    }
+
+    "decrypt the details model using previous keys" in {
+      service.decryptDetails(AdditionalPdfDetails(
+                None, Some("tjEQZVSmigsNSJcsI/Xy9A=="), Some("ZXJbXujAt/Lh+f0vayILrw=="), Some("rCISmCPHS+D5KPhUb3nPCQ=="), Some("yNeVHPtiCjVRn6CWIolgcg==")
       )) mustBe AdditionalPdfDetails(
         None, Some("Rick Owens"), Some("Raf Simons"), Some("Hedi Slimane"), Some("Rei Kawakubo")
       )
