@@ -69,7 +69,7 @@
     @{webChatClient.loadRequiredElements()}
     @{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
     @js.map { x =>
-        <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
+        <script @CSPNonce.attr src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
     }
 }
 
