@@ -16,12 +16,15 @@
 
 package utils
 
-import play.api.libs.json.{JodaReads, JodaWrites}
+import org.joda.time.DateTime
+import play.api.libs.json.{JodaReads, JodaWrites, Reads, Writes}
 
 trait DateTimeJsonFormat {
 
   val dateFormat = "yyyy-MM-dd HH:mm:ss"
-  implicit val dateWrites = JodaWrites.jodaDateWrites(dateFormat)
-  implicit val dateReads = JodaReads.jodaDateReads(dateFormat)
+  implicit val dateWrites: Writes[DateTime] = JodaWrites.jodaDateWrites(dateFormat)
+  implicit val dateReads: Reads[DateTime] = JodaReads.jodaDateReads(dateFormat)
+
+  val test: String = "geoff"
 
 }
