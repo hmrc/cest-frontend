@@ -48,6 +48,6 @@ object Enumerable {
       Writes(value => JsString(value.toString))
     }
 
-    implicit def format[A](implicit ev: Enumerable[A]) = Format(reads, writes)
+    implicit def format[A](implicit ev: Enumerable[A]): Format[A] = Format(reads, writes)
   }
 }

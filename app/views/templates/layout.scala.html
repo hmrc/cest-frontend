@@ -22,6 +22,7 @@
 @import uk.gov.hmrc.webchat.client.WebChatClient
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcTimeoutDialogHelper
 @import views.html.components.urlLanguageSwitch
+@import views.html.helper.CSPNonce
 @import services._
 
 @this(hmrcLayout: HmrcLayout, webChatClient: WebChatClient, hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper, hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper)
@@ -68,7 +69,7 @@
     @{webChatClient.loadRequiredElements()}
     @{webChatClient.loadWebChatContainer("HMRC_Anchored_1")}
     @js.map { x =>
-        <script src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
+        <script @CSPNonce.attr src='@routes.Assets.versioned(s"javascripts/$x")'> </script>
     }
 }
 

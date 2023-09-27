@@ -28,7 +28,7 @@ lazy val microservice = Project(appName, file("."))
   .configs(IntegrationTest)
   .settings(scalaSettings: _*)
   .settings(defaultSettings(): _*)
-  .settings(scalaVersion := "2.13.8")
+  .settings(scalaVersion := "2.13.12")
   .settings(scalacOptions += "-Ywarn-unused:-explicits,-implicits")
   .settings(playSettings ++ scoverageSettings: _*)
   .settings(
