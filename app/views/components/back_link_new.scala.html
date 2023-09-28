@@ -22,8 +22,11 @@
 @(url: String = "javascript:history.back()")(mode: Mode = NormalMode)(implicit messages: Messages)
 
  @if(mode == NormalMode) {
-    @govukBackLink(BackLink(
-      content = Text(messages("site.back")),
-      href = url,
-      attributes = Map("id" -> "back-link")))
+    @govukBackLink(BackLink.mimicsBrowserBackButtonViaJavaScript)
+
+
+<!--(-->
+<!--      content = Text(messages("site.back")),-->
+<!--      href = url,-->
+<!--      attributes = Map("id" -> "back-link")))-->
  }
