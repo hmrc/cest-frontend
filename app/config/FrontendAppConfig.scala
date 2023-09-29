@@ -37,12 +37,12 @@ class FrontendAppConfig @Inject() (environment: Environment, val servicesConfig:
   private lazy val exitSurveyBaseUrl = servicesConfig.getString("feedback-frontend.host") + servicesConfig.getString("feedback-frontend.url")
   lazy val exitSurveyUrl = s"$exitSurveyBaseUrl/$contactFormServiceIdentifier"
 
-  private def requestPath(implicit request: Request[_]) = SafeRedirectUrl(host + request.path).encodedUrl
-  def feedbackUrl(implicit request: Request[_]): String =
-    s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier&backUrl=$requestPath"
-  def reportAccessibilityIssueUrl(problemPageUri: String)(implicit request: Request[_]): String =
-    s"$contactHost/contact/accessibility-unauthenticated?service=" +
-      s"$contactFormServiceIdentifier&userAction=${SafeRedirectUrl(host + problemPageUri).encodedUrl}"
+//  private def requestPath(implicit request: Request[_]) = SafeRedirectUrl(host + request.path).encodedUrl
+//  def feedbackUrl(implicit request: Request[_]): String =
+//    s"$contactHost/contact/beta-feedback-unauthenticated?service=$contactFormServiceIdentifier&backUrl=$requestPath"
+//  def reportAccessibilityIssueUrl(problemPageUri: String)(implicit request: Request[_]): String =
+//    s"$contactHost/contact/accessibility-unauthenticated?service=" +
+//      s"$contactFormServiceIdentifier&userAction=${SafeRedirectUrl(host + problemPageUri).encodedUrl}"
 
   lazy val loginUrl: String = servicesConfig.getString("urls.login")
   lazy val loginContinueUrl: String = servicesConfig.getString("urls.loginContinue")
